@@ -1,0 +1,13 @@
+<view class="container">
+    <text>喜地推荐</text>
+    <view>
+        <view><navigator url="/pages/detail/detail?id=0" open-type="navigate">日本手工杯子</navigator></view>
+        <view><navigator url="/pages/detail/detail?id=1" open-type="navigate">日本手工杯子1</navigator></view>
+        <view><navigator url="/pages/detail/detail?id=2" open-type="navigate">日本手工杯子2</navigator></view>
+        <view><navigator url="/pages/detail/detail?id=3" open-type="navigate">日本手工杯子3</navigator></view>
+        <view><navigator url="/pages/detail/detail?id=4" open-type="navigate">日本手工杯子4</navigator></view>
+        <view><navigator url="/pages/detail/detail?id=5" open-type="navigate">日本手工杯子5</navigator></view>
+        <view><navigator url="/pages/detail/detail?id=6" open-type="navigate">日本手工杯子6</navigator></view>
+        <view><navigator url="/pages/detail/detail?id=7" open-type="navigate">日本手工杯子7</navigator></view>
+    </view>
+</view>

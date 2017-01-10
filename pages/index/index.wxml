@@ -1,0 +1,82 @@
+<!--index.wxml-->
+<view class="container">
+
+  <view class="banner" style="background-color:green;">
+    <navigator url="/pages/about/about" open-type="navigate">
+      <image src="/image/img-banner.png" mode="scaleToFill" style="height:170px;"></image>
+    </navigator>
+  </view>
+
+  <view class="selected-list">
+    <view class="basic-info">
+      <navigator url="/pages/detail/detail?id=10086" open-type="navigate">
+      <text class="main-title">新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃</text>
+      <text class="sub-title">新西兰 Melita 麦卡璐蜂蜜UMF5 +340g</text>
+      <text class="price">￥195.50</text>
+      <text class="other-price">新西兰市场价：<text class="line-thro">￥158.23</text></text>
+      <text class="other-price">中国零售价：<text>￥189.66</text></text>
+      </navigator>
+    </view>
+  </view>
+  <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
+    <image src="/image/img-demo.png" mode="aspectFit" class="topic-img"></image>
+  </navigator>
+  <view  bindtap="bindViewTap" class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  </view>
+
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+   <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+  <button bindtap="bindViewTap">点我</button>
+
+  <navigator url="/pages/detail/detail?title=navigate" open-type="navigate" hover-class="navigator-hover">跳转到新页面</navigator>
+
+</view>

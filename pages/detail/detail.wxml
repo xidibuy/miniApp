@@ -1,0 +1,11 @@
+<view class="container">
+    <text style="font-size:12px;margin-bottom:15px;">当前商品id：：：{{id}}</text>
+    <view class="floatCart">
+        <view class="viewCart">
+            <navigator url="/pages/cart/cart" open-type="switchTab">查看购物车</navigator>
+        </view>
+        <view class="addToCart">
+            <button>加入购物车</button>
+        </view>
+    </view>
+</view>

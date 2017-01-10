@@ -1,0 +1,23 @@
+.floatCart{
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.viewCart{
+    display: inline-flex;
+    flex: .8;
+    background-color: red;
+}
+.addToCart{
+    flex: 1;
+}
+
+.addToCart button{
+    border-radius: 0;
+    border: none;
+    background-color: #4ed6d2;
+    color: #ffffff;
+}

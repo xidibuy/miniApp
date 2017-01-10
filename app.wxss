@@ -1,0 +1,17 @@
+
+.container{
+    padding-top: 1px;
+}
+
+.container:before{
+    content: '.';
+    height: 1px;
+    line-height: 0;
+    overflow: hidden;
+    background: orangered;
+    display: block;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 8888;
+}

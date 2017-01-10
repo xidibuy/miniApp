@@ -1,0 +1,42 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/cart/cart",
+    "pages/profile/profile",
+
+    "pages/order/order",
+    "pages/detail/detail",
+    "pages/topic/topic",
+    "pages/about/about",
+    
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "来喜地 逛世界",
+    "navigationBarTextStyle":"#ffffff"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "#ffffff",
+    "backgroundColor": "#ffffff",
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "image/icon_API.png",
+      "selectedIconPath": "image/icon_API_HL.png",
+      "text": "首页"
+    }, {
+      "pagePath": "pages/cart/cart",
+      "iconPath": "image/icon_API.png",
+      "selectedIconPath": "image/icon_API_HL.png",
+      "text": "购物车"
+    }, {
+      "pagePath": "pages/profile/profile",
+      "iconPath": "image/icon_API.png",
+      "selectedIconPath": "image/icon_API_HL.png",
+      "text": "个人"
+    }]
+  }
+}

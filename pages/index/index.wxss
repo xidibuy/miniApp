@@ -1,0 +1,67 @@
+/**index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: #aaa;
+  font-size: 30rpx;
+}
+
+image{
+  width:100%;
+}
+
+.banner{
+  margin-bottom: 20px;
+}
+
+.banner image{
+  display: block;
+}
+
+.basic-info{
+  padding:0 15px;
+}
+
+.basic-info text{
+  display: block;
+}
+
+.basic-info .main-title{
+  font-size: 15px;
+  line-height: 22px;
+  font-weight: bold;
+}
+
+.basic-info .sub-title{
+  font-size: 13px;
+  margin: 15px 0 20px;
+}
+
+.basic-info .price{
+  font-size: 21px;
+  color:#56cdcb;
+  margin-left: -5px;
+	padding-bottom:8px;
+}
+
+.other-price{
+  font-size:12px;
+  color: #777777;
+  padding:5rpx 0;
+}
+
+.other-price text{
+  display: inline;
+  text-decoration: line-through;
+}
