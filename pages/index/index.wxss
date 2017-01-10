@@ -30,6 +30,7 @@ image{
 }
 
 .basic-info{
+  position: relative;
   padding:0 15px;
 }
 
@@ -38,9 +39,11 @@ image{
 }
 
 .basic-info .main-title{
+  margin-top: 13px;
   font-size: 15px;
   line-height: 22px;
   font-weight: bold;
+  color: #222;
 }
 
 .basic-info .sub-title{
@@ -54,13 +57,25 @@ image{
   margin-left: -5px;
 	padding-bottom:8px;
 }
-
+.basic-info .warn-stock{
+  position: absolute;
+  bottom: 0;
+  right: 15px;
+}
 .other-price{
   font-size:12px;
   color: #777777;
   padding:5rpx 0;
 }
-
+.basic-info .dis-flex{
+  display: flex;
+}
+.basic-info .national-flag{
+  width:21px; 
+  height:13px;
+  padding-top:15px;
+  margin-right:5px;
+}
 .other-price text{
   display: inline;
   text-decoration: line-through;
