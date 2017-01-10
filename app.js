@@ -5,6 +5,18 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+    wx.navigateTo({
+      url: '/pages/detail/detail?id=testform',
+      success: function(res){
+        // success
+      },
+      fail: function() {
+        // fail
+      },
+      complete: function() {
+        // complete
+      }
+    })
   },
   getUserInfo:function(cb){
     var that = this

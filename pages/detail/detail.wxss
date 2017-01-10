@@ -1,3 +1,55 @@
+.container{
+    padding-bottom: 46px;
+}
+.swiper{
+    height: 0;
+    padding-bottom:100%;
+    position: relative;
+}
+
+swiper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    top: 0;
+    padding:15px 0;
+    box-sizing: border-box;
+    background: #f1f1f1;
+}
+
+swiper-item{
+    padding:0 15px;
+    box-sizing: border-box;
+}
+
+.slide-image{
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-dots{
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    z-index: 88;
+}
+
+.swiper-dots view{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #c5c5c5;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.swiper-dots .current{
+    background-color: #4ed6d1;
+}
+
 .floatCart{
     position: fixed;
     bottom:0;
@@ -20,4 +72,214 @@
     border: none;
     background-color: #4ed6d2;
     color: #ffffff;
+}
+
+.basic-info{
+    position: relative;
+    padding: 0 15px 15px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.basic-info text{
+    display: block;
+    line-height: 20px;
+    color: #888888;
+}
+
+.basic-info .title{
+    font-size: 15px;
+    line-height: 22px;
+    font-weight: bold;
+    height: 22px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color:#222222;
+}
+
+.basic-info .price{
+    font-size: 18px;
+    color: #00bebf;
+    margin: 4px 0 8px;
+}
+
+.location{
+    position: absolute;
+    top: 53px;
+    right: 15px;
+}
+
+.location image{
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.location text{
+    display: inline;
+}
+
+.sku-info{
+    border-top: 10px solid #f1f1f1;
+    padding: 15px;
+}
+
+.attr-name{
+    font-size: 14px;
+    padding: 6px 0 10px;
+}
+
+.attr-name text{
+    font-size: 13px;
+    color: #888888;
+    margin-left: 15px;
+}
+
+.color-list view{
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 1px solid #dddddd;
+    margin-right: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+    vertical-align: middle;
+    margin-bottom: 10px;
+}
+
+.color-list .selected{
+    border-width: 2px;
+    border-color: #01c9af;
+}
+
+.color-list .disabled{
+    border-color: #f3f3f3;
+}
+
+.color-list image{
+    vertical-align: middle;
+    width:60px;
+    height: 60px;
+}
+
+.selected image{
+    margin-top:-1px;
+    margin-left: -1px;
+}
+
+.disabled image{
+    opacity: 0.4;
+}
+
+.size-list view{
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    min-width: 60px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    margin-right: 10px;
+    box-sizing: border-box;
+}
+
+.size-list .selected{
+    border-width: 2px;
+    border-color: #01c9af;
+    line-height: 28px;
+}
+
+.size-list .disabled{
+    border-color: #f3f3f3;
+    color: #c5c5c5;
+}
+
+.widget-ctrl{
+    display: inline-block;
+    border: 1px solid #dddddd;
+}
+.widget-ctrl view{
+    display: inline-block;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: middle;
+}
+
+.widget-ctrl .amount{
+    border-left:1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    width: 40px;
+    text-align: center;
+    font-size:13px;
+}
+.widget-ctrl .disabled{
+    color:#dddddd;
+}
+
+.button-reduce,
+.button-plus{
+    width: 28px;
+    text-align: center;
+    font-size: 16px;
+    color: #a9a9a9;
+}
+
+.smiple-intro{
+    margin: 0 15px;
+    border-top: 1px solid #d8d8d8;
+    line-height: 20px;
+    padding-top: 21px;
+}
+
+.post-info{
+    color: #888888;
+    overflow: hidden;
+    height: 20px;
+    line-height: 20px;
+    margin-top: 12px;
+}
+
+.icon-car{
+    width: 18px;
+    height: 12px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top:-1px;
+    margin-right:5px;
+}
+
+.icon-time{
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -1px;
+    margin-right:5px;
+}
+
+.xidi-selected{
+    text-align: center;
+    font-size: 15px;
+    margin: 50px 0 10px;
+}
+
+.xidi-selected text:before{
+    content: '.';
+    display: inline-block;
+    width: 25px;
+    height: 1px;
+    background-color: #d8d8d8;
+    margin-right: 10px;
+    overflow: hidden;
+    vertical-align: middle;
+}
+
+.xidi-selected text:after{
+    content: '.';
+    display: inline-block;
+    width: 25px;
+    height: 1px;
+    background-color: #d8d8d8;
+    margin-left: 10px;
+    overflow: hidden;
+    vertical-align: middle;
 }
