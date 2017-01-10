@@ -18,7 +18,6 @@
     z-index: 8888;
 }
 
-
 .icon-flag{
     width: 30px;
     height: 20px;

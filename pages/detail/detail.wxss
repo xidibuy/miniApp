@@ -1,3 +1,54 @@
+.container{
+    padding-bottom: 46px;
+}
+.swiper{
+    height: 0;
+    padding-bottom:100%;
+    position: relative;
+}
+
+swiper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    top: 0;
+    padding:15px 0;
+    box-sizing: border-box;
+}
+
+swiper-item{
+    padding:0 15px;
+    box-sizing: border-box;
+}
+
+.slide-image{
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-dots{
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    z-index: 88;
+}
+
+.swiper-dots view{
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #c5c5c5;
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.swiper-dots .current{
+    background-color: #4ed6d1;
+}
+
 .floatCart{
     position: fixed;
     bottom:0;
@@ -20,4 +71,42 @@
     border: none;
     background-color: #4ed6d2;
     color: #ffffff;
+}
+
+.basic-info .title{
+    font-size: 15px;
+}
+
+.basic-info .price{
+    font-size: 15px;
+}
+
+.basic-info{
+    position: relative;
+    padding: 0 15px 15px;
+    border-bottom: 1px solid #dddddd;
+}
+
+.basic-info text{
+    display: block;
+    font-size: 12px;
+}
+
+.location{
+    position: absolute;
+    top: 60px;
+    right: 15px;
+}
+
+.location image{
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.location text{
+    display: inline;
+}
+
+.sku-info{
+    border-top: 10px solid #f1f1f1;
 }
