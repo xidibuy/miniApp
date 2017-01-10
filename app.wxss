@@ -15,3 +15,16 @@
     top: 0;
     z-index: 8888;
 }
+
+.price{
+    color: #00bebe;
+}
+
+.local-price{
+    color: #a9a9a9;
+    font-size: 12px;
+}
+
+.local-price text{
+    text-decoration: line-through;
+}
