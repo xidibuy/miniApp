@@ -1,24 +1,36 @@
 
 .masthead{
+    height: 170px;
+}
 
+.introduction{
+    padding: 20px 15px;
+    border-bottom: 1px solid red;
 }
 
 .title{
     display: block;
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
+    margin-bottom: 15px;
 }
 
 .intro{
     font-size: 14px;
+    line-height: 1.5;
 }
 
 .goods-selected{
+    display: table;
 }
 
 .item{
     width: 50%;
-    float: left;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid red;
+    border-left:none;
+    display: table-cell;
 }
 
 .item image{
