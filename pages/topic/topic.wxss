@@ -21,7 +21,7 @@
 }
 
 .goods-selected{
-    display: table;
+
 }
 
 .item{
@@ -30,7 +30,7 @@
     box-sizing: border-box;
     border: 1px solid red;
     border-left:none;
-    display: table-cell;
+    float: left;
 }
 
 .item image{
