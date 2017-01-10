@@ -1,6 +1,8 @@
 
 .container{
     padding-top: 1px;
+    font-size: 12px;
+    line-height: 1.5;
 }
 
 .container:before{
@@ -14,6 +16,12 @@
     width: 100%;
     top: 0;
     z-index: 8888;
+}
+
+
+.icon-flag{
+    width: 30px;
+    height: 20px;
 }
 
 .price{
