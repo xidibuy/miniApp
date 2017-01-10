@@ -2,12 +2,12 @@
 喜地微信小程序
 
 目录结构说明
-/pages/
+### pages/
+* index
+* cart
+* profile
+* order
+* topic
+* detail
 
-zz
-  
-突然发现
-sss
 
-刘涛修改了他的分支
-直接修改的lt
