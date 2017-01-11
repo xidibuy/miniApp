@@ -26,22 +26,21 @@
       </navigator>
     </view>
   </view>
-
-  <view class="session">
-    <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
-      <scroll-view class="scroll-view_H" scroll-x="true" style="width: 100%">
-        <view class="scroll-view-item_H">
-          <image src="/image/img-demo.png" mode="aspectFit" class="topic-img"></image>
-          <text>麦卢卡蜂蜜被誉为"新西兰的国宝",是世界上最好的蜂蜜之一</text>
-        </view>
-        <view class="scroll-view-item_H">
-          <image src="/image/img-demo.png" mode="aspectFit" class="topic-img"></image>
-          <text>麦卢卡蜂蜜被誉为"新西兰的国宝",是世界上最好的蜂蜜之一</text>
-        </view>
-      </scroll-view>
-    </navigator>
-  </view>
-
-  <navigator url="/pages/detail/detail?title=navigate" open-type="navigate" hover-class="navigator-hover">跳转到新页面</navigator>
-
+  <!-- scroll-view -->
+  <scroll-view class="session" scroll-x="true" >
+    <view class="session-inner">
+        <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
+          <view class="scroll-view-item">
+            <image src="/image/img-1.png" mode="aspectFit" class="topic-img"></image>
+            <text>麦卢卡蜂蜜被誉为"新西兰的国宝",是世界上最好的蜂蜜之一</text>
+          </view>
+        </navigator>
+        <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
+            <view class="scroll-view-item">
+              <image src="/image/img-2.png" mode="aspectFit" class="topic-img"></image>
+              <text>麦卢卡蜂蜜被誉为"新西兰的国宝",是世界上最好的蜂蜜之一</text>
+            </view>
+        </navigator>
+    </view>
+  </scroll-view>
 </view>
