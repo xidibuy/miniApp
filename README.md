@@ -2,6 +2,12 @@
 喜地微信小程序
 
 目录结构说明
-/pages/
+### pages/
+* index
+* cart
+* profile
+* order
+* topic
+* detail
 
 
