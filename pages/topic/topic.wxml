@@ -1,29 +1,26 @@
 <view class="container">
-    <image class="masthead" src="/image/bg-topic.png" mode="scaleToFill"></image>
-    <view class="introduction">
-        <text class="title">千年文化传承 收藏品鉴佳品</text>
-        <text class="intro">开发者工具安装完成后，打开并使用微信扫码登录。选择创建“项目”，填入上文获取到的 AppID ，设置一个本地项目的名称（非小程序名称），比如“我的第一个项目”，并选择一个本地的文件夹作为代码存储的目录，点击“新建项目”就可以了。</text>
-    </view>
+    <image class="masthead" src="/image/bg-topic.png" mode="widthFix"></image>
+    <image class="introduction" src="/image/img-demo-2.png" mode="widthFix"></image>
     <view class="goods-selected">
         <view class="item">
             <navigator url="/pages/detail/detail?id=0" open-type="navigate">
-                <image src="/image/img-cup.png"></image>
-                <text class="name">日本手工杯子</text>
+                <image src="/image/img-cup.png" mode="widthFix" ></image>
+                <text class="name">日本手工杯子日本手工杯子日本手工杯子</text>
                 <text class="price">¥35.00</text>
                 <text class="local-price">当地价：<text>¥35.00</text></text>
             </navigator>
         </view>
         <view class="item">
             <navigator url="/pages/detail/detail?id=1" open-type="navigate">
-                <image src="/image/img-cup.png"></image>
-                <text class="name">日本手工杯子</text>
+                <image src="/image/img-cup.png" mode="widthFix" ></image>
+                <text class="name">日本手工杯子日本手工杯子日手工杯子日手工杯子日手工杯子日手工杯子日本手工杯子</text>
                 <text class="price">¥35.00</text>
                 <text class="local-price">当地价：<text>¥35.00</text></text>
             </navigator>
         </view>
         <view class="item">
             <navigator url="/pages/detail/detail?id=2" open-type="navigate">
-                <image src="/image/img-cup.png"></image>
+                <image src="/image/img-cup.png" mode="widthFix" ></image>
                 <text class="name">日本手工杯子</text>
                 <text class="price">¥35.00</text>
                 <text class="local-price">当地价：<text>¥35.00</text></text>
@@ -31,7 +28,7 @@
         </view>
         <view class="item">
             <navigator url="/pages/detail/detail?id=3" open-type="navigate">
-                <image src="/image/img-cup.png"></image>
+                <image src="/image/img-cup.png" mode="widthFix" ></image>
                 <text class="name">日本手工杯子</text>
                 <text class="price">¥35.00</text>
                 <text class="local-price">当地价：<text>¥35.00</text></text>
@@ -39,7 +36,15 @@
         </view>
         <view class="item">
             <navigator url="/pages/detail/detail?id=4" open-type="navigate">
-                <image src="/image/img-cup.png"></image>
+                <image src="/image/img-cup.png" mode="widthFix" ></image>
+                <text class="name">日本手工杯子</text>
+                <text class="price">¥35.00</text>
+                <text class="local-price">当地价：<text>¥35.00</text></text>
+            </navigator>
+        </view>
+        <view class="item">
+            <navigator url="/pages/detail/detail?id=4" open-type="navigate">
+                <image src="/image/img-cup.png" mode="widthFix" ></image>
                 <text class="name">日本手工杯子</text>
                 <text class="price">¥35.00</text>
                 <text class="local-price">当地价：<text>¥35.00</text></text>
