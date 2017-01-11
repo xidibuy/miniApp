@@ -1,4 +1,4 @@
-<view class="container">
+<scroll-view class="container" bindscroll="toggleScrollTopButton" scroll-y="true" style="height:{{scrollViewHeight}}px">
     <view class="swiper">
         <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="changeSwiper">
             <block wx:for="{{imgUrls}}" wx:key="index">
@@ -64,6 +64,20 @@
             <view style="float:left;"><image class="icon-car" src="/image/icon-car.png"></image><text>每天15:00从上海自贸区发货</text></view>
             <view style="float:right;"><image src="/image/icon-time.png" class="icon-time"></image><text>七天无理由退货</text></view>
         </view>
+    </view>
+
+    <view class="title-more">继续拖动，更多商品内容</view>
+    <view class="aside-intro">
+        <view><label>商品名称</label>新西兰Melitamaielu 蜂蜜</view>
+        <view><label>原产地</label>新西兰</view>
+        <view><label>商品款式</label>黑色</view>
+        <view><label>商品重量</label>340g</view>
+    </view>
+
+    <view class="img-content">
+        <image src="http://gw.alicdn.com/imgextra/i2/61329138/TB2eVvidbBmpuFjSZFAXXaQ0pXa_!!61329138.jpg_970x970q50s150.jpg_.webp" mode="widthFix" bindtap="previewContentImage" data-src="http://gw.alicdn.com/imgextra/i2/61329138/TB2eVvidbBmpuFjSZFAXXaQ0pXa_!!61329138.jpg_970x970q50s150.jpg_.webp"></image>
+        <image src="http://gw.alicdn.com/imgextra/i4/61329138/TB2pSHjdd4opuFjSZFLXXX8mXXa_!!61329138.jpg_970x970q50s150.jpg_.webp" mode="widthFix" bindtap="previewContentImage" data-src="http://gw.alicdn.com/imgextra/i4/61329138/TB2pSHjdd4opuFjSZFLXXX8mXXa_!!61329138.jpg_970x970q50s150.jpg_.webp"></image>
+        <image src="http://gw.alicdn.com/imgextra/i1/61329138/TB2ELAPcrJkpuFjy1zcXXa5FFXa_!!61329138.jpg_970x970q50s150.jpg_.webp" mode="widthFix" bindtap="previewContentImage" data-src="http://gw.alicdn.com/imgextra/i1/61329138/TB2ELAPcrJkpuFjy1zcXXa5FFXa_!!61329138.jpg_970x970q50s150.jpg_.webp"></image>
     </view>
 
     <view class="xidi-selected">
@@ -133,4 +147,4 @@
         </view>
     </view>
 
-</view>
+</scroll-view>
