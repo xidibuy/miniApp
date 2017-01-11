@@ -1,7 +1,7 @@
 Page({
    data: {
     imgUrls: [
-      '/image/img-demo-1.png',
+      'http://static.googleadsserving.cn/pagead/imgad?id=CICAgKDL7vug_QEQrAIY-gEyCMf9cboyr_yJ',
       '/image/img-demo-1.png',
       '/image/img-demo-1.png'
     ],

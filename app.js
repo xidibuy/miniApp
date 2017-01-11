@@ -7,7 +7,6 @@ App({
     wx.setStorageSync('logs', logs);
     
     // 方便测试内页
-    /*
     wx.navigateTo({
       url: '/pages/detail/detail?id=testform',
       success: function(res){
@@ -20,7 +19,7 @@ App({
         // complete
       }
     })
-    */
+
   },
   getUserInfo:function(cb){
     var that = this
