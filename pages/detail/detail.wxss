@@ -1,5 +1,5 @@
 .container{
-    padding-bottom: 46px;
+    padding-bottom: 50px;
 }
 .swiper{
     height: 0;
@@ -15,7 +15,6 @@ swiper{
     top: 0;
     padding:15px 0;
     box-sizing: border-box;
-    background: #f1f1f1;
 }
 
 swiper-item{
@@ -50,30 +49,7 @@ swiper-item{
     background-color: #4ed6d1;
 }
 
-.floatCart{
-    position: fixed;
-    bottom:0;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-}
-
-.viewCart{
-    display: inline-flex;
-    flex: .8;
-    background-color: red;
-}
-.addToCart{
-    flex: 1;
-}
-
-.addToCart button{
-    border-radius: 0;
-    border: none;
-    background-color: #4ed6d2;
-    color: #ffffff;
-}
-
+/* 基础价格信息 */
 .basic-info{
     position: relative;
     padding: 0 15px 15px;
@@ -118,14 +94,15 @@ swiper-item{
     display: inline;
 }
 
+/* 属性库存信息 */
 .sku-info{
     border-top: 10px solid #f1f1f1;
-    padding: 15px;
+    padding: 16px 15px 30px;
 }
 
 .attr-name{
     font-size: 14px;
-    padding: 6px 0 10px;
+    padding:2px 0 5px;
 }
 
 .attr-name text{
@@ -168,6 +145,10 @@ swiper-item{
 
 .disabled image{
     opacity: 0.4;
+}
+
+.size-list{
+    margin-bottom: 10px;
 }
 
 .size-list view{
@@ -223,6 +204,7 @@ swiper-item{
     color: #a9a9a9;
 }
 
+/* 产品简介 */
 .smiple-intro{
     margin: 0 15px;
     border-top: 1px solid #d8d8d8;
@@ -256,6 +238,7 @@ swiper-item{
     margin-right:5px;
 }
 
+/* 喜地推荐 */
 .xidi-selected{
     text-align: center;
     font-size: 15px;
@@ -282,4 +265,65 @@ swiper-item{
     margin-left: 10px;
     overflow: hidden;
     vertical-align: middle;
+}
+
+/* 悬浮加入购物车 */
+.floatCart{
+    position: fixed;
+    bottom:0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    z-index: 11;
+}
+
+.viewCart{
+    display: inline-flex;
+    flex: 0.52;
+}
+
+.viewCart navigator{
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border-top: 1px solid #dddddd;
+    background: #ffffff url(/image/icon-cart.png) 50% 50% no-repeat;
+    background-size: 28px 24px;
+    position: relative;
+}
+
+.viewCart view{
+    position: absolute;
+    background: #4dd5d1;
+    color: #ffffff;
+    border-radius: 9px;
+    border-bottom-right-radius: 0;
+    padding: 0 5px;
+    right: 50%;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
+.addToCart{
+    flex: 1;
+}
+
+.addToCart button{
+    border-radius: 0;
+    border: none;
+    background-color: #4ed6d2;
+    color: #ffffff;
+    font-style: 17px;
+    height: 50px;
+    line-height: 50px;
+}
+
+.addToCart button:after{
+    border-radius: 0;
+    border: none;
+}
+
+.addToCart button[disabled] {
+    background: #c5c5c5;
+    color: #ffffff;
 }
