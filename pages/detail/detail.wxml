@@ -38,8 +38,6 @@
             <view class="selected"><image src="/image/img-demo-3.png"></image></view>
             <view><image src="/image/img-demo-3.png"></image></view>
             <view class="disabled"><image src="/image/img-demo-3.png"></image></view>
-            <view><image src="/image/img-demo-3.png"></image></view>
-            <view><image src="/image/img-demo-3.png"></image></view>
         </view>
 
         <view class="attr-name">尺码<text>“中号（实用年龄年龄：9月-24月）”</text></view>
@@ -125,10 +123,13 @@
 
     <view class="floatCart">
         <view class="viewCart">
-            <navigator url="/pages/cart/cart" open-type="switchTab">查看购物车</navigator>
+            <navigator url="/pages/cart/cart" open-type="switchTab">
+                <view>99+</view>
+            </navigator>
         </view>
         <view class="addToCart">
-            <button>加入购物车</button>
+            <button hover-class="none">加入购物车</button>
+            <!--button hover-class="none" disabled="true">商品已售完</button-->
         </view>
     </view>
 
