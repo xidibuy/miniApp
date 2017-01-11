@@ -75,7 +75,7 @@
     </view>
 
     <view class="img-content">
-        <image src="http://gw.alicdn.com/imgextra/i2/61329138/TB2eVvidbBmpuFjSZFAXXaQ0pXa_!!61329138.jpg_970x970q50s150.jpg_.webp" mode="widthFix" bindtap="previewContentImage" data-src="http://gw.alicdn.com/imgextra/i2/61329138/TB2eVvidbBmpuFjSZFAXXaQ0pXa_!!61329138.jpg_970x970q50s150.jpg_.webp"></image>
+        <image src="http://gw.alicdn.com/imgextra/i2/713665869/TB2RBXVcR0kpuFjSsppXXcGTXXa_!!713665869.jpg_970x970q50s150.jpg_.webp" mode="widthFix" bindtap="previewContentImage" data-src="http://gw.alicdn.com/imgextra/i2/713665869/TB2RBXVcR0kpuFjSsppXXcGTXXa_!!713665869.jpg_970x970q50s150.jpg_.webp"></image>
         <image src="http://gw.alicdn.com/imgextra/i4/61329138/TB2pSHjdd4opuFjSZFLXXX8mXXa_!!61329138.jpg_970x970q50s150.jpg_.webp" mode="widthFix" bindtap="previewContentImage" data-src="http://gw.alicdn.com/imgextra/i4/61329138/TB2pSHjdd4opuFjSZFLXXX8mXXa_!!61329138.jpg_970x970q50s150.jpg_.webp"></image>
         <image src="http://gw.alicdn.com/imgextra/i1/61329138/TB2ELAPcrJkpuFjy1zcXXa5FFXa_!!61329138.jpg_970x970q50s150.jpg_.webp" mode="widthFix" bindtap="previewContentImage" data-src="http://gw.alicdn.com/imgextra/i1/61329138/TB2ELAPcrJkpuFjy1zcXXa5FFXa_!!61329138.jpg_970x970q50s150.jpg_.webp"></image>
     </view>
