@@ -80,3 +80,16 @@ image{
   display: inline;
   text-decoration: line-through;
 }
+
+.scroll-view_H{
+  white-space: nowrap;
+}
+.scroll-view-item_H{
+  display: inline-block;
+  width: 100%;
+  height: 200px;
+  padding: 0 15px;
+}
+.scroll-view-item_H .topic-img{
+  max-height: 290px;
+}
