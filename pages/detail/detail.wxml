@@ -8,16 +8,6 @@
                     </swiper-item>
                 </block>
             </swiper>
-            <!--view class="swiper-dots">
-                <block wx:for="{{imgUrls}}">
-                    <block wx:if="{{current == index}}">
-                        <view class="current"></view>
-                    </block>
-                    <block wx:else>
-                        <view></view>
-                    </block>
-                </block>
-            </view-->
         </view>
 
         <view class="basic-info">
@@ -35,10 +25,10 @@
         <view class="sku-info">
             <view class="attr-name">颜色<text>“黑色”</text></view>
             <view class="color-list">
-                <view><image src="/image/img-demo-3.png"></image></view>
-                <view class="selected"><image src="/image/img-demo-3.png"></image></view>
-                <view><image src="/image/img-demo-3.png"></image></view>
-                <view class="disabled"><image src="/image/img-demo-3.png"></image></view>
+                <view><image src="http://static.gcimg.net/i/201701/HMxfTNNfjA.png"></image></view>
+                <view class="selected"><image src="http://static.gcimg.net/i/201701/HMxfTNNfjA.png"></image></view>
+                <view><image src="http://static.gcimg.net/i/201701/HMxfTNNfjA.png"></image></view>
+                <view class="disabled"><image src="http://static.gcimg.net/i/201701/HMxfTNNfjA.png"></image></view>
             </view>
 
             <view class="attr-name">尺码<text>“中号（实用年龄年龄：9月-24月）”</text></view>
@@ -68,7 +58,8 @@
         </view>
 
         <view class="title-more">继续拖动，更多商品内容</view>
-        <!--view class="aside-intro">
+<block wx:if="{{showBottom}}">
+        <view class="aside-intro">
             <view><label>商品名称</label>新西兰Melitamaielu 蜂蜜</view>
             <view><label>原产地</label>新西兰</view>
             <view><label>商品款式</label>黑色</view>
@@ -87,54 +78,55 @@
 
         <view class="goods-selected">
             <view class="item">
-                <navigator url="/pages/detail/detail?id=0" open-type="navigate">
-                    <image src="/image/img-cup.png" mode="widthFix" ></image>
+                <navigator url="/pages/detail/detail?id=0" open-type="redirect">
+                    <view class="img"><image src="http://static.gcimg.net/i/201701/8FmFjkaokR.jpg"></image></view>
                     <text class="name">日本手工杯子日本手工杯子日本手工杯子</text>
                     <text class="price">¥35.00</text>
                     <text class="local-price">当地价：<text>¥35.00</text></text>
                 </navigator>
             </view>
             <view class="item">
-                <navigator url="/pages/detail/detail?id=1" open-type="navigate">
-                    <image src="/image/img-cup.png" mode="widthFix" ></image>
+                <navigator url="/pages/detail/detail?id=1" open-type="redirect">
+                    <view class="img"><image src="http://static.gcimg.net/i/201701/8FmFjkaokR.jpg"></image></view>
                     <text class="name">日本手工杯子日本手工杯子日手工杯子日手工杯子日手工杯子日手工杯子日本手工杯子</text>
                     <text class="price">¥35.00</text>
                     <text class="local-price">当地价：<text>¥35.00</text></text>
                 </navigator>
             </view>
             <view class="item">
-                <navigator url="/pages/detail/detail?id=2" open-type="navigate">
-                    <image src="/image/img-cup.png" mode="widthFix" ></image>
+                <navigator url="/pages/detail/detail?id=2" open-type="redirect">
+                    <view class="img"><image src="http://static.gcimg.net/i/201701/8FmFjkaokR.jpg"></image></view>
                     <text class="name">日本手工杯子</text>
                     <text class="price">¥35.00</text>
                     <text class="local-price">当地价：<text>¥35.00</text></text>
                 </navigator>
             </view>
             <view class="item">
-                <navigator url="/pages/detail/detail?id=3" open-type="navigate">
-                    <image src="/image/img-cup.png" mode="widthFix" ></image>
+                <navigator url="/pages/detail/detail?id=3" open-type="redirect">
+                    <view class="img"><image src="http://static.gcimg.net/i/201701/8FmFjkaokR.jpg"></image></view>
                     <text class="name">日本手工杯子</text>
                     <text class="price">¥35.00</text>
                     <text class="local-price">当地价：<text>¥35.00</text></text>
                 </navigator>
             </view>
             <view class="item">
-                <navigator url="/pages/detail/detail?id=4" open-type="navigate">
-                    <image src="/image/img-cup.png" mode="widthFix" ></image>
+                <navigator url="/pages/detail/detail?id=4" open-type="redirect">
+                    <view class="img"><image src="http://static.gcimg.net/i/201701/8FmFjkaokR.jpg"></image></view>
                     <text class="name">日本手工杯子</text>
                     <text class="price">¥35.00</text>
                     <text class="local-price">当地价：<text>¥35.00</text></text>
                 </navigator>
             </view>
             <view class="item">
-                <navigator url="/pages/detail/detail?id=4" open-type="navigate">
-                    <image src="/image/img-cup.png" mode="widthFix" ></image>
+                <navigator url="/pages/detail/detail?id=4" open-type="redirect">
+                    <view class="img"><image src="http://static.gcimg.net/i/201701/8FmFjkaokR.jpg"></image></view>
                     <text class="name">日本手工杯子</text>
                     <text class="price">¥35.00</text>
                     <text class="local-price">当地价：<text>¥35.00</text></text>
                 </navigator>
             </view>
-        </view-->
+        </view>
+    </block>
     </scroll-view>
     
     <view class="floatCart">

@@ -7,7 +7,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
     console.log('mini app onLaunch');
-    this.debugPage('/pages/detail/detail?id=123123');
+    this.debugPage('/pages/topic/topic?id=123123');
   },
   onShow: function() {
     console.log('mini app onShow');

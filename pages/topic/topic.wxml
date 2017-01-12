@@ -1,54 +1,18 @@
 <view class="container">
-    <image class="masthead" src="/image/bg-topic.png" mode="widthFix"></image>
-    <image class="introduction" src="/image/img-demo-2.png" mode="widthFix"></image>
+    
+    <image class="masthead" src="{{bannerUrl}}" mode="widthFix"></image>
+    
+    <image class="introduction" src="{{introUrl}}" mode="widthFix"></image>
+    
     <view class="goods-selected">
-        <view class="item">
-            <navigator url="/pages/detail/detail?id=0" open-type="navigate">
-                <image src="/image/img-cup.png" mode="widthFix" ></image>
-                <text class="name">日本手工杯子日本手工杯子日本手工杯子</text>
-                <text class="price">¥35.00</text>
-                <text class="local-price">当地价：<text>¥35.00</text></text>
-            </navigator>
-        </view>
-        <view class="item">
-            <navigator url="/pages/detail/detail?id=1" open-type="navigate">
-                <image src="/image/img-cup.png" mode="widthFix" ></image>
-                <text class="name">日本手工杯子日本手工杯子日手工杯子日手工杯子日手工杯子日手工杯子日本手工杯子</text>
-                <text class="price">¥35.00</text>
-                <text class="local-price">当地价：<text>¥35.00</text></text>
-            </navigator>
-        </view>
-        <view class="item">
-            <navigator url="/pages/detail/detail?id=2" open-type="navigate">
-                <image src="/image/img-cup.png" mode="widthFix" ></image>
-                <text class="name">日本手工杯子</text>
-                <text class="price">¥35.00</text>
-                <text class="local-price">当地价：<text>¥35.00</text></text>
-            </navigator>
-        </view>
-        <view class="item">
-            <navigator url="/pages/detail/detail?id=3" open-type="navigate">
-                <image src="/image/img-cup.png" mode="widthFix" ></image>
-                <text class="name">日本手工杯子</text>
-                <text class="price">¥35.00</text>
-                <text class="local-price">当地价：<text>¥35.00</text></text>
-            </navigator>
-        </view>
-        <view class="item">
-            <navigator url="/pages/detail/detail?id=4" open-type="navigate">
-                <image src="/image/img-cup.png" mode="widthFix" ></image>
-                <text class="name">日本手工杯子</text>
-                <text class="price">¥35.00</text>
-                <text class="local-price">当地价：<text>¥35.00</text></text>
-            </navigator>
-        </view>
-        <view class="item">
-            <navigator url="/pages/detail/detail?id=4" open-type="navigate">
-                <image src="/image/img-cup.png" mode="widthFix" ></image>
-                <text class="name">日本手工杯子</text>
-                <text class="price">¥35.00</text>
-                <text class="local-price">当地价：<text>¥35.00</text></text>
+        <view class="item" wx:for="{{goods}}" wx:for-index="index" wx:for-item="item">
+            <navigator url="/pages/detail/detail?id={{item.id}}" open-type="navigate">
+                <view class="img"><image src="{{item.img}}"></image></view>
+                <text class="name">{{item.name}}</text>
+                <text class="price">{{item.price}}</text>
+                <text class="local-price">当地价：<text>{{item.localPrice}}</text></text>
             </navigator>
         </view>
     </view>
+
 </view>

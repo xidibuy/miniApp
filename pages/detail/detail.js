@@ -1,4 +1,4 @@
-const HEIGHT_CART = 50;
+const HEIGHT_CART = 51;
 Page({
    data: {
     imgUrls: [
@@ -12,7 +12,8 @@ Page({
     interval: 5000,
     duration: 1000,
     amount: 1,
-    scrollViewHeight: '100%'
+    scrollViewHeight: '100%',
+    showBottom: true,
   },
   changeSwiper: function(event) {
     this.setData({
@@ -57,7 +58,11 @@ Page({
   },
 
   toggleScrollTopButton: function(event) {
-    //console.log(event);
+    if (!this.data.showBottom) {
+      this.setData({
+        showBottom: true
+      });
+    }
   },
 
   loadMoreDetail: function() {

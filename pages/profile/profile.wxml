@@ -1,3 +1,3 @@
-<view>
+<view class="container">
     <text>Profle</text>
 </view>
