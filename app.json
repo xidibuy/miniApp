@@ -24,18 +24,18 @@
     "backgroundColor": "#ffffff",
     "list": [{
       "pagePath": "pages/index/index",
-      "iconPath": "image/icon_API.png",
-      "selectedIconPath": "image/icon_API_HL.png",
+      "iconPath": "image/wechat.png",
+      "selectedIconPath": "image/wechatHL.png",
       "text": "首页"
     }, {
       "pagePath": "pages/cart/cart",
-      "iconPath": "image/icon_API.png",
-      "selectedIconPath": "image/icon_API_HL.png",
+      "iconPath": "image/wechat.png",
+      "selectedIconPath": "image/wechatHL.png",
       "text": "购物车"
     }, {
       "pagePath": "pages/profile/profile",
-      "iconPath": "image/icon_API.png",
-      "selectedIconPath": "image/icon_API_HL.png",
+      "iconPath": "image/wechat.png",
+      "selectedIconPath": "image/wechatHL.png",
       "text": "个人"
     }]
   }
