@@ -1,3 +1,4 @@
+const HEIGHT_CART = 50;
 Page({
    data: {
     imgUrls: [
@@ -25,14 +26,42 @@ Page({
   },
 
   addNumber: function() {
-    let amount = this.data.amount + 1;
+    let amount = +this.data.amount + 1;
     this.setData({
       amount: amount
     });
   },
 
+  inputHandle: function(e) {
+    let val = e.detail.value.trim(),
+        valSet;
+
+    // val 只能为空或者正整数
+    if (val == 0) val = '';
+    if (val == '' || /^[1-9][0-9]*$/.test(val)) {
+      valSet = val;
+    } else {
+      valSet = this.data.amount; 
+    }
+    this.setData({
+      amount: valSet
+    });
+  },
+
+  completeInput: function(e) {
+    if (e.detail.value == '') {
+      this.setData({
+        amount: 1
+      });
+    }
+  },
+
   toggleScrollTopButton: function(event) {
-    console.log(event);
+    //console.log(event);
+  },
+
+  loadMoreDetail: function() {
+    console.log('11');
   },
 
   previewContentImage: function(e) {
@@ -46,8 +75,8 @@ Page({
     var res = wx.getSystemInfoSync();
     this.setData({
       id: options.id,
-      scrollViewHeight: res.windowHeight - 50
+      scrollViewHeight: res.windowHeight - HEIGHT_CART
     });
-   
   }
+
 });
