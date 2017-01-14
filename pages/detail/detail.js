@@ -13,7 +13,7 @@ Page({
     duration: 1000,
     amount: 1,
     scrollViewHeight: '100%',
-    showBottom: true,
+    showBottom: false,
   },
   changeSwiper: function(event) {
     this.setData({
@@ -58,11 +58,7 @@ Page({
   },
 
   toggleScrollTopButton: function(event) {
-    if (!this.data.showBottom) {
-      this.setData({
-        showBottom: true
-      });
-    }
+    console.log(event);
   },
 
   loadMoreDetail: function() {
