@@ -1,4 +1,9 @@
 /**index.wxss**/
+.container{
+  width: 100%;
+  height: 100%;
+  background-color: #eee;
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -21,14 +26,12 @@ image{
   width:100%;
 }
 
-.banner{
-  margin-bottom: 20px;
-}
-
 .banner image{
   display: block;
 }
-
+.selected-list{
+  background-color: #fff;
+}
 .basic-info{
   position: relative;
   padding:0 15px;
@@ -39,72 +42,99 @@ image{
 }
 
 .basic-info .main-title{
-  margin-top: 13px;
+  padding-top: 22px;
   font-size: 15px;
   line-height: 22px;
+  height: 44px;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: bold;
   color: #222;
 }
 
+.basic-info .national-flag{
+  width:21px; 
+  height:13px;
+  margin-right:5px;
+}
 .basic-info .sub-title{
+  display: inline-block;
   font-size: 13px;
-  margin: 15px 0 20px;
+  margin: 9px 0 8px;
 }
 
 .basic-info .price{
   font-size: 21px;
   color:#56cdcb;
-  margin-left: -5px;
-	padding-bottom:8px;
 }
 .basic-info .warn-stock{
+  padding: 0 10px;
   position: absolute;
   bottom: 0;
   right: 15px;
+  height: 22px;
+  color: #fff;
+  border: 0;
+  line-height: 22px;
+  background-color: #ff7765;
+  font-size: 12px;
+}
+.basic-info .warn-stock i{
+  margin: 0 3px;
+  font-style: normal;
+  font-size: 13px;
 }
 .other-price{
   font-size:12px;
-  color: #777777;
+  color: #777;
   padding:5rpx 0;
 }
-.basic-info .dis-flex{
-  display: flex;
-}
-.basic-info .national-flag{
-  width:21px; 
-  height:13px;
-  padding-top:15px;
-  margin-right:5px;
-}
+
 .other-price text{
   display: inline;
   text-decoration: line-through;
 }
-.session{
-  margin-top: 16px;
-}
-.session-inner{
-  padding-left: 15px;
-  margin-bottom: 35px;
+.swiper{
+  margin: 0 0 10px;
   width: 100%;
-  height: 320px;
-  display: flex;
-  flex-direction: row;
+  padding: 16px 15px 30px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #c5c5c5;
+  background-color: #fff;
+}
+.swiper swiper{
+  height: 100%;
 }
 .scroll-view-item{
+  position: relative;
+  padding-bottom: 100%;
+  margin-bottom: 10px;
+  height: 0;
+}
+.scroll-view-item-inner{
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  margin-right: 9px; 
-  display: flex;
-  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
 }
-.scroll-view-item .topic-img{
-  width: 290px;
-  height: 290px;
-  max-height: 290px;
+.swiper image{
+  width: 100%;
+  height: 100%;
 }
-.scroll-view-item text{
-  margin-top: 10px;
-  padding: 0 5px;
-  width: 280px;
+.swiper text{
+  display: inline-block;
+  width: 100%;
+  height: 33px;
+  min-height: 33px;
   text-align: left;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.special-banner{
+  padding: 0 15px;
+  box-sizing: border-box;
+  background-color: #fff;
 }
