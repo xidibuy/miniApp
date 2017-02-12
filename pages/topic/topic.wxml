@@ -5,7 +5,7 @@
     <image class="introduction" src="{{introUrl}}" mode="widthFix"></image>
     
     <view class="goods-selected">
-        <view class="item" wx:for="{{goods}}" wx:for-index="index" wx:for-item="item">
+        <view class="item" wx:for="{{goods}}" wx:for-index="index" wx:for-item="item" wx:key="*this">
             <navigator url="/pages/detail/detail?id={{item.id}}" open-type="navigate">
                 <view class="img"><image src="{{item.img}}"></image></view>
                 <text class="name">{{item.name}}</text>

@@ -6,6 +6,7 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
+<<<<<<< HEAD
     console.log('mini app onLaunch');
     this.debugPage('/pages/topic/topic?id=123123');
   },
@@ -19,6 +20,23 @@ App({
         url: page
       });
     }
+=======
+    
+    // 方便测试内页
+    //wx.navigateTo({
+      // url: '/pages/detail/detail?id=testform',
+      // success: function(res){
+      //   // success
+      // },
+      // fail: function() {
+      //   // fail
+      // },
+      // complete: function() {
+      //   // complete
+      // }
+    //})
+
+>>>>>>> master
   },
   getUserInfo:function(cb){
     var that = this
