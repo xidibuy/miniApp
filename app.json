@@ -1,21 +1,21 @@
 {
   "pages":[
+    "pages/addAdress/addAdress",
+    "pages/invoice/invoice",
     "pages/index/index",
-    "pages/cart/cart",
     "pages/profile/profile",
-
     "pages/order/order",
     "pages/detail/detail",
     "pages/topic/topic",
     "pages/about/about",
-    
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/cart/cart"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#000000",
+    "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "来喜地 逛世界",
-    "navigationBarTextStyle":"#ffffff"
+    "navigationBarTextStyle":"black"
   },
   "tabBar": {
     "color": "#666666",

@@ -1,0 +1,8 @@
+<view class="container">
+    <view class="cart-null">
+        <image src="../../image/img-3_03.png"></image>
+        <text class="null-tip">您的购物车中没有商品</text>
+        <text class="null-fun">快去添加点什么吧~</text>
+        <navigator url="" class="go-index">去逛逛</navigator>
+    </view>
+</view>

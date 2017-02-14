@@ -1,0 +1,52 @@
+<view class="container">
+    <view class="edit-box">
+        <view class="edit-same edit-name">
+            <input placeholder="收货人" placeholder-style="font-size:14px;color:#777"/>
+            <view class="edit-input edit-input-name">
+                <icon type="clear" class="edit-cancel" size="14"></icon>
+            </view>
+        </view>
+        <view class="edit-same edit-mobil">
+            <input placeholder="手机号码"/>
+            <view class="edit-input edit-input-mobil">
+                <icon type="clear" class="edit-cancel" size="14"></icon>
+            </view>
+        </view>
+
+        <view class="adressCheck">
+            <picker mode="selector" range="Array / Object" bindChange="">
+                <view class="picker">省市区</view>
+            </picker>
+        </view>
+
+
+
+
+
+            <view  class="info">
+                <view>省 份</view>
+                <picker bindchange="bindPickerChange" name="provinceIndex" value="{{provinceId}}" range="{{provinceNameArray}}">
+                <view class="picker">
+                        {{provinceNameArray[provinceId]}}
+                    </view>
+                </picker>
+            </view> 
+            <view class="info">
+                <view>城 市</view>
+                <picker bindchange="bindPickerCity" name="cityIndex" value="{{cityId}}" range="{{cityNameArray}}">
+                    <view class="picker">
+                        {{cityNameArray[cityId]}}
+                    </view>
+                </picker>
+            </view>
+            <view class="info">
+                <view>县/区</view>
+                <picker bindchange="bindPickerArea" name="areaIndex" value="{{areaId}}" range="{{areaNameArray}}">
+                    <view class="picker">
+                        {{areaNameArray[areaId]}}
+                    </view>
+                </picker>
+            </view>
+
+    </view>
+</view>

@@ -11,72 +11,39 @@
     <view class="basic-info">
       <navigator url="/pages/detail/detail?id=10086" open-type="navigate">
       <text class="main-title">新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃</text>
-      <text class="sub-title">新西兰 Melita 麦卡璐蜂蜜UMF5 +340g</text>
-      <text class="price">￥195.50</text>
-      <text class="other-price">新西兰市场价：<text class="line-thro">￥158.23</text></text>
-      <text class="other-price">中国零售价：<text>￥189.66</text></text>
+      <view>
+        <image class="national-flag" src="/image/national-flag.png" style=""></image>
+        <text class="sub-title"> 新西兰 Melita 麦卡璐蜂蜜UMF5 +340g</text>
+      </view>
+      <text class="price">¥195.50</text>
+      <text class="other-price">新西兰市场价：<text class="line-thro">¥158.23</text></text>
+      <text class="other-price">中国零售价：<text>¥189.66</text></text>
+      <button class="warn-stock">仅剩<i>{{nums}}</i>件</button>
       </navigator>
     </view>
   </view>
-  <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
-    <image src="/image/img-demo.png" mode="aspectFit" class="topic-img"></image>
-  </navigator>
-  <view  bindtap="bindViewTap" class="userinfo">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+  <!-- scroll-view -->
+  <view class="swiper">
+    <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
+      <view class="scroll-view-item"> 
+        <view class="scroll-view-item-inner">
+          <swiper  bindchange="currentPage">
+            <block wx:for="{{imgUrls}}" wx:key="index">
+              <swiper-item class="session-inner">
+                <image src="{{item}}" mode="aspectFill" class="topic-img"></image>
+              </swiper-item>
+            </block>
+           </swiper>
+          </view>
+      </view>
+      <text>{{word}}</text>
+    </navigator>
   </view>
 
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <!-- 专题banner -->
+  <view class="special-banner">
+    <navigator url="url">
+      <image src="/image/bg-topic.png" mode="aspectFill"></image>
+    </navigator>
   </view>
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-  
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-  <button bindtap="bindViewTap">点我</button>
-
-  <navigator url="/pages/detail/detail?title=navigate" open-type="navigate" hover-class="navigator-hover">跳转到新页面</navigator>
-
 </view>
