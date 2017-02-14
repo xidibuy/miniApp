@@ -6,20 +6,6 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
     
-    // 方便测试内页
-    //wx.navigateTo({
-      // url: '/pages/detail/detail?id=testform',
-      // success: function(res){
-      //   // success
-      // },
-      // fail: function() {
-      //   // fail
-      // },
-      // complete: function() {
-      //   // complete
-      // }
-    //})
-
   },
   fetchApi(url, callback) {
 		wx.request({

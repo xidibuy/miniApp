@@ -1,15 +1,25 @@
 {
   "pages":[
-    "pages/addAdress/addAdress",
-    "pages/invoice/invoice",
     "pages/index/index",
-    "pages/profile/profile",
     "pages/order/order",
-    "pages/detail/detail",
+    "pages/goodsDetail/goodsDetail",
     "pages/topic/topic",
     "pages/about/about",
     "pages/logs/logs",
-    "pages/cart/cart"
+
+    "pages/cart/cart",
+    "pages/invalid/invalid",
+
+    "pages/addAdress/addAdress",
+    "pages/adressList/adressList",
+    "pages/invoice/invoice",
+    "pages/delivery/delivery",
+
+    "pages/profile/profile",
+    "pages/question/question",
+    "pages/logistics/logistics",
+    "pages/orderDetail/orderDetail",
+    "pages/evaluate/evaluate"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -36,7 +46,7 @@
       "pagePath": "pages/profile/profile",
       "iconPath": "image/icon_API.png",
       "selectedIconPath": "image/icon_API_HL.png",
-      "text": "个人"
+      "text": "我的"
     }]
   }
 }
