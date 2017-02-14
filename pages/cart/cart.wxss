@@ -1,0 +1,171 @@
+.top-title{
+    padding: 4px 15px 0;
+    width: 100%;
+    height: 29px;
+    line-height: 29px;
+    background-color: #faf6eb;
+    font-size: 12px;
+    color: #ff7765;
+}
+.list-cart{
+    padding: 0 10px;
+}
+.single-cart{
+    display: flex;
+    padding-top: 12px;
+    background-color: #fff;
+}
+.check-cart image{
+    margin: 35px 10px 0 0;
+    width: 40rpx;
+    height: 40rpx;
+}
+.desic-box{
+    position: relative;
+    width: 660rpx;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #d9d9d9;
+}
+.desic-cart {
+    display: flex;
+    width: 201px;
+}
+.desic-cart image{
+    margin-right: 10px;
+    width: 66px;
+    height:66px;
+}
+.pro-box{
+    display: flex;
+    flex-direction: column;
+    width: 125px;
+}
+.pro-box .pro-title{
+    font-size: 12px;
+    line-height: 17px;
+    color: #222;
+}
+.pro-attr-box{
+    margin:2px 0 7px;
+    display: flex;
+}
+.pro-box .pro-attr{
+    margin-right: 16rpx;
+    font-size: 10px;
+    color: #777;
+}
+.cart-num-box{
+    display: flex;
+}
+.cart-num{
+    margin-right: 5px;
+    display: flex;
+    width: 75px;
+    height: 22px;
+}
+.cart-num input,
+.cart-num-reduce,
+.cart-num-add{
+    border: 1px solid #ddd;
+}
+.cart-num input{
+    border-left: 0;
+    border-right: 0;
+    width: 29px;
+    height: auto;
+    min-height: 22px;
+    text-align: center;
+    vertical-align: middle;
+}
+.cart-num-reduce,
+.cart-num-add{
+    width: 22px;
+    height: 22px;
+}
+.lack-warn{
+    font-size: 10px;
+    color: #ff3333;
+    line-height: 24px;
+}
+.handle-cart{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 69px;
+    height: 88px;
+    font-size: 13px;
+    color: #00bebf;
+}
+.price-cart{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+.delete-cart,
+.delete-cart image{
+    width: 15px;
+    height: 15px;
+}
+.delete-cart{
+    position: absolute;
+    right: 4px;
+    top: 57px;
+}
+.cart-settlement{
+    width: 100%;
+    height: 98rpx;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #ddd;
+}
+.settlement-img{
+    padding-left: 10px;
+    margin-top: 28rpx;
+    display: flex;
+}
+.settlement-img image{
+    margin-right: 10px;
+    width: 15px;
+    height: 15px;
+}
+.settlement-img text{
+    line-height: 15px;
+    color: #888;
+}
+.settlement-money{
+    display: flex;
+    justify-content: space-between;
+}
+.money-box{
+    display: flex;
+    flex-direction: column;
+}
+.money-word{
+    font-size: 12px;
+    color: #333;
+}
+.money-mo{
+    font-size: 16px;
+    color: #00bebf;
+}
+.money-freight{
+    font-size: 10px;
+    color: #777;
+}
+.settlement{
+    margin-left: 10px;
+    width: 220rpx;
+    height: 100%;
+    line-height: 98rpx;
+    background-color: #4ed6d1;
+    color: #fff;
+    font-size: 15px;
+    vertical-align: middle;
+    text-align: center;
+}
+.settlement .settlement-num{
+    margin-left: 6px;
+}

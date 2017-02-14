@@ -12,7 +12,7 @@
     height: 1px;
     line-height: 0;
     overflow: hidden;
-    background: red;
+    background: #ddd;
     display: block;
     position: fixed;
     width: 100%;
