@@ -14,7 +14,7 @@
         </view>
 
         <view class="adressCheck">
-            <picker mode="selector" range="Array / Object" bindChange="">
+            <picker mode="selector" range="Array / Object"  bindchange="bindPickerChange" name="provinceIndex" value="{{provinceId}}" range="{{provinceNameArray}}">
                 <view class="picker">省市区</view>
             </picker>
         </view>
@@ -22,8 +22,8 @@
 
 
 
-
-            <view  class="info">
+        
+        <view  class="info">
                 <view>省 份</view>
                 <picker bindchange="bindPickerChange" name="provinceIndex" value="{{provinceId}}" range="{{provinceNameArray}}">
                 <view class="picker">

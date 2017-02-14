@@ -9,7 +9,7 @@
 
   <view class="selected-list">
     <view class="basic-info">
-      <navigator url="/pages/detail/detail?id=10086" open-type="navigate">
+      <navigator url="/pages/goodsDetail/goodsDetail?id=10086" open-type="navigate">
       <text class="main-title">新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃</text>
       <view>
         <image class="national-flag" src="/image/national-flag.png" style=""></image>

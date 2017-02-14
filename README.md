@@ -3,11 +3,23 @@
 
 目录结构说明
 ### pages/
-* index
-* cart
-* profile
-* order
-* topic
-* detail
+* index        --首页
+* cart        --购物车
+* profile        --我的
+* order        --确认订单主页
+* topic        --
+* goodsDetail        --商品详情
+* about        --关于喜地
+* addAdress        --新增/编辑地址
+* adressList        --选择地址(列表)
+* delivery        --送货方式
+* evaluate        --评价
+* invalid        --失效商品
+* invoice        --发票信息
+* logistics        --物流
+* logs        
+* orderDetail       --订单详情 
+* question        --常见问题
+* 
 
 
