@@ -1,12 +1,11 @@
 //app.js
-import ft from './utils/util';
+//import ft from './utils/util';
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
-<<<<<<< HEAD
     console.log('mini app onLaunch');
     this.debugPage('/pages/topic/topic?id=123123');
   },
@@ -20,7 +19,7 @@ App({
         url: page
       });
     }
-=======
+  },
     
     // 方便测试内页
     //wx.navigateTo({
@@ -36,8 +35,7 @@ App({
       // }
     //})
 
->>>>>>> master
-  },
+  
   getUserInfo:function(cb){
     var that = this
     if(this.globalData.userInfo){
