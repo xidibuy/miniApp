@@ -21,6 +21,22 @@ App({
     //})
 
   },
+  fetchApi(url, callback) {
+		wx.request({
+			url,
+			data: {},
+			header: {
+				'content-type': 'application/json'
+			},
+      dataType:"json",
+			success(res) {
+				callback(null, res.data);
+			},
+			fail(e) {
+				callback(e)
+			}
+		})
+	},
   getUserInfo:function(cb){
     var that = this
     if(this.globalData.userInfo){

@@ -1,3 +1,56 @@
 <view class="container">
-    <text>东西啊</text>
+    <view class="top-title">再买48.00元即享98元免运费</view>
+    <!-- 购物车商品列表 -->
+    <view class="list-cart">
+        <block wx:for="{{proCarts}}">
+            <view class="single-cart">
+                <view class="check-cart" bindTap="isChecked">
+                    <image src="{{item.isChecked?'../../image/cart-check.png':'../../image/cart-no-check.png'}}"></image>
+                </view>
+                <view class="desic-box">
+                    <view class="desic-cart">
+                        <image src="../../image/img-3_03.png"></image>
+                        <!-- 商品详情 -->
+                        <view class="pro-box">
+                            <text class="pro-title">{{item.proTitle}}</text>
+                            <view class="pro-attr-box">
+                                <block wx:for="{{item.proAttr}}">
+                                    <text class="pro-attr">{{item}}</text>
+                                </block>
+                            </view>
+                            <view class="cart-num-box">
+                                <view class="cart-num">
+                                    <view class="cart-num-reduce"></view>
+                                    <input placeholder="" value="{{item.cartNum}}"/>
+                                    <view class="cart-num-add"></view>
+                                </view>
+                                <text class="lack-warn">仅剩{{item.lackNum}}件</text>
+                            </view>
+                        </view>
+                    </view>
+                    <!-- 商品操作 -->
+                    <view class="handle-cart">
+                        <text class="price-cart">¥{{item.priceCart}}</text>
+                        <view class="delete-cart" bindTap="deleteCart">
+                            <image src="../../image/cart.png"></image>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+    <!-- 结算 -->
+    <view class="cart-settlement">
+        <view class="settlement-img">
+            <image src="{{item.isChecked?'../../image/cart-check.png':'../../image/cart-no-check.png'}}"></image>
+            <text>全选</text>
+        </view>
+        <view class="settlement-money">
+            <view class="money-box">
+                <text class="money-word">总计<text class="money-mo">152元</text></text>
+                <text class="money-freight">未含运费</text>
+            </view>
+            <view class="settlement"><text>结算</text><text class="settlement-num">(1)</text></view>
+        </view>
+    </view>
 </view>

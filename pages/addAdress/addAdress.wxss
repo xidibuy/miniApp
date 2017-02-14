@@ -1,0 +1,38 @@
+.edit-same{
+    padding: 0 23.4rpx;
+    height: 100.62rpx;
+    position: relative;
+}
+.edit-same input{
+    padding: 0 23.4rpx;
+    height: 100%;
+    font-size: 15px;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    color: #222;
+
+}
+.edit-input{
+    position: absolute;
+    top: 35.1rpx;
+    right: 35.1rpx;
+}
+.adressCheck{
+    padding: 0 23.4rpx;
+    height: 100.62rpx;
+    font-size: 15px;
+    color: #222;
+}
+.adressCheck picker{
+    padding: 33.93rpx 23.4rpx;
+    height: 32.76rpx;
+    border: 0;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+}
+
+
+
+.info {margin: 40rpx;}
+.info picker {border: 2rpx silver solid;font-size: 30rpx;padding: 10rpx 20rpx;margin-top: 10rpx;}
+.adress {font-size: 30rpx;text-align: center}
