@@ -1,7 +1,9 @@
 const app = getApp();
-const cartUrl = "http://localhost/testMiniAppApi/cart.json";
+
 Page({
    data:{
+       img:app.globalData.img,
+       dataUrl:app.globalData.data,
        freeFeright:true,
        proCarts:[
            {
@@ -17,12 +19,13 @@ Page({
    },
 
    onLoad: function(){
-       const _this = this;
-       app.fetchApi(cartUrl,function(url,options){
+        const _this = this;
+        const cartUrl = app.globalData.data + 'cart.json';
+        app.fetchApi(cartUrl,function(url,options){
            _this.setData({
                 proCarts : options.data.proCarts
            });
-       })
+        })
    },
    deleteCart: function(){
      

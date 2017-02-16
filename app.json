@@ -1,22 +1,27 @@
 {
   "pages":[
+    "pages/profile/profile",
     "pages/index/index",
+    "pages/invoice/invoice",
+
     "pages/order/order",
     "pages/goodsDetail/goodsDetail",
+    "pages/cart/cart",
+
     "pages/topic/topic",
     "pages/about/about",
     "pages/logs/logs",
 
-    "pages/cart/cart",
     "pages/invalid/invalid",
 
+
     "pages/addAdress/addAdress",
-    "pages/adressList/adressList",
-    "pages/invoice/invoice",
+
+
     "pages/delivery/delivery",
 
-    "pages/profile/profile",
     "pages/question/question",
+    "pages/adressList/adressList",
     "pages/logistics/logistics",
     "pages/orderDetail/orderDetail",
     "pages/evaluate/evaluate"
