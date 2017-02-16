@@ -1,4 +1,5 @@
 //app.js
+
 App({
   onLaunch: function () {
     //调用API从本地缓存中获取数据
@@ -42,6 +43,9 @@ App({
     }
   },
   globalData:{
-    userInfo:null
+    userInfo:null,
+    img : "https://m.xidibuy.com:8000/image/",
+    data: "https://m.xidibuy.com:8000/data/"
+
   }
 })

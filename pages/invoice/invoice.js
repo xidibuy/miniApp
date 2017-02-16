@@ -1,8 +1,11 @@
+var app = getApp();
+const img = app.globalData.img;
 Page({
   data: {
+    img : app.globalData.img,
     imageUrl:[
-      '../../image/invoice_03.png',
-      '../../image/invoice_07.png'
+      img+'invoice_03.png',
+      img+'invoice_07.png'
     ]
   },
 
@@ -13,10 +16,7 @@ Page({
   },
   invoiceNo: function(){
       this.setData({
-       imageUrl:[
-         '../../image/invoice_03.png',
-          '../../image/invoice_03.png'
-       ]
+      
       });
   },
    invoiceYes: function(){

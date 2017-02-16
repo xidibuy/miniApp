@@ -1,0 +1,18 @@
+.list{
+    padding: 36.27rpx 35.1rpx 0;
+}
+.question{
+    margin-bottom: 49.14rpx;
+    color: #222;
+    font-size: 14px;
+    line-height: 23px;
+    display: flex;
+    flex-direction: column;
+}
+.title{
+    font-weight: 700;
+}
+.content{
+    padding-left: 28.74rpx;
+    margin-top: 9.36rpx;
+}

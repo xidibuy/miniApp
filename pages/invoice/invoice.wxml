@@ -4,14 +4,14 @@
         <radio-group class="invoice-check" bindchange="checkRadio">
             <view class="invoice-cover invoice-personal">
                 <view class="invoice-inner">
-                    <image src="../../image/invoice_03.png"></image>
+                    <image src="{{img}}/invoice_03.png"></image>
                     <radio value="个人"></radio>
                 </view>
                 <view>个人</view>
             </view>
             <view class="invoice-cover invoice-company">
                 <view class="invoice-inner">
-                    <image src="../../image/invoice_03.png"></image>
+                    <image src="{{img}}invoice_03.png"></image>
                     <radio value="单位"></radio>
                 </view>
                 <view>单位</view>

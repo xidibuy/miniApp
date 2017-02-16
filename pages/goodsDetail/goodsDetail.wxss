@@ -287,8 +287,6 @@ swiper-item{
     height: 100%;
     box-sizing: border-box;
     border-top: 1px solid #dddddd;
-    background: #ffffff url(/image/icon-cart.png) 50% 50% no-repeat;
-    background-size: 28px 24px;
     position: relative;
 }
 

@@ -5,11 +5,11 @@
         <block wx:for="{{proCarts}}">
             <view class="single-cart">
                 <view class="check-cart" bindTap="isChecked">
-                    <image src="{{item.isChecked?'../../image/cart-check.png':'../../image/cart-no-check.png'}}"></image>
+                    <image src="{{item.isChecked ? (img+'cart-check.png') : (img+'cart-no-check.png')}}"></image>
                 </view>
                 <view class="desic-box">
                     <view class="desic-cart">
-                        <image src="../../image/img-3_03.png"></image>
+                        <image src="{{img}}img-3_03.png"></image>
                         <!-- 商品详情 -->
                         <view class="pro-box">
                             <text class="pro-title">{{item.proTitle}}</text>
@@ -32,7 +32,7 @@
                     <view class="handle-cart">
                         <text class="price-cart">¥{{item.priceCart}}</text>
                         <view class="delete-cart" bindTap="deleteCart">
-                            <image src="../../image/cart.png"></image>
+                            <image src="{{img}}cart.png"></image>
                         </view>
                     </view>
                 </view>
@@ -42,7 +42,7 @@
 
     <!-- 购物车为空 -->
      <view class="cart-null" style="display:none">
-        <image src="../../image/img-3_03.png"></image>
+        <image src="{{img}}img-3_03.png"></image>
         <text class="null-tip">您的购物车中没有商品</text>
         <text class="null-fun">快去添加点什么吧~</text>
         <navigator url="" class="go-index">去逛逛</navigator>
@@ -50,7 +50,7 @@
     <!-- 结算 -->
     <view class="cart-settlement">
         <view class="settlement-img">
-            <image src="{{item.isChecked?'../../image/cart-check.png':'../../image/cart-no-check.png'}}"></image>
+            <image src="{{item.isChecked ? (img+'cart-check.png') : (img+'cart-no-check.png')}}"></image>
             <text>全选</text>
         </view>
         <view class="settlement-money">

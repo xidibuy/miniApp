@@ -1,0 +1,22 @@
+<view class="container">
+   <view class="list">
+        <view class="question">
+            <text class="title">1.喜地的商品都是正品吗？</text>
+            <text class="content">喜地电子商城所售商品均由欧美原产工厂直
+                供，经完全封闭的正规渠道到达海客手中。
+                给您原汁原味的选择，比当地价更低的价格，
+                更自由的全球生活。</text>
+        </view>
+        <view class="question">
+            <text class="title">2.订单支付成功后，什么时候发货？</text>
+            <text class="content">订单支付成功后我们仓库会尽快发货，您可以
+                进入“我的订单”实时查看订单进度。</text>
+        </view>
+        <view class="question">
+            <text class="title">3.客服的联系方式是什么？</text>
+            <text class="content">您可以通过电话联系客服。
+                客服电话：4000066200
+                周一至周六9：-18:00仅收市话费</text>
+        </view>
+   </view>
+</view>
