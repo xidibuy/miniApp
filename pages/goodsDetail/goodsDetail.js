@@ -1,9 +1,12 @@
+const app = getApp();
+const img = app.globalData.img;
 Page({
    data: {
+    img : app.globalData.img,
     imgUrls: [
       'http://static.googleadsserving.cn/pagead/imgad?id=CICAgKDL7vug_QEQrAIY-gEyCMf9cboyr_yJ',
-      '/image/img-demo-1.png',
-      '/image/img-demo-1.png'
+      img+'/img-demo-1.png',
+      img+'/img-demo-1.png'
     ],
     current: 0,
     indicatorDots: true,

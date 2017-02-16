@@ -1,12 +1,14 @@
 //index.js
 //获取应用实例
-var app = getApp()
+var app = getApp();
+const img = app.globalData.img;
 Page({
   data: {
+    img : app.globalData.img,
    imgUrls:
      [
-    '/image/img-1.png',
-     '/image/img-2.png'
+     img+'img-1.png',
+     img+'img-2.png'
      ],
      text:[
        '麦卢卡蜂蜜被誉为"新西兰的国宝", 是世界上最好的蜂蜜之一',
