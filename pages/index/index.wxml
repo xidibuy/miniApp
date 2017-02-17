@@ -1,13 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-
-  <view class="banner" style="background-color:green;">
+  <view class="banner">
     <navigator url="/pages/about/about" open-type="navigate">
-      <image src="{{img}}img-banner.png" mode="scaleToFill" style="height:170px;"></image>
+      <image src="{{img}}img-banner.png" mode="scaleToFill"></image>
     </navigator>
   </view>
 
-  <view class="selected-list">
+  <view class="recommend-pro">
+    <view class="selected-list">
     <view class="basic-info">
       <navigator url="/pages/goodsDetail/goodsDetail?id=10086" open-type="navigate">
       <text class="main-title">新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃</text>
@@ -40,6 +40,8 @@
     </navigator>
   </view>
 
+  </view>
+  
   <!-- 专题banner -->
   <view class="special-banner">
     <navigator url="url">

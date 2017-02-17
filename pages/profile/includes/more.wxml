@@ -1,0 +1,19 @@
+<!--更多设置-->
+<view class="more">
+    <view class="term">
+        <text class="term-key">用户头像</text>
+        <view class="term-value term-user-img">
+            <image src=""></image>
+        </view>
+    </view>
+        <view class="term">
+        <text class="term-key">用户昵称</text>
+        <text class="term-value">我想成为一片海</text>
+    </view>
+        <view class="term">
+        <text class="term-key">常见问题</text>
+        <view class="term-value">
+            <navigator url="/pages/question/question"></navigator>
+        </view>
+    </view>
+</view>

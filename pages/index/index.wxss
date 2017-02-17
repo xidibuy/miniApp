@@ -28,6 +28,7 @@ image{
 
 .banner image{
   display: block;
+  height: 397.8rpx;
 }
 .selected-list{
   background-color: #fff;
