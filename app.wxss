@@ -1,4 +1,9 @@
-@import './css/font.css';
+@import './css/font.wxss';
+
+view,text {
+    box-sizing: border-box;
+}
+
 .container{
     padding-top: 1px;
     font-size: 12px;
