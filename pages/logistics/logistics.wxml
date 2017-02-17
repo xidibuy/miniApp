@@ -1,0 +1,56 @@
+<view class="container">
+    <!--自提-->
+    <view class="logis logis-self" style="display:none">
+        <view class="logis-order">
+            <text>子订单号: 000000000</text>
+            <text>运送方式: 自提</text>
+        </view>
+        <view class="logis-empty">
+            <text>买家自提,无物流信息</text>
+        </view>
+    </view>
+    <!--物流-->
+    <view class="logis logis-fun">
+        <view class="logis-order">
+            <text>子订单号: 000000000</text>
+            <text>运送方式: 快递</text>
+            <text>物流公司: 圆通快四</text>
+            <text>运单编号: 1212214222453245</text>
+        </view>
+        <view class="logis-flow">
+            <view class="flow">
+                <view class="flow-item current">
+                        <text>上海市/已签收,签收人是代售点或者本人签收,感谢您使用圆通快递,期待再次为您服务.</text>
+                        <text class="logis-time">2016-02-02 16:55:31</text>
+                </view>
+                <view class="flow-item">
+                    <text>上海市/已签收,签收人是代售点或者本人签收,感谢您使用圆通快递,期待再次为您服务</text>
+                    <text class="logis-time">2016-02-02 16:55:31</text>
+                </view>
+                <view class="flow-item">
+                    <text>上海市/快递已揽件</text>
+                    <text class="logis-time">2016-02-02 16:55:31</text>
+                </view>
+                    <view class="flow-item">
+                    <text>上海市/已签收,签收人是代售点或者本人签收,感谢您使用圆通快递,期待再次为您服务</text>
+                    <text class="logis-time">2016-02-02 16:55:31</text>
+                </view>
+                <view class="flow-item">
+                    <text>上海市/快递已揽件</text>
+                    <text class="logis-time">2016-02-02 16:55:31</text>
+                </view>
+                    <view class="flow-item">
+                    <text>上海市/已到达,将会尽快安排派送您的包裹</text>
+                    <text class="logis-time">2016-02-02 16:55:31</text>
+                </view>
+                <view class="flow-item">
+                    <text>上海市/快递已揽件</text>
+                    <text class="logis-time">2016-02-02 16:55:31</text>
+                </view>
+            </view>
+            <view class="">
+
+            </view>
+        </view>
+    </view>
+</view>

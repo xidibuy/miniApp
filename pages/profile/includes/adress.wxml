@@ -1,0 +1,23 @@
+<!--收货地址-->
+<view class="adress">
+    <!--收货地址为空-->
+    <view class="empty" style="display:none">
+        <text>暂无收货地址</text>
+    </view>
+    <view class="adress-list" >
+        <view class="list-box">
+            <view class="list-cont">
+                <view class="cont-contact">
+                    <text class="name">林素恩</text><text class="mobile">18619900816</text><text class="default">默认</text>
+                </view>
+                <view class="cont-ad">上海市 静安区</view>
+                <view class="cont-ad-desic">北京路1701号静安大厦18楼c座23室</view>
+            </view>
+            <view class="list-edit"></view>
+        </view>
+    </view>
+    <!--新增地址按钮(保持固定吸底)-->
+    <view class="addAdress-btn">
+        <navigator url="/pages/addAdress/addAdress">新增地址</navigator>
+    </view>
+</view>

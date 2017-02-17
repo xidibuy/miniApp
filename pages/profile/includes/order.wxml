@@ -1,0 +1,57 @@
+<!--我的订单-->
+<view class="order">
+    <!--我的订单为空-->
+    <view class="empty" style="display:none">
+        <text>暂无相关订单</text>
+    </view>
+    <view class="order-list">
+        <block wx:for="{{orders}}" wx:key="*this">
+            <view class="order-single">
+                <view class="order-state">
+                    <text class="order-state-time">{{item.time}}</text>
+                    <text class="order-state-state">{{item.state}}</text>
+                </view>
+                <view class="order-pro">
+                    <block wx:for="{{item.pros}}" wx:key="*this">
+                        <view class="pro-box">
+                            <view class="pro-img">
+                                <image src="{{item.imgUrl}}"></image>
+                            </view>
+                            <view class="pro-desic">
+                                <view class="pro-desic-title">
+                                    <text class="title">{{item.name}}</text>
+                                    <text class="attr">{{item.attr}}</text>
+                                </view>
+                                <view class="pro-price">
+                                    <text class="pro-mo">¥{{item.price}}</text><text class="pro-num">x{{item.num}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+                <view class="pro-handle">
+                    <view class="pro-order">
+                        <view class="total-num">共 {{item.totalNum}} 件</view>
+                        <view class="total-mo">
+                            <text>合计:</text><text class="total-money">¥{{item.totalMoney}}</text>
+                            <text class="total-include">(含运费:¥{{item.freight}})</text>
+                        </view>
+                    </view>
+                    <!--flex-direction:row-reverse 自右向左排列-->
+                    <view class="pro-handle-btn">
+                        <!--button型 按钮-->
+                        <view class="handle-btn">
+                            <button bindtap="sureModal" data-id="2">确认收货</button>
+                        </view>
+                        <!--链接型按钮-->
+                        <view class="handle-link">
+                            <navigator url="/pages/logistics/logistics">查看物流</navigator>
+                        </view>
+                    </view>
+                </view>
+
+            </view>
+        </block>
+    </view>
+    <view class="tip-word">您可以登录喜地官网查询更多订单</view>
+</view>

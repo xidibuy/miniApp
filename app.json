@@ -1,29 +1,24 @@
 {
   "pages":[
+        "pages/index/index",
+    "pages/orderDetail/orderDetail",
+    "pages/logistics/logistics",
     "pages/profile/profile",
-    "pages/index/index",
+
     "pages/invoice/invoice",
 
     "pages/order/order",
     "pages/goodsDetail/goodsDetail",
     "pages/cart/cart",
-
     "pages/topic/topic",
     "pages/about/about",
     "pages/logs/logs",
-
     "pages/invalid/invalid",
-
-
+    "pages/index/index",
     "pages/addAdress/addAdress",
-
-
     "pages/delivery/delivery",
-
     "pages/question/question",
     "pages/adressList/adressList",
-    "pages/logistics/logistics",
-    "pages/orderDetail/orderDetail",
     "pages/evaluate/evaluate"
   ],
   "window":{
@@ -35,7 +30,7 @@
   "tabBar": {
     "color": "#7f7f7f",
     "selectedColor": "#7f7f7f",
-    "borderStyle": "white",
+    "borderStyle": "black",
     "backgroundColor": "#fafafa",
     "list": [{
       "pagePath": "pages/index/index",
