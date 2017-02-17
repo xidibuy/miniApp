@@ -1,43 +1,20 @@
 const app = getApp()
-let name = 'top' // 菜单默认值
+let tab = 'order' // 菜单默认值
 let flag = true // 用于判断是否加载的默认菜单
 const img = app.globalData.img;
 const dataUrl = app.globalData.data;
 Page({
   data: {
+    img: app.globalData.img,
     // 判断loading
     hidden: true,
     // 订单列表
-    orders: [
-      {
-        time:"2017/02/19",
-        state:"待发货",
-        pros:[
-          {
-            imgUrl:img+"img-3_03.png",
-            name:"丹麦的创意无褶皱垃圾桶宠爱酒鬼的",
-            attr:"白色",
-            price:"168.22",
-            num:1
-          },
-          {
-            imgUrl:img+"img-cup.png",
-            name:"超级大的敖包束带结发开始干快递费",
-            attr:"大红",
-            price:"168.22",
-            num:2
-          }
-        ],
-        totalNum:10,
-        totalMoney:1222,
-        freight:10
-      }
-    ],
+    orders: [],
     //收货地址
     adress:[],
     //more
     more:[],
-    
+    contentType: tab,
     flag: 1,
     menu: [
       {
@@ -55,51 +32,51 @@ Page({
       }
     ]
   },
+  onPullDownRefresh: function(){
+    
+  },
   bindMenu (e) {
     name = e.target.dataset.name // 获取当前点击的menu值
-
     const newMenu = this.data.menu.map((arr, index) => {
       if (arr.value === name) {
-        arr.active = true
+        arr.active = true;
       } else {
         arr.active = false
       }
-      return arr
+      return arr;
     })
-
-    this.setData({menu: newMenu})
-    this.getOrders(name)
+    this.setData({
+      menu: newMenu,
+      contentType:name
+      });
+    this.getOrders(name);
   },
   onLoad: function (options) {
-    this.getOrders(name)
+      this.getOrders(tab);
   },
- 
-  getOrders(name) {
-    const that = this
-
-    that.setData({hidden: false}) //显示loading
-    flag = name === 'top'
-      ? 1
-      : 0
-
-    // 获取新闻列表
-    wx.request({
-      url: dataUrl/order.json,
-      data: {
-        type: name,
-        key: app.globalData.appkey
-      },
-      success(res) {
-        if (!res.data.error_code) {
-          let data = res.data.result.data
-          let title = flag
-            ? data[0].type
-            : data[0].category
-          wx.setNavigationBarTitle({title: title})
-          that.setData({orders: data, hidden: true, flag: flag})
-          console.log(res.data)
-        }
+  getOrders: function(name){
+    const _this = this;
+      const cartUrl = dataUrl + name +'.json';
+      app.fetchApi(cartUrl,function(url,options){
+          _this.setData({
+              orders : options.data.orders
+          });
+      })
+  },
+ sureModal:function(e){
+   var _this = this;
+   console.log(e.target.dataset.id);
+   const id = _this.data.orders.map((arr,index) => {
+     if(arr.id === e.target.dataset.id){
+        wx.showModal({
+              content: arr.content,
+              success: function(res) {
+                  if (res.confirm) {
+                    // 跳转
+                  }
+                }
+          });
       }
-    })
-  }
+   })
+ }
 })

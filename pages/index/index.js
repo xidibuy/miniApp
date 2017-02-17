@@ -41,5 +41,13 @@ Page({
         userInfo:userInfo
       })
     })
+  },
+  // 分享首页
+  onShareAppMessage: function () {
+    return {
+      title: '分享',
+      desc:"hellp",
+      path: '/pages/index/index'
+    }
   }
 })

@@ -1,5 +1,5 @@
 .container{
-    background: #f4f4f4;
+    background-color: #f4f4f4;
 }
 .container:before{
         background: #fff;
@@ -26,6 +26,7 @@
 }
 .more{
     padding-left: 35.1rpx;
+    background-color: #fff;
 }
 .term{
     height: 117rpx;
@@ -130,10 +131,8 @@
     text-align: center;
 }
 .order-list{
-    margin-top: 22.23rpx;
-    padding-left: 35.1rpx;
-    background-color: #fff;
     border-bottom: 1px solid #ddd;
+    background-color: #f4f4f4;
 }
 .order-state{
     padding-right: 35.1rpx;
@@ -142,6 +141,13 @@
     border-bottom: 1px solid #ddd;
     display: flex;
     justify-content: space-between;
+    color: #222;
+}
+.order-state-time{
+    font-size: 14px;
+}
+.order-state-state{
+    font-size: 15px;
 }
 .order-pro{
     margin-bottom: -1px;
@@ -160,20 +166,109 @@
     margin-right: 35.1rpx;
     width: 154.44rpx;
     height: 154.44rpx;
-    border: 1px solid #ddd;
 }
+.pro-img image{
+    width: 154.44rpx;
+    height: 154.44rpx;
+}
+
 .pro-desic{
+    position: relative;
     padding: 1px 0;
     display: flex;
     flex-direction: column;
+}
+.pro-price{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.pro-desic-title .attr{
+    margin-left: 11.7rpx;
 }
 .pro-desic .title{
     font-size: 13px;
     color: #222;
     line-height: 39.78rpx;
 }
+.pro-mo{
+    font-size: 14px;
+    color: #00bebf;
+    font-weight: 700;
+}
+.pro-num{
+    font-size: 13px;
+    color: #777;
+}
+.pro-handle{
+    padding-right: 35.1rpx;
+}
 .pro-order{
+    widows: 100%;
     height: 105.3rpx;
-    line-height: 105.3rpx;
+
     display: flex;
+    justify-content: space-between;
+}
+.pro-order{
+    font-size: 13px;
+    color: #222;
+}
+.total-mo .total-money{
+    margin: 0 11.7rpx 0 23.4rpx;
+    font-size: 18px;
+    color: #00bebf;
+}
+.total-mo .total-include{
+    font-size: 12px;
+    color: #777;
+}
+.total-num, .total-mo text{
+    line-height: 105.3rpx;
+}
+.pro-handle-btn{
+    padding-bottom: 46.8rpx;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.handle-btn{
+    margin-left: 23.4rpx;
+}
+.handle-btn button{
+    width: 234rpx;
+    height: 79.56rpx;
+    font-size: 14px;
+    color: #fff;
+    background-color: #4ed6d2;
+}
+.handle-link{
+    width: 231.66rpx;
+    height: 77.22rpx;
+    line-height: 77.22rpx;
+    font-size: 14px;
+    color: #222;
+    border: 1px solid #a9a9a9;
+    border-radius: 3px;
+    text-align: center;
+}
+.order-single{
+    background-color: #fff;
+    
+    padding-left: 35.1rpx;
+}
+.order-single, .tip-word{
+    margin-top: 22.23rpx;
+}
+.tip-word{
+    width: 100%;
+    /*position: fixed;
+    bottom: 0;
+    left: 0;*/
+    background-color: #fff;
+    height: 93.6rpx;
+    line-height: 93.6rpx;
+    text-align: center;
 }
