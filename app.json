@@ -1,15 +1,13 @@
 {
-  "pages":[
-        "pages/index/index",
+  "pages": [
+    "pages/cart/cart",
+    "pages/index/index",
     "pages/orderDetail/orderDetail",
     "pages/logistics/logistics",
     "pages/profile/profile",
-
     "pages/invoice/invoice",
-
     "pages/order/order",
     "pages/goodsDetail/goodsDetail",
-    "pages/cart/cart",
     "pages/topic/topic",
     "pages/about/about",
     "pages/logs/logs",
@@ -21,32 +19,36 @@
     "pages/adressList/adressList",
     "pages/evaluate/evaluate"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "来喜地 逛世界",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#7f7f7f",
     "selectedColor": "#7f7f7f",
     "borderStyle": "black",
     "backgroundColor": "#fafafa",
-    "list": [{
-      "pagePath": "pages/index/index",
-      "iconPath": "image/home.png",
-      "selectedIconPath": "image/home-active.png",
-      "text": "首页"
-    }, {
-      "pagePath": "pages/cart/cart",
-      "iconPath": "image/cart.png",
-      "selectedIconPath": "image/cart-active.png",
-      "text": "购物车"
-    }, {
-      "pagePath": "pages/profile/profile",
-      "iconPath": "image/my.png",
-      "selectedIconPath": "image/my-active.png",
-      "text": "我的"
-    }]
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/home-active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "iconPath": "image/cart.png",
+        "selectedIconPath": "image/cart-active.png",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/profile/profile",
+        "iconPath": "image/my.png",
+        "selectedIconPath": "image/my-active.png",
+        "text": "我的"
+      }
+    ]
   }
 }

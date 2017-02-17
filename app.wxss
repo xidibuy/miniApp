@@ -1,4 +1,4 @@
-
+@import './css/font.css';
 .container{
     padding-top: 1px;
     font-size: 12px;
