@@ -1,9 +1,11 @@
 /**index.wxss**/
-.container{
+
+.container {
   width: 100%;
   height: 100%;
   background-color: #eee;
 }
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -22,119 +24,152 @@
   font-size: 30rpx;
 }
 
-image{
-  width:100%;
-}
-
-.banner image{
+.banner image {
   display: block;
   height: 397.8rpx;
 }
-.selected-list{
+
+.selected-list {
   background-color: #fff;
 }
-.basic-info{
+
+.basic-info {
   position: relative;
-  padding:0 15px;
+  padding: 0 17.55px;
+  background-color: #fff;
 }
 
-.basic-info text{
+.basic-info text {
   display: block;
 }
 
-.basic-info .main-title{
-  padding-top: 22px;
+.basic-info .main-title {
+  padding-top: 25.74rpx;
+  margin-bottom: 23.4rpx;
   font-size: 15px;
   line-height: 22px;
-  height: 44px;
-  overflow: hidden;
-  text-overflow: ellipsis;
   font-weight: bold;
   color: #222;
 }
 
-.basic-info .national-flag{
-  width:21px; 
-  height:13px;
-  margin-right:5px;
-}
-.basic-info .sub-title{
-  display: inline-block;
-  font-size: 13px;
-  margin: 9px 0 8px;
+.pro-name {
+  display: flex;
+  height: 35.1rpx;
+  line-height: 35.1rpx;
 }
 
-.basic-info .price{
-  font-size: 21px;
-  color:#56cdcb;
-}
-.basic-info .warn-stock{
-  padding: 0 10px;
-  position: absolute;
-  bottom: 0;
-  right: 15px;
-  height: 22px;
-  color: #fff;
-  border: 0;
-  line-height: 22px;
-  background-color: #ff7765;
-  font-size: 12px;
-}
-.basic-info .warn-stock i{
-  margin: 0 3px;
-  font-style: normal;
-  font-size: 13px;
-}
-.other-price{
-  font-size:12px;
-  color: #777;
-  padding:5rpx 0;
+.pro-name .national-flag {
+  width: 49.14rpx;
+  height: 30.42rpx;
+  margin-right: 11.7rpx;
 }
 
-.other-price text{
-  display: inline;
-  text-decoration: line-through;
-}
-.swiper{
-  margin: 0 0 10px;
-  width: 100%;
-  padding: 16px 15px 30px;
-  box-sizing: border-box;
-  border-bottom: 1px solid #c5c5c5;
-  background-color: #fff;
-}
-.swiper swiper{
-  height: 100%;
-}
-.scroll-view-item{
-  position: relative;
-  padding-bottom: 100%;
-  margin-bottom: 10px;
-  height: 0;
-}
-.scroll-view-item-inner{
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-}
-.swiper image{
-  width: 100%;
-  height: 100%;
-}
-.swiper text{
-  display: inline-block;
-  width: 100%;
-  height: 33px;
-  min-height: 33px;
-  text-align: left;
-  white-space: normal;
+.pro-name .sub-title {
+  font-size: 13px;
+  color: #222;
+  white-space: nowrap;
+  word-wrap: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-.special-banner{
+
+.basic-info .price {
+  margin: 23.4rpx 0 4.68rpx 0;
+  font-size: 21px;
+  color: #00bebf;
+}
+
+.other-price {
+  color: #777;
+  display: flex;
+}
+
+.other-name {
+  font-size: 12px;
+}
+
+.line-thro {
+  font-size: 13px;
+  text-decoration: line-through;
+}
+
+.warn-stock {
+  display: flex;
+  padding: 0 10px;
+  position: absolute;
+  bottom: 0;
+  right: 35.1rpx;
+  height: 51.48rpx;
+  color: #fff;
+  line-height: 51.48rpx;
+  background-color: #ff7765;
+  font-size: 12px;
+  border-radius: 5px;
+}
+
+.warn-stock text {
+  margin: 0 7.02rpx;
+  font-size: 13px;
+}
+swiper{
+  width: 100%;
+  height: 100%;
+}
+.swiper {
+  padding: 37.44rpx 35.1rpx 51.48rpx;
+  background-color: #fff;
+}
+
+.swiper-item {
+  width: 678.6rpx;
+  height: 807.3rpx;
+  overflow: hidden;
+  display: flex;
+}
+
+.session-inner {
+  width: 678.6rpx;
+  height: 678.6rpx;
+  border-radius: 7px;
+  background-color: red;
+}
+
+.session-inner image {
+  width: 100%;
+  height: 100%;
+}
+
+.topic-word {
+  margin: 16.38rpx 0 28.08rpx;
+  padding: 0 11.7rpx;
+  font-size: 12px;
+  line-height: 18px;
+  color: #333;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.spot-box {
+  width: 100%;
+  height: 14.04rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.spot {
+  margin-right: 23.4rpx;
+  width: 14.08rpx;
+  height: 14.08rpx;
+  display: inline-block;
+  background-color: #b2b2b2;
+  border-radius: 50%;
+}
+
+.spot.active {
+  background-color: #4ed6d1;
+}
+
+.special-banner {
   padding: 0 15px;
   box-sizing: border-box;
   background-color: #fff;

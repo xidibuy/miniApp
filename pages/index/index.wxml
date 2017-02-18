@@ -1,3 +1,4 @@
+
 <!--index.wxml-->
 <view class="container">
   <view class="banner">
@@ -5,47 +6,60 @@
       <image src="{{img}}img-banner.png" mode="scaleToFill"></image>
     </navigator>
   </view>
-
   <view class="recommend-pro">
-    <view class="selected-list">
     <view class="basic-info">
       <navigator url="/pages/goodsDetail/goodsDetail?id=10086" open-type="navigate">
-      <text class="main-title">新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃</text>
-      <view>
-        <image class="national-flag" src="{{img}}national-flag.png" style=""></image>
-        <text class="sub-title"> 新西兰 Melita 麦卡璐蜂蜜UMF5 +340g</text>
-      </view>
-      <text class="price">¥195.50</text>
-      <text class="other-price">新西兰市场价：<text class="line-thro">¥158.23</text></text>
-      <text class="other-price">中国零售价：<text>¥189.66</text></text>
-      <button class="warn-stock">仅剩<i>{{nums}}</i>件</button>
+        <text class="main-title">新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃</text>
+        <view class="pro-name">
+          <image class="national-flag" src="{{img}}national-flag.png" style=""></image>
+          <text class="sub-title"> 新西兰 Melita 麦卡璐蜂蜜UMF5 +340gUMF5 +340gUMF5 +340g</text>
+        </view>
+        <text class="price">¥195.50</text>
+        <view class="other-price">
+          <text class="from-price other-name">新西兰市场价：</text>
+          <text class="line-thro">¥158.23</text>
+        </view>
+        <view class="other-price">
+          <text class="china-price other-name">中国零售价：</text>
+          <text class="line-thro">¥189.66</text>
+        </view>
+        <view class="warn-stock">仅剩
+          <text>{{nums}}</text>件</view>
+      </navigator>
+    </view>
+
+    <!-- scroll-view -->
+    <view class="swiper" id="he">
+      <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
+        <view class="swiper-item">
+          <swiper bindchange="changePro" indicator-dots="true">
+            <block wx:for="{{imgUrls}}" wx:key="*this">
+              <swiper-item>
+                <view class="inner-box"  data-index="0">
+                  <view class="session-inner">
+                    <image src="{{item}}" mode="aspectFill" class="topic-img"></image>
+                  </view>
+                  <view class="topic-word">{{word}}</view>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+        <view class="spot-box">
+          <text class="spot active"></text>
+          <text class="spot"></text>
+          <text class="spot"></text>
+          <text class="spot"></text>
+        </view>
       </navigator>
     </view>
   </view>
-  <!-- scroll-view -->
-  <view class="swiper">
-    <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
-      <view class="scroll-view-item"> 
-        <view class="scroll-view-item-inner">
-          <swiper  bindchange="currentPage">
-            <block wx:for="{{imgUrls}}" wx:key="index">
-              <swiper-item class="session-inner">
-                <image src="{{item}}" mode="aspectFill" class="topic-img"></image>
-              </swiper-item>
-            </block>
-           </swiper>
-          </view>
-      </view>
-      <text>{{word}}</text>
-    </navigator>
-  </view>
 
-  </view>
-  
   <!-- 专题banner -->
-  <view class="special-banner">
+
+  <!--<view class="special-banner">
     <navigator url="url">
       <image src="{{img}}bg-topic.png" mode="aspectFill"></image>
     </navigator>
-  </view>
+  </view>-->
 </view>

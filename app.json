@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/cart/cart",
     "pages/index/index",
+    "pages/cart/cart",
+
     "pages/orderDetail/orderDetail",
     "pages/logistics/logistics",
     "pages/profile/profile",
@@ -12,7 +13,6 @@
     "pages/about/about",
     "pages/logs/logs",
     "pages/invalid/invalid",
-    "pages/index/index",
     "pages/addAdress/addAdress",
     "pages/delivery/delivery",
     "pages/question/question",
