@@ -2,7 +2,6 @@
   "pages": [
     "pages/index/index",
     "pages/cart/cart",
-
     "pages/orderDetail/orderDetail",
     "pages/logistics/logistics",
     "pages/profile/profile",

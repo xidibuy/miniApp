@@ -19,11 +19,12 @@ Page({
    },
 
    onLoad: function(){
-        const _this = this;
-        const cartUrl = app.globalData.data + 'cart.json';
-        app.fetchApi(cartUrl,function(url,options){
-           _this.setData({
-                proCarts : options.data.proCarts
+        const self = this;
+        const listUrl = app.globalData.data + 'cart.json';
+        // 获取列表
+        app.fetchApi(listUrl,function(url,options){
+           self.setData({
+                list : options.data.proCarts
            });
         })
    },
