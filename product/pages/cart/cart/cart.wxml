@@ -1,0 +1,30 @@
+<view class="container {{list.length ? 'has-goods' : 'null'}}">
+
+  <!--如果有商品-->
+  <block wx:if="{{list.length}}">
+
+    <!--满x元免运费提示-->
+    <view class="free-shipping-tips">再买48.00元即享98元免运费</view>
+
+    <!-- 购物车 已购商品列表 -->
+    <include src="wxml/list.wxml" />
+
+    <!-- 结算 -->
+    <include src="wxml/settlement.wxml" />
+
+    <!--失效商品-->
+    <view class="invalid-goods" hidden="{{!invalidGoodsNum}}">
+      <navigator class="invalid-goods-navigator">
+        <text>另有{{invalidGoodsNum}}个商品已失效</text>
+        <text class="xd xd-plus"></text>
+      </navigator>
+    </view>
+  </block>
+
+  <!--如果购物车为空-->
+  <block wx:else>
+
+    <!-- 购物车为空 -->
+    <include src="wxml/null.wxml" />
+  </block>
+</view>

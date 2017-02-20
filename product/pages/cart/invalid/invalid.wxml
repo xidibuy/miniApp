@@ -1,0 +1,67 @@
+<view class="container">
+  <view class="goods-list">
+    <block wx:for="{{list}}" wx:key="{{item.id}}">
+      <view class="goods-item">
+          <!--左侧 失效-->
+          <view class="invalid-title">失效</view>
+          <!--右侧 商品详情-->
+          <view class="goods-item-detail">
+
+            <!--商品图片-->
+            <navigator url="" class="goods-item-image">
+              <image src="{{item.img}}"></image>
+            </navigator>
+
+            <!--商品信息-->
+            <view class="goods-item-info">
+
+              <!--第一行-->
+              <view class="goods-item-info-row">
+
+                <!--商品标题-->
+                <navigator url="" class="goods-item-title">{{item.name}}</navigator>
+
+                <!--商品价格-->
+                <view class="goods-item-price">¥{{item.price}}</view>
+              </view>
+
+              <!--第二行-->
+              <view class="goods-item-attr-box">
+
+                <!--商品属性-->
+                <block wx:for="{{item.attrs}}" wx:key="*this">
+                  <text class="goods-item-info-attr">{{item}}</text>
+                </block>
+              </view>
+
+              <!--第三行-->
+              <view class="goods-item-info-row third">
+
+                <!--库存-->
+                <view class="goods-item-num-box">
+                  <view class="goods-item-num">
+                    <view class="goods-item-num-reduce disabled">
+                      <text class="xd xd-minus"></text>
+                    </view>
+                    <view class="goods-item-num-input">
+                      <input placeholder="" value="{{item.choseNum}}" />
+                    </view>
+                    <view class="goods-item-num-add  disabled">
+                      <text class="xd xd-plus"></text>
+                    </view>
+                  </view>
+                  <text class="goods-item-num-tips">{{item.state}}</text>
+                </view>
+
+                <!--删除-->
+                <view class="goods-item-delete" bindTap="deleteCart">
+                  <text class="xd xd-trash"></text>
+                </view>
+              </view>
+            </view>
+          </view>
+        
+      </view>
+    </block>
+  </view>
+</view>

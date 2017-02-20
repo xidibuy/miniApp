@@ -17,7 +17,9 @@ App({
 			},
       dataType:"json",
 			success(res) {
-				callback(null, res.data);
+        if(res.statusCode == 200){
+          callback(res.data);
+        }
 			},
 			fail(e) {
 				callback(e)

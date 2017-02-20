@@ -1,0 +1,90 @@
+page{
+  height: 100%;
+}
+.container {
+  overflow: hidden;
+  height: 100%;
+}
+
+.container.has-goods{
+  background: #f4f4f4;
+  padding-bottom: 114.66rpx; 
+}
+
+.container.null{
+  background: #fff;
+}
+
+.free-shipping-tips {
+  width: 100%;
+  height: 77.22rpx;
+  line-height: 77.22rpx;
+  background-color: #faf6eb;
+  font-size: 12px;
+  color: #ff7765;
+  text-indent: 15px;
+}
+/*商品列表*/
+@import './wxss/list.wxss';
+
+/*失效商品*/
+.invalid-goods{
+  width: 100%;
+  height: 187.2rpx;
+  background: #fff;
+}
+
+.invalid-goods-navigator{
+  margin: 0 23.4rpx;
+  height: 93.6rpx;
+  line-height: 93.6rpx;
+  border-bottom: 1px solid #d9d9d9;
+  font-size: 12px;
+  color:#222;
+}
+
+.invalid-goods-navigator .xd{
+  float: right;
+  color: #c5c5c5;
+  margin-top: 33.4rpx;
+}
+
+/*结算*/
+@import './wxss/settlement.wxss';
+
+/*购物车为空*/
+
+.cart-null {
+  text-align: center;
+}
+
+.cart-null image {
+  margin-top: 249.21rpx;
+  width: 252.72rpx;
+  height: 224.64rpx;
+}
+
+.cart-null .null-tip {
+  margin-top: 77.22rpx;
+  font-size: 14px;
+  line-height: 1;
+  color: #222;
+}
+
+.cart-null .null-fun {
+  margin-top: 25.74rpx;
+  font-size: 12px;
+  line-height: 1;
+  color: #777;
+}
+
+.cart-null .go-index {
+  margin: 77.22rpx auto 0;
+  width: 643.5rpx;
+  height: 105.3rpx;
+  line-height: 105.3rpx;
+  text-align: center;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  color: #222;
+}
