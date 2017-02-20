@@ -1,8 +1,9 @@
 {
   "pages": [
-
-    "pages/orderDetail/orderDetail",
+        "pages/goodsDetail/goodsDetail",
     "pages/profile/profile",
+    "pages/orderDetail/orderDetail",
+
     "pages/index/index",
     "pages/cart/cart",
 
@@ -10,7 +11,7 @@
 
     "pages/invoice/invoice",
     "pages/order/order",
-    "pages/goodsDetail/goodsDetail",
+
     "pages/topic/topic",
     "pages/about/about",
     "pages/logs/logs",
