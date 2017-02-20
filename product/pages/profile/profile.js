@@ -58,6 +58,7 @@ Page({
     const _this = this;
       const cartUrl = dataUrl + name +'.json';
       app.fetchApi(cartUrl,function(url,options){
+        
           _this.setData({
               orders : options.data.orders
           });

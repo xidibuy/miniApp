@@ -13,7 +13,7 @@ swiper{
     height: 100%;
     bottom: 0;
     top: 0;
-    padding:15px 0;
+    padding:35.1rpx 0;
     box-sizing: border-box;
 }
 
@@ -67,9 +67,6 @@ swiper-item{
     line-height: 22px;
     font-weight: bold;
     height: 22px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
     color:#222222;
 }
 
@@ -280,6 +277,7 @@ swiper-item{
 .viewCart{
     display: inline-flex;
     flex: 0.52;
+    background-color: #fff;
 }
 
 .viewCart navigator{
@@ -324,4 +322,11 @@ swiper-item{
 .addToCart button[disabled] {
     background: #c5c5c5;
     color: #ffffff;
+}
+.xd-cart-full{
+    position: absolute;
+    left: 34%;
+    top: 38%;
+    font-size: 42rpx;
+    color: #999;
 }
