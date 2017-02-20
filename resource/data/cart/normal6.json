@@ -1,0 +1,106 @@
+{
+  "state": true,
+  "data": {
+    "list": [
+      {
+        "id": "1111111",
+        "img": "https://m.xidibuy.com:8000/image/img-1.png",
+        "name": "我是商品名称，很短",
+        "attrs": [
+          "黑色",
+          "蓝色"
+        ],
+        "choseNum": 2,
+        "stock": 50,
+        "price": 149.53,
+        "favorable": true,
+        "favorableInfo": {
+          "number": 20,
+          "word": "购买指定商品即可享受立减20元"
+        }
+      },
+      {
+        "id": "22222222",
+        "img": "https://m.xidibuy.com:8000/image/img-3_03.png",
+        "name": "我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长",
+        "attrs": [
+          "10*10",
+          "50*60",
+          "100*50",
+          "250*600",
+          "250*600",
+          "250*600",
+          "250*600"
+        ],
+        "choseNum": 3,
+        "stock": 50,
+        "price": 149.54,
+        "favorable": false
+      },
+      {
+        "id": "3333333",
+        "img": "https://m.xidibuy.com:8000/image/img-2.png",
+        "name": "我是商品名称，我是商品名称，我是商品名称，我是商品名称",
+        "attrs": [
+          "10*10",
+          "50*60",
+          "100*50"
+        ],
+        "choseNum": 1,
+        "stock": 9,
+        "price": 149.54,
+        "favorable": false
+      },
+      {
+        "id": "444444",
+        "img": "https://m.xidibuy.com:8000/image/img-1.png",
+        "name": "我是商品名称，很短",
+        "attrs": [
+          "黑色",
+          "蓝色"
+        ],
+        "choseNum": 2,
+        "stock": 50,
+        "price": 149.53,
+        "favorable": true,
+        "favorableInfo": {
+          "number": 20,
+          "word": "购买指定商品即可享受立减20元"
+        }
+      },
+      {
+        "id": "5555",
+        "img": "https://m.xidibuy.com:8000/image/img-3_03.png",
+        "name": "我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长",
+        "attrs": [
+          "10*10",
+          "50*60",
+          "100*50",
+          "250*600",
+          "250*600",
+          "250*600",
+          "250*600"
+        ],
+        "choseNum": 3,
+        "stock": 50,
+        "price": 149.54,
+        "favorable": false
+      },
+      {
+        "id": "6666",
+        "img": "https://m.xidibuy.com:8000/image/img-2.png",
+        "name": "我是商品名称，我是商品名称，我是商品名称，我是商品名称",
+        "attrs": [
+          "10*10",
+          "50*60",
+          "100*50"
+        ],
+        "choseNum": 1,
+        "stock": 9,
+        "price": 149.54,
+        "favorable": false
+      }
+    ],
+    "invalidGoodsNum": 3
+  }
+}

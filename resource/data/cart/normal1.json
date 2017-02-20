@@ -1,0 +1,25 @@
+{
+  "state": true,
+  "data": {
+    "list": [
+      {
+        "id": "1111111",
+        "img": "https://m.xidibuy.com:8000/image/img-1.png",
+        "name": "我是商品名称，很短",
+        "attrs": [
+          "黑色",
+          "蓝色"
+        ],
+        "choseNum": 2,
+        "stock": 50,
+        "price": 149.53,
+        "favorable": true,
+        "favorableInfo": {
+          "number": 20,
+          "word": "购买指定商品即可享受立减20元"
+        }
+      }
+    ],
+    "invalidGoodsNum": 3
+  }
+}
