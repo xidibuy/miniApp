@@ -1,0 +1,23 @@
+
+<view class="settlement-bar">
+    <!--左侧-->
+    <view class="settlement-left">
+        <!--全选按钮-->
+        <label class="checkbox-widget" bindTap="isChecked">
+          <text class="xd xd-checked"></text>
+          <checkbox value="" checked="" class="checkbox" />
+          <text class="checkbox-word">全选</text>
+        </label>
+        <!--总计-->
+        <view class="settlement-total">
+            <view class="settlement-money">
+                总计： <text class="settlement-money-number">¥234.5</text>  
+            </view>
+            <text class="settlement-freight">未含运费</text>
+        </view>
+    </view>
+    <!--结算按钮-->
+    <view class="settlement-btn">
+        结算 (<text class="settlement-number">3</text>)
+    </view>
+</view>

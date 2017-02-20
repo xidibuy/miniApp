@@ -1,0 +1,76 @@
+.settlement-bar {
+  width: 100%;
+  height: 114.66rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 111;
+  display: flex;
+  background: #fff;
+}
+
+.settlement-bar .settlement-left{
+    flex-grow: 1;
+    border-top: 1px solid #d9d9d9;
+    display: flex;
+}
+
+.settlement-bar .checkbox-widget {
+  width: 154.44rpx;
+  padding-left: 23.4rpx;
+  display: flex;
+  align-items:center;
+}
+
+.settlement-bar .checkbox-widget .xd {
+  font-size: 24rpx;
+}
+
+.settlement-bar .checkbox-widget .xd-checked {
+  color: #4ed6d1;
+}
+
+.settlement-bar .checkbox-widget .checkbox {
+  opacity: 0;
+  display: none;
+}
+
+.settlement-bar .checkbox-widget .checkbox-word {
+  font-size: 13px;
+  color: #888;
+}
+
+.settlement-bar .settlement-total{
+    flex-grow: 1;
+    text-align: right;
+    padding: 16.38rpx 23.4rpx 0 0;
+}
+
+.settlement-bar .settlement-money{
+    vertical-align: text-bottom;
+    line-height: 1.1;
+}
+
+.settlement-bar .settlement-money-number{
+    font-size: 16px;
+    color: #00bebf;
+}
+
+
+.settlement-bar .settlement-freight{
+    font-size: 10px;
+    color: #777;
+}
+
+
+.settlement-bar .settlement-btn{
+    width: 257.4rpx;
+    line-height: 114.66rpx;
+    background: #4ed6d1;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+}
+.settlement-bar .settlement-number{
+    font-size: 14px;
+}
