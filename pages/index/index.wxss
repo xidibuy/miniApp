@@ -118,6 +118,7 @@ swiper{
 .swiper {
   padding: 37.44rpx 35.1rpx 51.48rpx;
   background-color: #fff;
+  border-bottom: 1px solid #c5c5c5;
 }
 
 .swiper-item {
@@ -170,7 +171,21 @@ swiper{
 }
 
 .special-banner {
-  padding: 0 15px;
-  box-sizing: border-box;
+  width: 100%;
+  height: 362.7rpx;
   background-color: #fff;
+}
+.special-banner image{
+  width: 100%;
+  height: 100%;
+}
+.img-cover{
+  width: 100%;
+  height: 362.7rpx;
+}
+.re-pro{
+  margin-bottom: 23.4rpx;
+}
+.re-pro:last-child{
+  margin-bottom: 0;
 }

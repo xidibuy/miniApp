@@ -7,59 +7,75 @@
     </navigator>
   </view>
   <view class="recommend-pro">
-    <view class="basic-info">
-      <navigator url="/pages/goodsDetail/goodsDetail?id=10086" open-type="navigate">
-        <text class="main-title">新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃</text>
-        <view class="pro-name">
-          <image class="national-flag" src="{{img}}national-flag.png" style=""></image>
-          <text class="sub-title"> 新西兰 Melita 麦卡璐蜂蜜UMF5 +340gUMF5 +340gUMF5 +340g</text>
-        </view>
-        <text class="price">¥195.50</text>
-        <view class="other-price">
-          <text class="from-price other-name">新西兰市场价：</text>
-          <text class="line-thro">¥158.23</text>
-        </view>
-        <view class="other-price">
-          <text class="china-price other-name">中国零售价：</text>
-          <text class="line-thro">¥189.66</text>
-        </view>
-        <view class="warn-stock">仅剩
-          <text>{{nums}}</text>件</view>
-      </navigator>
-    </view>
 
-    <!-- scroll-view -->
-    <view class="swiper" id="he">
-      <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
-        <view class="swiper-item">
-          <swiper bindchange="changePro" indicator-dots="true">
-            <block wx:for="{{imgUrls}}" wx:key="*this">
-              <swiper-item>
-                <view class="inner-box"  data-index="0">
-                  <view class="session-inner">
-                    <image src="{{item}}" mode="aspectFill" class="topic-img"></image>
+    <!--循环推荐产品-->
+    <view class="re-pro">
+      <view class="basic-info">
+        <navigator url="/pages/goodsDetail/goodsDetail?id=10086" open-type="navigate">
+          <text class="main-title">新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃</text>
+          <view class="pro-name">
+            <image class="national-flag" src="{{img}}national-flag.png" style=""></image>
+            <text class="sub-title"> 新西兰 Melita 麦卡璐蜂蜜UMF5 +340gUMF5 +340gUMF5 +340g</text>
+          </view>
+          <text class="price">¥195.50</text>
+          <view class="other-price">
+            <text class="from-price other-name">新西兰市场价：</text>
+            <text class="line-thro">¥158.23</text>
+          </view>
+          <view class="other-price">
+            <text class="china-price other-name">中国零售价：</text>
+            <text class="line-thro">¥189.66</text>
+          </view>
+          <view class="warn-stock">仅剩
+            <text>{{nums}}</text>件</view>
+        </navigator>
+      </view>
+
+      <!-- scroll-view -->
+      <view class="swiper" id="he">
+        <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
+          <view class="swiper-item">
+            <swiper bindchange="changePro" indicator-dots="true">
+              <block wx:for="{{imgUrls}}" wx:key="*this">
+                <swiper-item>
+                  <view class="inner-box" data-index="0">
+                    <view class="session-inner">
+                      <image src="{{item}}" mode="aspectFill" class="topic-img"></image>
+                    </view>
+                    <view class="topic-word">{{word}}</view>
                   </view>
-                  <view class="topic-word">{{word}}</view>
-                </view>
-              </swiper-item>
-            </block>
-          </swiper>
-        </view>
-        <view class="spot-box">
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
+
+          <!--<view class="spot-box">
           <text class="spot active"></text>
           <text class="spot"></text>
           <text class="spot"></text>
           <text class="spot"></text>
-        </view>
-      </navigator>
+        </view>-->
+        </navigator>
+      </view>
+    </view>
+    <!--循环专题-->
+    <view class="re-pro">
+      <view class="special-banner">
+        <navigator url="">
+          <view class="img-cover">
+            <image src="{{img}}bg-topic.png" mode="aspectFill"></image>
+          </view>
+        </navigator>
+      </view>
+    </view>
+    <view class="re-pro">
+      <view class="special-banner">
+        <navigator url="">
+          <view class="img-cover">
+            <image src="{{img}}bg-topic.png" mode="aspectFill"></image>
+          </view>
+        </navigator>
+      </view>
     </view>
   </view>
-
-  <!-- 专题banner -->
-
-  <!--<view class="special-banner">
-    <navigator url="url">
-      <image src="{{img}}bg-topic.png" mode="aspectFill"></image>
-    </navigator>
-  </view>-->
 </view>
