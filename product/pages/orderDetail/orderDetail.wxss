@@ -101,6 +101,7 @@
    height: 154.44rpx;
 }
 .pro-detail{
+  position: relative;
   display: flex;
   flex-direction: column;
 }

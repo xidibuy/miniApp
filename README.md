@@ -29,4 +29,4 @@
 
 2. 在```resource```目录中 运行```npm install```
 
-3. 按照完成后， 运行```npm start```，启动本地https服务器
+3. 安装完成后， 运行```npm start```，启动本地https服务器

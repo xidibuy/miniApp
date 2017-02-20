@@ -31,25 +31,34 @@
         <text class="receipt-desi">17/10/42 17:31:30</text>
       </view>
     </view>
-    <!--购物清单-->
 
+    <!--购物清单-->
     <view class="pro-list make-space">
-        <view class="pro-title">
-          <text class="title-word">购物清单</text>
-          <text class="title-num">2件</text>
-        </view>
-        <view class="product">
-          <view class="product-single">
-            <view class="pro-img">
-              <image src="https://m.xidibuy.com:8000/image/img-3_03.png"></image>
+      <view class="pro-title">
+        <text class="title-word">购物清单</text>
+        <text class="title-num">2件</text>
+      </view>
+      <view class="product">
+        <view class="product-single">
+
+          <!--清单图片-->
+          <view class="pro-img">
+            <image src="https://m.xidibuy.com:8000/image/img-3_03.png"></image>
+          </view>
+
+          <!--清单详情-->
+          <view class="pro-detail">
+            <view class="product-name">
+              丹麦萨福克斯的咖啡店是
+              <text></text>
             </view>
-            <view class="pro-detail">
-              <view class="product-name">
-                丹麦萨福克斯的咖啡店是<text></text>
-              </view>
+            <view class="product-price">
+              <text class="price"></text>
+              <text class="num"></text>
             </view>
           </view>
         </view>
+      </view>
     </view>
   </view>
 </view>
