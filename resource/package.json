@@ -1,0 +1,14 @@
+{
+  "name": "resource",
+  "version": "1.0.0",
+  "description": "resource for miniapp on develope env",
+  "main": "https.js",
+  "scripts": {
+    "start": "node https.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "mine": "^0.1.0"
+  }
+}

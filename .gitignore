@@ -140,3 +140,5 @@ Temporary Items
 # Visio autosave temporary files
 *.~vsdx
 
+node_modules/
+

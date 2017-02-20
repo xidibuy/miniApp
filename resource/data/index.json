@@ -1,0 +1,17 @@
+{
+	"statue":true,
+	"data":{
+		"indexImg":"https://m.xidibuy.com:8000/image/img-banner.png",
+		"recommend":[
+			{
+				"title":"新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃",
+				"flag":"https://m.xidibuy.com:8000/image/national-flag.png",
+				"subTitle":" 新西兰 Melita 麦卡璐蜂蜜UMF5 +340g",
+				"xidiPrice":"￥195.50"
+				"fromPrice":""
+				"chinaPrice":""
+			}
+		]
+	},
+	"msg":"请求成功!"
+}
