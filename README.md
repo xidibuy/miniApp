@@ -23,3 +23,10 @@
 * 
 
 
+# 本地服务说明
+
+1. 解析 m.xidibuy.com 到本机ip
+
+2. 在```resource```目录中 运行```npm install```
+
+3. 按照完成后， 运行```npm start```，启动本地https服务器
