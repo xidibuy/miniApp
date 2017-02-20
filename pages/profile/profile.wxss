@@ -15,7 +15,7 @@
 }
 .nav-item{
     padding: 0 46.8rpx;
-    width: 187.2rpx;
+    width: 234rpx;
     line-height: 70.2rpx;
 }
 .nav-item.active {

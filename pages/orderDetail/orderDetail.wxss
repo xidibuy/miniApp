@@ -1,1 +1,66 @@
-/* pages/orderDetail/orderDetail.wxss */
+.container {
+  background-color: #f4f4f4;
+}
+
+.make-space {
+  margin-bottom: 23.4rpx;
+}
+
+.status {
+  background-color: #fff;
+  padding: 35.1rpx;
+}
+
+.title {
+  margin-bottom: 35.1rpx;
+}
+
+.xd-checked {
+  color: #56edaa;
+}
+
+.status-title {
+  margin-left: 23.4rpx;
+  font-size: 17pr;
+  color: #222;
+  font-weight: 700;
+}
+
+.word {
+  padding-bottom: 7.02rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  color: #222;
+  line-height: 17px;
+}
+
+.receipt {
+  padding: 39.78rpx 35.1rpx 18.72rpx;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.receipt-box {
+  margin-bottom: 16.38rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.receipt-title {
+  font-size: 14px;
+  color: #222;
+  margin-bottom: 7.02rpx;
+}
+
+.receipt-desi {
+  font-size: 13px;
+  color: #777;
+  line-height: 20px;
+}
+.order-list{
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding-left:  35.1rpx;
+}
