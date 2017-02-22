@@ -1,50 +1,109 @@
-.logis{
-    background-color: #f4f4f4;
+.logis {
+  background-color: #f4f4f4;
 }
-.logis-order{
-    padding: 22.23rpx 0 23.4rpx 35.1rpx;
-    display: flex;
-    flex-direction: column;
-    font-size: 13px;
-    line-height: 52.65rpx;
-    color: #333;
-    border-bottom: 1px solid #ddd;
-    background-color: #fff;
-}
-.logis-empty{
-    padding-top: 50%;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    background-color: #fff;
-    margin-top: 23.4rpx;
-}
-.logis-empty text{
-     font-size: 16px;
-   color: #777;
-}
-.logis-flow{
-    margin-top: 23.4rpx;
-    padding: 11.7rpx 23.4rpx 46.8rpx 140.4rpx;
-    background-color: #fff;
-    font-size: 13px;
-    color: #777;
-}
-.flow {
 
+.logis-order {
+  padding: 22.23rpx 0 23.4rpx 35.1rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  line-height: 52.65rpx;
+  color: #333;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
 }
-.flow .current{
-    color: #00bebf;
+
+.logis-empty {
+  padding-top: 50%;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  background-color: #fff;
+  margin-top: 23.4rpx;
 }
-.flow-item{
-    padding: 26.91rpx 0;
-    display: flex;
-    flex-direction: column;
-    border-bottom: 1px solid #ddd;
+
+.logis-empty text {
+  font-size: 16px;
+  color: #777;
 }
-.flow text{
-    line-height: 46.8rpx;
+
+.logis-flow {
+  margin-top: 23.4rpx;
+  padding: 11.7rpx 23.4rpx 46.8rpx 0;
+  background-color: #fff;
+  font-size: 13px;
+  color: #777;
 }
-.logis-time{
-    margin-top: 7.02rpx;
+
+.flow {
+  padding-left: 140.4rpx;
+  position: relative;
+}
+.line{
+  position: absolute;
+  top: 112rpx;
+  left: 66.2rpx;
+  width: 2px;
+  height: 68%;
+  background-color: #ddd;
+  z-index: 1;
+}
+.flow .current {
+  color: #00bebf;
+}
+
+.flow-item {
+  padding: 26.91rpx 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-bottom: 1px solid #ddd;
+  z-index: 100;
+}
+
+.flow-icon {
+  position: relative;
+  width: 140.4rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.flow-icon-current .cover{
+  /*position: absolute;
+  top: -26rpx;
+  left: 23.4rpx;
+  width: 100%;
+  height: 50%;
+  background-color: #fff;
+  z-index: 100;*/
+}
+.flow-word {
+  padding-left: 12.87rpx;
+  width: 585rpx;
+}
+
+.logis-time {
+  padding-left: 21.87rpx;
+  width: 585rpx;
+}
+
+.flow-cont {
+  margin-left: -140.4rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.flow text {
+  line-height: 46.8rpx;
+}
+
+.logis-time {
+  margin-top: 7.02rpx;
+}
+
+.flow-spot {
+  width: 21.06rpx;
+  height: 21.06rpx;
+  border-radius: 50%;
+  background-color: #ddd;
 }

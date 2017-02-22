@@ -37,14 +37,17 @@ swiper-item{
 }
 
 .swiper-dots view{
-    width: 8px;
-    height: 8px;
+    width: 17rpx;
+    height: 17rpx;
     border-radius: 50%;
     background-color: #c5c5c5;
     display: inline-block;
-    margin: 0 5px;
+    margin-right:21rpx;
 }
 
+.swiper-dots view:last-child{
+    margin-right: 0;
+}
 .swiper-dots .current{
     background-color: #4ed6d1;
 }
@@ -58,8 +61,12 @@ swiper-item{
 
 .basic-info text{
     display: block;
-    line-height: 20px;
+    line-height: 50rpx;
+    height: 50rpx;
     color: #888888;
+}
+.price-nother{
+    font-size: 12px;
 }
 
 .basic-info .title{
