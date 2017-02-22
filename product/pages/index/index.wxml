@@ -9,6 +9,9 @@
   <view class="recommend-pro">
 
     <!--循环推荐产品-->
+    <block wx:for="{{index}}" wx:if="{{type == 1}}">
+      <view>{{slogn}}</view>
+    </block>
     <view class="re-pro">
       <view class="basic-info">
         <navigator url="/pages/goodsDetail/goodsDetail?id=10086" open-type="navigate">
@@ -35,29 +38,34 @@
       <view class="swiper" id="he">
         <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
           <view class="swiper-item">
-            <swiper bindchange="changePro" indicator-dots="true">
+            <swiper bindchange="changePro">
               <block wx:for="{{imgUrls}}" wx:key="*this">
                 <swiper-item>
                   <view class="inner-box" data-index="0">
                     <view class="session-inner">
                       <image src="{{item}}" mode="aspectFill" class="topic-img"></image>
                     </view>
-                    <view class="topic-word">{{word}}</view>
+                    <view class="topic-word ellip-lines">{{text}}</view>
                   </view>
                 </swiper-item>
               </block>
             </swiper>
+            <!--点点点-->
+            <view class="swiper-dots">
+              <block wx:for="{{imgUrls}}" wx:key="*this">
+                <block wx:if="{{current == index}}">
+                  <view class="current"></view>
+                </block>
+                <block wx:else>
+                  <view></view>
+                </block>
+              </block>
+            </view>
           </view>
-
-          <!--<view class="spot-box">
-          <text class="spot active"></text>
-          <text class="spot"></text>
-          <text class="spot"></text>
-          <text class="spot"></text>
-        </view>-->
         </navigator>
       </view>
     </view>
+
     <!--循环专题-->
     <view class="re-pro">
       <view class="special-banner">

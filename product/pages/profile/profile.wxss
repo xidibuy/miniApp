@@ -1,3 +1,6 @@
+page{
+    background-color: red;
+}
 .container{
     background-color: #f4f4f4;
 }
@@ -60,6 +63,10 @@
    font-size: 16px;
    color: #777;
 }
+.adress{
+    padding: 1px;
+    background-color: #fff;
+}
 .adress-list{
     margin-top: 11.7rpx;
     padding: 0 23.4rpx;
@@ -86,6 +93,15 @@
     font-size: 12px;
     color: #777;
     line-height: 18px;
+}
+.list-edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+}
+.xd-edit{
+    font-size: 30rpx;
 }
 .cont-contact .name,
 .cont-contact .mobile{

@@ -7,7 +7,6 @@
     "pages/orderDetail/orderDetail",
     "pages/profile/profile",
     "pages/logistics/logistics",
-
     "pages/invoice/invoice",
     "pages/order/order",
     "pages/topic/topic",
@@ -23,7 +22,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "来喜地 逛世界",
+    "navigationBarTitleText": "喜地",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

@@ -1,13 +1,14 @@
 <view class="container">
     <view class="swiper">
-        <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="changeSwiper">
+        <swiper  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="changeSwiper">
             <block wx:for="{{imgUrls}}" wx:key="index">
                 <swiper-item>
                     <image src="{{item}}" class="slide-image" width="355" height="150"/>
                 </swiper-item>
             </block>
         </swiper>
-        <!--view class="swiper-dots">
+
+        <view class="swiper-dots">
             <block wx:for="{{imgUrls}}">
                 <block wx:if="{{current == index}}">
                     <view class="current"></view>
@@ -16,16 +17,17 @@
                     <view></view>
                 </block>
             </block>
-        </view-->
+        </view>
+
     </view>
 
     <view class="basic-info">
-        <text class="title">{{id}}新s西兰Meliata麦克鲁蜂蜜UMF5+340g</text>
+        <text class="title ellip-line">{{id}}新s西兰Meliata麦克鲁s西兰Meliata麦克鲁蜂蜜UMF5+340g</text>
         <text class="price">¥149.50</text>
-        <text>原产国市场售价 31.99 NZD(新西兰元)</text>
-        <text>按当前汇率折合人民币 ＝ ¥156.03</text>
-        <text>中国网上零售价价：¥189</text>
-        <text>中国线下实体价价：¥258</text>
+        <text class="price-nother">原产国市场售价 31.99 NZD(新西兰元)</text>
+        <text class="price-nother">按当前汇率折合人民币 ＝ ¥156.03</text>
+        <text class="price-nother">中国网上零售价价：¥189</text>
+        <text class="price-nother">中国线下实体价价：¥258</text>
         <view class="location">
             <image src="{{img}}flags/en.png" class="icon-flag"></image><text>新西兰</text>
         </view>
@@ -61,8 +63,8 @@
     <view class="smiple-intro">
         <text style="font-size:13px;">1. 产自新西兰纯天然无污染蜂蜜产区，无添加麦卢卡蜂蜜； 2. UMF 5+具有一定消炎功能，对肠胃有调节作用； 3. 精确到每瓶蜂蜜的质量追踪系统，安全有保障。</text>
         <view class="post-info">
-            <view style="float:left;"><image class="icon-car" src="{{img}}icon-car.png"></image><text>每天15:00从上海自贸区发货</text></view>
-            <view style="float:right;"><image src="{{img}}icon-time.png" class="icon-time"></image><text>七天无理由退货</text></view>
+            <view style="float:left;"><text class="xd xd-truck"></text><text>每天15:00从上海自贸区发货</text></view>
+            <view style="float:right;"><text class="xd xd-seven"></text><text>七天无理由退货</text></view>
         </view>
     </view>
 
@@ -123,8 +125,8 @@
 
     <view class="floatCart">
         <view class="viewCart">
-            <navigator url="/pages/cart/cart" open-type="switchTab" style="background:#fff url({{img}}icon-cart.png) 50% 50% no-repeat;    background-size: 28px 24px;">
-                <view>99+</view>
+            <navigator url="/pages/cart/cart" open-type="switchTab"><text class="xd xd-cart-full"></text>
+                <view>88+</view>
             </navigator>
         </view>
         <view class="addToCart">

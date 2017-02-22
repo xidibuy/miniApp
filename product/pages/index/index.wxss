@@ -25,6 +25,7 @@
 }
 
 .banner image {
+  width: 100%;
   display: block;
   height: 397.8rpx;
 }
@@ -44,7 +45,7 @@
 }
 
 .basic-info .main-title {
-  padding-top: 25.74rpx;
+  padding-top: 50.31rpx;
   margin-bottom: 23.4rpx;
   font-size: 15px;
   line-height: 22px;
@@ -59,12 +60,13 @@
 }
 
 .pro-name .national-flag {
-  width: 49.14rpx;
-  height: 30.42rpx;
+  width: 50rpx;
+  height: 31rpx;
   margin-right: 11.7rpx;
 }
 
 .pro-name .sub-title {
+  width: 616rpx;
   font-size: 13px;
   color: #222;
   white-space: nowrap;
@@ -104,7 +106,7 @@
   line-height: 51.48rpx;
   background-color: #ff7765;
   font-size: 12px;
-  border-radius: 5px;
+  border-radius: 4px;
 }
 
 .warn-stock text {
@@ -116,9 +118,10 @@ swiper{
   height: 100%;
 }
 .swiper {
-  padding: 37.44rpx 35.1rpx 51.48rpx;
+  padding: 37.44rpx 35.1rpx 67.5rpx;
   background-color: #fff;
   border-bottom: 1px solid #c5c5c5;
+  position: relative;
 }
 
 .swiper-item {
@@ -148,26 +151,32 @@ swiper{
   color: #333;
   width: 100%;
   box-sizing: border-box;
+    -webkit-line-clamp:2; 
 }
 
-.spot-box {
-  width: 100%;
-  height: 14.04rpx;
-  display: flex;
-  justify-content: center;
+.swiper-dots{
+    position: absolute;
+    bottom: 39.4rpx;
+    width: 100%;
+    text-align: center;
+    left: 0;
+    z-index: 88;
 }
 
-.spot {
-  margin-right: 23.4rpx;
-  width: 14.08rpx;
-  height: 14.08rpx;
-  display: inline-block;
-  background-color: #b2b2b2;
-  border-radius: 50%;
+.swiper-dots view{
+    width: 15rpx;
+    height: 15rpx;
+    border-radius: 50%;
+    background-color: #c5c5c5;
+    display: inline-block;
+    margin-right: 23.4rpx;
 }
 
-.spot.active {
-  background-color: #4ed6d1;
+.swiper-dots view:last-child{
+  margin-right: 0;
+}
+.swiper-dots .current{
+    background-color: #4ed6d1;
 }
 
 .special-banner {

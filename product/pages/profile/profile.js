@@ -23,7 +23,7 @@ Page({
         active: true
       }, {
         name: "收货地址",
-        value: "delivery",
+        value: "adress",
         active: false
       }, {
         name: "更多设置",
@@ -49,7 +49,6 @@ Page({
       menu: newMenu,
       contentType:name
       });
-    this.getOrders(name);
   },
   onLoad: function (options) {
       this.getOrders(tab);
@@ -57,7 +56,8 @@ Page({
   getOrders: function(name){
     const _this = this;
       const cartUrl = dataUrl + name +'.json';
-      app.fetchApi(cartUrl,function(url,options){
+      app.fetchApi(cartUrl,function(options){
+        
           _this.setData({
               orders : options.data.orders
           });
@@ -65,7 +65,6 @@ Page({
   },
  sureModal:function(e){
    var _this = this;
-   console.log(e.target.dataset.id);
    const id = _this.data.orders.map((arr,index) => {
      if(arr.id === e.target.dataset.id){
         wx.showModal({
