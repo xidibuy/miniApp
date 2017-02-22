@@ -1,18 +1,15 @@
 {
   "pages": [
-    "pages/cart/invalid/invalid",
-    "pages/cart/cart/cart",
     "pages/index/index",
+    "pages/cart/cart/cart",
+    "pages/cart/invalid/invalid",
+    "pages/goodsDetail/goodsDetail",
     "pages/orderDetail/orderDetail",
     "pages/profile/profile",
-    
-    
-
     "pages/logistics/logistics",
 
     "pages/invoice/invoice",
     "pages/order/order",
-    "pages/goodsDetail/goodsDetail",
     "pages/topic/topic",
     "pages/about/about",
     "pages/logs/logs",
@@ -32,8 +29,8 @@
   "tabBar": {
     "color": "#7f7f7f",
     "selectedColor": "#7f7f7f",
-    "borderStyle": "black",
-    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/index",
@@ -42,7 +39,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/cart/cart",
+        "pagePath": "pages/cart/cart/cart",
         "iconPath": "image/cart.png",
         "selectedIconPath": "image/cart-active.png",
         "text": "购物车"

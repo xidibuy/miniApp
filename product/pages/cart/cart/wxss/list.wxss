@@ -15,7 +15,7 @@
   left: 0;
   z-index: 2;
   width: 100%;
-  height: 1px;
+  height: 2rpx;
   background: #d9d9d9;
 }
 
@@ -181,4 +181,5 @@
   width: 35.01rpx;
   font-size: 21.06rpx;
   line-height: 56.16rpx;
+  color: #c5c5c5;
 }
