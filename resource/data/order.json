@@ -1,4 +1,5 @@
 ﻿{
+	"statusCode":"200",
 	"data":{
 		"orders": [
 			{"id":"2",
@@ -6,14 +7,14 @@
 			  "state": "待发货",
 			  "pros": [
 				{
-				  "imgUrl": "https://m.xidibuy.com:8000/image/img-3_03.png",
+				  "imgUrl": "https://172.16.14.96:8000/image/img-3_03.png",
 				  "name": "第一个测试数据按甲方不解释的",
 				  "attr": "白色",
 				  "price": "168.22",
 				  "num": 1
 				},
 				{
-				  "imgUrl": "https://m.xidibuy.com:8000/image/img-3_03.png",
+				  "imgUrl": "https://172.16.14.96:8000/image/img-3_03.png",
 				  "name": "第一个测试数据按甲方不解释的",
 				  "attr": "白色",
 				  "price": "168.22",
@@ -31,14 +32,14 @@
 			  "state": "待发货",
 			  "pros": [
 				{
-				  "imgUrl": "https://m.xidibuy.com:8000/image/img-3_03.png",
+				  "imgUrl": "https://172.16.14.96:8000/image/img-3_03.png",
 				  "name": "第一个测试数据按甲方不解释的",
 				  "attr": "白色",
 				  "price": "168.22",
 				  "num": 1
 				},
 				{
-				  "imgUrl": "https://m.xidibuy.com:8000/image/img-3_03.png",
+				  "imgUrl": "https://172.16.14.96:8000/image/img-3_03.png",
 				  "name": "第一个测试数据按甲方不解释的",
 				  "attr": "白色",
 				  "price": "168.22",

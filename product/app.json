@@ -1,16 +1,15 @@
 {
   "pages": [
-"pages/goodsDetail/goodsDetail",
+
+    "pages/logistics/logistics",
+    "pages/profile/profile",
+    "pages/index/index",
+        "pages/goodsDetail/goodsDetail",
     "pages/cart/invalid/invalid",
     "pages/cart/cart/cart",
-    "pages/index/index",
     "pages/orderDetail/orderDetail",
-    "pages/profile/profile",
-    "pages/logistics/logistics",
-
     "pages/invoice/invoice",
     "pages/order/order",
-
     "pages/topic/topic",
     "pages/about/about",
     "pages/logs/logs",
@@ -24,7 +23,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "来喜地 逛世界",
+    "navigationBarTitleText": "喜地",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -40,7 +39,7 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/cart/cart",
+        "pagePath": "pages/cart/cart/cart",
         "iconPath": "image/cart.png",
         "selectedIconPath": "image/cart-active.png",
         "text": "购物车"
