@@ -6,31 +6,31 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
-    
+
   },
   fetchApi(url, callback) {
-		wx.request({
-			url,
-			data: {},
-			header: {
-				'content-type': 'application/json'
-			},
-      dataType:"json",
-			success(res) {
-        if(res.statusCode == 200){
+    wx.request({
+      url,
+      data: {},
+      header: {
+        'content-type': 'application/json'
+      },
+      dataType: "json",
+      success(res) {
+        if (res.statusCode == 200) {
           callback(res.data);
         }
-			},
-			fail(e) {
-				callback(e)
-			}
-		})
-	},
-  getUserInfo:function(cb){
+      },
+      fail(e) {
+        callback(e)
+      }
+    })
+  },
+  getUserInfo: function (cb) {
     var that = this
-    if(this.globalData.userInfo){
+    if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
+    } else {
       //调用登录接口
       wx.login({
         success: function () {
@@ -44,10 +44,14 @@ App({
       })
     }
   },
-  globalData:{
-    userInfo:null,
-    img : "https://172.16.14.96:8000/image/",
-    data: "https://wxapp.xidibuy.com"
-
+  globalData: {
+    userInfo: null,
+    // img : "https://m.xidibuy.com:8000/image/",
+    // data: "https://m.xidibuy.com:8000/data/"
+    // img: "https://127.0.0.1:8000/image/",
+    // data: "https://127.0.0.1:8000/data/"
+    // data: "https://wxapp.xidibuy.com"
+    img: "http://127.0.0.1:8888/image/",
+    data: "http://127.0.0.1:8888/data/"
   }
 })
