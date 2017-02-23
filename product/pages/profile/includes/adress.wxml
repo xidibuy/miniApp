@@ -14,8 +14,8 @@
           <text class="mobile">18619900816</text>
           <text class="default">默认</text>
         </view>
-        <view class="cont-ad ellip-line">上海市 静安区上海市 静安区上海市 静安区上海市 静安区</view>
-        <view class="cont-ad-desic ellip-line">北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室</view>
+        <view class="cont-ad ellip-lines">上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区</view>
+        <view class="cont-ad-desic ellip-lines">北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室</view>
       </view>
       <view class="list-edit">
         <navigator url="/pages/addAdress/addAdress"><text class="xd xd-edit"></text></navigator>
@@ -28,8 +28,8 @@
           <text class="mobile">18619900816</text>
           <text class="default">默认</text>
         </view>
-        <view class="cont-ad ellip-line">上海市 静安区上海市 静安区上海市 静安区上海市 静安区</view>
-        <view class="cont-ad-desic ellip-line">北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室</view>
+        <view class="cont-ad ellip-lines">上海市 静安区上海市 静安区上海市 静安区上海市 静安区</view>
+        <view class="cont-ad-desic ellip-lines">北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室</view>
       </view>
       <view class="list-edit">
         <navigator url="/pages/addAdress/addAdress"><text class="xd xd-edit"></text></navigator>
@@ -42,8 +42,8 @@
           <text class="mobile">18619900816</text>
           <text class="default">默认</text>
         </view>
-        <view class="cont-ad ellip-line">上海市 静安区上海市 静安区上海市 静安区上海市 静安区</view>
-        <view class="cont-ad-desic ellip-line">北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室</view>
+        <view class="cont-ad ellip-lines">上海市 静安区上海市 静安区上海市 静安区上海市 静安区</view>
+        <view class="cont-ad-desic ellip-lines">北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室</view>
       </view>
       <view class="list-edit">
         <navigator url="/pages/addAdress/addAdress"><text class="xd xd-edit"></text></navigator>
