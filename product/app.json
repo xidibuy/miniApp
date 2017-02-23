@@ -1,12 +1,19 @@
 {
   "pages": [
-    "pages/cart/cart/cart",
+    "pages/confirmOrder/index/index",
     "pages/index/index",
+    "pages/confirmOder/index/index",
     
-    "pages/logistics/logistics",
-    
-    
+
+    "pages/cart/cart/cart",
     "pages/cart/invalid/invalid",
+    "pages/logistics/logistics",
+    "pages/confirmOrder/address/address",
+    
+    "pages/confirmOrder/way/way",
+    "pages/confirmOrder/invoice/invoice",
+    
+    
     "pages/goodsDetail/goodsDetail",
     "pages/orderDetail/orderDetail",
     "pages/profile/profile",

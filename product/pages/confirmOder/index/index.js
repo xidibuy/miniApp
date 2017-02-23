@@ -1,4 +1,4 @@
-// pages/order/order.js
+// pages/confirmOder/index/index.js
 Page({
   data:{},
   onLoad:function(options){

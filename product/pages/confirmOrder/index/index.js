@@ -1,4 +1,5 @@
-// pages/order/order.js
+// pages/confirmOrder/index/index.js
+const app = getApp();
 Page({
   data:{},
   onLoad:function(options){
