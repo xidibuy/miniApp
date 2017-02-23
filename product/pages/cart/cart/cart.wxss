@@ -7,7 +7,7 @@ page{
 }
 
 .container.has-goods{
-  background: #f4f4f4;
+  /*background: #f4f4f4;*/
   padding-bottom: 114.66rpx; 
 }
 
@@ -35,18 +35,22 @@ page{
 }
 
 .invalid-goods-navigator{
+  position: relative;
   margin: 0 23.4rpx;
   height: 93.6rpx;
   line-height: 93.6rpx;
-  border-bottom: 1px solid #d9d9d9;
+  border-bottom: 2rpx solid #d9d9d9;
   font-size: 12px;
   color:#222;
 }
 
 .invalid-goods-navigator .xd{
-  float: right;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  font-size: 28rpx;
+  margin: -14rpx -14rpx 0 0;
   color: #c5c5c5;
-  margin-top: 33.4rpx;
 }
 
 /*结算*/

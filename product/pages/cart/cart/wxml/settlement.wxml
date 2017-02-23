@@ -4,9 +4,8 @@
     <view class="settlement-left">
         <!--全选按钮-->
         <label class="checkbox-widget" bindTap="isChecked">
-          <text class="xd xd-checked"></text>
+          <text class="xd xd-checked"></text><text class="checkbox-word">全选</text>
           <checkbox value="" checked="" class="checkbox" />
-          <text class="checkbox-word">全选</text>
         </label>
         <!--总计-->
         <view class="settlement-total">

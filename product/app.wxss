@@ -1,6 +1,6 @@
 @import './css/font.wxss';
 
-view, text {
+view, text,label {
   box-sizing: border-box;
 }
 

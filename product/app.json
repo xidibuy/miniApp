@@ -7,8 +7,8 @@
     "pages/addAdress/addAdress",
     "pages/goodsDetail/goodsDetail",
     "pages/index/index",
-    "pages/cart/invalid/invalid",
     "pages/cart/cart/cart",
+    "pages/cart/invalid/invalid",
     "pages/orderDetail/orderDetail",
     "pages/order/order",
     "pages/topic/topic",
@@ -28,8 +28,8 @@
   "tabBar": {
     "color": "#7f7f7f",
     "selectedColor": "#7f7f7f",
-    "borderStyle": "black",
-    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/index",
