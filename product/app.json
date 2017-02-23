@@ -1,13 +1,14 @@
 {
   "pages": [
-
-    "pages/logistics/logistics",
-    "pages/profile/profile",
-    "pages/index/index",
-        "pages/goodsDetail/goodsDetail",
-    "pages/cart/invalid/invalid",
     "pages/cart/cart/cart",
+    "pages/logistics/logistics",
+    "pages/index/index",
+    
+    "pages/cart/invalid/invalid",
+    "pages/goodsDetail/goodsDetail",
     "pages/orderDetail/orderDetail",
+    "pages/profile/profile",
+    
     "pages/invoice/invoice",
     "pages/order/order",
     "pages/topic/topic",
@@ -29,8 +30,8 @@
   "tabBar": {
     "color": "#7f7f7f",
     "selectedColor": "#7f7f7f",
-    "borderStyle": "black",
-    "backgroundColor": "#fafafa",
+    "borderStyle": "white",
+    "backgroundColor": "#fff",
     "list": [
       {
         "pagePath": "pages/index/index",

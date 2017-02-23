@@ -1,46 +1,57 @@
 <view class="container">
 
-  <!--自提-->
-  <view class="logis logis-self" style="display:none">
-    <view class="logis-order">
-      <text>子订单号: 000000000</text>
-      <text>运送方式: 自提</text>
-    </view>
-    <view class="logis-empty">
-      <text>买家自提,无物流信息</text>
-    </view>
+  <!--info-->
+  <view class="logistics-info">
+
+    <!--物流-->
+    <block wx:if="{{logisticsType == 1}}">
+      <view class="logistics-info-item"> 订单号：{{logisticsInfo.orderNumber}}</view>
+      <view class="logistics-info-item"> 运送方式：{{logisticsInfo.way}}</view>
+      <view class="logistics-info-item"> 物流公司：{{logisticsInfo.company}}</view>
+      <view class="logistics-info-item"> 运单编号：{{logisticsInfo.waybillNumber}}</view>
+    </block>
+
+    <!--自提-->
+    <block wx:else>
+      <view class="logistics-info-item"> 订单号：{{logisticsInfo.orderNumber}}</view>
+      <view class="logistics-info-item"> 运送方式：{{logisticsInfo.way}}</view>
+    </block>
   </view>
 
-  <!--物流-->
-  <view class="logis logis-fun">
-    <view class="logis-order">
-      <text>子订单号: {{orderId}}</text>
-      <text>运送方式: {{fun}}</text>
-      <text>物流公司: {{logisName}}</text>
-      <text>运单编号: {{logisId}}</text>
-    </view>
-    <view class="logis-flow">
-      <view class="flow">
-        <block wx:for="{{logis}}" wx:key="*this">
-          <view class="flow-item {{item.type == 1 ? 'current' : ''}}">
-            <view class="flow-cont">
-              <view class="flow-icon {{item.type == 1 ? 'flow-icon-current' : ''}}">
-                <view class="cover"></view>
-                <text class="{{item.type == 1 ? 'xd xd-location' : 'flow-spot'}}"></text>
-              </view>
-              <text class="flow-word ">{{item.word}}</text>
+  <!--分割线-->
+  <view class="division-line"></view>
+
+  <!--details-->
+  <view class="logistics-details">
+
+    <!--物流-->
+    <block wx:if="{{logisticsType == 1}}">
+
+      <!--有物流信息-->
+      <block wx:if="{{logisticsDetails.length}}">
+        <block wx:for="{{logisticsDetails}}" wx:key="{{*this}}" wx:for-index="idx">
+          <view class="logistics-details-item {{(idx == 0) ? 'start': '' }} {{(idx + 1 == logisticsDetails.length) ? 'end': '' }}">
+            <view class="logistics-details-item-word">
+              <text class="xd {{(idx == 0) ? 'xd-location' : 'xd-dot'}}"></text>
+              {{item.text}}
             </view>
-            <view class="flow-time">
-              <text class="logis-time">{{item.time}}</text>
+            <view class="logistics-details-item-date">
+              {{item.date}}
+              <text class="logistics-details-item-time">{{item.time}}</text>
             </view>
           </view>
         </block>
-        <view class="line"></view>
-      </view>
-    </view>
+      </block>
+
+      <!--无物流信息-->
+      <block wx:else>
+        <view class="logistics-details-tips"> 暂无物流信息</view>
+      </block>
+    </block>
+
+    <!--自提-->
+    <block wx:else>
+      <view class="logistics-details-tips"> 买家自提，无物流信息</view>
+    </block>
   </view>
-
-  <!--竖线-->
-
-  <!--<canvas canvas-id="myCanvas" style="border: 1px solid;"/>-->
 </view>

@@ -1,109 +1,142 @@
-.logis {
-  background-color: #f4f4f4;
-}
-
-.logis-order {
-  padding: 22.23rpx 0 23.4rpx 35.1rpx;
-  display: flex;
-  flex-direction: column;
+.logistics-info {
+  padding: 23.4rpx 35.1rpx;
   font-size: 13px;
-  line-height: 52.65rpx;
   color: #333;
-  border-bottom: 1px solid #ddd;
-  background-color: #fff;
+  line-height: 53.82rpx;
+  border-bottom: 2rpx solid #ddd;
 }
 
-.logis-empty {
-  padding-top: 50%;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: #fff;
-  margin-top: 23.4rpx;
+.logistics-info-item {
+  height: 53.82rpx;
 }
 
-.logis-empty text {
-  font-size: 16px;
-  color: #777;
+.division-line {
+  height: 23.4rpx;
+  background: #f4f4f4;
 }
 
-.logis-flow {
-  margin-top: 23.4rpx;
-  padding: 11.7rpx 23.4rpx 46.8rpx 0;
-  background-color: #fff;
-  font-size: 13px;
-  color: #777;
+.logistics-details {
+  overflow: hidden;
+  border-top: 2rpx solid #ddd;
+  padding: 38.61rpx 23.4rpx 46.8rpx 52.65rpx;
 }
 
-.flow {
-  padding-left: 140.4rpx;
+.logistics-details.line {
   position: relative;
 }
-.line{
+
+.logistics-details.line::before {
+  content: '';
   position: absolute;
-  top: 112rpx;
-  left: 66.2rpx;
-  width: 2px;
-  height: 68%;
-  background-color: #ddd;
-  z-index: 1;
+  top: 0;
+  left: 78rpx;
+  width: 2.34rpx;
+  height: 100%;
+  background: #ddd;
 }
-.flow .current {
+
+.logistics-details-tips {
+  margin-top: 175.5rpx;
+  font-size: 16px;
+  color: #777;
+  text-align: center;
+}
+
+.logistics-details-item {
+  position: relative;
+  font-size: 13px;
+  color: #777;
+  line-height: 46.8rpx;
+  padding-top: 26.91rpx;
+}
+
+.logistics-details-item-word {
+  position: relative;
+  padding-left: 98.28rpx;
+  margin-bottom: 7.02rpx;
+}
+
+.logistics-details-item-word .xd {
+  position: absolute;
+  top: 50%;
+  left: 14.2rpx;
+  z-index: 2;
+  margin-top: -7.5rpx;
+  font-size: 15rpx;
+  color: #ddd;
+}
+
+.logistics-details-item-word .xd.xd-location {
+  color: #00bebf;
+  left: 0;
+  margin-top: -15rpx;
+  font-size: 30rpx;
+  background: #fff;
+  padding-top: 11.7rpx;
+}
+
+.logistics-details-item-date {
+  width: 585rpx;
+  margin-left: 86.58rpx;
+  padding: 0 0 26.91rpx 11.7rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.logistics-details-item.start {
   color: #00bebf;
 }
 
-.flow-item {
-  padding: 26.91rpx 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border-bottom: 1px solid #ddd;
-  z-index: 100;
+.logistics-details-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 28rpx;
+  width: 2.34rpx;
+  height: 100%;
+  background: #ddd;
 }
 
-.flow-icon {
-  position: relative;
-  width: 140.4rpx;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.logistics-details-item.start::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 28rpx;
+  width: 2.34rpx;
+  height: 26.91rpx;
+  background: #fff;
 }
-.flow-icon-current .cover{
-  /*position: absolute;
-  top: -26rpx;
-  left: 23.4rpx;
-  width: 100%;
+
+.logistics-details-item.start .logistics-details-item-word::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 28rpx;
+  width: 2.34rpx;
   height: 50%;
-  background-color: #fff;
-  z-index: 100;*/
-}
-.flow-word {
-  padding-left: 12.87rpx;
-  width: 585rpx;
+  background: #fff;
 }
 
-.logis-time {
-  padding-left: 21.87rpx;
-  width: 585rpx;
+.logistics-details-item.end::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 28rpx;
+  width: 2.34rpx;
+  height: 75.71rpx;
+  background: #fff;
 }
 
-.flow-cont {
-  margin-left: -140.4rpx;
-  display: flex;
-  justify-content: space-between;
+.logistics-details-item.end .logistics-details-item-word::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 28rpx;
+  width: 2.34rpx;
+  height: 50%;
+  background: #fff;
 }
 
-.flow text {
-  line-height: 46.8rpx;
-}
-
-.logis-time {
-  margin-top: 7.02rpx;
-}
-
-.flow-spot {
-  width: 21.06rpx;
-  height: 21.06rpx;
-  border-radius: 50%;
-  background-color: #ddd;
+.logistics-details-item.end.start::before,
+.logistics-details-item.end.start::after{
+  background: transparent;
 }

@@ -4,7 +4,7 @@
     "list": [
       {
         "id": "1111111",
-        "img": "https://m.xidibuy.com:8000/image/img-1.png",
+        "img": "http://127.0.0.1:8888/image/img-1.png",
         "name": "我是商品名称，很短",
         "attrs": [
           "黑色",
