@@ -49,6 +49,7 @@
   height: 154.44rpx;
   line-height: 154.44rpx;
   padding-left: 17rpx;
+  position: relative
   
 }
 
@@ -60,9 +61,18 @@
   color: #4ed6d1;
 }
 
+.goods-item .checkbox-widget .xd-circle {
+  color: #c5c5c5;
+}
+
 .goods-item .checkbox-widget .checkbox {
   opacity: 0;
-  display: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
 }
 
 .goods-item-detail {

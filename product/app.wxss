@@ -1,6 +1,6 @@
 @import './css/font.wxss';
 
-view, text,label {
+view, text, label, checkbox-group {
   box-sizing: border-box;
 }
 

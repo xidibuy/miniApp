@@ -1,8 +1,10 @@
 {
   "pages": [
     "pages/cart/cart/cart",
-    "pages/logistics/logistics",
     "pages/index/index",
+    
+    "pages/logistics/logistics",
+    
     
     "pages/cart/invalid/invalid",
     "pages/goodsDetail/goodsDetail",

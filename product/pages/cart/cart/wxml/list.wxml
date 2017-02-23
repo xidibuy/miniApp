@@ -4,7 +4,7 @@
 
       <!--优惠信息-->
       <view class="goods-item-concession" hidden="{{!item.favorable}}" data-number="{{item.favorableInfo.number}}">
-        <text class="goods-item-concession-icon">优惠</text>
+        <text class="goods-item-concession-icon {{item.checked ? 'active' : ''}}">优惠</text>
         <text class="goods-item-concession-content">{{item.favorableInfo.word}}</text>
       </view>
 
@@ -12,10 +12,10 @@
       <view class="goods-item-content">
 
         <!--左侧checkbox-->
-        <label class="checkbox-widget" bindTap="toggleCheckbox">
-          <text class="xd xd-checked"></text>
-          <checkbox value="" checked="" class="checkbox" />
-        </label>
+        <checkbox-group bindchange="toggleItemCheckbox" class="checkbox-widget" data-id="{{item.id}}">
+            <text class="xd {{item.checked ? 'xd-checked' : 'xd-circle'}}"></text>
+            <checkbox value="{{item.id}}" class="checkbox" checked="{{item.checked}}" />
+        </checkbox-group>
 
         <!--右侧 商品详情-->
         <view class="goods-item-detail">
