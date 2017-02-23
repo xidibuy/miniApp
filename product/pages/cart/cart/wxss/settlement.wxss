@@ -17,13 +17,13 @@
 
 .settlement-bar .checkbox-widget {
   width: 154.44rpx;
-  padding-left: 23.4rpx;
+  padding-left: 15rpx;
   display: flex;
   align-items:center;
 }
 
 .settlement-bar .checkbox-widget .xd {
-  font-size: 24rpx;
+  font-size: 30rpx;
 }
 
 .settlement-bar .checkbox-widget .xd-checked {
@@ -39,6 +39,7 @@
 .settlement-bar .checkbox-widget .checkbox-word {
   font-size: 13px;
   color: #888;
+  margin-left: 15rpx;
 }
 
 .settlement-bar .settlement-total{

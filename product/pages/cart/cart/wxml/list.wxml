@@ -12,7 +12,7 @@
       <view class="goods-item-content">
 
         <!--左侧checkbox-->
-        <label class="checkbox-widget" bindTap="isChecked">
+        <label class="checkbox-widget" bindTap="toggleCheckbox">
           <text class="xd xd-checked"></text>
           <checkbox value="" checked="" class="checkbox" />
         </label>
