@@ -1,21 +1,20 @@
 {
   "pages": [
-
-    "pages/logistics/logistics",
     "pages/profile/profile",
+    "pages/logistics/logistics",
+    "pages/invoice/invoice",
+    "pages/delivery/delivery",
+    "pages/addAdress/addAdress",
+    "pages/goodsDetail/goodsDetail",
     "pages/index/index",
-        "pages/goodsDetail/goodsDetail",
     "pages/cart/invalid/invalid",
     "pages/cart/cart/cart",
     "pages/orderDetail/orderDetail",
-    "pages/invoice/invoice",
     "pages/order/order",
     "pages/topic/topic",
     "pages/about/about",
     "pages/logs/logs",
     "pages/invalid/invalid",
-    "pages/addAdress/addAdress",
-    "pages/delivery/delivery",
     "pages/question/question",
     "pages/adressList/adressList",
     "pages/evaluate/evaluate"

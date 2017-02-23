@@ -53,5 +53,5 @@
             </view>
         </block>
     </view>
-    <view class="tip-word">您可以登录喜地官网查询更多订单</view>
+    <view class="tip-word">您可以登录喜地官网查询更多订单...</view>
 </view>

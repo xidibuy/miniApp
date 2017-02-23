@@ -13,7 +13,7 @@ page{
     border-bottom: 1px solid #ddd;
     display: flex;
     color: #222;
-    font-size: 15px;
+    font-size: 14px;
     background-color: #fff;
 }
 .nav-item{
@@ -92,7 +92,8 @@ page{
 .cont-ad, .cont-ad-desic{
     font-size: 12px;
     color: #777;
-    line-height: 18px;
+    line-height: 43rpx;
+      -webkit-line-clamp:2;  
 }
 .list-edit{
     display: flex;
@@ -102,6 +103,7 @@ page{
 }
 .xd-edit{
     font-size: 30rpx;
+    color: #9b9b9b;
 }
 .cont-contact .name,
 .cont-contact .mobile{
@@ -126,7 +128,7 @@ page{
     text-align: center;
     line-height: 35.1rpx;
     color: #fff;
-    font-size: 12px;
+    font-size: 11px;
 }
 .cont-contact .cont-ad-desic{
     font-size: 12px;
@@ -163,7 +165,7 @@ page{
     font-size: 14px;
 }
 .order-state-state{
-    font-size: 15px;
+    font-size: 14px;
 }
 .order-pro{
     margin-bottom: -1px;
@@ -213,7 +215,6 @@ page{
 .pro-mo{
     font-size: 14px;
     color: #00bebf;
-    font-weight: 700;
 }
 .pro-num{
     font-size: 13px;
@@ -259,6 +260,7 @@ page{
     font-size: 14px;
     color: #fff;
     background-color: #4ed6d2;
+    border-radius: 3px;
 }
 .handle-link{
     width: 231.66rpx;
@@ -277,6 +279,8 @@ page{
 }
 .order-single, .tip-word{
     margin-top: 22.23rpx;
+    font-size: 14px;
+    color: #777;
 }
 .tip-word{
     width: 100%;

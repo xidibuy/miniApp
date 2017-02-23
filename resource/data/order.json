@@ -22,7 +22,7 @@
 				}
 			  ],
 			  "totalNum": 10,
-			  "totalMoney": 1222,
+			  "totalMoney": "1222.00",
 			  "freight": 10,
 			  "content":"确认收货吗?",
 			  "sureUrl":""
@@ -47,7 +47,7 @@
 				}
 			  ],
 			  "totalNum": 10,
-			  "totalMoney": 1222,
+			  "totalMoney": "1222.00",
 			  "freight": 10
 			}
 		]	
