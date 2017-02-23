@@ -52,6 +52,6 @@ App({
     // data: "https://127.0.0.1:8000/data/"
     // data: "https://wxapp.xidibuy.com"
     img: "http://127.0.0.1:8888/image/",
-    data: "http://172.16.14.70:8888/data/"
+    data: "http://127.0.0.1:8888/data/"
   }
 })

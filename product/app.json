@@ -2,14 +2,11 @@
   "pages": [
     "pages/confirmOrder/index/index",
     "pages/index/index",
-    "pages/confirmOder/index/index",
-    
 
     "pages/cart/cart/cart",
     "pages/cart/invalid/invalid",
     "pages/logistics/logistics",
     "pages/confirmOrder/address/address",
-    
     "pages/confirmOrder/way/way",
     "pages/confirmOrder/invoice/invoice",
     
