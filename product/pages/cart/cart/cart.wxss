@@ -7,7 +7,7 @@ page{
 }
 
 .container.has-goods{
-  background: #f4f4f4;
+  /*background: #f4f4f4;*/
   padding-bottom: 114.66rpx; 
 }
 

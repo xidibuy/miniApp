@@ -1,0 +1,19 @@
+{
+  "state": true,
+  "data": {
+    "type": 1,
+    "info": {
+      "orderNumber": 265694613,
+      "way": "快递",
+      "company": "申通快递",
+      "waybillNumber": 86468748645
+    },
+    "details": [
+      {
+        "text": "上海市/快递已揽件。",
+        "date": "2016-02-02",
+        "time": "16:56:23"
+      }
+    ]
+  }
+}
