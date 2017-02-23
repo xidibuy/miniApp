@@ -69,7 +69,7 @@
     <!--循环专题-->
     <view class="re-pro">
       <view class="special-banner">
-        <navigator url="">
+        <navigator url="/pages/topic/topic">
           <view class="img-cover">
             <image src="{{img}}bg-topic.png" mode="aspectFill"></image>
           </view>
@@ -78,7 +78,7 @@
     </view>
     <view class="re-pro">
       <view class="special-banner">
-        <navigator url="">
+        <navigator url="/pages/topic/topic">
           <view class="img-cover">
             <image src="{{img}}bg-topic.png" mode="aspectFill"></image>
           </view>

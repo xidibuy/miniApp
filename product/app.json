@@ -2,27 +2,29 @@
   "pages": [
     "pages/confirmOrder/index/index",
     "pages/index/index",
-
     "pages/cart/cart/cart",
     "pages/cart/invalid/invalid",
     "pages/logistics/logistics",
+
     "pages/confirmOrder/address/address",
     "pages/confirmOrder/way/way",
     "pages/confirmOrder/invoice/invoice",
     
-    
-    "pages/goodsDetail/goodsDetail",
-    "pages/orderDetail/orderDetail",
-    "pages/profile/profile",
-    
-    "pages/invoice/invoice",
-    "pages/order/order",
     "pages/topic/topic",
+    "pages/goodsDetail/goodsDetail",
     "pages/about/about",
+    "pages/index/index",
+    "pages/profile/profile",
+    "pages/logistics/logistics",
+    "pages/invoice/invoice",
+    "pages/delivery/delivery",
+    "pages/addAdress/addAdress",
+    "pages/cart/cart/cart",
+    "pages/cart/invalid/invalid",
+    "pages/orderDetail/orderDetail",
+    "pages/order/order",
     "pages/logs/logs",
     "pages/invalid/invalid",
-    "pages/addAdress/addAdress",
-    "pages/delivery/delivery",
     "pages/question/question",
     "pages/adressList/adressList",
     "pages/evaluate/evaluate"
@@ -43,7 +45,7 @@
         "pagePath": "pages/index/index",
         "iconPath": "image/home.png",
         "selectedIconPath": "image/home-active.png",
-        "text": "首页"
+        "text": ""
       },
       {
         "pagePath": "pages/cart/cart/cart",

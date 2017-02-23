@@ -44,12 +44,8 @@ App({
       })
     }
   },
-  globalData: {
-    userInfo: null,
-    // img : "https://m.xidibuy.com:8000/image/",
-    // data: "https://m.xidibuy.com:8000/data/"
-    // img: "https://127.0.0.1:8000/image/",
-    // data: "https://127.0.0.1:8000/data/"
+  globalData:{
+    userInfo:null,
     // data: "https://wxapp.xidibuy.com"
     img: "http://127.0.0.1:8888/image/",
     data: "http://127.0.0.1:8888/data/"

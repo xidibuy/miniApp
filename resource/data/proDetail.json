@@ -1,0 +1,19 @@
+{
+	"code":200,
+	"msg":"sahf",
+	"data":{
+		"current":0,
+	    "indicatorDots": true,
+		"autoplay": false,
+		"interval": 5000,
+		"duration": 1000,
+		"amount": 1,
+		"imgUrl":[
+			"https://172.16.14.96:8000/image/img-demo-1.png",
+			"https://172.16.14.96:8000/image/img-demo-1.png",
+			"https://172.16.14.96:8000/image/img-demo-1.png"
+		],
+		"proTitle":"ĞÂÎ÷À¼µ¤Âó·äÃÛĞÂÎ÷À¼µ¤Âó·äÃÛĞÂÎ÷À¼µ¤Âó·äÃÛ",
+		"price":"£¤149.50"
+	}
+}

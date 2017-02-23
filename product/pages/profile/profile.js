@@ -1,5 +1,5 @@
 const app = getApp()
-let tab = 'order' // 菜单默认值
+let tab = 'adress' // 菜单默认值
 let flag = true // 用于判断是否加载的默认菜单
 const img = app.globalData.img;
 const dataUrl = app.globalData.data;

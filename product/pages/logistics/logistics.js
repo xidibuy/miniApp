@@ -12,13 +12,13 @@ Page({
         // 1条信息
         // const url = app.globalData.data + 'logistics/normal1.json';
         // 3条信息
-        // const url = app.globalData.data + 'logistics/normal3.json';
+        const url = app.globalData.data + 'logistics/normal3.json';
         // 6条信息
         // const url = app.globalData.data + 'logistics/normal6.json';
         // 无物流信息
         // const url = app.globalData.data + 'logistics/null.json';
         // 自提
-        const url = app.globalData.data + 'logistics/byself.json';
+        // const url = app.globalData.data + 'logistics/byself.json';
         app.fetchApi(url, function (resp) {
             if (resp.state) {
                 self.setData({
