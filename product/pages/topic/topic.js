@@ -1,10 +1,25 @@
+var app = getApp();
+const url = app.globalData.data;
 Page({
-    onLoad: function() {
-        wx.setNavigationBarTitle({
-            title: '日本手工陶瓷茶具'
-        });
+    data:
+    {
+        topic: {}
     },
-    autoImageHeight: function(e) {
+    onLoad: function () {
+        const _this = this;
+        const cartUrl = url + 'topic.json';
+        app.fetchApi(cartUrl, function (options) {
+
+            _this.setData({
+                topic: options.data
+            });
+            wx.setNavigationBarTitle({
+                title: options.data.title
+            });
+        });
+
+    },
+    autoImageHeight: function (e) {
         console.log(e);
     }
- });
+});

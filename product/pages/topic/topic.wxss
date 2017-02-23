@@ -1,56 +1,39 @@
-
-.masthead{
-    display: block;
-    width: 100%;
+.masthead {
+  display: block;
+  width: 100%;
+  height: 363rpx;
 }
 
-.introduction{
-    display: block;
-    width: 100%;
-    margin: 28px 0;
+.introduction-box {
+  display: flex;
+  margin: 66rpx 0;
+  justify-content: space-between;
 }
 
-.title{
-    display: block;
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 15px;
+.introduction {
+  width: 100%;
+  min-height: 363rpx;
+  max-height: 702rpx;
 }
 
-.intro{
-    font-size: 14px;
-    line-height: 1.5;
+.introduction-two {
+  width: 373.23rpx;
+  height: 362.7rpx;
+  margin-right: 4rpx;
 }
 
-.item{
-    width: 50%;
-    padding: 10px 10px 19px;
-    box-sizing: border-box;
-    border: 1px solid #f3f3f3;
-    border-left:none;
-    float: left;
-    margin-top:-1px;
+.introduction-two:last-child {
+  margin-right: 0;
 }
 
-.item:nth-child(even){
-    border-right-color: #ffffff;
+.title {
+  display: block;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 15px;
 }
 
-.item .name{
-    display: block;
-    margin: 5px 0 3px;
-    height: 36px;
-    overflow: hidden;
-}
-
-.item image{
-    vertical-align: middle;
-    width: 100%;
-}
-
-.item .price{
-    display: block;
-    font-size: 14px;
-    padding-bottom: 6px;
-    font-weight: bold;
+.intro {
+  font-size: 14px;
+  line-height: 1.5;
 }

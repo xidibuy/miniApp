@@ -89,7 +89,7 @@ swiper-item {
 .discound-img {
   margin-top: 19.89rpx;
   margin-right: 23.4rpx;
-  border: 2px solid #ef7f6b;
+  border: 4rpx solid #ef7f6b;
   border-radius: 4px;
   width: 72rpx;
   height: 44rpx;
@@ -182,7 +182,7 @@ swiper-item {
 }
 
 .color-list .selected {
-  border-width: 2px;
+  border-width: 4rpx;
   border-color: #01c9af;
 }
 
@@ -222,7 +222,7 @@ swiper-item {
 }
 
 .size-list .selected {
-  border-width: 2px;
+  border-width: 4rpx;
   border-color: #01c9af;
   line-height: 65.52rpx;
 }
@@ -361,11 +361,6 @@ swiper-item {
 
 /* 喜地推荐 */
 
-.goods-selected {
-  background-color: #fff;
-  border-top: 2rpx solid #ddd;
-}
-
 .xidi-selected {
   text-align: center;
   font-size: 15px;
@@ -407,8 +402,7 @@ swiper-item {
 }
 
 .viewCart {
-  display: inline-flex;
-  flex: 0.52;
+  width: 258rpx;
   background-color: #fff;
 }
 
@@ -416,7 +410,7 @@ swiper-item {
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  border-top: 1px solid #ddd;
+  border-top: 2rpx solid #ddd;
   position: relative;
 }
 
@@ -426,10 +420,10 @@ swiper-item {
   color: #fff;
   border-radius: 9px;
   border-bottom-right-radius: 0;
-  padding: 0 5px;
+  padding: 0 12rpx;
   right: 50%;
-  margin-right: 5px;
-  margin-top: 5px;
+  margin-right: 12rpx;
+  margin-top: 12rpx;
 }
 
 .addToCart {
