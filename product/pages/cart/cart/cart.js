@@ -27,10 +27,7 @@ Page({
 
         })
     },
-    deleteCart: function () {
-
-    },
-    isChecked: function (e) {
+    tapName: function (e) {
         console.log(e);
     }
 });

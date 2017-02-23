@@ -1,12 +1,14 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/cart/cart/cart",
+    "pages/logistics/logistics",
+    "pages/index/index",
+    
     "pages/cart/invalid/invalid",
     "pages/goodsDetail/goodsDetail",
     "pages/orderDetail/orderDetail",
     "pages/profile/profile",
-    "pages/logistics/logistics",
+    
     "pages/invoice/invoice",
     "pages/order/order",
     "pages/topic/topic",

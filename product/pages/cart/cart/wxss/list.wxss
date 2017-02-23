@@ -46,13 +46,14 @@
 
 .goods-item .checkbox-widget {
   width: 93.6rpx;
-  padding-left: 23.4rpx;
-  display: flex;
-  align-items: center;
+  height: 154.44rpx;
+  line-height: 154.44rpx;
+  padding-left: 17rpx;
+  
 }
 
 .goods-item .checkbox-widget .xd {
-  font-size: 24rpx;
+  font-size: 30rpx;
 }
 
 .goods-item .checkbox-widget .xd-checked {
@@ -61,6 +62,7 @@
 
 .goods-item .checkbox-widget .checkbox {
   opacity: 0;
+  display: none;
 }
 
 .goods-item-detail {
@@ -179,7 +181,7 @@
 
 .goods-item-delete {
   width: 35.01rpx;
-  font-size: 21.06rpx;
+  font-size: 24rpx;
   line-height: 56.16rpx;
   color: #c5c5c5;
 }

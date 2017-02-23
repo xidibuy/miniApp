@@ -1,23 +1,32 @@
 var app = getApp();
 Page({
     data: {
-        orderId: "0000000",
-        fun: "圆通快递",
-        logisName: "圆通快递",
-        logisId: "123445232",
-        logis: []
+        img: app.globalData.img,
+        dataUrl: app.globalData.data,
+        logisticsType: 0,
+        logisticsInfo: {},
+        logisticsDetails: []
     },
     onLoad: function () {
-        const _this = this;
-        const indexUrl = 'https://172.16.14.96:8000/data/logis.json';
-        app.fetchApi(indexUrl, function (options) {
-            _this.setData({
-                orderId:options.data.orderId,
-                fun:options.data.fun,
-                logisName:options.data.logisName,
-                logisId:options.data.logisId,
-                logis: options.data.flow
-            });
+        const self = this;
+        // 1条信息
+        // const url = app.globalData.data + 'logistics/normal1.json';
+        // 3条信息
+        // const url = app.globalData.data + 'logistics/normal3.json';
+        // 6条信息
+        // const url = app.globalData.data + 'logistics/normal6.json';
+        // 无物流信息
+        // const url = app.globalData.data + 'logistics/null.json';
+        // 自提
+        const url = app.globalData.data + 'logistics/byself.json';
+        app.fetchApi(url, function (resp) {
+            if (resp.state) {
+                self.setData({
+                    logisticsType: resp.data.type,
+                    logisticsInfo: resp.data.info,
+                    logisticsDetails: resp.data.details && resp.data.details.reverse()
+                });
+            }
         })
     }
 });
