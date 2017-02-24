@@ -1,2 +1,19 @@
-<!--pages/confirmOrder/address/address.wxml-->
-<text>pages/confirmOrder/address/address.wxml</text>
+<view class="container">
+    <view class="first-part">
+     <input type="text" class="input" placeholder="收货人" placeholder-class="input-ph"/>
+     <input type="number" class="input" placeholder="手机号码" placeholder-class="input-ph"/>
+     <textarea class="textarea" placeholder="详细地址" placeholder-class="input-ph"/>
+     <input type="number" class="input" placeholder="邮政编码" placeholder-class="input-ph"/>
+    </view>
+    <view class="division-line"></view>
+    <view class="second-part">
+        <view class="row default">
+            <text>设为默认地址</text>
+            <switch checked/>
+        </view>
+        <view class="row delete">
+            删除地址
+        </view>
+    </view>
+     <navigator url="/pages/confirmOrder/index/index" class="bottom-bar">保存</navigator>
+</view>
