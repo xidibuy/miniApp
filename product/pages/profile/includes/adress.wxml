@@ -3,53 +3,35 @@
 <view class="adress">
 
   <!--收货地址为空-->
-  <view class="empty" style="display:none">
-    <text>暂无收货地址</text>
-  </view>
-  <view class="adress-list">
-    <view class="list-box active">
-      <view class="list-cont">
-        <view class="cont-contact">
-          <text class="name">林素恩</text>
-          <text class="mobile">18619900816</text>
-          <text class="default">默认</text>
+  <block wx:if="{{adress.length > 0}}">
+    <view class="adress-list">
+      <block wx:for="{{adress}}" wx:key="index">
+        <view class="list-box {{item.default ? 'active' : ''}}">
+          <view class="list-cont">
+            <view class="cont-contact">
+              <text class="name">{{item.name}}</text>
+              <text class="mobile">18619900816</text>
+              <block wx:if="{{item.default}}">
+                <text class="default">默认</text>
+              </block>
+            </view>
+            <view class="cont-ad ellip-lines">{{item.contAd}}</view>
+            <view class="cont-ad-desic ellip-lines">{{item.contAdDesic}}</view>
+          </view>
+          <view class="list-edit">
+            <navigator url="/pages/addAdress/addAdress">
+              <text class="xd xd-edit"></text>
+            </navigator>
+          </view>
         </view>
-        <view class="cont-ad ellip-lines">上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区上海市 静安区</view>
-        <view class="cont-ad-desic ellip-lines">北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室</view>
-      </view>
-      <view class="list-edit">
-        <navigator url="/pages/addAdress/addAdress"><text class="xd xd-edit"></text></navigator>
-      </view>
+      </block>
     </view>
-    <view class="list-box">
-      <view class="list-cont">
-        <view class="cont-contact">
-          <text class="name">林素恩</text>
-          <text class="mobile">18619900816</text>
-          <text class="default">默认</text>
-        </view>
-        <view class="cont-ad ellip-lines">上海市 静安区上海市 静安区上海市 静安区上海市 静安区</view>
-        <view class="cont-ad-desic ellip-lines">北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室</view>
-      </view>
-      <view class="list-edit">
-        <navigator url="/pages/addAdress/addAdress"><text class="xd xd-edit"></text></navigator>
-      </view>
+  </block>
+  <block wx:else>
+    <view class="empty">
+      <text>暂无收货地址</text>
     </view>
-    <view class="list-box">
-      <view class="list-cont">
-        <view class="cont-contact">
-          <text class="name">林素恩</text>
-          <text class="mobile">18619900816</text>
-          <text class="default">默认</text>
-        </view>
-        <view class="cont-ad ellip-lines">上海市 静安区上海市 静安区上海市 静安区上海市 静安区</view>
-        <view class="cont-ad-desic ellip-lines">北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室北京路1701号静安大厦18楼c座23室</view>
-      </view>
-      <view class="list-edit">
-        <navigator url="/pages/addAdress/addAdress"><text class="xd xd-edit"></text></navigator>
-      </view>
-    </view>
-  </view>
+  </block>
 
   <!--新增地址按钮(保持固定吸底)-->
   <view class="addAdress-btn">

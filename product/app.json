@@ -1,15 +1,13 @@
 {
   "pages": [
+    "pages/evaluate/evaluate",
     "pages/confirmOrder/way/way",
     "pages/confirmOrder/index/index",
     "pages/confirmOrder/success/success",
     "pages/cart/cart/cart",
     "pages/cart/invalid/invalid",
-    "pages/logistics/logistics",
-
     "pages/confirmOrder/address/address",
     "pages/confirmOrder/invoice/invoice",
-    
     "pages/topic/topic",
     "pages/goodsDetail/goodsDetail",
     "pages/about/about",
@@ -24,7 +22,7 @@
     "pages/invalid/invalid",
     "pages/question/question",
     "pages/adressList/adressList",
-    "pages/evaluate/evaluate"
+    "pages/logistics/logistics"
   ],
   "window": {
     "backgroundTextStyle": "light",

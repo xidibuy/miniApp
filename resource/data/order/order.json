@@ -1,0 +1,72 @@
+﻿{
+  "statusCode":"200",
+  "data":{
+    "menu":[
+      {
+        "name": "我的订单",
+        "value": "order",
+        "active": true
+      }, {
+        "name": "收货地址",
+        "value": "adress",
+        "active": false
+      }, {
+        "name": "更多设置",
+        "value": "more",
+        "active": false
+      }
+    ],
+    "orders": [
+      {
+        "orderId": "001",
+        "time":"2017/02/03",
+        "state":"待发货",
+        "stateNum":"0",
+        "totalNum":13,
+        "totalMoney":"123.00",
+        "freight":"6.00",
+        "pros":[
+          {
+            "proid":1,
+            "imgUrl":"http://172.16.14.96:8888/image/img-3_03.png",
+            "name":"丹麦Essey Wipy II创意褶皱无底纸巾盒 白色",
+            "price":"149.50",
+            "num":1
+          },
+          {
+            "proid":2,
+            "imgUrl":"http://172.16.14.96:8888/image/img-cup.png",
+            "name":"丹麦Essey Wipy II创意褶皱无底纸巾盒 白色丹麦Essey Wipy II创意褶皱无底纸巾盒 白色",
+            "price":"149.50",
+            "num":1
+          }
+        ]
+      },
+      {
+        "orderId": "001",
+        "time":"2017/02/03",
+        "state":"已发货",
+        "stateNum":"1",
+        "totalNum":13,
+        "totalMoney":"123.00",
+        "freight":"6.00",
+        "pros":[
+          {
+            "proid":1,
+            "imgUrl":"http://172.16.14.96:8888/image/img-3_03.png",
+            "name":"丹麦Essey Wipy II创意褶皱无底纸巾盒 白色",
+            "price":"149.50",
+            "num":1
+          },
+          {
+            "proid":2,
+            "imgUrl":"http://172.16.14.96:8888/image/img-cup.png",
+            "name":"丹麦Essey Wipy II创意褶皱无底纸巾盒 白色",
+            "price":"149.50",
+            "num":1
+          }
+        ]
+      }
+    ]
+  }
+}

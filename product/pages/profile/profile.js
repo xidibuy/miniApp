@@ -1,5 +1,5 @@
 const app = getApp()
-let tab = 'adress' // 菜单默认值
+let tab = 'order' // 菜单默认值
 let flag = true // 用于判断是否加载的默认菜单
 const img = app.globalData.img;
 const dataUrl = app.globalData.data;
@@ -11,9 +11,9 @@ Page({
     // 订单列表
     orders: [],
     //收货地址
-    adress:[],
+    adress: [],
     //more
-    more:[],
+    more: [],
     contentType: tab,
     flag: 1,
     menu: [
@@ -32,10 +32,10 @@ Page({
       }
     ]
   },
-  onPullDownRefresh: function(){
-    
+  onPullDownRefresh: function () {
+
   },
-  bindMenu (e) {
+  bindMenu(e) {
     name = e.target.dataset.name // 获取当前点击的menu值
     const newMenu = this.data.menu.map((arr, index) => {
       if (arr.value === name) {
@@ -47,35 +47,39 @@ Page({
     })
     this.setData({
       menu: newMenu,
-      contentType:name
-      });
+      contentType: name
+    });
   },
   onLoad: function (options) {
-      this.getOrders(tab);
+    this.getOrders(tab);
   },
-  getOrders: function(name){
+  getOrders: function (name) {
     const _this = this;
-      const cartUrl = dataUrl + name +'.json';
-      app.fetchApi(cartUrl,function(options){
-        
-          _this.setData({
-              orders : options.data.orders
-          });
-      })
+    // 我的订单,不为空
+    // const cartUrl = dataUrl + '/order/order.json';
+       // 我的订单,为空
+    const cartUrl = dataUrl + '/order/orderNone.json';
+    app.fetchApi(cartUrl, function (options) {
+      console.log(options.data.orders);
+      _this.setData({
+        orders: options.data.orders,
+        menu: options.data.menu
+      });
+    })
   },
- sureModal:function(e){
-   var _this = this;
-   const id = _this.data.orders.map((arr,index) => {
-     if(arr.id === e.target.dataset.id){
+  sureModal: function (e) {
+    var _this = this;
+    const id = _this.data.orders.map((arr, index) => {
+      if (arr.id === e.target.dataset.id) {
         wx.showModal({
-              content: arr.content,
-              success: function(res) {
-                  if (res.confirm) {
-                    // 跳转
-                  }
-                }
-          });
+          content: arr.content,
+          success: function (res) {
+            if (res.confirm) {
+              // 跳转
+            }
+          }
+        });
       }
-   })
- }
+    })
+  }
 })
