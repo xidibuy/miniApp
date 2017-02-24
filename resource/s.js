@@ -7,7 +7,6 @@ var fs = require('fs'),
     url = require('url'),
     path = require('path'),
     mime = require('mime'),
-    opener = require('opener'),
     // ecstatic = require('ecstatic'),
     http = require('http');
 var root = path.resolve(process.argv[2] || '.');
@@ -46,4 +45,3 @@ for (var x in networkInterfaces) {
 var finalUri = 'http://' + ip + ':8888/';
 
 console.log('Server is running at ' + finalUri);
-// opener(finalUri);

@@ -1,0 +1,13 @@
+<view class="container">
+    <view class="title">
+        <text class="xd xd-checked"></text>订单提交成功
+    </view>
+    <view class="row">订单号：2014021491399</view>
+    <view class="row">收货信息：林苏恩 18619900816</view>
+    <view class="row">上海市 静安区 北京西路1701号静安大厦18楼C座23室</view>
+
+    <view class="bottom-bar">
+        <navigator url="/pages/index/index" open-type="switchTab" class="left">返回首页</navigator>
+        <navigator url="/pages/cart/cart/cart" class="right">查看订单</navigator>
+    </view>
+</view>

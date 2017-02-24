@@ -1,4 +1,4 @@
-// pages/order/order.js
+// pages/confirmOrder/invoice/invoice.js
 Page({
   data:{},
   onLoad:function(options){

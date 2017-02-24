@@ -1,0 +1,21 @@
+<view class="goods-list">
+    <block wx:for="{{goodsList}}" wx:key="{{item.id}}">
+      <view class="goods-item">
+        <image src="{{item.img}}" class="goods-item-img"></image>
+        <view class="goods-item-info">
+          <view class="ellip-lines goods-item-name">{{item.name}}</view>
+          <view class="ellip-line goods-item-attrs">
+
+            <!--商品属性-->
+            <block wx:for="{{item.attrs}}" wx:key="*this">
+              <text class="goods-item-info-attr">{{item}}</text>
+            </block>
+          </view>
+          <view class="last-row">
+            <text class="goods-item-price">¥{{item.price}}</text>
+            <text class="goods-item-number">x {{item.number}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>

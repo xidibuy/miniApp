@@ -1,0 +1,28 @@
+<view class="others-box">
+
+  <!--送货方式-->
+  <view class="row way">
+    <text class="row-title">送货方式</text>
+    <view class="ellip-line row-content">{{others.way}}</view>
+    <view class="row-right">
+      <view class="xd xd-right-angle"></view>
+    </view>
+  </view>
+
+  <!--发票信息-->
+  <view class="row invoice">
+    <text class="row-title">发票信息</text>
+    <view class="ellip-line row-content">{{others.invoice}}</view>
+    <view class="row-right">
+      <view class="xd xd-right-angle"></view>
+    </view>
+  </view>
+
+  <!--备注-->
+  <view class="row remark">
+    <text class="row-title">备注</text>
+    <view class="row-content">
+      <input type="text" value="{{others.remark}}" placeholder="选填，告诉工厂代表对订单的特殊要求" maxlength="300" placeholder-style="color: #777;font-size:13px;" />
+    </view>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<view class="address-box">
+    <view class="colors-border"></view>
+
+    <!--有地址信息-->
+    <block wx:if="{{hasAddressInfo}}">
+      <view class="address-info">
+        <view class="first-row">
+          <text class="name">{{addressInfo.name}}</text>
+          <text class="contact">{{addressInfo.contact}}</text>
+          <text class="default-icon">默认</text>
+        </view>
+        <view class="ellip-line city">
+          {{addressInfo.city}}
+        </view>
+        <view class="ellip-line street">
+          {{addressInfo.street}}
+        </view>
+      </view>
+    </block>
+
+    <!--无地址信息-->
+    <block wx:else>
+      <view class="tips">请先填写收货地址</view>
+    </block>
+
+    <!--右侧箭头-->
+    <view class="address-box-right">
+      <view class="xd xd-right-angle"></view>
+    </view>
+  </view>

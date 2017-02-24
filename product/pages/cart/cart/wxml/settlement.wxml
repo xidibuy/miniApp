@@ -3,10 +3,10 @@
     <!--左侧-->
     <view class="settlement-left">
         <!--全选按钮-->
-        <label class="checkbox-widget" bindTap="isChecked">
+        <checkbox-group bindchange="toggleTotalCheckbox" class="checkbox-widget">
           <text class="xd xd-checked"></text><text class="checkbox-word">全选</text>
           <checkbox value="" checked="" class="checkbox" />
-        </label>
+        </checkbox-group>
         <!--总计-->
         <view class="settlement-total">
             <view class="settlement-money">
@@ -16,7 +16,7 @@
         </view>
     </view>
     <!--结算按钮-->
-    <view class="settlement-btn">
+    <navigator class="settlement-btn" url="/pages/confirmOrder/index/index">
         结算 (<text class="settlement-number">3</text>)
-    </view>
+    </navigator>
 </view>
