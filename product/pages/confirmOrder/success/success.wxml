@@ -8,6 +8,6 @@
 
     <view class="bottom-bar">
         <navigator url="/pages/index/index" open-type="switchTab" class="left">返回首页</navigator>
-        <navigator url="/pages/cart/cart/cart" class="right">查看订单</navigator>
+        <navigator url="/pages/goodsDetail/goodsDetail" class="right">查看订单</navigator>
     </view>
 </view>

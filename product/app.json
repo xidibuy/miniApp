@@ -1,12 +1,12 @@
 {
   "pages": [
     "pages/evaluate/evaluate",
-    "pages/confirmOrder/success/success",
+    "pages/confirmOrder/way/way",
     "pages/confirmOrder/index/index",
+    "pages/confirmOrder/success/success",
     "pages/cart/cart/cart",
     "pages/cart/invalid/invalid",
     "pages/confirmOrder/address/address",
-    "pages/confirmOrder/way/way",
     "pages/confirmOrder/invoice/invoice",
     "pages/topic/topic",
     "pages/goodsDetail/goodsDetail",
