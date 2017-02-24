@@ -1,0 +1,32 @@
+<view class="container">
+
+  <!--地址-->
+  <include src="wxml/address.wxml" />
+
+  <!--分割线-->
+  <view class="division-line"></view>
+
+  <!--商品-->
+  <include src="wxml/goods-list.wxml" />
+
+  <!--分割线-->
+  <view class="division-line"></view>
+
+  <!--送货方式、发票信息、备注-->
+  <include src="wxml/others-box.wxml" />
+
+  <!--分割线-->
+  <view class="division-line"></view>
+
+  <!--金额单-->
+  <include src="wxml/bill-box.wxml" />
+
+
+  <!--bottom-bar-->
+  <view class="bottom-bar">
+    <view class="bottom-bar-left">
+      应付金额：<text class="amount">¥{{bill.pay}}</text>
+    </view>
+    <navigator class="bottom-bar-right" url="/pages/confirmOrder/success/success">提交订单</navigator>
+  </view>
+</view>
