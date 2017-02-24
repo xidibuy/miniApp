@@ -30,13 +30,18 @@ Page({
 
   onLoad: function (options) {
     const _this = this;
-    const indexUrl = url + '/index/home';
-    // app.fetchApi(indexUrl, function (options) {
-    //   _this.setData({
-    //     index: options.data
-    //   });
-    //   console.log(index);
-    // })
+    // const indexUrl = url + '/index/home';
+    const indexUrl = url + '/index.json';
+    app.fetchApi(indexUrl, function (options) {
+      _this.setData({
+        index: options.data
+      });
+    })
+  },
+  // 刷新页面
+
+  onPullDownRefresh: function () {
+    this.onLoad();
   },
   // 分享首页
   onShareAppMessage: function () {

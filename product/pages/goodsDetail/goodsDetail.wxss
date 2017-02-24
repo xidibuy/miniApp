@@ -1,5 +1,5 @@
 .container {
-  padding-bottom: 59rpx;
+  padding-bottom: 117rpx;
   background-color: #f1f1f1;
 }
 
@@ -357,6 +357,7 @@ swiper-item {
 /*商品规格图片详情*/
 
 .pro-desic-img image {
+  width: 100%;
 }
 
 /* 喜地推荐 */
@@ -371,10 +372,10 @@ swiper-item {
 .xidi-selected text:before {
   content: '.';
   display: inline-block;
-  width: 59rpx;
-  height: 2rpx;
+  width: 25px;
+  height: 1px;
   background-color: #d8d8d8;
-  margin-right: 24px;
+  margin-right: 10px;
   overflow: hidden;
   vertical-align: middle;
 }
@@ -436,8 +437,8 @@ swiper-item {
   background-color: #4ed6d2;
   color: #fff;
   font-style: 17px;
-  height: 50px;
-  line-height: 50px;
+  height: 117rpx;
+  line-height: 117rpx;
 }
 
 .addToCart button:after {
