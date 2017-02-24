@@ -1,18 +1,21 @@
 {
   "pages": [
-    
     "pages/evaluate/evaluate",
-    "pages/profile/profile",
-    "pages/goodsDetail/goodsDetail",
-    
+    "pages/confirmOrder/success/success",
+    "pages/confirmOrder/index/index",
+    "pages/cart/cart/cart",
+    "pages/cart/invalid/invalid",
+    "pages/confirmOrder/address/address",
+    "pages/confirmOrder/way/way",
+    "pages/confirmOrder/invoice/invoice",
     "pages/topic/topic",
-    "pages/index/index",
+    "pages/goodsDetail/goodsDetail",
     "pages/about/about",
+    "pages/index/index",
+    "pages/profile/profile",
     "pages/invoice/invoice",
     "pages/delivery/delivery",
     "pages/addAdress/addAdress",
-    "pages/cart/cart/cart",
-    "pages/cart/invalid/invalid",
     "pages/orderDetail/orderDetail",
     "pages/order/order",
     "pages/logs/logs",
@@ -37,7 +40,7 @@
         "pagePath": "pages/index/index",
         "iconPath": "image/home.png",
         "selectedIconPath": "image/home-active.png",
-        "text": ""
+        "text": "首页"
       },
       {
         "pagePath": "pages/cart/cart/cart",
