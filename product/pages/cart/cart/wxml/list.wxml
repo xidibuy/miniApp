@@ -21,7 +21,7 @@
         <view class="goods-item-detail">
 
           <!--商品图片-->
-          <navigator url="" class="goods-item-image">
+          <navigator url="/pages/goodsDetail/goodsDetail" class="goods-item-image">
             <image src="{{item.img}}"></image>
           </navigator>
 
@@ -32,7 +32,7 @@
             <view class="goods-item-info-row">
 
               <!--商品标题-->
-              <navigator url="" class="goods-item-title">{{item.name}}</navigator>
+              <navigator url="/pages/goodsDetail/goodsDetail" class="goods-item-title">{{item.name}}</navigator>
 
               <!--商品价格-->
               <view class="goods-item-price">¥{{item.price}}</view>

@@ -1,7 +1,7 @@
 {
   "pages": [
+    "pages/confirmOrder/success/success",
     "pages/confirmOrder/index/index",
-    "pages/index/index",
     "pages/cart/cart/cart",
     "pages/cart/invalid/invalid",
     "pages/logistics/logistics",
@@ -15,12 +15,9 @@
     "pages/about/about",
     "pages/index/index",
     "pages/profile/profile",
-    "pages/logistics/logistics",
     "pages/invoice/invoice",
     "pages/delivery/delivery",
     "pages/addAdress/addAdress",
-    "pages/cart/cart/cart",
-    "pages/cart/invalid/invalid",
     "pages/orderDetail/orderDetail",
     "pages/order/order",
     "pages/logs/logs",
@@ -45,7 +42,7 @@
         "pagePath": "pages/index/index",
         "iconPath": "image/home.png",
         "selectedIconPath": "image/home-active.png",
-        "text": ""
+        "text": "首页"
       },
       {
         "pagePath": "pages/cart/cart/cart",

@@ -16,7 +16,7 @@
         </view>
     </view>
     <!--结算按钮-->
-    <view class="settlement-btn">
+    <navigator class="settlement-btn" url="/pages/confirmOrder/index/index">
         结算 (<text class="settlement-number">3</text>)
-    </view>
+    </navigator>
 </view>

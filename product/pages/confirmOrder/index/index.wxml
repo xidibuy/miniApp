@@ -1,61 +1,32 @@
 <view class="container">
 
   <!--地址-->
-  <view class="address-box">
-    <view class="colors-border"></view>
+  <include src="wxml/address.wxml" />
 
-    <!--有地址信息-->
-    <block wx:if="{{hasAddressInfo}}">
-      <view class="address-info">
-        <view class="first-row">
-          <text class="name">{{addressInfo.name}}</text>
-          <text class="contact">{{addressInfo.contact}}</text>
-          <text class="default-icon">默认</text>
-        </view>
-        <view class="city">
-          {{addressInfo.city}}
-        </view>
-        <view class="street">
-          {{addressInfo.street}}
-        </view>
-      </view>
-    </block>
-
-    <!--无地址信息-->
-    <block wx:else>
-      <view class="tips">请先填写收货地址</view>
-    </block>
-
-    <!--右侧箭头-->
-    <view class="xd xd-right-angle"></view>
-  </view>
+  <!--分割线-->
+  <view class="division-line"></view>
 
   <!--商品-->
-  <view class="goods-list">
-    <block wx:for="{{goodsList}}" wx:key="{{item.id}}">
-      <view class="goods-item">
-        <image src="{{item.img}}" class="goods-item-img"></image>
-        <view class="goods-item-info">
-          <view class="goods-item-name">{{item.name}}</view>
-          <view class="goods-item-attrs">
+  <include src="wxml/goods-list.wxml" />
 
-            <!--商品属性-->
-            <block wx:for="{{item.attrs}}" wx:key="*this">
-              <text class="goods-item-info-attr">{{item}}</text>
-            </block>
-          </view>
-          <view class="last-row">
-            <text class="goods-item-price">{{item.price}}</text>
-            <text class="goods-item-number">{{item.number}}</text>
-          </view>
-        </view>
-      </view>
-    </block>
-  </view>
+  <!--分割线-->
+  <view class="division-line"></view>
 
   <!--送货方式、发票信息、备注-->
-  <view class="others-box"></view>
+  <include src="wxml/others-box.wxml" />
+
+  <!--分割线-->
+  <view class="division-line"></view>
 
   <!--金额单-->
-  <view class="bill-box"></view>
+  <include src="wxml/bill-box.wxml" />
+
+
+  <!--bottom-bar-->
+  <view class="bottom-bar">
+    <view class="bottom-bar-left">
+      应付金额：<text class="amount">¥{{bill.pay}}</text>
+    </view>
+    <navigator class="bottom-bar-right" url="/pages/confirmOrder/success/success">提交订单</navigator>
+  </view>
 </view>
