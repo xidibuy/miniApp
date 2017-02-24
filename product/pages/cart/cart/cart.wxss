@@ -1,18 +1,6 @@
-page{
-  height: 100%;
-}
-.container {
-  overflow: hidden;
-  height: 100%;
-}
-
 .container.has-goods{
   /*background: #f4f4f4;*/
   padding-bottom: 114.66rpx; 
-}
-
-.container.null{
-  background: #fff;
 }
 
 .free-shipping-tips {

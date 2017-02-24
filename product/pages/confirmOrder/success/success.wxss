@@ -1,0 +1,49 @@
+.title{
+    margin: 81.9rpx 0  63.18rpx 0;
+    padding-left: 31.59rpx;
+    font-size: 17px;
+    color: #222;
+    font-weight: bold;
+    height: 58.5rpx;
+    line-height: 58.5rpx;
+}
+.title .xd{
+    font-size: 36rpx;
+    color: #56ecaa;
+    margin-right: 19.89rpx; 
+}
+
+.row{
+    padding-left: 35.1rpx;
+    font-size: 12px;
+    color: #777;
+    line-height: 42.12rpx;
+}
+
+
+/*bottom-bar*/
+.bottom-bar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 111;
+    width: 100%;
+    height: 113.49rpx;
+    line-height: 113.49rpx;
+    background: #fff;
+    display: flex;
+    font-size: 15px;
+    text-align: center;
+}
+.bottom-bar .left{
+    width: 50%;
+    height: 112.32rpx;
+    border-top: 2rpx solid #ddd;
+    color: #777;
+}
+
+.bottom-bar .right{
+    width: 50%;
+    color: #fff;
+    background: #4ed6d2;
+}

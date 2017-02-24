@@ -1,0 +1,57 @@
+.others-box{
+    padding: 0 23.4rpx;
+    border-bottom: 2rpx solid #ddd;
+}
+.others-box .row{
+    display: flex;
+    height: 102.96rpx;
+    line-height: 102.96rpx;
+    border-bottom: 2rpx dotted #ddd;
+}
+.others-box .row:last-child{
+    border-bottom: none;
+}
+
+.others-box .row-title{
+    font-size: 14px;
+    color: #222;
+    margin-right: 46.8rpx;
+}
+
+.others-box .remark .row-title{
+    margin-right: 81.9rpx;
+}
+
+
+.others-box .row-content{
+    width: 482rpx;
+    text-align: right;
+    font-size: 13px;
+    color: #222;
+}
+
+.others-box .row-content input{
+    width: 100%;
+    height: 100%;
+    line-height: 102.96rpx;
+    font-size: 13px;
+    color: #222;
+}
+
+.others-box .remark .row-content{
+    width: 512rpx;
+}
+
+.others-box .row-right{
+  display: flex;
+  align-items: center;
+  width: 17.55rpx;
+  margin: 0 11.7rpx 0 28.08rpx;
+  font-size: 30rpx;
+  color: #c5c5c5;
+}
+.others-box  .row-right .xd{
+  position: relative;
+  left: -23rpx;
+  top: 6rpx;
+}

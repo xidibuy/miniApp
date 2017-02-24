@@ -4,7 +4,7 @@
     "list": [
       {
         "id": "1111111",
-        "img": "http://127.0.0.1:8888/image/img-1.png",
+        "img": "http://172.16.14.70:8888/image/img-1.png",
         "name": "我是商品名称，很短",
         "attrs": [
           "黑色",
@@ -17,7 +17,8 @@
         "favorableInfo": {
           "number": 20,
           "word": "购买指定商品即可享受立减20元"
-        }
+        },
+        "checked": true
       }
     ],
     "invalidGoodsNum": 3

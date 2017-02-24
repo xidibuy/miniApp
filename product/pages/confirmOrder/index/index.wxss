@@ -1,0 +1,41 @@
+/*收货地址*/
+@import './wxss/address.wxss';
+/*商品列表*/
+@import './wxss/goods-list.wxss';
+/*送货方式、发票信息、备注*/
+@import './wxss/others-box.wxss';
+/*金额单*/
+@import './wxss/bill-box.wxss';
+
+/*bottom-bar*/
+.bottom-bar{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 111;
+    width: 100%;
+    height: 115.83rpx;
+    line-height: 115.83rpx;
+    
+    background: #fff;
+    display: flex;
+}
+.bottom-bar-left{
+    height: 114.66rpx;
+    border-top: 2rpx solid #ddd;
+    flex-grow: 1;
+    font-size: 13px;
+    padding-left: 23.4rpx;     
+}
+.bottom-bar-left .amount{
+    font-size: 16px;
+    margin-left: 23.4rpx;
+    color: #00bebf;
+}
+.bottom-bar-right{
+    width: 257.4rpx;
+    font-size: 15px;
+    color: #fff;
+    text-align: center;
+    background: #4ed6d2;
+}

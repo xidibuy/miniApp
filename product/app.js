@@ -46,8 +46,8 @@ App({
   },
   globalData:{
     userInfo:null,
-    img : "http://172.16.14.96:8888/image/",
-    data : "http://172.16.14.96:8888/data/",
     // data: "https://wxapp.xidibuy.com"
+    img: "http://172.16.14.70:8888/image/",
+    data: "http://172.16.14.70:8888/data/"
   }
 })

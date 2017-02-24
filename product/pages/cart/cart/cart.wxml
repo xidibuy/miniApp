@@ -1,10 +1,10 @@
-<view class="container {{list.length ? 'has-goods' : 'null'}}">
+<view class="container {{list.length ? 'has-goods' : ''}}">
 
   <!--如果有商品-->
   <block wx:if="{{list.length}}">
 
     <!--满x元免运费提示-->
-    <view class="free-shipping-tips"  bindTap="tapName">再买48.00元即享98元免运费</view>
+    <view class="free-shipping-tips">再买48.00元即享98元免运费</view>
 
     <!-- 购物车 已购商品列表 -->
     <include src="wxml/list.wxml" />
@@ -12,9 +12,11 @@
     <!-- 结算 -->
     <include src="wxml/settlement.wxml" />
 
+    <!--分割线-->
+    <view class="division-line" hidden="{{!invalidGoodsNum}}"></view>
     <!--失效商品-->
     <view class="invalid-goods" hidden="{{!invalidGoodsNum}}">
-      <navigator class="invalid-goods-navigator">
+      <navigator class="invalid-goods-navigator" url="/pages/cart/invalid/invalid">
         <text>另有{{invalidGoodsNum}}个商品已失效</text>
         <text class="xd xd-right-angle"></text>
       </navigator>

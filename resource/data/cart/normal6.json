@@ -4,7 +4,7 @@
     "list": [
       {
         "id": "1111111",
-        "img": "http://127.0.0.1:8888/image/img-1.png",
+        "img": "http://172.16.14.70:8888/image/img-1.png",
         "name": "我是商品名称，很短",
         "attrs": [
           "黑色",
@@ -17,11 +17,12 @@
         "favorableInfo": {
           "number": 20,
           "word": "购买指定商品即可享受立减20元"
-        }
+        },
+        "checked": true
       },
       {
         "id": "22222222",
-        "img": "http://127.0.0.1:8888/image/img-3_03.png",
+        "img": "http://172.16.14.70:8888/image/img-3_03.png",
         "name": "我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长",
         "attrs": [
           "10*10",
@@ -35,11 +36,12 @@
         "choseNum": 3,
         "stock": 50,
         "price": 149.54,
-        "favorable": false
+        "favorable": false,
+        "checked": true
       },
       {
         "id": "3333333",
-        "img": "http://127.0.0.1:8888/image/img-2.png",
+        "img": "http://172.16.14.70:8888/image/img-2.png",
         "name": "我是商品名称，我是商品名称，我是商品名称，我是商品名称",
         "attrs": [
           "10*10",
@@ -49,11 +51,12 @@
         "choseNum": 1,
         "stock": 9,
         "price": 149.54,
-        "favorable": false
+        "favorable": false,
+        "checked": true
       },
       {
         "id": "444444",
-        "img": "http://127.0.0.1:8888/image/img-1.png",
+        "img": "http://172.16.14.70:8888/image/img-1.png",
         "name": "我是商品名称，很短",
         "attrs": [
           "黑色",
@@ -66,11 +69,12 @@
         "favorableInfo": {
           "number": 20,
           "word": "购买指定商品即可享受立减20元"
-        }
+        },
+        "checked": true
       },
       {
         "id": "5555",
-        "img": "http://127.0.0.1:8888/image/img-3_03.png",
+        "img": "http://172.16.14.70:8888/image/img-3_03.png",
         "name": "我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长我是商品名称，很长",
         "attrs": [
           "10*10",
@@ -84,11 +88,12 @@
         "choseNum": 3,
         "stock": 50,
         "price": 149.54,
-        "favorable": false
+        "favorable": false,
+        "checked": true
       },
       {
         "id": "6666",
-        "img": "http://127.0.0.1:8888/image/img-2.png",
+        "img": "http://172.16.14.70:8888/image/img-2.png",
         "name": "我是商品名称，我是商品名称，我是商品名称，我是商品名称",
         "attrs": [
           "10*10",
@@ -98,9 +103,10 @@
         "choseNum": 1,
         "stock": 9,
         "price": 149.54,
-        "favorable": false
+        "favorable": false,
+        "checked": true
       }
     ],
-    "invalidGoodsNum": 3
+    "invalidGoodsNum": 0
   }
 }
