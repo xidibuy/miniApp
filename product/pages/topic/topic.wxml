@@ -13,7 +13,7 @@
   <view class="goods-selected">
     <block wx:for="{{topic.pro}}" wx:key="id">
       <view class="item">
-        <navigator url="/pages/detail/detail?id=0" open-type="navigate"  class="item-box">
+        <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate"  class="item-box">
           <image src="{{item.imgUrl}}"></image>
           <text class="name">{{item.name}}</text>
           <text class="price">{{item.price}}</text>

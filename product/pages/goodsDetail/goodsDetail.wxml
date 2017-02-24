@@ -134,7 +134,7 @@
   </view>
   <view class="goods-selected">
     <view class="item">
-      <navigator url="/pages/detail/detail?id=0" open-type="navigate" class="item-box">
+      <navigator url="/pages/goodsDetail/goodsDetail?id=0" open-type="navigate" class="item-box">
         <image src="{{img}}img-cup.png"></image>
         <text class="name ellip-lines">日本手工杯子日本手工杯子日本手工杯子</text>
         <text class="price">¥111.00</text>
@@ -144,7 +144,7 @@
       </navigator>
     </view>
     <view class="item">
-      <navigator url="/pages/detail/detail?id=1" open-type="navigate" class="item-box">
+      <navigator url="/pages/goodsDetail/goodsDetail?id=1" open-type="navigate" class="item-box">
         <image src="{{img}}img-cup.png"></image>
         <text class="name ellip-lines">手工值爱上飞机上抗旱交话费肯德基上百个快解散第三个</text>
         <text class="price">¥35.00</text>
@@ -154,7 +154,7 @@
       </navigator>
     </view>
     <view class="item">
-      <navigator url="/pages/detail/detail?id=2" open-type="navigate" class="item-box">
+      <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate" class="item-box">
         <image src="{{img}}img-cup.png"></image>
         <text class="name">日本手工杯子</text>
         <text class="price">¥35.00</text>
@@ -164,7 +164,7 @@
       </navigator>
     </view>
     <view class="item">
-      <navigator url="/pages/detail/detail?id=2" open-type="navigate" class="item-box">
+      <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate" class="item-box">
         <image src="{{img}}img-cup.png"></image>
         <text class="name">日本手工杯子</text>
         <text class="price">¥35.00</text>
@@ -176,7 +176,7 @@
   </view>
   <view class="floatCart">
     <view class="viewCart">
-      <navigator url="/pages/cart/cart" open-type="switchTab">
+      <navigator url="/pages/cart/cart/cart" open-type="switchTab">
         <text class="xd xd-cart-full"></text>
         <view>88+</view>
       </navigator>
