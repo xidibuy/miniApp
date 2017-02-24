@@ -1,2 +1,24 @@
-<!--pages/confirmOrder/way/way.wxml-->
-<text>pages/confirmOrder/way/way.wxml</text>
+<view class="container">
+  <view class="row">
+    <view class="left">
+      <text class="xd xd-circle"></text>
+      <text class="xd xd-dot"></text>
+    </view>
+    <view class="right">
+      <view class="right-title">普通快递送货上门(¥6.00)</view>
+      <view class="right-normal">全场满98元免邮</view>
+    </view>
+  </view>
+  <view class="row">
+    <view class="left">
+      <text class="xd xd-circle"></text>
+      <!--<text class="xd xd-dot"></text>-->
+    </view>
+    <view class="right">
+      <view class="right-title">服务自提点（免运费）</view>
+      <view class="right-normal">上海市 浦东新区 金桥区建业路416号</view>
+      <view class="right-normal">自提点电话：13681853275</view>
+    </view>
+  </view>
+  <navigator url="/pages/confirmOrder/index/index" class="bottom-bar">确定</navigator>
+</view>
