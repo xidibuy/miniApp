@@ -1,13 +1,13 @@
 {
   "pages": [
-        "pages/topic/topic",
+    
+    "pages/evaluate/evaluate",
+    "pages/profile/profile",
     "pages/goodsDetail/goodsDetail",
     
-
-    "pages/about/about",
+    "pages/topic/topic",
     "pages/index/index",
-    "pages/profile/profile",
-    "pages/logistics/logistics",
+    "pages/about/about",
     "pages/invoice/invoice",
     "pages/delivery/delivery",
     "pages/addAdress/addAdress",
@@ -19,7 +19,7 @@
     "pages/invalid/invalid",
     "pages/question/question",
     "pages/adressList/adressList",
-    "pages/evaluate/evaluate"
+    "pages/logistics/logistics"
   ],
   "window": {
     "backgroundTextStyle": "light",

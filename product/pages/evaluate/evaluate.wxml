@@ -1,1 +1,6 @@
-<view>暂无评价</view>
+<view class="container">
+  <view class="evaluate">
+    <text class="title">小程序还没有开通评价功能~</text>
+    <text class="word">您可以使用微信登录喜地官网对商品进行评价。</text>
+  </view>
+</view>

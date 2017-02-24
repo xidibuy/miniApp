@@ -8,7 +8,8 @@
 
 .banner image {
   width: 100%;
-  height: 397.8rpx;
+  height: 400rpx;
+  display: block;
 }
 
 .selected-list {
@@ -17,20 +18,21 @@
 
 .basic-info {
   position: relative;
-  padding: 0 17.55px;
+  padding: 51rpx 35.1rpx 0;
   background-color: #fff;
 }
 
 .basic-info .main-title {
-  padding-top: 50.31rpx;
   margin-bottom: 23.4rpx;
   font-size: 15px;
-  line-height: 22px;
+  line-height: 52rpx;
   font-weight: bold;
   color: #222;
+  /*letter-spacing:7rpx;*/
 }
 
 .pro-name {
+  margin: 25rpx 0 27rpx;
   display: flex;
   height: 35.1rpx;
   line-height: 35.1rpx;
@@ -53,7 +55,8 @@
 }
 
 .basic-info .price {
-  margin: 23.4rpx 0 4.68rpx 0;
+  display: inline-block;
+  margin-bottom: 5rpx;
   font-size: 21px;
   color: #00bebf;
 }
@@ -104,15 +107,15 @@ swiper {
 }
 
 .swiper-item {
-  width: 678.6rpx;
+  width: 682.6rpx;
   height: 807.3rpx;
   overflow: hidden;
   display: flex;
 }
 
 .session-inner {
-  width: 678.6rpx;
-  height: 678.6rpx;
+  width: 682.6rpx;
+  height: 682.6rpx;
   border-radius: 7px;
   background-color: red;
 }
@@ -123,8 +126,8 @@ swiper {
 }
 
 .topic-word {
-  margin: 16.38rpx 0 28.08rpx;
-  padding: 0 11.7rpx;
+  margin: 17rpx 0 28.08rpx;
+  padding: 0 12rpx;
   font-size: 12px;
   line-height: 18px;
   color: #333;
@@ -148,7 +151,7 @@ swiper {
   border-radius: 50%;
   background-color: #c5c5c5;
   display: inline-block;
-  margin-right: 23.4rpx;
+  margin-right: 24rpx;
 }
 
 .swiper-dots view:last-child {
@@ -161,7 +164,7 @@ swiper {
 
 .special-banner {
   width: 100%;
-  height: 362.7rpx;
+  height: 363rpx;
   background-color: #fff;
 }
 
@@ -172,11 +175,11 @@ swiper {
 
 .img-cover {
   width: 100%;
-  height: 362.7rpx;
+  height: 363rpx;
 }
 
 .re-pro {
-  margin-bottom: 23.4rpx;
+  margin-bottom: 24rpx;
 }
 
 .re-pro:last-child {

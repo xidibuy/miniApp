@@ -127,7 +127,7 @@
 
   <!--商品详情图片-->
   <view class="pro-desic-img">
-    <image src="http://172.16.14.96:8888/image/img-1.png"></image>
+    <image src="http://172.16.14.96:8888/image/img-1.png" mode="widthFix"></image>
   </view>
   <view class="xidi-selected">
     <text>喜地推荐</text>

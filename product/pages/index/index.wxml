@@ -9,13 +9,16 @@
   <view class="recommend-pro">
 
     <!--循环推荐产品-->
-    <block wx:for="{{index}}" wx:if="{{type == 1}}">
-      <view>{{slogn}}</view>
+    <block wx:for="{{index}}" wx:key="*this">
+      <block wx:if="{{type == 1}}">
+      </block>
+      <block wx:else>
+      </block>
     </block>
     <view class="re-pro">
-      <view class="basic-info">
-        <navigator url="/pages/goodsDetail/goodsDetail?id=10086" open-type="navigate">
-          <text class="main-title">新西兰国宝级麦卡璐蜂蜜 富含独有UMF活性引自调节肠胃</text>
+      <navigator url="/pages/goodsDetail/goodsDetail?id=10086" open-type="navigate">
+        <view class="basic-info">
+          <text class="main-title">新西兰国宝级麦卡璐蜂蜜,富含独有富含独有活性引自调节肠胃</text>
           <view class="pro-name">
             <image class="national-flag" src="{{img}}national-flag.png" style=""></image>
             <text class="sub-title"> 新西兰 Melita 麦卡璐蜂蜜UMF5 +340gUMF5 +340gUMF5 +340g</text>
@@ -31,12 +34,10 @@
           </view>
           <view class="warn-stock">仅剩
             <text>{{nums}}</text>件</view>
-        </navigator>
-      </view>
+        </view>
 
-      <!-- scroll-view -->
-      <view class="swiper" id="he">
-        <navigator url="/pages/topic/topic?title=navigate" open-type="navigate" hover-class="navigator-hover">
+        <!-- scroll-view -->
+        <view class="swiper">
           <view class="swiper-item">
             <swiper bindchange="changePro">
               <block wx:for="{{imgUrls}}" wx:key="*this">
@@ -50,6 +51,7 @@
                 </swiper-item>
               </block>
             </swiper>
+
             <!--点点点-->
             <view class="swiper-dots">
               <block wx:for="{{imgUrls}}" wx:key="*this">
@@ -62,20 +64,11 @@
               </block>
             </view>
           </view>
-        </navigator>
-      </view>
+        </view>
+      </navigator>
     </view>
 
     <!--循环专题-->
-    <view class="re-pro">
-      <view class="special-banner">
-        <navigator url="/pages/topic/topic">
-          <view class="img-cover">
-            <image src="{{img}}bg-topic.png" mode="aspectFill"></image>
-          </view>
-        </navigator>
-      </view>
-    </view>
     <view class="re-pro">
       <view class="special-banner">
         <navigator url="/pages/topic/topic">
