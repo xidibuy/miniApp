@@ -1,1 +1,60 @@
-/* pages/confirmOrder/address/address.wxss */
+.first-part{
+    padding: 0 23.4rpx;
+    border-bottom: 2rpx solid #ddd;
+}
+.input{
+    padding-left: 23.4rpx;
+    height: 102.96rpx;
+    line-height: 102.96rpx;
+    font-size: 15px;
+    color: #222;
+    border-bottom: 2rpx solid #ddd;
+}
+.input-ph{
+    font-size: 14px;
+    color: #777;
+}
+.textarea{
+    padding-left: 23.4rpx;
+    height: 159.12rpx;
+    border-bottom: 2rpx solid #ddd;
+}
+
+.first-part .input:last-child{
+    border-bottom: none;
+}
+
+.second-part .row{
+    height: 102.96rpx;
+    line-height: 102.96rpx;
+    font-size: 15px;
+    border-bottom: 2rpx solid #ddd;
+}
+.second-part .default{
+    display: flex;
+    color: #222;
+    padding: 0 23.4rpx 0 46.8rpx;
+    justify-content: space-between;
+}
+
+.second-part .delete{
+    font-size: 15px;
+    text-align: center;
+    color: #f33;
+}
+
+/*bottom-bar*/
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 111;
+  width: 100%;
+  height: 112.32rpx;
+  line-height: 112.32rpx;
+  background: #4ed6d1;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+}
