@@ -1,21 +1,7 @@
 ﻿{
 	"statusCode":"200",
 	"data":{
-        "menu":[
-          {
-            "name": "我的订单",
-            "value": "order",
-            "active": true
-          }, {
-            "name": "收货地址",
-            "value": "adress",
-            "active": false
-          }, {
-            "name": "更多设置",
-            "value": "more",
-            "active": false
-          }
-        ],
+
 		"orders": [
           
 		]	

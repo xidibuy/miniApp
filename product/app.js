@@ -49,5 +49,6 @@ App({
     // data: "https://wxapp.xidibuy.com"
     img: "http://172.16.14.70:8888/image/",
     data: "http://172.16.14.70:8888/data/"
+
   }
 })
