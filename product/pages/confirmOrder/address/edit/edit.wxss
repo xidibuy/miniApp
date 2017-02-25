@@ -58,3 +58,7 @@
   color: #fff;
   text-align: center;
 }
+
+picker-view{
+    height: 102.96rpx;
+}
