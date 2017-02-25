@@ -9,9 +9,9 @@ Page({
     onLoad: function () {
         const self = this;
         // 有收货地址
-        const listUrl = app.globalData.data + 'confirmOrder/normal1.json';
+        // const listUrl = app.globalData.data + 'confirmOrder/normal1.json';
         // 无收货地址
-        // const listUrl = app.globalData.data + 'confirmOrder/normal2.json';
+        const listUrl = app.globalData.data + 'confirmOrder/normal2.json';
         // 获取列表
         app.fetchApi(listUrl, function (resp) {
             if (resp.state) {

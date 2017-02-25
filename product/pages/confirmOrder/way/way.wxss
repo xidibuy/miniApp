@@ -1,1 +1,63 @@
-/* pages/confirmOrder/way/way.wxss */
+.container {
+  padding-top: 14rpx;
+}
+
+.row {
+  margin: 0 23.4rpx;
+  padding: 35.1rpx 0 25.74rpx;
+  display: flex;
+  color: #222;
+}
+
+.row:first-child{
+    border-bottom: 2rpx dotted #ddd;
+}
+
+.row .left{
+    position: relative;
+    width: 46.8rpx;
+    height: 46.8rpx;
+    margin-right: 11.7rpx;
+}
+.row .left .xd-circle{
+    position: absolute;
+    top: 5px;
+    left: -2px;
+    font-size: 30rpx;
+    color: #ddd;
+}
+
+.row .left .xd-dot{
+    position: absolute;
+    top: 5px;
+    left: -1px;
+    font-size: 26rpx;
+    color: #4ed6d1;
+}
+
+.right-title {
+  font-size: 14px;
+  height: 46.8rpx;
+  line-height: 46.8rpx;
+  margin-bottom: 18.72rpx;
+}
+
+.right-normal {
+  font-size: 13px;
+}
+
+/*bottom-bar*/
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 111;
+  width: 100%;
+  height: 112.32rpx;
+  line-height: 112.32rpx;
+  background: #4ed6d1;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+}
