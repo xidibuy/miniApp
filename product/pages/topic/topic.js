@@ -21,5 +21,12 @@ Page({
     },
     autoImageHeight: function (e) {
         console.log(e);
+    },
+    // 分享专题
+    onShareAppMessage: function () {
+        return {
+            title: '分享',
+            path: '/pages/topic/topic'
+        }
     }
 });

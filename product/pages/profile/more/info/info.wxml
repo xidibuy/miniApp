@@ -1,0 +1,10 @@
+<view class="container">
+    <view class="nav">
+        <block wx:for="{{menu}}" wx:key="value">
+            <view class="nav-item {{item.active ? 'active' : ''}}" bindtap="bindMenu" data-name="{{item.value}}">{{item.name}}</view>
+        </block>
+    </view>
+    <view class="profile-content">
+        <include wx:if="{{contentType === 'more'}}" src="includes/more.wxml"/>   
+    </view>
+</view>

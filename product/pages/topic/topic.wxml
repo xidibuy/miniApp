@@ -24,4 +24,8 @@
       </view>
     </block>
   </view>
+
+  <view class="goIndex">
+    <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
+  </view>
 </view>

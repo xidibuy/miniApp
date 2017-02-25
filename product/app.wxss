@@ -114,3 +114,22 @@ view, text, label, checkbox-group {
   height: 23.4rpx;
   background: #f4f4f4;
 }
+
+.goIndex{
+  width: 94rpx;
+  height: 94rpx;
+  position: fixed;
+  right: 36rpx;
+  bottom: 94rpx;
+  background-color: #222;
+  opacity: .3;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 94rpx;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+}
+.goIndexGoods{
+   bottom: 211rpx;
+}

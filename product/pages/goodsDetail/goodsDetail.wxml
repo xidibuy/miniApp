@@ -1,176 +1,192 @@
 <view class="container">
+  <view class="sessionOne" style="display:{{show[0].showOne ? 'block' : 'none'}}">
 
-  <!--轮播图片-->
-  <view class="swiper">
-    <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="changeSwiper">
-      <block wx:for="{{imgUrls}}" wx:key="index">
-        <swiper-item>
-          <image src="{{item}}" class="slide-image" width="355" height="150" />
-        </swiper-item>
-      </block>
-    </swiper>
-    <view class="swiper-dots">
-      <block wx:for="{{imgUrls}}" wx:key="index">
-        <block wx:if="{{current == index}}">
-          <view class="current"></view>
+    <!--轮播图片-->
+    <view class="swiper">
+      <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="changeSwiper">
+        <block wx:for="{{imgUrls}}" wx:key="index">
+          <swiper-item>
+            <image src="{{item}}" class="slide-image" width="355" height="150" />
+          </swiper-item>
         </block>
-        <block wx:else>
-          <view></view>
+      </swiper>
+      <view class="swiper-dots">
+        <block wx:for="{{imgUrls}}" wx:key="index">
+          <block wx:if="{{current == index}}">
+            <view class="current"></view>
+          </block>
+          <block wx:else>
+            <view></view>
+          </block>
         </block>
-      </block>
+      </view>
     </view>
-  </view>
 
-  <!--基础信息-->
-  <view class="basic-info">
-    <text class="title ellip-line">{{id}}新s西兰Meliata麦克鲁s西兰Meliata麦克鲁蜂蜜UMF5+340g</text>
-    <text class="price">¥149.50</text>
-    <view class="discound">
-      <view class="discound-img">
-        <text>优惠</text>
-      </view>
-      <view class="discound-word">购买指定产品立减
-        <text>¥30</text>
-      </view>
-    </view>
-    <view class="price-nother-box">
-      <text class="price-nother">原产国市场售价 31.99 NZD(新西兰元)</text>
-      <text class="price-nother">按当前汇率折合人民币 ＝ ¥156.03</text>
-      <text class="price-nother">中国网上零售价价：暂无销售</text>
-      <text class="price-nother">中国线下实体价价：¥258</text>
-      <view class="location">
-        <image src="{{img}}flags/en.png" class="icon-flag"></image>
-        <text>新西兰</text>
-      </view>
-    </view>
-  </view>
-
-  <!--库存情况-->
-  <view class="sku-info">
-    <view class="attr-name">颜色
-      <text>“黑色”</text>
-    </view>
-    <view class="color-list">
-      <view>
-        <image src="{{img}}img-demo-3.png"></image>
-      </view>
-      <view class="selected">
-        <image src="{{img}}img-demo-3.png"></image>
-      </view>
-      <view class="disabled">
-        <image src="{{img}}img-demo-3.png"></image>
-      </view>
-    </view>
-    <view class="attr-name">尺码
-      <text>“中号（实用年龄年龄：9月-24月）”</text>
-    </view>
-    <view class="size-list">
-      <view>大号</view>
-      <view class="selected">中号</view>
-      <view class="disabled">小号</view>
-    </view>
-    <view class="attr-name">数量</view>
-    <view class="widget-ctrl-box">
-      <view class="widget-ctrl">
-        <view class="button-reduce" bindtap="reduceNumber">
-          <text wx:if="{{amount == 1}}" class="disabled">-</text>
-          <text wx:else>-</text>
+    <!--基础信息-->
+    <view class="basic-info">
+      <text class="title ellip-line">{{id}}新s西兰Meliata麦克鲁s西兰Meliata麦克鲁蜂蜜UMF5+340g</text>
+      <text class="price">¥149.50</text>
+      <view class="discound">
+        <view class="discound-img">
+          <text>优惠</text>
         </view>
-        <view class="amount">{{amount}}</view>
-        <view class="button-plus" bindtap="addNumber">+</view>
-      </view>
-      <view class="sku-war">
-        <view class="warn-box">
-          <text class="xd xd-warning"></text>
+        <view class="discound-word">购买指定产品立减
+          <text>¥30</text>
         </view>
-        <view>仅剩
-          <text>10</text>件</view>
+      </view>
+      <view class="price-nother-box">
+        <text class="price-nother">原产国市场售价 31.99 NZD(新西兰元)</text>
+        <text class="price-nother">按当前汇率折合人民币 ＝ ¥156.03</text>
+        <text class="price-nother">中国网上零售价价：暂无销售</text>
+        <text class="price-nother">中国线下实体价价：¥258</text>
+        <view class="location">
+          <image src="{{img}}flags/en.png" class="icon-flag"></image>
+          <text>新西兰</text>
+        </view>
       </view>
     </view>
-  </view>
 
-  <!--简单介绍和物流-->
-  <view class="smiple-intro-box">
-    <view class="smiple-intro">
-      <text style="font-size:13px;">1. 产自新西兰纯天然无污染蜂蜜产区，无添加麦卢卡蜂蜜； 2. UMF 5+具有一定消炎功能，对肠胃有调节作用； 3. 精确到每瓶蜂蜜的质量追踪系统，安全有保障。</text>
-      <view class="post-info">
+    <!--库存情况-->
+    <view class="sku-info">
+      <view class="attr-name">颜色
+        <text>“黑色”</text>
+      </view>
+      <view class="color-list">
         <view>
-          <text class="xd xd-truck"></text>
-          <text>每天15:00从上海自贸区发货</text>
+          <image src="{{img}}img-demo-3.png"></image>
         </view>
-        <view>
-          <text class="xd xd-seven"></text>
-          <text>七天无理由退货</text>
+        <view class="selected">
+          <image src="{{img}}img-demo-3.png"></image>
+        </view>
+        <view class="disabled">
+          <image src="{{img}}img-demo-3.png"></image>
+        </view>
+      </view>
+      <view class="attr-name">尺码
+        <text>“中号（实用年龄年龄：9月-24月）”</text>
+      </view>
+      <view class="size-list">
+        <view>大号</view>
+        <view class="selected">中号</view>
+        <view class="disabled">小号</view>
+      </view>
+      <view class="attr-name">数量</view>
+      <view class="widget-ctrl-box">
+        <view class="widget-ctrl">
+          <view class="button-reduce" bindtap="reduceNumber">
+            <text wx:if="{{amount == 1}}" class="disabled">-</text>
+            <text wx:else>-</text>
+          </view>
+          <view class="amount">{{amount}}</view>
+          <view class="button-plus" bindtap="addNumber">+</view>
+        </view>
+        <view class="sku-war">
+          <view class="warn-box">
+            <text class="xd xd-warning"></text>
+          </view>
+          <view>仅剩
+            <text>10</text>件</view>
         </view>
       </view>
     </view>
-  </view>
 
-  <!--分割线-->
-  <view class="devision">继续拖动,更多商品内容</view>
+    <!--简单介绍和物流-->
+    <view class="smiple-intro-box">
+      <view class="smiple-intro">
+        <text style="font-size:13px;">1. 产自新西兰纯天然无污染蜂蜜产区，无添加麦卢卡蜂蜜； 2. UMF 5+具有一定消炎功能，对肠胃有调节作用； 3. 精确到每瓶蜂蜜的质量追踪系统，安全有保障。</text>
+        <view class="post-info">
+          <view>
+            <text class="xd xd-truck"></text>
+            <text>每天15:00从上海自贸区发货</text>
+          </view>
+          <view>
+            <text class="xd xd-seven"></text>
+            <text>七天无理由退货</text>
+          </view>
+        </view>
+      </view>
+    </view>
 
-  <!--商品规格-->
-  <view class="spec-desc">
-    <view class="spec-list">
-      <text class="spec-name">商品名称</text>
-      <text>新西兰蜂蜜好蜂蜜</text>
-    </view>
-    <view class="spec-list">
-      <text class="spec-name">商品名称</text>
-      <text>新西兰蜂蜜好蜂蜜</text>
-    </view>
-    <view class="spec-list">
-      <text class="spec-name">商品名称</text>
-      <text>新西兰蜂蜜好蜂蜜</text>
-    </view>
-  </view>
+    <!--分割线-->
+    <view class="devision">继续拖动,更多商品内容</view>
 
-  <!--商品详情图片-->
-  <view class="pro-desic-img">
-    <image src="http://172.16.14.96:8888/image/img-1.png" mode="widthFix"></image>
+    <!--去首页-->
+    <view class="goIndex goIndexGoods">
+      <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
+    </view>
   </view>
-  <view class="xidi-selected">
-    <text>喜地推荐</text>
-  </view>
-  <view class="goods-selected">
-    <view class="item">
-      <navigator url="/pages/goodsDetail/goodsDetail?id=0" open-type="navigate" class="item-box">
-        <image src="{{img}}img-cup.png"></image>
-        <text class="name ellip-lines">日本手工杯子日本手工杯子日本手工杯子</text>
-        <text class="price">¥111.00</text>
-        <view class="local-price">当地价:
-          <text>¥35.00</text>
-        </view>
-      </navigator>
+  <view class="sessionTwo" style="display:{{show[1].showOne ? 'block' : 'none'}}">
+
+    <!--商品规格-->
+    <view class="spec-desc">
+      <view class="spec-list">
+        <text class="spec-name">商品名称</text>
+        <text>新西兰蜂蜜好蜂蜜</text>
+      </view>
+      <view class="spec-list">
+        <text class="spec-name">商品名称</text>
+        <text>新西兰蜂蜜好蜂蜜</text>
+      </view>
+      <view class="spec-list">
+        <text class="spec-name">商品名称</text>
+        <text>新西兰蜂蜜好蜂蜜</text>
+      </view>
     </view>
-    <view class="item">
-      <navigator url="/pages/goodsDetail/goodsDetail?id=1" open-type="navigate" class="item-box">
-        <image src="{{img}}img-cup.png"></image>
-        <text class="name ellip-lines">手工值爱上飞机上抗旱交话费肯德基上百个快解散第三个</text>
-        <text class="price">¥35.00</text>
-        <view class="local-price">当地价:
-          <text>¥35.00</text>
-        </view>
-      </navigator>
+
+    <!--商品详情图片-->
+    <view class="pro-desic-img">
+      <image src="http://172.16.14.96:8888/image/img-1.png" mode="widthFix"></image>
     </view>
-    <view class="item">
-      <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate" class="item-box">
-        <image src="{{img}}img-cup.png"></image>
-        <text class="name">日本手工杯子</text>
-        <text class="price">¥35.00</text>
-        <view class="local-price">当地价:
-          <text>¥35.00</text>
-        </view>
-      </navigator>
+    <view class="xidi-selected">
+      <text>喜地推荐</text>
     </view>
-    <view class="item">
-      <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate" class="item-box">
-        <image src="{{img}}img-cup.png"></image>
-        <text class="name">日本手工杯子</text>
-        <text class="price">¥35.00</text>
-        <view class="local-price">当地价:
-          <text>¥35.00</text>
-        </view>
+    <view class="goods-selected">
+      <view class="item">
+        <navigator url="/pages/goodsDetail/goodsDetail?id=0" open-type="navigate" class="item-box">
+          <image src="{{img}}img-cup.png"></image>
+          <text class="name ellip-lines">日本手工杯子日本手工杯子日本手工杯子</text>
+          <text class="price">¥111.00</text>
+          <view class="local-price">当地价:
+            <text>¥35.00</text>
+          </view>
+        </navigator>
+      </view>
+      <view class="item">
+        <navigator url="/pages/goodsDetail/goodsDetail?id=1" open-type="navigate" class="item-box">
+          <image src="{{img}}img-cup.png"></image>
+          <text class="name ellip-lines">手工值爱上飞机上抗旱交话费肯德基上百个快解散第三个</text>
+          <text class="price">¥35.00</text>
+          <view class="local-price">当地价:
+            <text>¥35.00</text>
+          </view>
+        </navigator>
+      </view>
+      <view class="item">
+        <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate" class="item-box">
+          <image src="{{img}}img-cup.png"></image>
+          <text class="name">日本手工杯子</text>
+          <text class="price">¥35.00</text>
+          <view class="local-price">当地价:
+            <text>¥35.00</text>
+          </view>
+        </navigator>
+      </view>
+      <view class="item">
+        <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate" class="item-box">
+          <image src="{{img}}img-cup.png"></image>
+          <text class="name">日本手工杯子</text>
+          <text class="price">¥35.00</text>
+          <view class="local-price">当地价:
+            <text>¥35.00</text>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <!--回到顶部-->
+    <view class="goIndex goIndexGoods">
+      <navigator url="/pages/index/index" open-type="switchTab">
+        <text class="xd xd-top-angle"></text>
       </navigator>
     </view>
   </view>
