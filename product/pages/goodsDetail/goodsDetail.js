@@ -15,7 +15,19 @@ Page({
     interval: 5000,
     duration: 1000,
     amount: 1,
+    show: [
+      {
+        showOne: true
+      },
+      {
+        showTwo: false
+      }
+    ]
   },
+  onPullDownRefresh: function () {
+
+  },
+
   changeSwiper: function (event) {
     this.setData({
       current: event.detail.current
@@ -32,18 +44,26 @@ Page({
     this.setData({
       amount: amount
     });
-   
+
   },
 
   onLoad: function (options) {
     var _this = this;
     var proUrl = url + "proDetail.json"
-    app.fetchApi(proUrl,function(res){
-      
+    app.fetchApi(proUrl, function (res) {
+
     })
     this.setData({
       id: options.id
     })
-   
+    console.log(this);
+  },
+
+  // 分享单品页
+  onShareAppMessage: function () {
+    return {
+      title: '分享',
+      path: '/pages/goodsDetail/goodsDetail'
+    }
   }
 });

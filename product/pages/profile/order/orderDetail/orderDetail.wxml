@@ -1,0 +1,146 @@
+<view class="container">
+  <view class="details">
+
+    <!-- 订单状态 -->
+    <view class="status make-space">
+
+      <!--状态标题-->
+      <view class="title">
+        <text class="xd xd-checked"></text>
+
+        <!--<text class="xd xd-warning"></text>-->
+        <text class="status-title">交易成功</text>
+      </view>
+
+      <!--状态文案-->
+      <view class="word">
+        <text>订单号: 201455324112</text>
+        <view>请于
+          <text class="countdown">2小时 59分 59秒</text> 内付款。若未及时付款，系统将自动取消订单</view>
+      </view>
+    </view>
+
+    <!--物流信息-->
+
+    <!--需用数据判断物流状态-->
+
+    <!--<block wx:if="{{item.state > 0}}">-->
+    <navigator url="/pages/profile/order/logistics/logistics">
+
+      <!--</block>-->
+      <view class="logis make-space">
+        <view class="logis-car">
+          <text class="xd xd-logistics"></text>
+        </view>
+        <view class="logis-word">
+          <text class="word-status ellip-lines ">在上海静安区分公司扫描，派件跟踪显示派件已签收。在上海静安区分公司扫描，派件跟踪显示派件已签收。</text>
+          <view class="time">14/12/29 08:35:07</view>
+        </view>
+        <view class="arrow">
+          <text class="xd xd-right-angle"></text>
+        </view>
+      </view>
+
+      <!--<block wx:if="{{item.state > 0}}"> -->
+    </navigator>
+
+    <!--</block>-->
+
+    <!--收货人设置-->
+    <view class="receipt make-space">
+      <view class="receipt-box">
+        <text class="receipt-title">收货人: 林素恩 13524862341</text>
+        <text class="receipt-desi ellip-lines">上海市静安区北京西路1701号静安大厦18楼c座上海市静安区北京西路1701号静安大厦18楼c座</text>
+      </view>
+      <view class="receipt-box">
+        <text class="receipt-title receipt-name ellip-lines">发票信息: 喜递电子商务有限公司喜递电子商务有限公司电子商务有限公司喜递电子商务有限公司喜递电子商务有限公司递电子阿萨法是商</text>
+        <text class="receipt-desi">17/10/42 17:31:30</text>
+      </view>
+    </view>
+
+    <!--购物清单-->
+    <view class="pro-list make-space">
+      <view class="pro-title">
+        <text class="title-word">购物清单</text>
+        <text class="title-num">2件</text>
+      </view>
+      <view class="product">
+        <navigator url="/pages/goodsDetail/goodsDetail">
+          <view class="product-single">
+
+            <!--清单图片-->
+            <view class="pro-img">
+              <image src="http://172.16.14.96:8888/image/img-3_03.png"></image>
+            </view>
+
+            <!--清单详情-->
+            <view class="pro-detail">
+              <view class="product-name-box">
+                <text class="product-name ellip-lines">丹麦创意褶皱无敌纸巾盒一次性使用一次性使用 红色 白色丹麦创意褶皱无敌纸巾盒一次性使用一次性使用</text>
+
+                <!--<text class="product-attr">
+                  <block>
+                    <text class="">红色</text>
+                    <text class="">蓝色</text>
+                  </block>
+                </text>-->
+              </view>
+              <view class="product-price">
+                <text class="price">¥ 149.00</text>
+                <text class="num">x12</text>
+              </view>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+
+    <!--金额计算-->
+    <view class="total-mo">
+      <view class="money">
+        <view class="mo-list">
+          <text>商品总金额 (12件)</text>
+          <text>¥299.00</text>
+        </view>
+        <view class="mo-list">
+          <text>运费(0.88kg)</text>
+          <text>¥0.00</text>
+        </view>
+        <view class="mo-list">
+          <text>优惠</text>
+          <text>- ¥0.00</text>
+        </view>
+      </view>
+      <view class="money-real">
+        <text class="real-word">实付金额:</text>
+        <text class="real-mo price">¥ 400.00</text>
+      </view>
+    </view>
+
+    <!--按钮-->
+    <view class="desic-btn" bindtap="applyFun">
+
+      <!--通栏btn-->
+
+      <!--<view class="one-btn">立即支付</view>-->
+
+      <!--<view class="one-btn">确认收货</view>-->
+
+      <!--<view class="one-btn"><navigator url="/pages/cart/cart/cart" open-type="switchTab">再次购买</navigator></view>-->
+
+      <view class="one-btn">
+        <navigator url="/pages/profile/order/evaluate/evaluate">发表评价</navigator>
+      </view>
+
+      <!--两个btn-->
+      <view class="two-btn" style="display:none">
+        <view class="btn normal-btn">
+          <navigator url="">再次购买</navigator>
+        </view>
+        <view class="btn handle-btn">
+          <navigator url="/pages/profile/order/evaluate/evaluate">发表评价</navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -11,9 +11,9 @@ Page({
     onLoad: function () {
         const self = this;
         // 1个商品
-        // const listUrl = app.globalData.data + 'cart/normal1.json';
+        const listUrl = app.globalData.data + 'cart/normal1.json';
         // 6个商品
-        const listUrl = app.globalData.data + 'cart/normal6.json';
+        // const listUrl = app.globalData.data + 'cart/normal6.json';
         // 空购物车
         // const listUrl = app.globalData.data + 'cart/null.json';
         // 获取列表

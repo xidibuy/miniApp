@@ -47,7 +47,6 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '分享',
-      desc: "hellp",
       path: '/pages/index/index'
     }
   },
