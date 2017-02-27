@@ -20,18 +20,16 @@
     margin-right: 11.7rpx;
 }
 .row .left .xd-circle{
-    position: absolute;
-    top: 5px;
-    left: -2px;
-    font-size: 30rpx;
+    font-size: 46.8rpx;
     color: #ddd;
 }
 
 .row .left .xd-dot{
     position: absolute;
-    top: 5px;
-    left: -1px;
-    font-size: 26rpx;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    font-size: 46.8rpx;
     color: #4ed6d1;
 }
 

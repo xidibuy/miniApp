@@ -23,7 +23,7 @@
 }
 
 .settlement-bar .checkbox-widget .xd {
-  font-size: 30rpx;
+  font-size: 46.8rpx;
 }
 
 .settlement-bar .checkbox-widget .xd-checked {

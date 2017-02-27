@@ -8,7 +8,7 @@
     line-height: 58.5rpx;
 }
 .title .xd{
-    font-size: 36rpx;
+    font-size: 46.8rpx;
     color: #56ecaa;
     margin-right: 19.89rpx; 
 }

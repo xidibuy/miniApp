@@ -54,16 +54,10 @@
 .address-box-right{
   display: flex;
   align-items: center;
-  width: 17.55rpx;
   margin-right: 35.1rpx;
-  font-size: 30rpx;
+  font-size: 30.42rpx;
   color: #c5c5c5;
 }
-.address-box .xd{
-  position: relative;
-  left: -23rpx;
-}
-
 
 .address-box .tips{
   flex-grow: 1;

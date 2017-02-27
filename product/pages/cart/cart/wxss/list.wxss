@@ -50,7 +50,7 @@
 }
 
 .goods-item .checkbox-widget .xd {
-  font-size: 30rpx;
+  font-size: 46.8rpx;
 }
 
 .goods-item .checkbox-widget .xd-checked {
@@ -160,7 +160,7 @@
 
 .goods-item-num-reduce, .goods-item-num-add {
   width: 53.82rpx;
-  font-size: 14.04rpx;
+  font-size: 18.72rpx;
   color: #888;
   border: 1px solid #c5c5c5;
 }
@@ -187,7 +187,7 @@
 
 .goods-item-delete {
   width: 35.01rpx;
-  font-size: 24rpx;
+  font-size: 35.1rpx;
   line-height: 56.16rpx;
   color: #c5c5c5;
 }
