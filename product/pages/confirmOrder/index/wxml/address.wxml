@@ -1,4 +1,4 @@
-<navigator class="address-box" url="/pages/confirmOrder/address/address">
+<navigator class="address-box" url="/pages/confirmOrder/address/edit/edit">
     <view class="colors-border"></view>
 
     <!--有地址信息-->

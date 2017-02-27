@@ -4,7 +4,7 @@
   "description": "resource for miniapp on develope env",
   "main": "https.js",
   "scripts": {
-    "start": "node https.js"
+    "start": "node s.js"
   },
   "author": "",
   "license": "ISC",
