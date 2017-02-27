@@ -1,5 +1,5 @@
 var app = getApp();
-const url = app.globalData.data;
+const url = app.globalData.dataRemote;
 Page({
     data:
     {
