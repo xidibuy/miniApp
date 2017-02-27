@@ -1,7 +1,7 @@
 const app = getApp();
 const img = app.globalData.img;
-// const url = app.globalData.dataRemote;
-const url = app.globalData.data;
+const url = app.globalData.dataRemote;
+// const url = app.globalData.data;
 Page({
   data: {
 
@@ -55,8 +55,8 @@ Page({
 
   onLoad: function (options) {
     var _this = this;
-    // var proUrl = url + "/detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
-    const proUrl = url + "/goodsDetail.json"
+    var proUrl = url + "/detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
+    // const proUrl = url + "/goodsDetail.json"
     app.fetchApi(proUrl, function (res) {
       for(const a in res.data.priceAttr){
           console.log(a);
