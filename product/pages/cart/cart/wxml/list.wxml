@@ -1,5 +1,5 @@
 <view class="goods-list">
-  <block wx:for="{{list}}" wx:key="{{item.id}}">
+  <block wx:for="{{list}}" wx:key="{{item.goodsId}}">
     <view class="goods-item">
 
       <!--优惠信息-->
@@ -12,9 +12,9 @@
       <view class="goods-item-content">
 
         <!--左侧checkbox-->
-        <checkbox-group bindchange="toggleItemCheckbox" class="checkbox-widget" data-id="{{item.id}}">
-            <text class="xd {{item.checked ? 'xd-checked' : 'xd-circle'}}"></text>
-            <checkbox value="{{item.id}}" class="checkbox" checked="{{item.checked}}" />
+        <checkbox-group bindchange="singleGoodsToggleChecked" class="checkbox-widget" data-id="{{item.goodsId}}">
+            <text class="xd {{goodsCheckedStateObj[item.goodsId] ? 'xd-checked' : 'xd-circle'}}"></text>
+            <checkbox value="{{item.id}}" class="checkbox" checked="{{goodsCheckedStateObj[item.goodsId]}}" />
         </checkbox-group>
 
         <!--右侧 商品详情-->
@@ -22,7 +22,7 @@
 
           <!--商品图片-->
           <navigator url="/pages/goodsDetail/goodsDetail" class="goods-item-image">
-            <image src="{{item.img}}"></image>
+            <image src="{{item.coverImg}}"></image>
           </navigator>
 
           <!--商品信息-->
@@ -42,8 +42,8 @@
             <view class="goods-item-attr-box">
 
               <!--商品属性-->
-              <block wx:for="{{item.attrs}}" wx:key="*this">
-                <text class="goods-item-info-attr">{{item}}</text>
+              <block wx:for="{{item.priceAttr}}" wx:key="*this">
+                <text class="goods-item-info-attr">{{item.pValue}}</text>
               </block>
             </view>
 
@@ -57,7 +57,7 @@
                     <text class="xd xd-minus"></text>
                   </view>
                   <view class="goods-item-num-input" data-stock="{{item.stock}}">
-                    <input placeholder="" value="{{item.choseNum}}" />
+                    <input placeholder="" value="{{item.buyNum}}" />
                   </view>
                   <view class="goods-item-num-add">
                     <text class="xd xd-plus"></text>
