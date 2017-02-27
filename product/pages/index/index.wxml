@@ -3,80 +3,80 @@
 <view class="container">
   <view class="banner">
     <navigator url="/pages/about/about" open-type="navigate">
-      <image src="{{img}}img-banner.png" mode="scaleToFill"></image>
+      <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/index-banner.png" mode="scaleToFill"></image>
     </navigator>
   </view>
   <view class="recommend-pro">
 
     <!--循环推荐产品-->
     <block wx:for="{{index}}" wx:key="*this">
-      <block wx:if="{{type == 1}}">
+      <block wx:if="{{item.type == 1}}">
+        <view class="re-pro">
+          <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.product.id + '&relateprodSn=' + item.relateprodSn}}" open-type="navigate">
+            <view class="basic-info">
+              <text class="main-title">{{item.slogn}}</text>
+              <view class="pro-name">
+                <image class="national-flag" src="{{item.product.flag}}" style=""></image>
+                <text class="sub-title">{{item.product.nameFull}}</text>
+              </view>
+              <text class="price">¥{{item.product.marketPrice}}</text>
+              <view class="other-price">
+                <text class="from-price other-name">新西兰市场价：</text>
+                <text class="line-thro">¥{{item.product.localPrice}}</text>
+              </view>
+              <view class="other-price">
+                <text class="china-price other-name">中国零售价：</text>
+                <text class="line-thro">¥{{item.product.price}}</text>
+              </view>
+              <view class="warn-stock" wx:if="{{item.warnshow == 1}}">仅剩
+                <text>{{item.product.stock}}</text>件</view>
+            </view>
+
+            <!-- scroll-view -->
+            <view class="swiper">
+              <view class="swiper-item">
+                <swiper bindchange="changePro">
+                  <block wx:for="{{item.solideImg}}" wx:key="*this">
+                    <swiper-item>
+                      <view class="inner-box" data-index="0">
+                        <view class="session-inner">
+                          <image src="{{item.img}}" mode="aspectFill" class="topic-img"></image>
+                        </view>
+                        <view class="topic-word ellip-lines">{{item.imgdesc}}</view>
+                      </view>
+                    </swiper-item>
+                  </block>
+                </swiper>
+
+                <!--点点点-->
+                <view class="swiper-dots">
+                  <block wx:if="{{item.solideImg.length > 1}}" wx:for="{{item.solideImg}}" wx:key="*this">
+                    <block wx:if="{{current == index}}">
+                      <view class="current"></view>
+                    </block>
+                    <block wx:else>
+                      <view></view>
+                    </block>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </navigator>
+        </view>
       </block>
       <block wx:else>
+
+        <!--循环专题-->
+        <view class="re-pro">
+          <view class="special-banner">
+            <navigator url="/pages/topic/topic">
+              <view class="img-cover">
+                <image src="{{item.bannerimg}}" mode="aspectFill"></image>
+              </view>
+            </navigator>
+          </view>
+        </view>
       </block>
     </block>
-    <view class="re-pro">
-      <navigator url="/pages/goodsDetail/goodsDetail?id=10086" open-type="navigate">
-        <view class="basic-info">
-          <text class="main-title">新西兰国宝级麦卡璐蜂蜜,富含独有富含独有活性引自调节肠胃</text>
-          <view class="pro-name">
-            <image class="national-flag" src="{{img}}national-flag.png" style=""></image>
-            <text class="sub-title"> 新西兰 Melita 麦卡璐蜂蜜UMF5 +340gUMF5 +340gUMF5 +340g</text>
-          </view>
-          <text class="price">¥195.50</text>
-          <view class="other-price">
-            <text class="from-price other-name">新西兰市场价：</text>
-            <text class="line-thro">¥158.23</text>
-          </view>
-          <view class="other-price">
-            <text class="china-price other-name">中国零售价：</text>
-            <text class="line-thro">¥189.66</text>
-          </view>
-          <view class="warn-stock">仅剩
-            <text>{{nums}}</text>件</view>
-        </view>
-
-        <!-- scroll-view -->
-        <view class="swiper">
-          <view class="swiper-item">
-            <swiper bindchange="changePro">
-              <block wx:for="{{imgUrls}}" wx:key="*this">
-                <swiper-item>
-                  <view class="inner-box" data-index="0">
-                    <view class="session-inner">
-                      <image src="{{item}}" mode="aspectFill" class="topic-img"></image>
-                    </view>
-                    <view class="topic-word ellip-lines">{{text}}</view>
-                  </view>
-                </swiper-item>
-              </block>
-            </swiper>
-
-            <!--点点点-->
-            <view class="swiper-dots">
-              <block wx:for="{{imgUrls}}" wx:key="*this">
-                <block wx:if="{{current == index}}">
-                  <view class="current"></view>
-                </block>
-                <block wx:else>
-                  <view></view>
-                </block>
-              </block>
-            </view>
-          </view>
-        </view>
-      </navigator>
-    </view>
-
-    <!--循环专题-->
-    <view class="re-pro">
-      <view class="special-banner">
-        <navigator url="/pages/topic/topic">
-          <view class="img-cover">
-            <image src="{{img}}bg-topic.png" mode="aspectFill"></image>
-          </view>
-        </navigator>
-      </view>
-    </view>
   </view>
 </view>

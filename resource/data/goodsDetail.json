@@ -1,0 +1,179 @@
+{
+    "code": 0,
+    "msg": "",
+    "data": {
+        "id": "2344",
+        "prodSn": "A_555555",
+        "name": "宜家'家具",
+        "coverImg": [
+            "shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg",
+            "shop/shop.4d7c1da0a8ce13a08da0327f59c05653e08a2275319f2d593500842dd515aa3d.jpeg"
+        ],
+        "price": "267.00",
+        "priceMin": "250.00",
+        "priceMax": "267.00",
+        "marketPrice": "0.00",
+        "onlinePrice": {
+            "low": "",
+            "high": ""
+        },
+        "offlinePrice": {
+            "low": "",
+            "high": ""
+        },
+        "marketPriceSign": "GBP",
+        "marketPriceRMB": "0.00",
+        "marketCurrency": "英镑",
+        "countryId": "238",
+        "countryName": "英国",
+        "flag": "images/flags/icon-uk.png",
+        "priceAttr": [
+            {
+                "type": "颜色",
+                "children": {
+                    "13": {
+                        "name": "米白",
+                        "img": "shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg"
+                    },
+                    "21": {
+                        "name": "浅蓝",
+                        "img": "shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg"
+                    }
+                }
+            },
+            {
+                "type": "尺码",
+                "children": {
+                    "09": "32",
+                    "06": "29"
+                }
+            }
+        ],
+        "curColorAndsSize": [
+            "13",
+            "06"
+        ],
+        "couponAmount": 0,
+        "desc": "",
+        "map": {
+            "21_09": "3507",
+            "21_06": "3508",
+            "13_09": "3509",
+            "13_06": "3510"
+        },
+        "prodParams": {
+            "149": {
+                "id": "18",
+                "name": "备注说明",
+                "value": "1"
+            },
+            "150": {
+                "id": "19",
+                "name": "商品名称",
+                "value": "1"
+            },
+            "151": {
+                "id": "20",
+                "name": "鞋面材质",
+                "value": "1"
+            },
+            "152": {
+                "id": "21",
+                "name": "鞋内材料",
+                "value": "1"
+            }
+        },
+        "detailImg": [
+            {
+                "showMode": "2",
+                "img": [],
+                "info": ""
+            }
+        ],
+        "stock": 954,
+        "isShelved": "1",
+        "goodsList": {
+            "21_09": {
+                "id": "3507",
+                "goodsSn": "A_555555_21_09",
+                "name": "宜家'家&具",
+                "basePrice": "237.02",
+                "price": "250.00",
+                "marketPrice": "0.00",
+                "weight": "61.00",
+                "num": "0",
+                "stock": 0,
+                "salesNum": "51",
+                "attrImg": [
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg",
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653e08a2275319f2d593500842dd515aa3d.jpeg"
+                ],
+                "priceAttr": {
+                    "21": "浅蓝",
+                    "09": "32"
+                }
+            },
+            "21_06": {
+                "id": "3508",
+                "goodsSn": "A_555555_21_06",
+                "name": "宜家'家&具",
+                "basePrice": "247.29",
+                "price": "260.00",
+                "marketPrice": "0.00",
+                "weight": "62.00",
+                "num": "2",
+                "stock": 0,
+                "salesNum": "42",
+                "attrImg": [
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg",
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653e08a2275319f2d593500842dd515aa3d.jpeg"
+                ],
+                "priceAttr": {
+                    "21": "浅蓝",
+                    "06": "29"
+                }
+            },
+            "13_09": {
+                "id": "3509",
+                "goodsSn": "A_555555_13_09",
+                "name": "宜家'家&具",
+                "basePrice": "248.55",
+                "price": "261.00",
+                "marketPrice": "0.00",
+                "weight": "63.00",
+                "num": "21",
+                "stock": 0,
+                "salesNum": "1039",
+                "attrImg": [
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg",
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653e08a2275319f2d593500842dd515aa3d.jpeg"
+                ],
+                "priceAttr": {
+                    "13": "米白",
+                    "09": "32"
+                }
+            },
+            "13_06": {
+                "id": "3510",
+                "goodsSn": "A_555555_13_06",
+                "name": "宜家'家&具",
+                "basePrice": "253.92",
+                "price": "267.00",
+                "marketPrice": "0.00",
+                "weight": "64.00",
+                "num": "46",
+                "stock": 954,
+                "salesNum": "372",
+                "attrImg": [
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg",
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653e08a2275319f2d593500842dd515aa3d.jpeg"
+                ],
+                "priceAttr": {
+                    "13": "米白",
+                    "06": "29"
+                }
+            }
+        },
+        "recommendList": ""
+    }
+}
