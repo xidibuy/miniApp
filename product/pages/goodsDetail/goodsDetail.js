@@ -1,8 +1,10 @@
 const app = getApp();
 const img = app.globalData.img;
+// const url = app.globalData.dataRemote;
 const url = app.globalData.data;
 Page({
   data: {
+
     img: app.globalData.img,
     imgUrls: [
       'http://static.googleadsserving.cn/pagead/imgad?id=CICAgKDL7vug_QEQrAIY-gEyCMf9cboyr_yJ',
@@ -22,7 +24,11 @@ Page({
       {
         showTwo: false
       }
-    ]
+    ],
+    scrollTop: 0,
+    floorstatus: false,
+    goodsDetail: {},
+    priceAttr: []
   },
   onPullDownRefresh: function () {
 
@@ -49,14 +55,19 @@ Page({
 
   onLoad: function (options) {
     var _this = this;
-    var proUrl = url + "proDetail.json"
+    // var proUrl = url + "/detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
+    const proUrl = url + "/goodsDetail.json"
     app.fetchApi(proUrl, function (res) {
+      for(const a in res.data.priceAttr){
+          console.log(a);
+      }
 
+
+      _this.setData({
+        goodsDetail: res.data,
+        priceAttr: res.data.priceAttr
+      });
     })
-    this.setData({
-      id: options.id
-    })
-    console.log(this);
   },
 
   // 分享单品页
@@ -64,6 +75,24 @@ Page({
     return {
       title: '分享',
       path: '/pages/goodsDetail/goodsDetail'
+    }
+  },
+  goTop: function () {
+    console.log("2");
+    this.setData({
+      scrollTop: 0
+    })
+  },
+  scroll: function (e, res) {
+    // 容器滚动时将此时的滚动距离赋值给 this.data.scrollTop
+    if (e.detail.scrollTop > 50) {
+      this.setData({
+        floorstatus: true
+      });
+    } else {
+      this.setData({
+        floorstatus: false
+      });
     }
   }
 });

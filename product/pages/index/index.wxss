@@ -117,7 +117,6 @@ swiper {
   width: 682.6rpx;
   height: 682.6rpx;
   border-radius: 7px;
-  background-color: red;
 }
 
 .session-inner image {

@@ -1,17 +1,119 @@
 {
-	"statue":true,
-	"data":{
-		"indexImg":"https://m.xidibuy.com:8000/image/img-banner.png",
-		"recommend":[
-			{
-				"title":"ĞÂÎ÷À¼¹ú±¦¼¶Âó¿¨è´·äÃÛ ¸»º¬¶ÀÓĞUMF»îĞÔÒı×Ôµ÷½Ú³¦Î¸",
-				"flag":"https://m.xidibuy.com:8000/image/national-flag.png",
-				"subTitle":" ĞÂÎ÷À¼ Melita Âó¿¨è´·äÃÛUMF5 +340g",
-				"xidiPrice":"£¤195.50"
-				"fromPrice":""
-				"chinaPrice":""
-			}
-		]
-	},
-	"msg":"ÇëÇó³É¹¦!"
+    "code": 0,
+    "msg": "",
+    "data": [
+        {
+            "type": 1,
+            "slogn": "ç²¾å“é¦–å…ˆ",
+            "warnshow": 0,
+            "solideImg": [
+                {
+                    "img": "//image.xidibuy.com/shop/shop.a75604326866c05dfef1538145c18b6660ca9d0cc84d5682358afc5948f29150.jpeg/280",
+                    "imglocation": 1,
+                    "imgdesc": "å›¾ç‰‡è¯´æ˜"
+                }
+            ],
+            "relateprodSn": "A_555555,B_780103",
+            "product": {
+                "id": "3510",
+                "prodSn": "A_555555",
+                "name": "å®œå®¶'å®¶å…·",
+                "nameFull": "å®œå®¶'å®¶å…·",
+                "marketPrice": "0.00",
+                "localPrice": 0,
+                "price": "267.00",
+                "defPriceAttr": [
+                    "13",
+                    "06"
+                ],
+                "defLink": "detail/3510.html",
+                "priceAttr": [
+                    {
+                        "type": "é¢œè‰²",
+                        "children": {
+                            "13": "ç±³ç™½",
+                            "21": "æµ…è“"
+                        },
+                        "curChildren": "ç±³ç™½"
+                    },
+                    {
+                        "type": "å°ºç ",
+                        "children": {
+                            "06": "29",
+                            "09": "32"
+                        },
+                        "curChildren": "29"
+                    }
+                ],
+                "coverImg": [
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg",
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653e08a2275319f2d593500842dd515aa3d.jpeg"
+                ],
+                "stock": 954,
+                "sign": "GBP",
+                "countryName": "è‹±å›½",
+                "flag": "//static.xidibuy.com/images/flags/icon-uk.png",
+                "totalStock": "40"
+            }
+        },
+        {
+            "type": 2,
+            "bannerimg": "//image.xidibuy.com/common/common.e29e81bff967004a26d268a4d467d3213ce1aed7b2130e2ebf5aa4c4361a27fb.jpeg",
+            "bannerlink": 1
+        },
+        {
+            "type": 1,
+            "slogn": "ç²¾å“é¦–å…ˆ",
+            "warnshow": 0,
+            "solideImg": [
+                {
+                    "img": "//image.xidibuy.com/shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg/640",
+                    "imglocation": 1,
+                    "imgdesc": "å›¾ç‰‡è¯´æ˜"
+                }
+            ],
+            "relateprodSn": "A_555555",
+            "product": {
+                "id": "3510",
+                "prodSn": "A_555555",
+                "name": "å®œå®¶'å®¶å…·",
+                "nameFull": "å®œå®¶'å®¶å…·",
+                "marketPrice": "0.00",
+                "localPrice": 0,
+                "price": "267.00",
+                "defPriceAttr": [
+                    "13",
+                    "06"
+                ],
+                "defLink": "detail/3510.html",
+                "priceAttr": [
+                    {
+                        "type": "é¢œè‰²",
+                        "children": {
+                            "13": "ç±³ç™½",
+                            "21": "æµ…è“"
+                        },
+                        "curChildren": "ç±³ç™½"
+                    },
+                    {
+                        "type": "å°ºç ",
+                        "children": {
+                            "06": "29",
+                            "09": "32"
+                        },
+                        "curChildren": "29"
+                    }
+                ],
+                "coverImg": [
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653b0eb6baf249b74cb3500842dd515aa3d.jpeg",
+                    "shop/shop.4d7c1da0a8ce13a08da0327f59c05653e08a2275319f2d593500842dd515aa3d.jpeg"
+                ],
+                "stock": 954,
+                "sign": "GBP",
+                "countryName": "è‹±å›½",
+                "flag": "//static.xidibuy.com/images/flags/icon-uk.png",
+                "totalStock": "40"
+            }
+        }
+    ]
 }
