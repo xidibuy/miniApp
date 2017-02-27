@@ -1,7 +1,7 @@
 //获取应用实例
 var app = getApp();
-// const url = app.globalData.dataRemote;
-const url = app.globalData.data;
+const url = app.globalData.dataRemote;
+// const url = app.globalData.data;
 Page({
   data: {
     current: 0,
@@ -18,8 +18,8 @@ Page({
 
   onLoad: function (options) {
     const _this = this;
-    // const indexUrl = url + '/index/home';
-    const indexUrl = url + '/index.json';
+    const indexUrl = url + '/index/home';
+    // const indexUrl = url + '/index.json';
     app.fetchApi(indexUrl, function (options) {
       _this.setData({
         index: options.data

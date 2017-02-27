@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/goodsDetail/goodsDetail",
     "pages/index/index",
+    "pages/goodsDetail/goodsDetail",
     "pages/confirmOrder/success/success",
     "pages/goodsDetail/goodsDetail",
     "pages/profile/profile/profile",
