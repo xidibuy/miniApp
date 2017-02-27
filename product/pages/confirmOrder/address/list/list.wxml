@@ -1,0 +1,49 @@
+<view class="container">
+
+  <!--收货地址-->
+  <view class="address">
+
+    <!--收货地址为空-->
+    <block wx:if="{{list.length > 0}}">
+      <view class="address-list">
+        <block wx:for="{{list}}" wx:key="index">
+          <view class="list-box {{item.default ? 'active' : ''}}">
+            <view class="item-left">
+            <view class="item-left-radio">
+            <text class="xd xd-circle"></text>
+              <text class="xd xd-dot"></text>
+            </view>
+              
+            </view>
+            <view class="list-cont">
+              <view class="cont-contact">
+                <text class="name">{{item.name}}</text>
+                <text class="mobile">18619900816</text>
+                <block wx:if="{{item.default}}">
+                  <text class="default">默认</text>
+                </block>
+              </view>
+              <view class="cont-ad ellip-lines">{{item.contAd}}</view>
+              <view class="cont-ad-desic ellip-lines">{{item.contAdDesic}}</view>
+            </view>
+            <view class="list-edit">
+              <navigator url="/pages/confirmOrder/address/edit/edit">
+                <text class="xd xd-edit"></text>
+              </navigator>
+            </view>
+          </view>
+        </block>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="empty">
+        <text>暂无收货地址</text>
+      </view>
+    </block>
+
+    <!--新增地址按钮(保持固定吸底)-->
+    <view class="addAddress-btn">
+      <navigator url="/pages/confirmOrder/address/edit/edit">新增地址</navigator>
+    </view>
+  </view>
+</view>
