@@ -1,2 +1,28 @@
-<!--pages/confirmOrder/invoice/invoice.wxml-->
-<text>pages/confirmOrder/invoice/invoice.wxml</text>
+<view class="container">
+  <view class="content">
+    <view class="title">发票抬头：</view>
+    <view class="row">
+      <view class="left">
+        <text class="xd xd-circle"></text>
+        <text class="xd xd-dot"></text>
+      </view>
+      <view class="type">个人</view>
+    </view>
+    <view class="row">
+      <view class="left">
+        <text class="xd xd-circle"></text>
+
+        <!--<text class="xd xd-dot"></text>-->
+      </view>
+      <view class="type">单位</view>
+      <input type="text" class="input" />
+    </view>
+    <view class="title">发票内容：
+      <text class="details">商品明细</text>
+    </view>
+    <view class="bottom-bar">
+      <navigator url="/pages/confirmOrder/index/index" class="left">暂不需要发票</navigator>
+      <navigator url="/pages/confirmOrder/index/index" class="right">确定</navigator>
+    </view>
+  </view>
+</view>

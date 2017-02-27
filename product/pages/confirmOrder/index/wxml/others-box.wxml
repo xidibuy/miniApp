@@ -1,22 +1,22 @@
 <view class="others-box">
 
   <!--送货方式-->
-  <view class="row way">
+  <navigator url="/pages/confirmOrder/way/way" class="row way">
     <text class="row-title">送货方式</text>
     <view class="ellip-line row-content">{{others.way}}</view>
     <view class="row-right">
       <view class="xd xd-right-angle"></view>
     </view>
-  </view>
+  </navigator>
 
   <!--发票信息-->
-  <view class="row invoice">
+  <navigator url="/pages/confirmOrder/invoice/invoice" class="row invoice">
     <text class="row-title">发票信息</text>
     <view class="ellip-line row-content">{{others.invoice}}</view>
     <view class="row-right">
       <view class="xd xd-right-angle"></view>
     </view>
-  </view>
+  </navigator>
 
   <!--备注-->
   <view class="row remark">

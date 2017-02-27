@@ -1,4 +1,4 @@
-<view class="address-box">
+<navigator class="address-box" url="/pages/confirmOrder/address/address">
     <view class="colors-border"></view>
 
     <!--有地址信息-->
@@ -27,4 +27,4 @@
     <view class="address-box-right">
       <view class="xd xd-right-angle"></view>
     </view>
-  </view>
+  </navigator>
