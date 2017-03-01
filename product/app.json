@@ -1,10 +1,10 @@
 {
   "pages": [
+    "pages/confirmOrder/index/index",
+    "pages/confirmOrder/invoice/invoice",
     "pages/cart/cart/cart",
     "pages/cart/invalid/invalid",
     "pages/index/index",
-    "pages/confirmOrder/index/index",
-    "pages/confirmOrder/invoice/invoice",
     "pages/confirmOrder/way/way",
     "pages/profile/profile/profile",
     "pages/profile/order/orderDetail/orderDetail",

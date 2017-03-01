@@ -1,5 +1,6 @@
 <view class="container">
 
+<scroll-view scroll-y="true">
   <!--地址-->
   <include src="wxml/address.wxml" />
 
@@ -20,7 +21,7 @@
 
   <!--金额单-->
   <include src="wxml/bill-box.wxml" />
-
+</scroll-view>
 
   <!--bottom-bar-->
   <view class="bottom-bar">

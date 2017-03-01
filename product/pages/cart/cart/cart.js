@@ -29,6 +29,7 @@ Page({
                             cityId: resp.data.cityId,
                             //有效商品列表
                             list: resp.data.cart.valid,
+                            // 无效商品个数
                             unValidNum: resp.data.unValidNum
                         });
 
