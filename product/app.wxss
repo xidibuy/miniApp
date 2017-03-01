@@ -53,7 +53,7 @@ view, text, label, checkbox-group {
   border-top: 2rpx solid #ddd;
 }
 
-.item {
+.item-pro {
   width: 50%;
   padding: 24rpx 24rpx 40rpx;
   box-sizing: border-box;
@@ -62,29 +62,29 @@ view, text, label, checkbox-group {
   margin-top: -2rpx;
 }
 
-.item .item-box {
+.item-pro .item-box {
   display: flex;
   flex-direction: column;
 }
 
-.item:nth-child(even) {
+.item-pro:nth-child(even) {
   border-right-color: #fff;
 }
 
-.item .name {
+.item-pro .name {
   margin: 21rpx 0 18rpx;
   -webkit-line-clamp: 2;
   font-size: 12px;
   line-height: 40rpx;
 }
 
-.item image {
+.item-pro image {
   vertical-align: middle;
   width: 328rpx;
   height: 328rpx;
 }
 
-.item .price {
+.item-pro .price {
   font-size: 14px;
   padding-bottom: 3rpx;
   font-weight: bold;
