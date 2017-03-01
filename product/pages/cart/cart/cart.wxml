@@ -1,10 +1,10 @@
-<view class="container {{list.length ? 'has-goods' : ''}}">
+<view class="container {{list.length ? 'has-goods' : ''}}" hidden="{{loading}}">
 
   <!--如果有商品-->
   <block wx:if="{{list.length}}">
-
     <!--满x元免运费提示-->
-    <view class="free-shipping-tips">再买48.00元即享{{freeCondition}}元免运费</view>
+    <view class="free-shipping-tips" hidden="{{settlementMoney > freeCondition}}">再买{{settlementMoney < freeCondition && (freeCondition-settlementMoney)}}元即享{{freeCondition}}元免运费</view>
+    <!--<view class="free-shipping-tips">再买{{freeCondition-settlementMoney}}元即享{{freeCondition}}元免运费</view>-->
 
     <!-- 购物车 已购商品列表 -->
     <include src="wxml/list.wxml" />

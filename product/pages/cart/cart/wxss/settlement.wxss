@@ -80,6 +80,10 @@
   text-align: center;
 }
 
+.settlement-bar .settlement-btn.disabled{
+  background: #c5c5c5;
+}
+
 .settlement-bar .settlement-number {
   font-size: 14px;
 }

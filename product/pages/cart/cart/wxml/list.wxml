@@ -3,9 +3,10 @@
     <view class="goods-item">
 
       <!--优惠信息-->
-      <view class="goods-item-concession" hidden="{{!item.favorable}}" data-number="{{item.favorableInfo.number}}">
-        <text class="goods-item-concession-icon {{item.checked ? 'active' : ''}}">优惠</text>
-        <text class="goods-item-concession-content">{{item.favorableInfo.word}}</text>
+      <view class="goods-item-concession" hidden="{{item.lesPrice == 0}}">
+        <text class="goods-item-concession-icon {{goodsCheckedStateObj[item.goodsId] ? 'active' : ''}}">优惠</text>
+        <text class="goods-item-concession-content">{{goodsCheckedStateObj[item.goodsId] ? ('购买指定商品可享优惠，已减' + item.lesPrice) : ('购买指定商品即可享受立减' + item.lesPrice + '元')}}
+        </text>
       </view>
 
       <!-- 主要内容-->
@@ -53,13 +54,15 @@
               <!--库存-->
               <view class="goods-item-num-box">
                 <view class="goods-item-num">
-                  <view class="goods-item-num-reduce disabled">
+                  <view class="goods-item-num-reduce {{item.buyNum > 1 ? '' : 'disabled'}}" 
+                  bindtap="updateGoodsNum" data-id="{{item.goodsId}}" data-type="minus">
                     <text class="xd xd-minus"></text>
                   </view>
                   <view class="goods-item-num-input" data-stock="{{item.stock}}">
-                    <input placeholder="" value="{{item.buyNum}}" />
+                    <input placeholder="" value="{{item.buyNum}}" bindinput="inputInputEvent" data-stock="{{item.stock}}" />
                   </view>
-                  <view class="goods-item-num-add">
+                  <view class="goods-item-num-add  {{item.stock == item.buyNum ? 'disabled' : '' }}"
+                  bindtap="updateGoodsNum" data-id="{{item.goodsId}}" data-type="add" data-stock="{{item.stock}}">
                     <text class="xd xd-plus"></text>
                   </view>
                 </view>

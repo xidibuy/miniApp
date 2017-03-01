@@ -14,15 +14,14 @@
     <view class="settlement-total">
       <view class="settlement-money">
         总计：
-        <text class="settlement-money-number">¥234.5</text>
+        <text class="settlement-money-number">¥{{settlementMoney}}</text>
       </view>
       <text class="settlement-freight">未含运费</text>
     </view>
   </view>
 
   <!--结算按钮-->
-  <navigator class="settlement-btn" url="/pages/confirmOrder/index/index">
-    结算 (
-    <text class="settlement-number">3</text>)
+  <navigator class="settlement-btn {{settlementNumber ? '' : 'disabled'}}" url="/pages/confirmOrder/index/index">
+    结算 (<text class="settlement-number">{{settlementNumber}}</text>)
   </navigator>
 </view>

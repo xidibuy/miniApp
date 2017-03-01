@@ -9,16 +9,12 @@ Page({
 
     onLoad: function () {
         const self = this;
-        // 1个商品
-        const listUrl = app.globalData.data + 'cart/invalid1.json';
-        // 6个商品
-        // const listUrl = app.globalData.data + 'cart/invalid6.json';
+        const listUrl = app.globalData.dataRemote + 'cart/unValidList';
         // 获取列表
         app.fetchApi(listUrl, function (resp) {
-            if (resp.state) {
+            if (resp.code == 0) {
                 self.setData({
-                    list: resp.data.list,
-                    invalidGoodsNum: resp.data.invalidGoodsNum
+                    list: resp.data
                 });
             }
 

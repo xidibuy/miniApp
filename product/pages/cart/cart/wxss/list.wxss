@@ -16,18 +16,21 @@
 }
 
 .goods-item-concession {
+  display: flex;
   font-size: 11px;
   color: #777;
   padding-left: 23.4rpx;
   margin-bottom: 23.4rpx;
+  height: 35.1rpx;
 }
 
 .goods-item-concession-icon {
-  display: inline-block;
+  display: block;
   border: 1px solid #f07e6b;
   color: #f07e6b;
+  line-height: 30.42rpx;
   padding: 0 8.19rpx;
-  margin-right: 5.85rpx;
+  margin-right: 11.7rpx;
   border-radius: 4.68rpx;
 }
 
