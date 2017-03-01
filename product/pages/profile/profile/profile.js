@@ -33,7 +33,7 @@ Page({
 
   // 下拉刷新
   onPullDownRefresh: function () {
-    const orderUrl = dataUrl + '/order/order.json';
+    const orderUrl = dataUrl + 'order/order.json';
     app.fetchApi(orderUrl, function (options) {
 
 
@@ -65,12 +65,12 @@ Page({
 
     // });
     // 收货地址请求https://wxapp.xidibuy.com/address/list
-    const adressUrl = url + '/address/list';
-    // this.post(adressUrl, function (res) {
-    //   _this.setData({
-    //     adress: res
-    //   });
-    // });
+    const adressUrl = url + 'address/list';
+    this.post(adressUrl, function (res) {
+      _this.setData({
+        adress: res
+      });
+    });
     // 更多设置请求
     const moreUrl = url + '';
     // this.post(moreUrl, function (res) {

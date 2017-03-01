@@ -64,7 +64,7 @@ Page({
   },
 
   onLoad: function (options) {
-    const proUrl = url + "/detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
+    const proUrl = url + "detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
     // const proUrl = url + "/goodsDetail.json"
     this.post(proUrl);
   },
@@ -182,7 +182,7 @@ Page({
   },
   changePro: function (parme) {
     // console.log(parme);
-    var proUrl = url + "/detail?goodId=" + parme;
+    var proUrl = url + "detail?goodId=" + parme;
     this.post(proUrl);
   },
 
@@ -213,7 +213,7 @@ Page({
   addCart: function () {
     const productIds = this.data.curC + "_" + this.data.curS;
     const num = this.data.amount;
-    const addCart = url + "/cart/add?productIds=" + productIds + "&addNum=" + num;
+    const addCart = url + "cart/add?productIds=" + productIds + "&addNum=" + num;
     app.fetchApi(addCart, function (res) {
       
     });

@@ -18,7 +18,7 @@ Page({
 
   onLoad: function (options) {
     const _this = this;
-    const indexUrl = url + '/index/home';
+    const indexUrl = url + 'index/home';
     // const indexUrl = url + '/index.json';
     app.fetchApi(indexUrl, function (options) {
       _this.setData({
