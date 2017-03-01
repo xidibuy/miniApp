@@ -1,6 +1,6 @@
 .bill-box{
     padding: 11.7rpx 35.1rpx 46.8rpx 23.4rpx;
-    margin-bottom: 115.83rpx;
+    /*margin-bottom: 115.83rpx;*/
 }
 .bill-box .row{
     height: 79.56rpx;

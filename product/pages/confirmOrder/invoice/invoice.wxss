@@ -6,16 +6,17 @@
     font-size: 14px;
     line-height: 1;
     color: #222;
-    margin: 35.1rpx 0;
+    margin: 35.1rpx 0 17.55rpx;
 }
 .details{
-    font-weight: bold;
+    /*font-weight: bold;*/
 }
 
 .row {
   display: flex;
   color: #222;
-  margin-bottom: 35.1rpx;
+  height: 81.9rpx;
+  align-items: center;
 }
 
 .row .left{
@@ -43,8 +44,8 @@
     margin-right: 23.4rpx;
 }
 .row .input{
-    width: 526.5rpx;
-    height: 81.9rpx;
+    width: 524.16rpx;
+    height: 79.56rpx;
     border: 2rpx solid #ddd;
     padding: 0 23.4rpx;
     font-size: 13px;

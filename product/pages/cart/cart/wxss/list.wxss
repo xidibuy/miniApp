@@ -16,18 +16,21 @@
 }
 
 .goods-item-concession {
+  display: flex;
   font-size: 11px;
   color: #777;
   padding-left: 23.4rpx;
   margin-bottom: 23.4rpx;
+  height: 35.1rpx;
 }
 
 .goods-item-concession-icon {
-  display: inline-block;
+  display: block;
   border: 1px solid #f07e6b;
   color: #f07e6b;
+  line-height: 30.42rpx;
   padding: 0 8.19rpx;
-  margin-right: 5.85rpx;
+  margin-right: 11.7rpx;
   border-radius: 4.68rpx;
 }
 
@@ -44,7 +47,7 @@
   width: 93.6rpx;
   height: 154.44rpx;
   line-height: 154.44rpx;
-  padding-left: 17rpx;
+  padding-left: 23.4rpx;
   position: relative
   
 }
@@ -104,9 +107,18 @@
 
 .goods-item-attr-box {
   width: 292.5rpx;
+  height: 39.78rpx;
+  line-height: 39.78rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+
+.goods-item-info-attr {
+  margin-right: 18.72rpx;
+  font-size: 10px;
+  color: #777;
 }
 
 .goods-item-title {
@@ -129,12 +141,6 @@
   color: #00bebf;
 }
 
-.goods-item-info-attr {
-  margin-right: 18.72rpx;
-  line-height: 39.78rpx;
-  font-size: 10px;
-  color: #777;
-}
 
 .goods-item-info-attr:last-child {
   margin-right: 0;

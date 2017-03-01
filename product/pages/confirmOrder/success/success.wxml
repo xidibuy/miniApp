@@ -1,6 +1,6 @@
 <view class="container">
     <view class="title">
-        <text class="xd xd-checked"></text>订单提交成功
+        <text class="xd xd-checked"></text>已完成支付
     </view>
     <view class="row">订单号：2014021491399</view>
     <view class="row">收货信息：林苏恩 18619900816</view>

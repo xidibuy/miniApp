@@ -1,22 +1,27 @@
-
 <view class="settlement-bar">
-    <!--左侧-->
-    <view class="settlement-left">
-        <!--全选按钮-->
-        <checkbox-group bindchange="toggleTotalCheckbox" class="checkbox-widget">
-          <text class="xd xd-checked"></text><text class="checkbox-word">全选</text>
-          <checkbox value="" checked="" class="checkbox" />
-        </checkbox-group>
-        <!--总计-->
-        <view class="settlement-total">
-            <view class="settlement-money">
-                总计： <text class="settlement-money-number">¥234.5</text>  
-            </view>
-            <text class="settlement-freight">未含运费</text>
-        </view>
+
+  <!--左侧-->
+  <view class="settlement-left">
+
+    <!--全选按钮-->
+    <checkbox-group bindchange="totalToggleChecked" class="checkbox-widget">
+      <text class="xd {{goodsCheckedStateObj.total ? 'xd-checked' : 'xd-circle'}}"></text>
+      <text class="checkbox-word">全选</text>
+      <checkbox value="" class="checkbox" checked="{{goodsCheckedStateObj.total}}" />
+    </checkbox-group>
+
+    <!--总计-->
+    <view class="settlement-total">
+      <view class="settlement-money">
+        总计：
+        <text class="settlement-money-number">¥{{settlementMoney}}</text>
+      </view>
+      <text class="settlement-freight">未含运费</text>
     </view>
-    <!--结算按钮-->
-    <navigator class="settlement-btn" url="/pages/confirmOrder/index/index">
-        结算 (<text class="settlement-number">3</text>)
-    </navigator>
+  </view>
+
+  <!--结算按钮-->
+  <navigator class="settlement-btn {{settlementNumber ? '' : 'disabled'}}" url="/pages/confirmOrder/index/index">
+    结算 (<text class="settlement-number">{{settlementNumber}}</text>)
+  </navigator>
 </view>
