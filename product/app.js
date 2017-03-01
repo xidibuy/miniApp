@@ -1,7 +1,7 @@
 //app.js
 
 App({
-  onLaunch: function () {
+  onLaunch() {
     //调用API从本地缓存中获取数据
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -27,7 +27,7 @@ App({
       }
     })
   },
-  getUserInfo: function (cb) {
+  getUserInfo(cb) {
     var that = this
     if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
@@ -47,9 +47,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    dataRemote: "https://wxapp.xidibuy.com",
+    dataRemote: "https://wxapp.xidibuy.com/",
     img: "http://172.16.14.96:8888/image/",
     data: "http://172.16.14.96:8888/data/"
-
   }
 })
