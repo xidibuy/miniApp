@@ -1,30 +1,49 @@
 <view class="container">
-  <image class="masthead" src="{{topic.bannerImg}}"></image>
-  <view class="introduction-box">
-    <block wx:if="{{topic.desicImg.length > 1}}">
-      <block wx:for="{{topic.desicImg}}" wx:key="index">
-        <image class="introduction-two" src="{{topic.desicImg[index]}}" mode="widthFix"></image>
-      </block>
-    </block>
-    <block wx:else>
-      <image class="introduction" src="{{topic.desicImg}}" mode="widthFix"></image>
-    </block>
-  </view>
-  <view class="goods-selected">
-    <block wx:for="{{topic.pro}}" wx:key="id">
-      <view class="item">
-        <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate"  class="item-box">
-          <image src="{{item.imgUrl}}"></image>
-          <text class="name">{{item.name}}</text>
-          <text class="price">{{item.price}}</text>
-          <view class="local-price">当地价：
-            <text>{{item.localPrice}}</text>
-          </view>
-        </navigator>
+  <image class="masthead" src="{{imgBanner}}"></image>
+  <block wx:for="{{topic.moduleContent}}" wx:key="*this">
+    <block wx:if="{{item.type == 1}}">
+      <view class="introduction-box">
+        <image class="introduction" src="{{item.img}}" mode="widthFix">{{item.img}}</image>
       </view>
     </block>
-  </view>
-
+    <block wx:if="{{item.type == 2}}">
+      <view class="introduction-box">
+        <block wx:for="{{item.imgarr}}" wx:key="index">
+          <image class="introduction-two" src="{{item}}" mode="widthFix">{{imgarr[index]}}</image>
+        </block>
+      </view>
+    </block>
+    <view class="goods-selected">
+      <block wx:if="{{item.type == 3}}">
+        <block wx:for="{{item.product}}" wx:key="*this">
+          <view class="item-pro">
+            <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.id + '&relateprodSn=' + item.prodSn}}" open-type="navigate" class="item-box">
+              <image src="{{item.coverImg}}"></image>
+              <text class="name">{{item.name}}</text>
+              <text class="price">{{item.price}}</text>
+              <view class="local-price">当地价：
+                <text>{{item.marketPrice}}</text>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </block>
+      <block wx:if="{{item.type == 4}}">
+        <block wx:for="{{item.product}}" wx:key="*this">
+          <view class="item-pro">
+            <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.id + '&relateprodSn=' + item.prodSn}}" open-type="navigate" class="item-box">
+              <image src="{{item.coverImg}}"></image>
+              <text class="name">{{item.name}}</text>
+              <text class="price">{{item.price}}</text>
+              <view class="local-price">当地价：
+                <text>{{item.marketPrice}}</text>
+              </view>
+            </navigator>
+          </view>
+        </block>
+      </block>
+    </view>
+  </block>
   <view class="goIndex">
     <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
   </view>

@@ -1,6 +1,6 @@
 <view class="container">
-  <scroll-view scroll-y="true" scroll-top="{{scrollTop}}" bindscroll="scroll">
-    <view class="sessionOne">
+  <!--<scroll-view scroll-y="true" scroll-top="{{scrollTop}}" bindscroll="scroll">-->
+    <view class="sessionOne" style="display:{{show[0].showOne ? 'block' : 'none'}}">
 
       <!--轮播图片-->
       <view class="swiper">
@@ -32,47 +32,56 @@
             <text>优惠</text>
           </view>
           <view class="discound-word">购买指定产品立减
-            <text>¥30</text>
+            <text>¥{{goodsDetail.couponAmount}}</text>
           </view>
         </view>
         <view class="price-nother-box">
-          <text class="price-nother">原产国市场售价 {{goodsDetail.name}}(新西兰元)</text>
-          <text class="price-nother">按当前汇率折合人民币 ＝ ¥{{goodsDetail.name}}</text>
-          <text class="price-nother">中国网上零售价价：{{goodsDetail.name ? goodsDetail.name : '暂无销售'}}</text>
-          <text class="price-nother">中国线下实体价价：¥{{goodsDetail.name}}</text>
+          <text class="price-nother">原产国市场售价 {{goodsDetail.marketPriceRMB}}{{goodsDetail.marketPriceSign}}({{goodsDetail.countryName}})</text>
+          <text class="price-nother">按当前汇率折合人民币 ＝ ¥{{goodsDetail.marketPriceRMB}}</text>
+          <text class="price-nother">中国网上零售价价：{{goodsDetail.priceMin ? goodsDetail.priceMin : '暂无销售'}}</text>
+          <text class="price-nother">中国线下实体价价：¥{{goodsDetail.priceMax}}</text>
           <view class="location">
             <image src="{{goodsDetail.flag}}" class="icon-flag"></image>
-            <text>新西兰</text>
+            <text>{{goodsDetail.countryName}}</text>
           </view>
         </view>
       </view>
 
       <!--库存情况-->
       <view class="sku-info">
-        <block wx:for="{{goodsDetail.priceAttr[0]}}" wx:key="*this">
-          <view class="attr-name">{{item.type}}
-            <block wx:for="{{item.children}}" wx:key="*this"></block>
-            <text>{{item.}}</text>
-          </view>
-          <!--颜色注释-->
-          <!--selected 被选中-->
-          <!--disabled 禁止点击-->
-          <view class="color-list">
-          <block></block>
-            <view>
-              <image src=""></image>
-            </view>
+        <view></view>
+        <block>
+          <view class="attr-name">
+            {{goodsDetail.priceAttr[0].type}}
+            <block wx:for="{{keyone}}" wx:key="index">
+              <text>"{{goodsDetail.priceAttr[0].children[keyone[index]].name}}"</text>
+            </block>
           </view>
         </block>
 
+        <!--颜色注释-->
 
-        <view class="attr-name">尺码
-          <text>“中号（实用年龄年龄：9月-24月）”</text>
+        <!--selected 被选中-->
+
+        <!--disabled 禁止点击-->
+        <view class="color-list">
+          <block wx:for="{{keyone}}" wx:key="index">
+            <view class="{{(keyone[index] == goodsDetail.curColorAndsSize[0]) ? 'selected' : ''}}">
+              <image src="{{goodsDetail.priceAttr[0].children[keyone[index]].img}}" bindtap="changeColor" data-color="{{keyone[index]}}"></image>
+            </view>
+          </block>
+        </view>
+        <view class="attr-name">{{goodsDetail.priceAttr[1].type}}
+          <block wx:for="{{keytwo}}" wx:key="index">
+            <text>"{{goodsDetail.priceAttr[1].children[keytwo[index]]}}"</text>
+          </block>
         </view>
         <view class="size-list">
-          <view>大号</view>
-          <view class="selected">中号</view>
-          <view class="disabled">小号</view>
+          <block wx:for="{{keytwo}}" wx:key="index">
+            <view class="{{(keytwo[index] == goodsDetail.curColorAndsSize[1]) ? 'selected' : ''}}"  bindtap="changeSize" data-size="{{keytwo[index]}}">
+              {{goodsDetail.priceAttr[1].children[keytwo[index]]}}
+            </view>
+          </block>
         </view>
         <view class="attr-name">数量</view>
         <view class="widget-ctrl-box">
@@ -89,7 +98,7 @@
               <text class="xd xd-warning"></text>
             </view>
             <view>仅剩
-              <text>10</text>件</view>
+              <text>{{goodsDetail.stock}}</text>件</view>
           </view>
         </view>
       </view>
@@ -97,7 +106,7 @@
       <!--简单介绍和物流-->
       <view class="smiple-intro-box">
         <view class="smiple-intro">
-          <text style="font-size:13px;">1. 产自新西兰纯天然无污染蜂蜜产区，无添加麦卢卡蜂蜜； 2. UMF 5+具有一定消炎功能，对肠胃有调节作用； 3. 精确到每瓶蜂蜜的质量追踪系统，安全有保障。</text>
+          <text style="font-size:13px;">{{goodsDetail.desc}}</text>
           <view class="post-info">
             <view>
               <text class="xd xd-truck"></text>
@@ -119,84 +128,49 @@
         <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
       </view>
     </view>
-    <view class="sessionTwo">
+    <view class="sessionTwo" style="display:{{show[1].showTwo ? 'block' : 'none'}}">
 
       <!--商品规格-->
       <view class="spec-desc">
-        <view class="spec-list">
-          <text class="spec-name">商品名称</text>
-          <text>新西兰 Melita 麦卡卢蜂蜜</text>
-        </view>
-        <view class="spec-list">
-          <text class="spec-name">原产地</text>
-          <text>新西兰</text>
-        </view>
-        <view class="spec-list">
-          <text class="spec-name">商品款式</text>
-          <text>黑色</text>
-        </view>
-        <view class="spec-list">
-          <text class="spec-name">商品重量</text>
-          <text>340g</text>
-        </view>
+        <block wx:for="{{prodParams}}" wx:key="*this">
+          <view class="spec-list">
+            <text class="spec-name">{{item.name}}</text>
+            <text>{{item.value}}</text>
+          </view>
+        </block>
       </view>
 
       <!--商品详情图片-->
       <view class="pro-desic-img">
+      <block wx:for=""></block>
         <image src="http://172.16.14.96:8888/image/img-1.png" mode="widthFix"></image>
       </view>
-      <view class="xidi-selected">
-        <text>喜地推荐</text>
-      </view>
-      <view class="goods-selected">
-        <view class="item">
-          <navigator url="/pages/goodsDetail/goodsDetail?id=0" open-type="navigate" class="item-box">
-            <image src="{{img}}img-cup.png"></image>
-            <text class="name ellip-lines">日本手工杯子日本手工杯子日本手工杯子</text>
-            <text class="price">¥111.00</text>
-            <view class="local-price">当地价:
-              <text>¥35.00</text>
-            </view>
-          </navigator>
+      <block wx:if="{{recommendList.length}}">
+        <view class="xidi-selected">
+          <text>喜地推荐</text>
         </view>
-        <view class="item">
-          <navigator url="/pages/goodsDetail/goodsDetail?id=1" open-type="navigate" class="item-box">
-            <image src="{{img}}img-cup.png"></image>
-            <text class="name ellip-lines">手工值爱上飞机上抗旱交话费肯德基上百个快解散第三个</text>
-            <text class="price">¥35.00</text>
-            <view class="local-price">当地价:
-              <text>¥35.00</text>
+        <view class="goods-selected">
+          <block wx:for="{{recommendList}}" wx:key="*this">
+            <view class="item">
+              <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.id + '&relateprodSn=' + item.goodsSn}}" open-type="navigate" class="item-box">
+                <image src="{{item.coverImg}}"></image>
+                <text class="name ellip-lines">{{item.name}}</text>
+                <text class="price">¥{{item.price}}</text>
+                <view class="local-price">当地价:
+                  <text>¥{{item.marketPrice}}</text>
+                </view>
+              </navigator>
             </view>
-          </navigator>
+          </block>
         </view>
-        <view class="item">
-          <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate" class="item-box">
-            <image src="{{img}}img-cup.png"></image>
-            <text class="name">日本手工杯子</text>
-            <text class="price">¥35.00</text>
-            <view class="local-price">当地价:
-              <text>¥35.00</text>
-            </view>
-          </navigator>
-        </view>
-        <view class="item">
-          <navigator url="/pages/goodsDetail/goodsDetail?id=2" open-type="navigate" class="item-box">
-            <image src="{{img}}img-cup.png"></image>
-            <text class="name">日本手工杯子</text>
-            <text class="price">¥35.00</text>
-            <view class="local-price">当地价:
-              <text>¥35.00</text>
-            </view>
-          </navigator>
-        </view>
-      </view>
+      </block>
 
       <!--回到顶部-->
       <view class="goIndex goIndexGoods" bindtap="goTop" wx:if="{{floorstatus}}">
         <text class="xd xd-right-angle"></text>
       </view>
     </view>
-  </scroll-view>
+  <!--</scroll-view>-->
   <view class="floatCart">
     <view class="viewCart">
       <navigator url="/pages/cart/cart/cart" open-type="switchTab">

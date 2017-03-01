@@ -17,7 +17,7 @@
               <text class="main-title">{{item.slogn}}</text>
               <view class="pro-name">
                 <image class="national-flag" src="{{item.product.flag}}" style=""></image>
-                <text class="sub-title">{{item.product.nameFull}}</text>
+                <text class="sub-title">{{item.product.name}}</text>
               </view>
               <text class="price">¥{{item.product.marketPrice}}</text>
               <view class="other-price">
@@ -69,7 +69,7 @@
         <!--循环专题-->
         <view class="re-pro">
           <view class="special-banner">
-            <navigator url="/pages/topic/topic">
+            <navigator url="{{'/pages/topic/topic?id=' + item.bannerlink + '&bannerimg=' + item.bannerimg}}">
               <view class="img-cover">
                 <image src="{{item.bannerimg}}" mode="aspectFill"></image>
               </view>

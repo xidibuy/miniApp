@@ -3,19 +3,23 @@ const url = app.globalData.dataRemote;
 Page({
     data:
     {
-        topic: {}
+        topic: {},
+        imgBanner: ''
     },
-    onLoad: function () {
+    onLoad: function (options) {
+        console.log(options.bannerimg + options.id);
         const _this = this;
-        const cartUrl = url + 'topic.json';
-        app.fetchApi(cartUrl, function (options) {
+        const cartUrl = url + '/special?id=' + options.id + '&bannerimg=' + options.bannerimg;
+        app.fetchApi(cartUrl, function (res) {
 
             _this.setData({
-                topic: options.data
+                topic: res.data,
+                imgBanner: options.bannerimg
             });
             wx.setNavigationBarTitle({
-                title: options.data.title
+                title: res.data.subjectName
             });
+console.log(res.data.moduleContent[3]);
         });
 
     },
