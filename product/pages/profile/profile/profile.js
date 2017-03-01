@@ -1,8 +1,9 @@
 const app = getApp();
-const dataUrl = app.globalData.data;
+// const dataUrl = app.globalData.data;
+const url = app.globalData.dataRemote;
 Page({
   data: {
-    contentType: "order",
+    contentType: "more",
 
     //我的订单
     orders: [],
@@ -11,13 +12,13 @@ Page({
     adress: [],
 
     //more
-    more: [],
+    more: {},
 
     menu: [
       {
         name: "我的订单",
         value: "order",
-        active: true
+        active: false
       }, {
         name: "收货地址",
         value: "adress",
@@ -25,7 +26,7 @@ Page({
       }, {
         name: "更多设置",
         value: "more",
-        active: false
+        active: true
       }
     ]
   },
@@ -41,7 +42,7 @@ Page({
   },
   bindMenu(e) {
 
-    this.getProfile();
+    // this.getProfile();
     name = e.target.dataset.name // 获取当前点击的menu值
     const newMenu = this.data.menu.map((arr, index) => {
       if (arr.value === name) {
@@ -57,21 +58,33 @@ Page({
     });
   },
   onLoad: function (options) {
-    this.getProfile();
-  },
-  getProfile: function () {
     const _this = this;
-    // profile,不为空
-    const cartUrl = dataUrl + '/profile/profile.json';
-    // profile,为空
-    // const cartUrl = dataUrl + '/profile/profileNone.json';
+    // 订单列表请求
+    const orderUrl = url + '';
+    // this.post(orderUrl, function (res) {
 
-    app.fetchApi(cartUrl, function (options) {
+    // });
+    // 收货地址请求https://wxapp.xidibuy.com/address/list
+    const adressUrl = url + '/address/list';
+    // this.post(adressUrl, function (res) {
+    //   _this.setData({
+    //     adress: res
+    //   });
+    // });
+    // 更多设置请求
+    const moreUrl = url + '';
+    // this.post(moreUrl, function (res) {
 
-      _this.setData({
-        orders: options.data.orders,
-        adress: options.data.adress
-      });
+    // });
+    console.log(app.globalData);
+    _this.setData({
+      more: app.globalData.userInfo
+    });
+  },
+  post: function (postUrl, callback) {
+    const _this = this;
+    app.fetchApi(postUrl, function (res) {
+      callback.length && callback(res.data);
     })
   },
   sureModal: function (e) {
