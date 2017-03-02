@@ -1,46 +1,50 @@
-.first-part{
-    padding: 0 23.4rpx;
-    border-bottom: 2rpx solid #ddd;
-}
-.input{
-    padding-left: 23.4rpx;
-    height: 102.96rpx;
-    line-height: 102.96rpx;
-    font-size: 15px;
-    color: #222;
-    border-bottom: 2rpx solid #ddd;
-}
-.input-ph{
-    font-size: 14px;
-    color: #777;
-}
-.textarea{
-    padding-left: 23.4rpx;
-    height: 159.12rpx;
-    border-bottom: 2rpx solid #ddd;
+.first-part {
+  padding: 0 23.4rpx;
+  border-bottom: 2rpx solid #ddd;
 }
 
-.first-part .input:last-child{
-    border-bottom: none;
+.input {
+  padding-left: 23.4rpx;
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  font-size: 15px;
+  color: #222;
+  border-bottom: 2rpx solid #ddd;
 }
 
-.second-part .row{
-    height: 102.96rpx;
-    line-height: 102.96rpx;
-    font-size: 15px;
-    border-bottom: 2rpx solid #ddd;
-}
-.second-part .default{
-    display: flex;
-    color: #222;
-    padding: 0 23.4rpx 0 46.8rpx;
-    justify-content: space-between;
+.input-ph {
+  font-size: 14px;
+  color: #777;
 }
 
-.second-part .delete{
-    font-size: 15px;
-    text-align: center;
-    color: #f33;
+.textarea {
+  padding-left: 23.4rpx;
+  height: 159.12rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.first-part .input:last-child {
+  border-bottom: none;
+}
+
+.second-part .row {
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  font-size: 15px;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.second-part .default {
+  display: flex;
+  color: #222;
+  padding: 0 23.4rpx 0 46.8rpx;
+  justify-content: space-between;
+}
+
+.second-part .delete {
+  font-size: 15px;
+  text-align: center;
+  color: #f33;
 }
 
 /*bottom-bar*/
@@ -59,6 +63,35 @@
   text-align: center;
 }
 
-picker-view{
-    height: 102.96rpx;
+picker-view {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2222;
+  width: 100%;
+  height: 664.56rpx;
+  background: #fff;
+}
+
+.picker-wrap {
+  display: flex;
+  width: 100%;
+  height: 664.56rpx;
+  padding: 0 2.5%;
+}
+
+picker-view-column{
+    width: 30%;
+    
+}
+.picker-view-column-center{
+    margin: 0 2.5%;
+}
+
+.picker-view-item {
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 2.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

@@ -43,7 +43,7 @@
             <view class="goods-item-attr-box">
 
               <!--商品属性-->
-              <block wx:for="{{item.priceAttr}}" wx:key="*this">
+              <block wx:for="{{item.priceAttr}}" wx:key="{{item.type}}">
                 <text class="goods-item-info-attr">{{item.pValue}}</text>
               </block>
             </view>

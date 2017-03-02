@@ -26,7 +26,7 @@
   <!--bottom-bar-->
   <view class="bottom-bar">
     <view class="bottom-bar-left">
-      应付金额：<text class="amount">¥{{bill.pay}}</text>
+      应付金额：<text class="amount">¥{{amount}}</text>
     </view>
     <navigator class="bottom-bar-right" url="/pages/confirmOrder/success/success">提交订单</navigator>
   </view>

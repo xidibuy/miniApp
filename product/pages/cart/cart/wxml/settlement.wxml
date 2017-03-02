@@ -21,7 +21,7 @@
   </view>
 
   <!--结算按钮-->
-  <navigator class="settlement-btn {{settlementNumber ? '' : 'disabled'}}" url="/pages/confirmOrder/index/index">
+  <view class="settlement-btn {{settlementNumber ? '' : 'disabled'}}" bindtap="settlementEvent">
     结算 (<text class="settlement-number">{{settlementNumber}}</text>)
-  </navigator>
+  </view>
 </view>

@@ -1,5 +1,5 @@
 <navigator class="address-box" url="/pages/confirmOrder/address/edit/edit">
-    <view class="colors-border"></view>
+  <image src="{{border}}"  class="colors-border"></image>
 
     <!--有地址信息-->
     <block wx:if="{{hasAddressInfo}}">
