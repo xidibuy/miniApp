@@ -6,17 +6,17 @@
   <block wx:if="{{adress.length > 0}}">
     <view class="adress-list">
       <block wx:for="{{adress}}" wx:key="index">
-        <view class="list-box {{item.default ? 'active' : ''}}">
+        <view class="list-box {{item.status ? 'active' : ''}}">
           <view class="list-cont">
             <view class="cont-contact">
-              <text class="name">{{item.name}}</text>
-              <text class="mobile">18619900816</text>
-              <block wx:if="{{item.default}}">
+              <text class="name">{{item.consignee}}</text>
+              <text class="mobile">{{item.mobile}}</text>
+              <block wx:if="{{item.status == 1}}">
                 <text class="default">默认</text>
               </block>
             </view>
-            <view class="cont-ad ellip-lines">{{item.contAd}}</view>
-            <view class="cont-ad-desic ellip-lines">{{item.contAdDesic}}</view>
+            <view class="cont-ad ellip-lines">{{item.pname}}{{item.cname}}{{item.dname}}</view>
+            <view class="cont-ad-desic ellip-lines">{{item.address}}</view>
           </view>
           <view class="list-edit">
             <navigator url="/pages/addAdress/addAdress">

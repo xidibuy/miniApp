@@ -6,8 +6,9 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs);
-
+    this.getUserInfo();
   },
+
   fetchApi(url, callback) {
     wx.request({
       url,
@@ -49,6 +50,5 @@ App({
     dataRemote: "https://wxapp.xidibuy.com/",
     img: "http://172.16.14.96:8888/image/",
     data: "http://172.16.14.96:8888/data/"
-
   }
 })

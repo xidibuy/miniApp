@@ -76,6 +76,7 @@
 .term-user-img image {
   width: 66rpx;
   height: 66rpx;
+  border-radius: 50%;
 }
 
 .empty-box {

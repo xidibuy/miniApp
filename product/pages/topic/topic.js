@@ -9,7 +9,7 @@ Page({
     onLoad: function (options) {
         console.log(options.bannerimg + options.id);
         const _this = this;
-        const cartUrl = url + '/special?id=' + options.id + '&bannerimg=' + options.bannerimg;
+        const cartUrl = url + 'special?id=' + options.id + '&bannerimg=' + options.bannerimg;
         app.fetchApi(cartUrl, function (res) {
 
             _this.setData({
