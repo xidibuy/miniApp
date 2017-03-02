@@ -1,15 +1,16 @@
-.content{
-    padding-left: 35.1rpx;
+.content {
+  padding-left: 35.1rpx;
 }
 
-.title{
-    font-size: 14px;
-    line-height: 1;
-    color: #222;
-    margin: 35.1rpx 0 17.55rpx;
+.title {
+  font-size: 14px;
+  line-height: 1;
+  color: #222;
+  margin: 35.1rpx 0 17.55rpx;
 }
-.details{
-    /*font-weight: bold;*/
+
+.details {
+  /*font-weight: bold;*/
 }
 
 .row {
@@ -19,61 +20,83 @@
   align-items: center;
 }
 
-.row .left{
-    position: relative;
-    width: 46.8rpx;
-    height: 46.8rpx;
-    margin-right: 11.7rpx;
-}
-.row .left .xd-circle{
-    font-size: 46.8rpx;
-    color: #ddd;
+.row .left {
+  position: relative;
+  width: 46.8rpx;
+  height: 46.8rpx;
+  margin-right: 11.7rpx;
 }
 
-.row .left .xd-dot{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    font-size: 46.8rpx;
-    color: #4ed6d1;
+.row .left .xd-circle {
+  font-size: 46.8rpx;
+  color: #ddd;
 }
 
-.row .type{
-    font-size: 14px;
-    margin-right: 23.4rpx;
+.row .left .xd-dot {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  font-size: 46.8rpx;
+  color: #4ed6d1;
 }
-.row .input{
-    width: 524.16rpx;
-    height: 79.56rpx;
-    border: 2rpx solid #ddd;
-    padding: 0 23.4rpx;
-    font-size: 13px;
-    color: #222;
+
+.row .type {
+  font-size: 14px;
+  margin-right: 23.4rpx;
 }
+
+.row .input-widget {
+  width: 524.16rpx;
+  height: 79.56rpx;
+  border: 2rpx solid #ddd;
+  position: relative;
+}
+
+.row .input-widget .input {
+  position: absolute;
+  top: 0;
+  left: 23.4rpx;
+  width: 421.2rpx;
+  height: 79.56rpx;
+  font-size: 13px;
+  color: #222;
+}
+
+.row .input-widget .xd-closed {
+  position: absolute;
+  right: 23.4rpx;
+  top: 23.4rpx;
+  z-index: 2;
+  font-size: 35.1rpx;
+  color: #c5c5c5;
+}
+
 /*bottom-bar*/
-.bottom-bar{
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 111;
-    width: 100%;
-    height: 113.49rpx;
-    line-height: 113.49rpx;
-    background: #fff;
-    display: flex;
-    font-size: 15px;
-    text-align: center;
-}
-.bottom-bar .left{
-    width: 50%;
-    height: 112.32rpx;
-    border-top: 2rpx solid #ddd;
-    color: #777;
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 111;
+  width: 100%;
+  height: 113.49rpx;
+  line-height: 113.49rpx;
+  background: #fff;
+  display: flex;
+  font-size: 15px;
+  text-align: center;
 }
 
-.bottom-bar .right{
-    width: 50%;
-    color: #fff;
-    background: #4ed6d2;
+.bottom-bar .left {
+  width: 50%;
+  height: 112.32rpx;
+  border-top: 2rpx solid #ddd;
+  color: #777;
+}
+
+.bottom-bar .right {
+  width: 50%;
+  color: #fff;
+  background: #4ed6d2;
 }

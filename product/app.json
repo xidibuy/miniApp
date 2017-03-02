@@ -1,9 +1,9 @@
 {
   "pages": [
     "pages/cart/cart/cart",
-    "pages/confirmOrder/index/index",
     "pages/confirmOrder/invoice/invoice",
     "pages/confirmOrder/way/way",
+    "pages/confirmOrder/index/index",
     "pages/profile/profile/profile",
     "pages/profile/order/orderDetail/orderDetail",
     "pages/profile/order/evaluate/evaluate",
