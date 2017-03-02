@@ -19,24 +19,27 @@ Page({
                 app.fetchApi(listUrl, function (resp) {
                     if (resp.code == 0) {
                         wx.hideToast();
-                        self.setData({
-                            loading: false,
-                            // 包邮金额
-                            freeCondition: Number(resp.data.freeCondition),
-                            // 包邮文案
-                            // freeDesc:resp.data.freeDesc,
-                            // 城市id
-                            cityId: resp.data.cityId,
-                            //有效商品列表
-                            list: resp.data.cart.valid,
-                            // 无效商品个数
-                            unValidNum: resp.data.unValidNum
-                        });
+                        
+                            self.setData({
+                                loading: false,
+                                // 包邮金额
+                                freeCondition: Number(resp.data.freeCondition),
+                                // 包邮文案
+                                // freeDesc:resp.data.freeDesc,
+                                // 城市id
+                                cityId: resp.data.cityId,
+                                //有效商品列表
+                                list: resp.data.cart.valid,
+                                // 无效商品个数
+                                unValidNum: resp.data.unValidNum
+                            });
 
-                        // 设置商品选中状态
-                        self.setGoodsDefaultCheckedState(resp.data.cart.valid);
-                        // 设置金额
-                        self.updateCurrentSum();
+                            // 设置商品选中状态
+                            self.setGoodsDefaultCheckedState(resp.data.cart.valid);
+                            // 设置金额
+                            self.updateCurrentSum();
+                        
+
                     }
                 })
             }
@@ -149,7 +152,7 @@ Page({
                 self.setData(obj)
             }
         }
-        
+
         self.updateCurrentSum();
     },
 

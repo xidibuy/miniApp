@@ -11,10 +11,10 @@ Page({
     amount: 1,
     show: [
       {
-        showOne: true
+        showOne: false
       },
       {
-        showTwo: false
+        showTwo: true
       }
     ],
     scrollTop: 0,

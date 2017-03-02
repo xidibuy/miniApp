@@ -1,14 +1,15 @@
 <view class="container">
-  <view class="row">
-    <view class="left">
+  <label class="row">
+    <radio-group class="left" bindchange="test">
       <text class="xd xd-circle"></text>
-      <text class="xd xd-dot"></text>
-    </view>
+      <text class="xd xd-dot" hidden="{{!normal}}"></text>
+      <radio value="{{id}}" class="radio" checked="{{normal}}" />
+    </radio-group>
     <view class="right">
       <view class="right-title">普通快递送货上门(¥6.00)</view>
       <view class="right-normal">全场满98元免邮</view>
     </view>
-  </view>
+  </label>
   <view class="row">
     <view class="left">
       <text class="xd xd-circle"></text>
