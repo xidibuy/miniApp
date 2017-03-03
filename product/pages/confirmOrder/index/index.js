@@ -1,38 +1,88 @@
 const app = getApp();
+const search = require('../../../utils/area.js').search;
 
 Page({
     data: {
-        img: app.globalData.img,
-        dataUrl: app.globalData.data
+        border: '//static.xidibuy.com/miniapp/common/1.0.0/images/colors-border.png'
     },
 
     onLoad: function () {
-        const self = this;
-        // 有收货地址
-        // const listUrl = app.globalData.data + 'confirmOrder/normal1.json';
-        // 无收货地址
-        const listUrl = app.globalData.data + 'confirmOrder/normal2.json';
-        // 获取列表
-        app.fetchApi(listUrl, function (resp) {
-            if (resp.state) {
-                self.setData({
-                    hasAddressInfo: resp.data.hasAddressInfo,
-                    addressInfo: resp.data.addressInfo,
-                    goodsList: resp.data.goodsList,
-                    others: resp.data.others,
-                    bill: resp.data.bill
-                });
-            }
-            //处理收货人名字  超出5个汉字截断+...
-            if(self.data.hasAddressInfo && self.data.addressInfo.name.length > 5){
-                self.setData({
-                    'addressInfo.name': self.data.addressInfo.name.split('').slice(0,5).join('') + '...'
-                })
-            }
+        let self = this;
+        let pageData = wx.getStorageSync('orderTemp');
 
+        //计算得出应付金额 格式化所有数字
+        let goodsPriceTotal = pageData.goodsPriceTotal;
+        let goodsShippingFee = pageData.goodsShippingFee;
+        let noGoodsAmount = pageData.noGoodsAmount;
+        let amount = self.tail(goodsPriceTotal + goodsShippingFee - noGoodsAmount);
+        pageData.goodsPriceTotal = self.tail(goodsPriceTotal);
+        pageData.goodsShippingFee = self.tail(goodsShippingFee);
+        pageData.noGoodsAmount = self.tail(noGoodsAmount);
+
+
+        // 是否有默认地址
+        pageData.hasDefaultAddress = Object.keys(pageData.addressInfos).length;
+        // address link url
+        let addressLinkUrl = '';
+        if (pageData.hasDefaultAddress) {
+            addressLinkUrl = '/pages/confirmOrder/address/list/list';
+        } else if (pageData.addressList == 0) {
+            addressLinkUrl = '/pages/confirmOrder/address/edit/edit';
+        } else if (pageData.addressList == 1) {
+            addressLinkUrl = '/pages/confirmOrder/address/list/list';
+        }
+
+        // 当前地址
+        let currentArea = '';
+        if (pageData.hasDefaultAddress) {
+            currentArea = search(pageData.addressInfos.district)
+        }
+
+
+        self.setData({
+            amount,
+            pageData,
+            addressLinkUrl,
+            currentArea
+        });
+    },
+    submitOrder: function () {
+        let self = this;
+        let productIds = wx.getStorageSync('cartGoodsTemp').productIds;
+        let obj = {
+            productIds,
+            invoice: {
+                head: 1,
+                headContent: '世纪东方该数据库的股份接口'
+            },
+            order: {
+                address: "1152",
+                orderType: 1,
+                paytype: '13'
+            },
+            mentioningAddress: 1,
+            remark: 'sdfgsf上岛咖啡'
+        };
+        wx.request({
+            url: app.globalData.dataRemote + 'order/save',
+            data: obj,
+            header: {
+                'content-type': 'application/x-www-from-urlencoded'
+            },
+            method: 'POST',
+            success: function (res) {
+                // success
+            }
         })
     },
-    submitOrder: function(){
-
+    tail(num) {
+        if (typeof num == "number") {
+            if (/\./g.test(num)) {
+                return num
+            } else {
+                return num + '.00'
+            }
+        }
     }
+
 });

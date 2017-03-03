@@ -1,19 +1,19 @@
-<navigator class="address-box" url="/pages/confirmOrder/address/edit/edit">
-    <view class="colors-border"></view>
+<navigator class="address-box" url="{{addressLinkUrl}}">
+  <image src="{{border}}"  class="colors-border"></image>
 
     <!--有地址信息-->
-    <block wx:if="{{hasAddressInfo}}">
+    <block wx:if="{{pageData.hasDefaultAddress}}">
       <view class="address-info">
         <view class="first-row">
-          <text class="name">{{addressInfo.name}}</text>
-          <text class="contact">{{addressInfo.contact}}</text>
+          <text class="name">{{pageData.addressInfos.consignee}}</text>
+          <text class="contact">{{pageData.addressInfos.mobile}}</text>
           <text class="default-icon">默认</text>
         </view>
         <view class="ellip-line city">
-          {{addressInfo.city}}
+          {{currentArea}}
         </view>
         <view class="ellip-line street">
-          {{addressInfo.street}}
+          {{pageData.addressInfos.address}}
         </view>
       </view>
     </block>

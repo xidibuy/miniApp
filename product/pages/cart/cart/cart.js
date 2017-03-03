@@ -19,6 +19,7 @@ Page({
                 app.fetchApi(listUrl, function (resp) {
                     if (resp.code == 0) {
                         wx.hideToast();
+
                         self.setData({
                             loading: false,
                             // 包邮金额
@@ -37,6 +38,8 @@ Page({
                         self.setGoodsDefaultCheckedState(resp.data.cart.valid);
                         // 设置金额
                         self.updateCurrentSum();
+
+
                     }
                 })
             }
@@ -149,7 +152,7 @@ Page({
                 self.setData(obj)
             }
         }
-        
+
         self.updateCurrentSum();
     },
 
@@ -191,8 +194,47 @@ Page({
             settlementNumber: checkedGoods.length,
             settlementMoney: settlementMoney.toFixed(2)
         })
+    },
 
-
+    //结算
+    settlementEvent() {
+        let self = this;
+        let goodsCheckedStateObj = self.data.goodsCheckedStateObj;
+        let checkedGoods = Object.keys(goodsCheckedStateObj).filter(item => {
+            return item != 'total'
+        }).filter(item => {
+            return goodsCheckedStateObj[item]
+        });
+        let dataObj = {
+            productIds: {}
+        };
+        checkedGoods.map(item => {
+            self.data.list.map(l => {
+                if (item == l.goodsId) {
+                    dataObj.productIds[item] = l.buyNum
+                }
+            })
+        });
+        wx.request({
+            url: app.globalData.dataRemote + 'order/check',
+            data: dataObj,
+            method: 'GET',
+            success: function (res) {
+                if (res.data.code == 0) {
+                    wx.setStorageSync('orderTemp',res.data.data);
+                    wx.setStorageSync('cartGoodsTemp',dataObj);
+                    wx.navigateTo({
+                                url: '/pages/confirmOrder/index/index'
+                            })
+                } else {
+                    console.log(res)
+                    // wx.showModal({
+                    //     title: '提示',
+                    //     content: res
+                    // })
+                }
+            }
+        })
     }
 
 });

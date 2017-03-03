@@ -15,7 +15,11 @@
         <!--<text class="xd xd-dot"></text>-->
       </view>
       <view class="type">单位</view>
-      <input type="text" class="input" />
+      <view class="input-widget">
+        <input type="text" class="input" value="{{inputValue}}" bindinput="inputInputEvent"  />
+        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{inputValue==''}}"></view>
+      </view>
+      
     </view>
     <view class="title">发票内容：
       <text class="details">商品明细</text>

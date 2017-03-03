@@ -33,6 +33,10 @@
     color: #4ed6d1;
 }
 
+.row .left .radio{
+  opacity: 0;
+}
+
 .right-title {
   font-size: 14px;
   height: 46.8rpx;
