@@ -18,7 +18,10 @@
 }
 
 .textarea {
-  padding-left: 23.4rpx;
+  font-size: 15px;
+  color: #222;
+  padding: 26.91rpx 70.2rpx 26.91rpx 23.4rpx;
+  width: 100%;
   height: 159.12rpx;
   border-bottom: 2rpx solid #ddd;
 }
@@ -63,7 +66,20 @@
   text-align: center;
 }
 
-picker-view {
+/*省市区*/
+
+.picker-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.picker-wrap {
   position: fixed;
   bottom: 0;
   left: 0;
@@ -73,19 +89,36 @@ picker-view {
   background: #fff;
 }
 
-.picker-wrap {
+.picker-ctrl {
+  display: flex;
+  font-size: 32.76rpx;
+  line-height: 1;
+  padding: 35.1rpx;
+  font-weight: bold;
+  justify-content: space-between;
+}
+
+.picker-cancel {
+  color: #777;
+}
+
+.picker-confirm {
+  color: #00bebf;
+}
+
+.picker-content {
   display: flex;
   width: 100%;
   height: 664.56rpx;
   padding: 0 2.5%;
 }
 
-picker-view-column{
-    width: 30%;
-    
+picker-view-column {
+  width: 30%;
 }
-.picker-view-column-center{
-    margin: 0 2.5%;
+
+.picker-view-column-center {
+  margin: 0 2.5%;
 }
 
 .picker-view-item {
@@ -95,3 +128,6 @@ picker-view-column{
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+
+

@@ -8,7 +8,7 @@ Page({
 
   onLoad: function () {
     const self = this;
-    const listUrl = app.globalData.data + 'address.json';
+    const listUrl = app.globalData.dataRemote + 'address/list';
     // 获取列表
     app.fetchApi(listUrl, function (resp) {
       if (resp.state) {

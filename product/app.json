@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/confirmOrder/address/list/list",
     "pages/confirmOrder/index/index",
-    "pages/confirmOrder/address/edit/edit",
     "pages/cart/cart/cart",
+    "pages/confirmOrder/address/add/add",
     "pages/confirmOrder/invoice/invoice",
     "pages/confirmOrder/way/way",
     "pages/profile/profile/profile",
@@ -14,7 +15,6 @@
     "pages/profile/more/info/info",
     "pages/profile/more/question/question",
     "pages/cart/invalid/invalid",
-    "pages/confirmOrder/address/list/list",
     "pages/confirmOrder/success/success",
     "pages/goodsDetail/goodsDetail",
     "pages/index/index",
