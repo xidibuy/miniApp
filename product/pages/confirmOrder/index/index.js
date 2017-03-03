@@ -2,12 +2,27 @@ const app = getApp();
 
 Page({
     data: {
-        img: app.globalData.img,
-        dataUrl: app.globalData.data
+        border: '//static.xidibuy.com/miniapp/common/1.0.0/images/colors-border.png'
     },
 
     onLoad: function () {
-        const self = this;
+        let self = this;
+        let pageData = wx.getStorageSync('orderTemp');
+
+        //计算得出应付金额 格式化所有数字
+        let goodsPriceTotal = pageData.goodsPriceTotal;
+        let goodsShippingFee = pageData.goodsShippingFee;
+        let noGoodsAmount = pageData.noGoodsAmount;
+        let amount = self.tail(goodsPriceTotal + goodsShippingFee - noGoodsAmount);
+        pageData.goodsPriceTotal = self.tail(goodsPriceTotal);
+        pageData.goodsShippingFee = self.tail(goodsShippingFee);
+        pageData.noGoodsAmount = self.tail(noGoodsAmount);
+        self.setData({
+            amount,
+            pageData
+        });
+
+
         // 有收货地址
         // const listUrl = app.globalData.data + 'confirmOrder/normal1.json';
         // 无收货地址
@@ -34,5 +49,15 @@ Page({
     },
     submitOrder: function(){
 
+    },
+    tail(num){
+        if(typeof num == "number"){
+            if(/\./g.test(num)){
+                return num
+            }else{
+                return num + '.00'
+            }
+        }
     }
+
 });

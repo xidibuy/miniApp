@@ -1,14 +1,14 @@
 <view class="bill-box">
     <view class="row">
-        <text class="row-title">商品总金额（{{bill.pieces}}件）</text>
-        <text class="row-money">¥{{bill.amount}}</text>
+        <text class="row-title">商品总金额（{{pageData.goodsNum}}件）</text>
+        <text class="row-money">¥{{pageData.goodsPriceTotal}}</text>
     </view>
     <view class="row">
-        <text class="row-title">运费（{{bill.weight}}kg）</text>
-        <text class="row-money">¥{{bill.freight}}</text>
+        <text class="row-title">运费（{{pageData.goodsWeightTotal}}kg）</text>
+        <text class="row-money">¥{{pageData.goodsShippingFee}}</text>
     </view>
     <view class="row">
         <text class="row-title">优惠</text>
-        <text class="row-money">-¥{{bill.favorable}}</text>
+        <text class="row-money">-¥{{pageData.noGoodsAmount}}</text>
     </view>
 </view>

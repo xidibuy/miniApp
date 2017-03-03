@@ -1,30 +1,42 @@
 const app = getApp();
+const Area = require('../../../../utils/area.js');
+const prov = Area.prov;
+const city = Area.city;
+const dist = Area.dist;
 
 Page({
   data: {
-    img: app.globalData.img,
-    dataUrl: app.globalData.data,
-    area: [1,2,3]
+    prov,
+    city: [],
+    dist: [],
+    area: [5,5,3]
   },
 
   onLoad: function () {
-    const self = this;
-    const listUrl = app.globalData.data + 'area.json';
-    // 获取列表
-    app.fetchApi(listUrl, function (resp) {
-      if (resp.state) {
-        //resp.data
-        let shengFun = function(item){
-          return item.parentId == 0
-        }
-        let sheng = resp.data.filter(shengFun);
-        self.setData({
-          sheng: sheng,
-          shi: '',
-          qu: ''
-        });
-      }
+    let self = this;
 
+
+
+    self.initArea();
+  },
+  initArea(){
+    let self = this;
+    let area = self.data.area;
+    let pid = prov[area[0]].id;
+    // let tempCity = prov.data[area[0]];
+    let tempDist = [];
+
+    console.log(prov[area[0]].data[area[1]]);
+
+
+
+    self.setData({
+      city: [],
+      dist: tempDist
     })
+    console.log();
+  },
+  areaChangEvent(e){
+    console.log(e)
   }
 });
