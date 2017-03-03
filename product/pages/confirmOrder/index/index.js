@@ -20,21 +20,23 @@ Page({
         pageData.noGoodsAmount = self.tail(noGoodsAmount);
 
 
+        // 是否有默认地址
+        pageData.hasDefaultAddress = Object.keys(pageData.addressInfos).length;
         // address link url
         let addressLinkUrl = '';
-        if(pageData.addressInfos.length){
+        if (pageData.hasDefaultAddress) {
             addressLinkUrl = '/pages/confirmOrder/address/list/list';
-        }else if(pageData.addressList == 0){
-            addressLinkUrl = '/pages/confirmOrder/address/add/add';
-        }else if(pageData.addressList == 1){
+        } else if (pageData.addressList == 0) {
+            addressLinkUrl = '/pages/confirmOrder/address/edit/edit';
+        } else if (pageData.addressList == 1) {
             addressLinkUrl = '/pages/confirmOrder/address/list/list';
         }
 
         // 当前地址
         let currentArea = '';
-        // if(pageData.addressInfos.length){
-            currentArea =  search(pageData.addressInfos.district)
-        // }
+        if (pageData.hasDefaultAddress) {
+            currentArea = search(pageData.addressInfos.district)
+        }
 
 
         self.setData({
@@ -43,43 +45,41 @@ Page({
             addressLinkUrl,
             currentArea
         });
-
-        
-
-        
-
-
-        // 有收货地址
-        // const listUrl = app.globalData.data + 'confirmOrder/normal1.json';
-        // 无收货地址
-        // const listUrl = app.globalData.data + 'confirmOrder/normal2.json';
-        // 获取列表
-        // app.fetchApi(listUrl, function (resp) {
-        //     if (resp.state) {
-        //         self.setData({
-        //             hasAddressInfo: resp.data.hasAddressInfo,
-        //             addressInfo: resp.data.addressInfo,
-        //             goodsList: resp.data.goodsList,
-        //             others: resp.data.others,
-        //             bill: resp.data.bill
-        //         });
-        //     }
-        //     //处理收货人名字  超出5个汉字截断+...
-        //     if(self.data.hasAddressInfo && self.data.addressInfo.name.length > 5){
-        //         self.setData({
-        //             'addressInfo.name': self.data.addressInfo.name.split('').slice(0,5).join('') + '...'
-        //         })
-        //     }
-        // })
     },
-    submitOrder: function(){
-
+    submitOrder: function () {
+        let self = this;
+        let productIds = wx.getStorageSync('cartGoodsTemp').productIds;
+        let obj = {
+            productIds,
+            invoice: {
+                head: 1,
+                headContent: '世纪东方该数据库的股份接口'
+            },
+            order: {
+                address: "1152",
+                orderType: 1,
+                paytype: '13'
+            },
+            mentioningAddress: 1,
+            remark: 'sdfgsf上岛咖啡'
+        };
+        wx.request({
+            url: app.globalData.dataRemote + 'order/save',
+            data: obj,
+            header: {
+                'content-type': 'application/x-www-from-urlencoded'
+            },
+            method: 'POST',
+            success: function (res) {
+                // success
+            }
+        })
     },
-    tail(num){
-        if(typeof num == "number"){
-            if(/\./g.test(num)){
+    tail(num) {
+        if (typeof num == "number") {
+            if (/\./g.test(num)) {
                 return num
-            }else{
+            } else {
                 return num + '.00'
             }
         }

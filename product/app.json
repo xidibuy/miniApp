@@ -1,11 +1,11 @@
 {
   "pages": [
     "pages/confirmOrder/address/list/list",
-    "pages/confirmOrder/index/index",
+    "pages/confirmOrder/address/edit/edit",
     "pages/cart/cart/cart",
-    "pages/confirmOrder/address/add/add",
-    "pages/confirmOrder/invoice/invoice",
+    "pages/confirmOrder/index/index",
     "pages/confirmOrder/way/way",
+    "pages/confirmOrder/invoice/invoice",
     "pages/profile/profile/profile",
     "pages/profile/order/orderDetail/orderDetail",
     "pages/profile/order/evaluate/evaluate",

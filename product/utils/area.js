@@ -43,13 +43,24 @@ for (var i = 0; i < tempCities.length; i++) {
 	}
 }
 
-var search = function(id){
-	data.map(item =>{
-		let cur = item.split(':');
-		if(cur[0] == id){
-			return cur[1] 
+var search = function (id) {
+	let result = '';
+	let temp = 0;
+	for (let i = 0; i < data.length; i++) {
+		let cur = data[i].split(':');
+
+		if (cur[0] == id.slice(0, 2) + '0000') {
+			result += cur[1];
+			temp += 1;
+		} else if (cur[0] == id.slice(0, 4) + '00') {
+			result += cur[1];
+			temp += 1;
+		} else if (cur[0] == id) {
+			result += cur[1];
+			temp += 1;
 		}
-	})
+	}
+	return result
 }
 
 module.exports = {

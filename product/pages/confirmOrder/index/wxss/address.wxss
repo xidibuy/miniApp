@@ -52,7 +52,6 @@
 .address-box-right{
   display: flex;
   align-items: center;
-  margin-right: 35.1rpx;
   font-size: 30.42rpx;
   color: #c5c5c5;
 }

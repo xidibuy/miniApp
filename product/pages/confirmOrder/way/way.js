@@ -19,6 +19,8 @@ Page({
     // 页面关闭
   },
   test(e){
-    console.log(e)
+    this.setData({
+      normal: !this.data.normal
+    })
   }
 })

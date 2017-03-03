@@ -1,49 +1,38 @@
 <view class="container">
-
-  <!--收货地址-->
-  <view class="address">
-
-    <!--收货地址为空-->
-    <block wx:if="{{list.length > 0}}">
-      <view class="address-list">
-        <block wx:for="{{list}}" wx:key="index">
-          <view class="list-box {{item.default ? 'active' : ''}}">
-            <view class="item-left">
-            <view class="item-left-radio">
-            <text class="xd xd-circle"></text>
-              <text class="xd xd-dot"></text>
-            </view>
-              
-            </view>
-            <view class="list-cont">
-              <view class="cont-contact">
-                <text class="name">{{item.name}}</text>
-                <text class="mobile">18619900816</text>
-                <block wx:if="{{item.default}}">
-                  <text class="default">默认</text>
-                </block>
-              </view>
-              <view class="cont-ad ellip-lines">{{item.contAd}}</view>
-              <view class="cont-ad-desic ellip-lines">{{item.contAdDesic}}</view>
-            </view>
-            <view class="list-edit">
-              <navigator url="/pages/confirmOrder/address/edit/edit">
-                <text class="xd xd-edit"></text>
-              </navigator>
-            </view>
+  <view class="address-list">
+    <block wx:for="{{list}}" wx:key="index" wx:for-index="idx">
+      <view class="list-box {{item.status == 1 ? 'active' : ''}}">
+        <label class="list-label">
+          <view class="item-left">
+            <radio-group class="item-left-radio" bindchange="setDefaultAddressEvent" data-aid="{{item.aid}}">
+              <view class="xd xd-circle"></view>
+              <view class="xd xd-dot" hidden="{{item.status != 1}}"></view>
+              <radio value="{{id}}" class="radio" checked="{{item.status == 1}}" />
+            </radio-group>
           </view>
-        </block>
+          <view class="list-cont">
+            <view class="cont-contact">
+              <text class="name">{{item.consignee}}</text>
+              <text class="mobile">{{item.mobile}}</text>
+              <block wx:if="{{item.default}}">
+                <text class="default">默认</text>
+              </block>
+            </view>
+            <view class="cont-ad ellip-lines">{{item.area}}</view>
+            <view class="cont-ad-desic ellip-lines">{{item.address}}</view>
+          </view>
+        </label>
+        <view class="list-edit">
+          <view bindtap="goToEditAdressEvent" data-index="{{idx}}">
+            <text class="xd xd-edit"></text>
+          </view>
+        </view>
       </view>
     </block>
-    <block wx:else>
-      <view class="empty">
-        <text>暂无收货地址</text>
-      </view>
-    </block>
+  </view>
 
-    <!--新增地址按钮(保持固定吸底)-->
-    <view class="addAddress-btn">
-      <navigator url="/pages/confirmOrder/address/edit/edit">新增地址</navigator>
-    </view>
+  <!--新增地址按钮(保持固定吸底)-->
+  <view class="addAddress-btn">
+    <navigator url="/pages/confirmOrder/address/edit/edit">新增地址</navigator>
   </view>
 </view>
