@@ -274,6 +274,9 @@ swiper-item {
   margin-right: 3rpx;
 }
 
+.xd-right-angle {
+  font-size: 37.4rpx;
+}
 .button-reduce, .button-plus {
   width: 66rpx;
   text-align: center;
@@ -426,8 +429,8 @@ swiper-item {
   border-bottom-right-radius: 0;
   padding: 0 12rpx;
   right: 50%;
-  margin-right: 12rpx;
-  margin-top: 12rpx;
+  margin-right: 21rpx;
+  margin-top: 28rpx;
 }
 
 .addToCart {
@@ -458,6 +461,6 @@ swiper-item {
   position: absolute;
   left: 34%;
   top: 38%;
-  font-size: 42rpx;
+  font-size: 65.52rpx;
   color: #999;
 }

@@ -14,24 +14,33 @@
 }
 
 .title {
+  display: flex;
   margin-bottom: 35.1rpx;
 }
 
 .xd-checked {
   color: #56edaa;
+  font-size: 58.5rpx;
 }
 
 .xd-warning {
   color: #ffc740;
+  font-size: 58.5rpx;
 }
 
 .xd-right-angle {
   color: #c6c6c6;
 }
 
+.xd-closed {
+  color: #fc6162;
+  font-size: 58.5rpx;
+}
+
 .status-title {
   margin-left: 23.4rpx;
-  font-size: 17px;
+  font-size: 39.78rpx;
+  line-height: 58.5rpx;
   color: #222;
   font-weight: 700;
 }
@@ -62,6 +71,7 @@
 
 .xd-logistics {
   color: #4ed6d2;
+  font-size: 58.5rpx;
 }
 
 .logis-word {
@@ -86,7 +96,7 @@
   margin-left: 23.4rpx;
   display: flex;
   align-items: center;
-  justify-content:flex-end;
+  justify-content: flex-end;
 }
 
 .receipt {
@@ -206,6 +216,7 @@
 
 .product-attr text {
   margin-right: 11.7rpx;
+  color: #888;
 }
 
 .product-attr text:last-child {

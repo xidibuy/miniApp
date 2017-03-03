@@ -9,14 +9,6 @@ Page({
     interval: 5000,
     duration: 1000,
     amount: 1,
-    show: [
-      {
-        showOne: true
-      },
-      {
-        showTwo: false
-      }
-    ],
     scrollTop: 0,
     floorstatus: false,
     goodsDetail: {},
@@ -37,36 +29,71 @@ Page({
     // 当前的颜色
     curC: '',
     // 当前的尺码
-    curS: ''
+    curS: '',
+    // 购物车数目
+    cartNum: 0,
+    show: {
+      "showOne": false,
+      "showTwo": true
+    },
+    startPoint: [0, 0]
   },
+  // 下拉展示上一部分
   onPullDownRefresh: function () {
-
-  },
-
-  changeSwiper: function (event) {
     this.setData({
-      current: event.detail.current
+      show: {
+        "showOne": true,
+        "showTwo": false
+      }
     });
+    wx.stopPullDownRefresh();
   },
 
-  reduceNumber: function () {
-    let amount = this.data.amount;
-    amount > 1 && this.setData({ 'amount': amount - 1 });
+  mytouchstart: function (e) {
+    // 开始触摸,获取触摸点坐标并放入数组中
+    this.setData({
+      startPoint: [e.touches[0].pageX, e.touches[0].pageY]
+    })
   },
 
-  addNumber: function () {
-    if (this.data.amount < this.data.goodsDetail.stock) {
-      let amount = this.data.amount + 1;
-      this.setData({
-        amount: amount
+  // 触摸点移动
+  mytouchmove: function (e) {
+    let _this = this;
+    // 当前触摸点坐标
+    let curPoint = [e.touches[0].pageX, e.touches[0].pageY];
+    let startPoint = this.data.startPoint;
+    // 比较pageX的值
+    if ((startPoint[1] - curPoint[1]) >= 200) {
+      _this.setData({
+        show: {
+          "showOne": false,
+          "showTwo": true
+        }
       });
     }
   },
 
   onLoad: function (options) {
+    let _this = this;
     const proUrl = url + "detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
     // const proUrl = url + "/goodsDetail.json"
     this.post(proUrl);
+
+    wx.request({
+      url: 'https://wxapp.xidibuy.com/cart/getGoodsNum',
+      method: 'GET',
+      success: function (res) {
+        _this.setData({
+          cartNum: res.data.data.num
+        });
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
+      }
+    })
   },
   post: function (proUrl) {
     const _this = this;
@@ -136,6 +163,7 @@ Page({
             colorNo[temp] = true;
           }
         };
+
       };
       _this.setData({
         goodsDetail: resData,
@@ -185,7 +213,6 @@ Page({
     var proUrl = url + "detail?goodId=" + parme;
     this.post(proUrl);
   },
-
   // 分享单品页
   onShareAppMessage: function () {
     return {
@@ -193,29 +220,63 @@ Page({
       path: '/pages/goodsDetail/goodsDetail'
     }
   },
-  goTop: function () {
-    this.setData({
-      scrollTop: 0
+  // 加入购物车
+  addCart: function () {
+    let _this = this;
+    const num = this.data.amount;
+    let obj = {};
+    obj[this.data.goodsDetail.goodId] = num;
+
+    wx.request({
+      url: url + 'cart/add',
+      data: {
+        "productIds": obj
+      },
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function (res) {
+        let cartNumNew = _this.data.cartNum + _this.data.amount;
+        // console.log(_this.data.cartNum);
+        // console.log(_this.data.amount);
+        _this.setData({
+          cartNum: cartNumNew
+        });
+      },
+      fail: function () {
+        // fail
+      },
+      complete: function () {
+        // complete
+      }
     })
   },
-  scroll: function (e, res) {
-    // 容器滚动时将此时的滚动距离赋值给 this.data.scrollTop
-    if (e.detail.scrollTop > 50) {
+  // swiper
+  changeSwiper: function (event) {
+    this.setData({
+      current: event.detail.current
+    });
+  },
+  // 减少购买数量
+  reduceNumber: function () {
+    let amount = this.data.amount;
+    amount > 1 && this.setData({ 'amount': amount - 1 });
+  },
+  //增加购买数量
+  addNumber: function () {
+    if (this.data.amount < this.data.goodsDetail.stock) {
+      let amount = this.data.amount + 1;
       this.setData({
-        floorstatus: true
-      });
-    } else {
-      this.setData({
-        floorstatus: false
+        amount: amount
       });
     }
   },
-  addCart: function () {
-    const productIds = this.data.curC + "_" + this.data.curS;
-    const num = this.data.amount;
-    const addCart = url + "cart/add?productIds=" + productIds + "&addNum=" + num;
-    app.fetchApi(addCart, function (res) {
-      
+  // 返回顶部
+  goTop: function () {
+    this.setData({
+      show: {
+        "showOne": true,
+        "showTwo": false
+      }
     });
   }
 });
