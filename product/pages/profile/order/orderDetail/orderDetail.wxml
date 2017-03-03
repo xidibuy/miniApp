@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" style="{{(status == 1 || status == 2) ? 'padding-bottom:0' : ''}}">
   <view class="details">
 
     <!-- 订单状态 -->
@@ -6,141 +6,185 @@
 
       <!--状态标题-->
       <view class="title">
-        <text class="xd xd-checked"></text>
-
-        <!--<text class="xd xd-warning"></text>-->
-        <text class="status-title">交易成功</text>
+        <view wx:if="{{status == 0 || status == 6}}">
+          <text class="xd xd-warning"></text>
+        </view>
+        <view wx:if="{{status == 11}}">
+          <text class="xd xd-closed"></text>
+        </view>
+        <view wx:if="{{status == 1 || status == 2 || status == 3 || status == 4 || status == 5 || status == 10 || status == 12}}">
+          <text class="xd xd-checked"></text>
+        </view>
+        <text class="status-title">
+          <block wx:if="{{status == 0}}">等待付款</block>
+          <block wx:if="{{status == 1}}">买家已付款</block>
+          <block wx:if="{{status == 2}}">配货中</block>
+          <block wx:if="{{status == 3}}">已发货</block>
+          <block wx:if="{{status == 4}}">等待买家收货</block>
+          <block wx:if="{{status == 5}}">已送达</block>
+          <block wx:if="{{status == 6}}">退款中的订单</block>
+          <block wx:if="{{status == 10}}">交易结束</block>
+          <block wx:if="{{status == 11}}">交易关闭</block>
+          <block wx:if="{{status == 10}}">交易成功</block>
+        </text>
       </view>
 
       <!--状态文案-->
       <view class="word">
-        <text>订单号: 201455324112</text>
-        <view>请于
-          <text class="countdown">2小时 59分 59秒</text> 内付款。若未及时付款，系统将自动取消订单</view>
+        <text>订单号: {{orderDetail.basic.pinfo.orderParentId}}</text>
+        <block wx:if="{{status == 0}}">
+          <view>请于
+            <text class="countdown">{{time}}</text> 内付款。若未及时付款，系统将自动取消订单</view>
+        </block>
       </view>
     </view>
 
     <!--物流信息-->
 
     <!--需用数据判断物流状态-->
-
-    <!--<block wx:if="{{item.state > 0}}">-->
-    <navigator url="/pages/profile/order/logistics/logistics">
-
-      <!--</block>-->
-      <view class="logis make-space">
-        <view class="logis-car">
-          <text class="xd xd-logistics"></text>
+    <block wx:if="{{status >= 0}}">
+      <navigator url="/pages/profile/order/logistics/logistics">
+        <view class="logis make-space">
+          <view class="logis-car">
+            <text class="xd xd-logistics"></text>
+          </view>
+          <view class="logis-word">
+            <text class="word-status ellip-lines ">{{orderDetail.basic.express.process}}</text>
+            <view class="time">{{orderDetail.basic.express.time}}</view>
+          </view>
+          <view class="arrow">
+            <text class="xd xd-right-angle"></text>
+          </view>
         </view>
-        <view class="logis-word">
-          <text class="word-status ellip-lines ">在上海静安区分公司扫描，派件跟踪显示派件已签收。在上海静安区分公司扫描，派件跟踪显示派件已签收。</text>
-          <view class="time">14/12/29 08:35:07</view>
-        </view>
-        <view class="arrow">
-          <text class="xd xd-right-angle"></text>
-        </view>
-      </view>
-
-      <!--<block wx:if="{{item.state > 0}}"> -->
-    </navigator>
-
-    <!--</block>-->
+      </navigator>
+    </block>
 
     <!--收货人设置-->
     <view class="receipt make-space">
       <view class="receipt-box">
-        <text class="receipt-title">收货人: 林素恩 13524862341</text>
-        <text class="receipt-desi ellip-lines">上海市静安区北京西路1701号静安大厦18楼c座上海市静安区北京西路1701号静安大厦18楼c座</text>
+        <text class="receipt-title">收货人: {{orderDetail.basic.address.consignee}} {{orderDetail.basic.address.mobile}}</text>
+        <text class="receipt-desi ellip-lines">{{orderDetail.basic.address.addressInfo}}</text>
       </view>
       <view class="receipt-box">
-        <text class="receipt-title receipt-name ellip-lines">发票信息: 喜递电子商务有限公司喜递电子商务有限公司电子商务有限公司喜递电子商务有限公司喜递电子商务有限公司递电子阿萨法是商</text>
-        <text class="receipt-desi">17/10/42 17:31:30</text>
+        <text class="receipt-title receipt-name ellip-lines">发票信息: {{orderDetail.basic.invoice.head == 0 ? '不开票' : orderDetail.basic.invoice.headContent}}</text>
+        <text class="receipt-desi">{{orderDetail.basic.pinfo.orderTime}}</text>
       </view>
     </view>
+    <block wx:for="{{orderDetail.subOrderList}}" wx:key="*this">
 
-    <!--购物清单-->
-    <view class="pro-list make-space">
-      <view class="pro-title">
-        <text class="title-word">购物清单</text>
-        <text class="title-num">2件</text>
+      <!--购物清单-->
+      <view class="pro-list make-space">
+        <view class="pro-title">
+          <text class="title-word">购物清单</text>
+          <text class="title-num">{{item.goodsNum}}件</text>
+        </view>
+        <view class="product">
+          <block wx:for="{{item.goodsList}}" wx:key="*this" wx:for-item="single">
+            <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + single.id}}">
+              <view class="product-single">
+
+                <!--清单图片-->
+                <view class="pro-img">
+                  <image src="{{single.attrImg}}"></image>
+                </view>
+
+                <!--清单详情-->
+                <view class="pro-detail">
+                  <view class="product-name-box">
+                    <text class="product-name ellip-lines">{{single.name}}</text>
+                    <text class="product-attr">
+                      <block wx:for="{{single.priceAttr}}" wx:key="*this" wx:for-item="attr">
+                        <text class="">{{attr.curChildren}}</text>
+                      </block>
+                    </text>
+                  </view>
+                  <view class="product-price">
+                    <text class="price">¥ {{single.price}}</text>
+                    <text class="num">x{{single.quantity}}</text>
+                  </view>
+                </view>
+              </view>
+            </navigator>
+          </block>
+        </view>
       </view>
-      <view class="product">
-        <navigator url="/pages/goodsDetail/goodsDetail">
-          <view class="product-single">
 
-            <!--清单图片-->
-            <view class="pro-img">
-              <image src="http://172.16.14.96:8888/image/img-3_03.png"></image>
-            </view>
-
-            <!--清单详情-->
-            <view class="pro-detail">
-              <view class="product-name-box">
-                <text class="product-name ellip-lines">丹麦创意褶皱无敌纸巾盒一次性使用一次性使用 红色 白色丹麦创意褶皱无敌纸巾盒一次性使用一次性使用</text>
-
-                <!--<text class="product-attr">
-                  <block>
-                    <text class="">红色</text>
-                    <text class="">蓝色</text>
-                  </block>
-                </text>-->
-              </view>
-              <view class="product-price">
-                <text class="price">¥ 149.00</text>
-                <text class="num">x12</text>
-              </view>
-            </view>
+      <!--金额计算-->
+      <view class="total-mo">
+        <view class="money">
+          <view class="mo-list">
+            <text>商品总金额 ({{item.goodsNum}}件)</text>
+            <text>¥{{orderDetail.subOrderListgoodsAmount}}</text>
           </view>
-        </navigator>
-      </view>
-    </view>
-
-    <!--金额计算-->
-    <view class="total-mo">
-      <view class="money">
-        <view class="mo-list">
-          <text>商品总金额 (12件)</text>
-          <text>¥299.00</text>
+          <view class="mo-list">
+            <text>运费({{orderDetail.subOrderListWeight}}Kg)</text>
+            <text>¥{{item.shippingFee}}</text>
+          </view>
+          <view class="mo-list">
+            <text>优惠</text>
+            <text>- {{orderDetail.basic.pinfo.coupons}}</text>
+          </view>
         </view>
-        <view class="mo-list">
-          <text>运费(0.88kg)</text>
-          <text>¥0.00</text>
-        </view>
-        <view class="mo-list">
-          <text>优惠</text>
-          <text>- ¥0.00</text>
+        <view class="money-real">
+          <text class="real-word">实付金额:</text>
+          <text class="real-mo price">¥ {{orderDetail.basic.pinfo.orderParentAmount}}</text>
         </view>
       </view>
-      <view class="money-real">
-        <text class="real-word">实付金额:</text>
-        <text class="real-mo price">¥ 400.00</text>
-      </view>
-    </view>
+    </block>
 
     <!--按钮-->
-    <view class="desic-btn" bindtap="applyFun">
 
-      <!--通栏btn-->
-
-      <!--<view class="one-btn">立即支付</view>-->
-
-      <!--<view class="one-btn">确认收货</view>-->
-
-      <!--<view class="one-btn"><navigator url="/pages/cart/cart/cart" open-type="switchTab">再次购买</navigator></view>-->
-
-      <view class="one-btn">
-        <navigator url="/pages/profile/order/evaluate/evaluate">发表评价</navigator>
+    <!--通栏btn-->
+    <block wx:if="{{status == 0}}">
+      <view class="desic-btn">
+        <view class="one-btn">立即支付</view>
       </view>
-
-      <!--两个btn-->
-      <view class="two-btn" style="display:none">
-        <view class="btn normal-btn">
-          <navigator url="">再次购买</navigator>
-        </view>
-        <view class="btn handle-btn">
-          <navigator url="/pages/profile/order/evaluate/evaluate">发表评价</navigator>
+    </block>
+    <block wx:if="{{status == 3}}">
+      <view class="desic-btn">
+        <view class="one-btn">确认收货</view>
+      </view>
+    </block>
+    <block wx:if="{{status == 11 || status == 10}}">
+      <view class="desic-btn">
+        <view class="one-btn">
+          <navigator url="/pages/cart/cart/cart" open-type="switchTab">再次购买</navigator>
         </view>
       </view>
-    </view>
+    </block>
+    <block wx:if="{{status == 3}}">
+      <view class="desic-btn">
+        <view class="two-btn">
+          <view class="btn normal-btn">确认收货</view>
+          <view class="btn handle-btn">
+            <navigator url="pages/profile/order/logistics/logistics">查看物流</navigator>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{status == 5}}">
+      <view class="desic-btn">
+        <view class="two-btn">
+          <view class="btn handle-btn">
+            <navigator url="/pages/profile/order/evaluate/evaluate">发表评价</navigator>
+          </view>
+          <view class="btn handle-btn">
+            <navigator url="pages/profile/order/logistics/logistics">查看物流</navigator>
+          </view>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{status == 12}}">
+      <view class="desic-btn">
+        <view class="two-btn">
+          <view class="btn handle-btn">
+            <navigator url="/pages/profile/order/evaluate/evaluate">发表评价</navigator>
+          </view>
+          <view class="btn normal-btn">
+            <navigator url="">再次购买</navigator>
+          </view>
+        </view>
+      </view>
+    </block>
   </view>
 </view>

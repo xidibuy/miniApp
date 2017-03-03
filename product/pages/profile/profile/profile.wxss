@@ -255,6 +255,7 @@
   padding: 1px 0;
   display: flex;
   flex-direction: column;
+  flex-grow: 1;
 }
 
 .pro-price {
@@ -325,7 +326,7 @@
 }
 
 .pro-handle-btn {
-  padding-bottom: 46.8rpx;
+  padding: 0 35.1rpx 46.8rpx 0;
   display: flex;
   flex-direction: row-reverse;
 }
@@ -337,7 +338,7 @@
 .handle-btn button {
   width: 234rpx;
   height: 79.56rpx;
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #fff;
   background-color: #4ed6d2;
   border-radius: 3px;
