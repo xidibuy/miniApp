@@ -1,8 +1,8 @@
 <view class="container">
   <label class="row">
     <radio-group class="left" bindchange="test">
-      <text class="xd xd-circle"></text>
-      <text class="xd xd-dot" hidden="{{!normal}}"></text>
+      <view class="xd xd-circle"></view>
+      <view class="xd xd-dot" hidden="{{!normal}}"></view>
       <radio value="{{id}}" class="radio" checked="{{normal}}" />
     </radio-group>
     <view class="right">

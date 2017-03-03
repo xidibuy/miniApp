@@ -221,15 +221,11 @@ Page({
             method: 'GET',
             success: function (res) {
                 if (res.data.code == 0) {
-                    wx.setStorage({
-                        key: 'orderTemp',
-                        data: res.data.data,
-                        success: function (res) {
-                            wx.navigateTo({
+                    wx.setStorageSync('orderTemp',res.data.data);
+                    wx.setStorageSync('cartGoodsTemp',dataObj);
+                    wx.navigateTo({
                                 url: '/pages/confirmOrder/index/index'
                             })
-                        }
-                    })
                 } else {
                     console.log(res)
                     // wx.showModal({
