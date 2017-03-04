@@ -4,7 +4,7 @@
       <view class="list-box {{item.status == 1 ? 'active' : ''}}">
         <label class="list-label">
           <view class="item-left">
-            <radio-group class="item-left-radio" bindchange="setDefaultAddressEvent" data-aid="{{item.aid}}">
+            <radio-group class="item-left-radio" bindchange="chooseAddressEvent" data-aid="{{item.aid}}">
               <view class="xd xd-circle"></view>
               <view class="xd xd-dot" hidden="{{item.status != 1}}"></view>
               <radio value="{{id}}" class="radio" checked="{{item.status == 1}}" />
@@ -14,7 +14,7 @@
             <view class="cont-contact">
               <text class="name">{{item.consignee}}</text>
               <text class="mobile">{{item.mobile}}</text>
-              <block wx:if="{{item.default}}">
+              <block wx:if="{{item.status}}">
                 <text class="default">默认</text>
               </block>
             </view>

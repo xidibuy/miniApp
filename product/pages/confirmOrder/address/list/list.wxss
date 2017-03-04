@@ -87,17 +87,12 @@
 }
 
 .cont-contact .default {
-  position: absolute;
-  right: 0;
-  top: 9.36rpx;
-  width: 70.2rpx;
-  height: 35.1rpx;
-  background-color: #4ed7d0;
-  border-radius: 3px;
-  text-align: center;
+  padding: 3.51rpx 7.02rpx;
+  background-color: #4ed6d1;
+  border-radius: 9.36rpx;
   line-height: 35.1rpx;
   color: #fff;
-  font-size: 11px;
+  font-size: 28.08rpx;
 }
 
 .cont-contact .cont-ad-desic {

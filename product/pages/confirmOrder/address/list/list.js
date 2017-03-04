@@ -19,7 +19,7 @@ Page({
 
     })
   },
-  setDefaultAddressEvent(e) {
+  chooseAddressEvent(e) {
     let self = this;
     let aid = e.currentTarget.dataset.aid;
     let list = self.data.list;
