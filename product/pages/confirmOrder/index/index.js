@@ -36,26 +36,30 @@ Page({
         let self = this;
 
         // 取地址 from地址列表页
-        wx.getStorage({
-            key: 'addressListToConfirmOrder',
-            success: function (res) {
-                wx.removeStorageSync('addressListToConfirmOrder');
-                self.setData({
-                    'pageData.addressInfos': res.data
-                })
-            }
-        });
+        let addressTemp = wx.getStorageSync('addressListToConfirmOrder');
+        if (addressTemp) {
+            self.setData({
+                'pageData.addressInfos': addressTemp
+            });
+            wx.removeStorageSync('addressListToConfirmOrder');
+        }
+
+
 
         // 取发票信息 from 发票信息设置页面
-        wx.getStorage({
-            key: 'invoiceFor_Order_Invoice_Temp',
-            success: function (res) {
-                wx.removeStorageSync('invoiceFor_Order_Invoice_Temp');
-                self.setData({
-                    invoice: res.data
-                })
-            }
-        });
+        let invoiceTemp = wx.getStorageSync('invoiceFor_Order_Invoice_Temp');
+        if (invoiceTemp) {
+            self.setData({
+                invoice: invoiceTemp
+            });
+            wx.removeStorageSync('invoiceFor_Order_Invoice_Temp');
+        }
+
+
+
+        // 送货方式
+
+
     },
     // 跳转到地址页面： 地址列表 或者 新增地址
     goToAddressEvent() {

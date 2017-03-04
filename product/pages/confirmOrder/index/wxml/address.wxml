@@ -10,7 +10,7 @@
         <view class="default-icon" hidden="{{pageData.addressInfos.status == 0}}">默认</view>
       </view>
       <view class="ellip-line city">
-        {{pageData.addressInfos.pname + pageData.addressInfos.cname + pageData.addressInfos.dname}}
+        {{pageData.addressInfos.pname? (pageData.addressInfos.pname + pageData.addressInfos.cname + pageData.addressInfos.dname) : ''}}
       </view>
       <view class="ellip-line street">
         {{pageData.addressInfos.address}}
