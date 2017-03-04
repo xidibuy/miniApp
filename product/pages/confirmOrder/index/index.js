@@ -1,9 +1,13 @@
 const app = getApp();
-const search = require('../../../utils/area.js').search;
 
 Page({
     data: {
-        border: '//static.xidibuy.com/miniapp/common/1.0.0/images/colors-border.png'
+        border: '//static.xidibuy.com/miniapp/common/1.0.0/images/colors-border.png',
+        invoice: {
+            head: 0,
+            text: "无需发票",
+            headContent: ""
+        }
     },
 
     onLoad: function () {
@@ -20,32 +24,96 @@ Page({
         pageData.noGoodsAmount = self.tail(noGoodsAmount);
 
 
-        // 是否有默认地址
+        // 当前是否有地址
         pageData.hasDefaultAddress = Object.keys(pageData.addressInfos).length;
-        // address link url
-        let addressLinkUrl = '';
-        if (pageData.hasDefaultAddress) {
-            addressLinkUrl = '/pages/confirmOrder/address/list/list';
-        } else if (pageData.addressList == 0) {
-            addressLinkUrl = '/pages/confirmOrder/address/edit/edit';
-        } else if (pageData.addressList == 1) {
-            addressLinkUrl = '/pages/confirmOrder/address/list/list';
-        }
-
-        // 当前地址
-        let currentArea = '';
-        if (pageData.hasDefaultAddress) {
-            currentArea = search(pageData.addressInfos.district)
-        }
-
 
         self.setData({
             amount,
-            pageData,
-            addressLinkUrl,
-            currentArea
+            pageData
         });
     },
+    onShow() {
+        let self = this;
+
+        // 取地址 from地址列表页
+        let addressTemp = wx.getStorageSync('addressListToConfirmOrder');
+        if (addressTemp) {
+            self.setData({
+                'pageData.addressInfos': addressTemp
+            });
+            wx.removeStorageSync('addressListToConfirmOrder');
+        }
+
+
+
+        // 取发票信息 from 发票信息设置页面
+        let invoiceTemp = wx.getStorageSync('invoiceFor_Order_Invoice_Temp');
+        if (invoiceTemp) {
+            self.setData({
+                invoice: invoiceTemp
+            });
+            wx.removeStorageSync('invoiceFor_Order_Invoice_Temp');
+        }
+
+
+
+        // 送货方式
+
+
+    },
+    // 跳转到地址页面： 地址列表 或者 新增地址
+    goToAddressEvent() {
+        let self = this;
+        let pageData = self.data.pageData;
+        let hasAddress = Object.keys(pageData.addressInfos).length;
+        //有地址
+        if (hasAddress) {
+            wx.setStorage({
+                key: 'aidFor_Order_List_Edit_Add_Temp',
+                data: pageData.addressInfos.aid,
+                success: function (res) {
+                    wx.navigateTo({
+                        url: '/pages/confirmOrder/address/list/list'
+                    })
+                }
+            })
+        } else {
+            // 地址列表为空
+            if (pageData.addressList == 0) {
+                wx.navigateTo({
+                    url: '/pages/confirmOrder/address/edit/edit'
+                })
+            }
+            // 地址列表不为空，没有默认地址
+            else {
+                wx.navigateTo({
+                    url: '/pages/confirmOrder/address/list/list'
+                })
+            }
+        }
+    },
+
+    // 跳转到发票设置页面
+    goToSetInvoiceEvent() {
+        let self = this;
+        wx.setStorage({
+            key: 'invoiceFor_Order_Invoice_Temp',
+            data: self.data.invoice,
+            success: function (res) {
+                wx.navigateTo({
+                    url: '/pages/confirmOrder/invoice/invoice'
+                })
+            }
+        });
+    },
+
+    // 备注
+    remarkInputEvent(e) {
+        this.setData({
+            remark: e.detail.value
+        })
+    },
+    //提交订单
     submitOrder: function () {
         let self = this;
         let productIds = wx.getStorageSync('cartGoodsTemp').productIds;

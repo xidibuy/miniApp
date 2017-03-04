@@ -9,10 +9,6 @@
   margin: 35.1rpx 0 17.55rpx;
 }
 
-.details {
-  /*font-weight: bold;*/
-}
-
 .row {
   display: flex;
   color: #222;
@@ -24,11 +20,15 @@
   position: relative;
   width: 46.8rpx;
   height: 46.8rpx;
+  font-size: 46.8rpx;
   margin-right: 11.7rpx;
 }
 
 .row .left .xd-circle {
-  font-size: 46.8rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  
   color: #ddd;
 }
 
@@ -37,8 +37,10 @@
   top: 0;
   left: 0;
   z-index: 2;
-  font-size: 46.8rpx;
   color: #4ed6d1;
+}
+.row .left .radio{
+  opacity: 0
 }
 
 .row .type {
