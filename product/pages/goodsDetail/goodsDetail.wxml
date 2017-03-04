@@ -1,7 +1,5 @@
 <view class="container">
-
-  <!--<scroll-view scroll-y="true" scroll-top="{{scrollTop}}" bindscroll="scroll">-->
-  <view class="sessionOne" style="display:{{show[0].showOne ? 'block' : 'none'}}">
+  <view class="sessionOne" style="display:{{show.showOne ? 'block' : 'none'}}" bindtouchstart="mytouchstart" bindtouchmove="mytouchmove">
 
     <!--轮播图片-->
     <view class="swiper">
@@ -132,7 +130,7 @@
       <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
     </view>
   </view>
-  <view class="sessionTwo" style="display:{{show[1].showTwo ? 'block' : 'none'}}">
+  <view class="sessionTwo" style="display:{{show.showTwo ? 'block' : 'none'}}">
 
     <!--商品规格-->
     <view class="spec-desc">
@@ -145,17 +143,20 @@
     </view>
 
     <!--商品详情图片-->
-    <view class="pro-desic-img">
-      <block></block>
-      <image src="http://172.16.14.96:8888/image/img-1.png" mode="widthFix"></image>
-    </view>
+    <block wx:for="{{goodsDetail.detailImg}}" wx:key="*this">
+      <block wx:for="{{item.img}}" wx:key="index" wx:for-item="single">
+        <view class="pro-desic-img">
+          <image src="{{single}}" mode="widthFix"></image>
+        </view>
+      </block>
+    </block>
     <block wx:if="{{recommendList.length}}">
       <view class="xidi-selected">
         <text>喜地推荐</text>
       </view>
       <view class="goods-selected">
         <block wx:for="{{recommendList}}" wx:key="*this">
-          <view class="item">
+          <view class="item-pro">
             <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.id + '&relateprodSn=' + item.goodsSn}}" open-type="navigate" class="item-box">
               <image src="{{item.coverImg}}"></image>
               <text class="name ellip-lines">{{item.name}}</text>
@@ -170,23 +171,24 @@
     </block>
 
     <!--回到顶部-->
-    <view class="goIndex goIndexGoods" bindtap="goTop" wx:if="{{floorstatus}}">
+    <view class="goIndex goIndexGoods" bindtap="goTop">
       <text class="xd xd-right-angle"></text>
     </view>
   </view>
-
-  <!--</scroll-view>-->
   <view class="floatCart">
     <view class="viewCart">
       <navigator url="/pages/cart/cart/cart" open-type="switchTab">
         <text class="xd xd-cart-full"></text>
-        <view>88+</view>
+        <view>{{(cartNum > 99) ? '99+' : cartNum}}</view>
       </navigator>
     </view>
-    <view class="addToCart" bindtap="addCart">
-      <button hover-class="none">加入购物车</button>
-
-      <!--button hover-class="none" disabled="true">商品已售完</button-->
+    <view class="addToCart">
+      <view wx:if="goodsDetail.stock > 0">
+        <button hover-class="none" bindtap="addCart">加入购物车</button>
+      </view>
+      <view wx:else>
+        <button wx:if="goodsDetail.stock <= 0" hover-class="none" disabled="true">商品已售完</button>
+      </view>
     </view>
   </view>
 </view>

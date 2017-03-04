@@ -1,11 +1,9 @@
 {
   "pages": [
-    "pages/confirmOrder/address/list/list",
-    "pages/confirmOrder/address/edit/edit",
     "pages/cart/cart/cart",
     "pages/confirmOrder/index/index",
-    "pages/confirmOrder/way/way",
     "pages/confirmOrder/invoice/invoice",
+    "pages/confirmOrder/way/way",
     "pages/profile/profile/profile",
     "pages/profile/order/orderDetail/orderDetail",
     "pages/profile/order/evaluate/evaluate",
@@ -15,6 +13,8 @@
     "pages/profile/more/info/info",
     "pages/profile/more/question/question",
     "pages/cart/invalid/invalid",
+    "pages/confirmOrder/address/edit/edit",
+    "pages/confirmOrder/address/list/list",
     "pages/confirmOrder/success/success",
     "pages/goodsDetail/goodsDetail",
     "pages/index/index",
