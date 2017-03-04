@@ -47,34 +47,32 @@
             <view class="pro-handle-btn">
 
               <!--button型 按钮-->
-              <block wx:for="{{item.btn}}" wx:key="*this" wx:for-item="single">
 
-                <!--链接型按钮-->
-                <block wx:if="{{item.btn.btnBuyAgain}}">
-                  <view class="handle-link">
-                    <navigator url="/pages/cart/cart/cart" open-type="switchTab">{{item.btn.btnBuyAgain.name}}</navigator>
-                  </view>
-                </block>
-                <block wx:if="{{item.btn.btnComment}}">
-                  <view class="handle-link">
-                    <navigator url="">{{item.btn.btnComment.name}}</navigator>
-                  </view>
-                </block>
-                <block wx:if="{{item.btn.btnExpress}}">
-                  <view class="handle-link">
-                    <navigator url="/pages/logistics/logistics">{{item.btn.btnExpress.name}}</navigator>
-                  </view>
-                </block>
-                <block wx:if="{{item.btn.btnPay}}">
-                  <view class="handle-btn">
-                    <button bindtap="sureModal" data-id="2">{{item.btn.btnPay.name}}</button>
-                  </view>
-                </block>
-                <block wx:if="{{item.btn.btnReceive}}">
-                  <view class="handle-btn">
-                    <button bindtap="sureModal" data-id="2">{{item.btn.btnReceive.name}}</button>
-                  </view>
-                </block>
+              <!--链接型按钮-->
+              <block wx:if="{{item.btn.btnBuyAgain}}">
+                <view class="handle-link">
+                  <navigator url="/pages/cart/cart/cart" open-type="switchTab">{{item.btn.btnBuyAgain.name}}</navigator>
+                </view>
+              </block>
+              <block wx:if="{{item.btn.btnComment}}">
+                <view class="handle-link">
+                  <navigator url="">{{item.btn.btnComment.name}}</navigator>
+                </view>
+              </block>
+              <block wx:if="{{item.btn.btnExpress}}">
+                <view class="handle-link">
+                  <navigator url="/pages/logistics/logistics">{{item.btn.btnExpress.name}}</navigator>
+                </view>
+              </block>
+              <block wx:if="{{item.btn.btnPay}}">
+                <view class="handle-btn">
+                  <button bindtap="sureModal">{{item.btn.btnPay.name}}</button>
+                </view>
+              </block>
+              <block wx:if="{{item.btn.btnReceive}}">
+                <view class="handle-btn">
+                  <button bindtap="sureModal">{{item.btn.btnReceive.name}}</button>
+                </view>
               </block>
             </view>
           </block>

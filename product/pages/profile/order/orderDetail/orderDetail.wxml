@@ -10,7 +10,7 @@
           <text class="xd xd-warning"></text>
         </view>
         <view wx:if="{{status == 11}}">
-          <text class="xd xd-closed"></text>
+          <text class="xd xd-closed-state"></text>
         </view>
         <view wx:if="{{status == 1 || status == 2 || status == 3 || status == 4 || status == 5 || status == 10 || status == 12}}">
           <text class="xd xd-checked"></text>

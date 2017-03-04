@@ -28,22 +28,44 @@ App({
     })
   },
   getUserInfo(cb) {
-    var that = this
+    var that = this;
     if (this.globalData.userInfo) {
       typeof cb == "function" && cb(this.globalData.userInfo)
     } else {
-      //调用登录接口
-      wx.login({
-        success: function () {
-          wx.getUserInfo({
+      that.login();
+    }
+  },
+  login: function () {
+    var that = this;
+    //调用登录接口
+    wx.login({
+      success: function (res) {
+        wx.getUserInfo({
+          success: function (res) {
+            that.globalData.userInfo = res.userInfo
+            typeof cb == "function" && cb(that.globalData.userInfo)
+          }
+        });
+        if (res.code) {
+          wx.request({
+            url: that.globalData.dataRemote + 'weixin/session',
+            method: 'POST',
+            data: {
+              code: res.code
+            },
             success: function (res) {
-              that.globalData.userInfo = res.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
+              if (res.data.code == 0) {
+                console.log("微信登录态信息在喜地服务器的索引");
+              } else {
+                console.log(res.msg);
+              }
             }
           })
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
         }
-      })
-    }
+      }
+    });
   },
   globalData: {
     userInfo: null,
