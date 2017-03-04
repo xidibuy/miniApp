@@ -1,10 +1,11 @@
 {
   "pages": [
+    "pages/index/index",
+    "pages/profile/profile/profile",
     "pages/cart/cart/cart",
     "pages/confirmOrder/index/index",
     "pages/confirmOrder/invoice/invoice",
     "pages/confirmOrder/way/way",
-    "pages/profile/profile/profile",
     "pages/profile/order/orderDetail/orderDetail",
     "pages/profile/order/evaluate/evaluate",
     "pages/profile/order/logistics/logistics",
@@ -17,7 +18,6 @@
     "pages/confirmOrder/address/list/list",
     "pages/confirmOrder/success/success",
     "pages/goodsDetail/goodsDetail",
-    "pages/index/index",
     "pages/topic/topic",
     "pages/about/about"
   ],

@@ -34,8 +34,12 @@ Page({
         active: false
       }
     ],
+    // 连续加载
     page: 1,
-    tipShow: false
+    // 是否显示无数据提示语
+    tipShow: false,
+    // 请求返回无数据,显示提示语
+    noOrder: true
   },
 
   // 下拉刷新
@@ -49,10 +53,11 @@ Page({
   onReachBottom: function (options) {
     let _this = this;
     let page;
-    if (_this.data.page < 20) {
+    // 200条的限制,请求无结果
+    if (_this.data.orders.length <= 20 && _this.data.noOrder == true) {
       page = _this.data.page + 1;
       let addOrderUrl = orderUrl + '?page=' + page;
-      _this.post(orderUrl + addOrderUrl, function (res) {
+      _this.post(addOrderUrl, function (res) {
         _this.dealOrder(res);
         _this.setData({
           page: page
@@ -91,13 +96,20 @@ Page({
   // 处理订单数据
   dealOrder: function (gRes) {
     let _this = this;
-    // 处理时间戳
-    for (let i = 0; i < gRes.length; i++) {
-      gRes[i].orderTime = _this.formatTime(gRes[i].orderTime);
+    if (gRes.length > 0) {
+      // 处理时间戳
+      for (let i = 0; i < gRes.length; i++) {
+        gRes[i].orderTime = _this.formatTime(gRes[i].orderTime);
+      }
+      this.setData({
+        orders: _this.data.orders.concat(gRes)
+      });
+    } else {
+      _this.setData({
+        tipShow: true,
+        noOrder: false
+      });
     }
-    this.setData({
-      orders: gRes
-    });
   },
   onLoad: function (options) {
     const _this = this;
