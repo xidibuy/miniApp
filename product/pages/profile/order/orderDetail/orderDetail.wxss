@@ -32,7 +32,7 @@
   color: #c6c6c6;
 }
 
-.xd-closed {
+.xd-closed-state {
   color: #fc6162;
   font-size: 58.5rpx;
 }
