@@ -1,13 +1,13 @@
 {
   "pages": [
+    "pages/cart/cart/cart",
+    "pages/confirmOrder/way/way",
     "pages/index/index",
     "pages/profile/profile/profile",
-    "pages/cart/cart/cart",
     "pages/confirmOrder/index/index",
     "pages/confirmOrder/invoice/invoice",
     "pages/confirmOrder/address/list/list",
     "pages/confirmOrder/address/edit/edit",
-    "pages/confirmOrder/way/way",
     "pages/profile/order/orderDetail/orderDetail",
     "pages/profile/order/evaluate/evaluate",
     "pages/profile/order/logistics/logistics",

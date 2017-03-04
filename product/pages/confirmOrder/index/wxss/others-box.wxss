@@ -51,6 +51,15 @@
   color: #c5c5c5;
 }
 
+.others-box .row.way.hideRight .row-right {
+  display: none;
+}
+
+.others-box .row.way.hideRight .row-content {
+  flex-grow: 1;
+  margin-right: 3.5rpx;
+}
+
 .others-box .input-ph {
   color: #777;
   font-size: 13px;

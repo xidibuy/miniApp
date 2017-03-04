@@ -1,13 +1,13 @@
 <view class="others-box">
 
   <!--送货方式-->
-  <navigator url="/pages/confirmOrder/way/way" class="row way">
+  <view class="row way {{isShangHai ? '' : 'hideRight'}}" bindtap="goToEditWayEvent" data-state="{{isShangHai}}">
     <text class="row-title">送货方式</text>
-    <view class="ellip-line row-content">{{others.way}}</view>
+    <view class="ellip-line row-content">{{way.text}}</view>
     <view class="row-right">
       <view class="xd xd-right-angle"></view>
     </view>
-  </navigator>
+  </view>
 
   <!--发票信息-->
   <view class="row invoice" bindtap="goToSetInvoiceEvent">

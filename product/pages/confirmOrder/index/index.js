@@ -7,7 +7,12 @@ Page({
             head: 0,
             text: "无需发票",
             headContent: ""
-        }
+        },
+        way: {
+            state: 0,
+            text: '普通快递送货上门'
+        },
+        remark: ''
     },
 
     onLoad: function () {
@@ -58,6 +63,41 @@ Page({
 
 
         // 送货方式
+        let prov = self.data.pageData.addressInfos.prov;
+
+        // 如果是上海市
+        if (prov == 340000) {
+            self.setData({
+                isShangHai: true
+            });
+
+        } else {
+            self.setData({
+                isShangHai: false
+            });
+        }
+
+        // 送货方式 类型
+        let mentioningAddress = wx.getStorageInfoSync('wayToOrderTemp');
+        if (typeof mentioningAddress != "undefined") {
+            wx.removeStorageSync('wayToOrderTemp')
+            if (mentioningAddress == 0) {
+                self.setData({
+                    way: {
+                        state: 0,
+                        text: '普通快递送货上门'
+                    }
+                });
+            }else{
+                self.setData({
+                    way: {
+                        state: 1,
+                        text: '服务自提点（免运费）'
+                    }
+                });
+            }
+        }
+
 
 
     },
@@ -113,23 +153,34 @@ Page({
             remark: e.detail.value
         })
     },
+
+    // 跳转到送货方式编辑页面
+    goToEditWayEvent(e) {
+        if (e.currentTarget.dataset.state) {
+            wx.navigateTo({
+                url: '/pages/confirmOrder/way/way'
+            })
+        }
+    },
+
+
     //提交订单
     submitOrder: function () {
         let self = this;
         let productIds = wx.getStorageSync('cartGoodsTemp').productIds;
+        let invoice = self.data.invoice;
+        let mentioningAddress = self.data.way.state;
+        let aid = self.data.pageData.addressInfos.aid;
         let obj = {
             productIds,
-            invoice: {
-                head: 1,
-                headContent: '世纪东方该数据库的股份接口'
-            },
+            invoice,
+            mentioningAddress,
+            remark,
             order: {
-                address: "1152",
+                address: aid,
                 orderType: 1,
                 paytype: '13'
-            },
-            mentioningAddress: 1,
-            remark: 'sdfgsf上岛咖啡'
+            }
         };
         wx.request({
             url: app.globalData.dataRemote + 'order/save',
