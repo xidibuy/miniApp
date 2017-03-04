@@ -1,6 +1,7 @@
 
 <!--index.wxml-->
 <view class="container">
+<block wx:if="{{index.length > 0}}">
   <view class="banner">
     <navigator url="/pages/about/about" open-type="navigate">
       <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/index-banner.png" mode="scaleToFill"></image>
@@ -79,4 +80,14 @@
       </block>
     </block>
   </view>
+</block>
+<block wx:else>
+  <view class="index-none">
+    <navigator url="/pages/index/index" open-type="switchTab">
+     <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+    <text>加载失败，点击重新加载</text>
+    </navigator>
+   
+  </view>
+</block>
 </view>

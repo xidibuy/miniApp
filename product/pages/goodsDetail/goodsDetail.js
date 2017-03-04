@@ -33,8 +33,8 @@ Page({
     // 购物车数目
     cartNum: 0,
     show: {
-      "showOne": false,
-      "showTwo": true
+      "showOne": true,
+      "showTwo": false
     },
     startPoint: [0, 0]
   },
@@ -209,7 +209,6 @@ Page({
     }
   },
   changePro: function (parme) {
-    // console.log(parme);
     var proUrl = url + "detail?goodId=" + parme;
     this.post(proUrl);
   },
@@ -236,10 +235,12 @@ Page({
       // header: {}, // 设置请求的 header
       success: function (res) {
         let cartNumNew = _this.data.cartNum + _this.data.amount;
-        // console.log(_this.data.cartNum);
-        // console.log(_this.data.amount);
         _this.setData({
           cartNum: cartNumNew
+        });
+        wx.showToast({
+          title:'添加购物车成功',
+          icon:'success'
         });
       },
       fail: function () {

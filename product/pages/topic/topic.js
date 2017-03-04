@@ -9,11 +9,15 @@ Page({
     onLoad: function (options) {
         const _this = this;
         const cartUrl = url + 'special?id=' + options.id + '&bannerimg=' + options.bannerimg;
+        wx.showToast({
+            title: '加载中',
+            icon: 'loading'
+        });
         app.fetchApi(cartUrl, function (res) {
-            if (res.data.length) {
+            if (res.data) {
                 _this.setData({
                     topic: res.data,
-                    imgBanner: options.bannerimg
+                    imgBanner: res.data.bannerimg
                 });
                 wx.setNavigationBarTitle({
                     title: res.data.subjectName

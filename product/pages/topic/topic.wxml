@@ -3,18 +3,18 @@
   <block wx:for="{{topic.moduleContent}}" wx:key="*this">
     <block wx:if="{{item.type == 1}}">
       <view class="introduction-box">
-        <image class="introduction" src="{{item.img}}" mode="widthFix">{{item.img}}</image>
+        <image class="introduction" src="{{item.img}}" mode="widthFix"></image>
       </view>
     </block>
     <block wx:if="{{item.type == 2}}">
       <view class="introduction-box">
         <block wx:for="{{item.imgarr}}" wx:key="index">
-          <image class="introduction-two" src="{{item}}" mode="widthFix">{{imgarr[index]}}</image>
+          <image class="introduction-two" src="{{item}}" mode="widthFix"></image>
         </block>
       </view>
     </block>
-    <view class="goods-selected">
-      <block wx:if="{{item.type == 3}}">
+    <block wx:if="{{item.type == 3}}">
+      <view class="goods-selected">
         <block wx:for="{{item.product}}" wx:key="*this">
           <view class="item-pro">
             <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.id + '&relateprodSn=' + item.prodSn}}" open-type="navigate" class="item-box">
@@ -27,8 +27,10 @@
             </navigator>
           </view>
         </block>
-      </block>
-      <block wx:if="{{item.type == 4}}">
+      </view>
+    </block>
+    <block wx:if="{{item.type == 4}}">
+      <view class="goods-selected">
         <block wx:for="{{item.product}}" wx:key="*this">
           <view class="item-pro">
             <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.id + '&relateprodSn=' + item.prodSn}}" open-type="navigate" class="item-box">
@@ -41,8 +43,8 @@
             </navigator>
           </view>
         </block>
-      </block>
-    </view>
+      </view>
+    </block>
   </block>
   <view class="goIndex">
     <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
