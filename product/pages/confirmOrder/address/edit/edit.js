@@ -1,52 +1,40 @@
 const app = getApp();
-const prov = require('../../../../utils/area.js').prov;
+const Prov = require('../../../../utils/area.js').prov;
 
 Page({
   data: {
-    prov,
+    Prov,
     areaPickerViewHidden: false,
-    status: 1,
-    areaInitValue: [5, 2, 3],
     type: ''
   },
 
   onLoad: function () {
     let self = this;
-    self.initArea();
-
     wx.getStorage({
       key: 'editAdressTemp',
+      // 编辑地址
       success: function (res) {
-        let obj = res.data
+        wx.removeStorageSync('editAdressTemp');
+        let info = res.data;
         self.setData({
-          type: 'edit',
-          aid: res.data.aid,
-          consignee: res.data.consignee,
-          mobile: res.data.mobile,
-          address: res.data.address,
-          status: res.data.status,
-          zipcode: res.data.zipcode,
-          prov: res.data.prov,
-          city: res.data.city,
-          district: res.data.district,
-          pname: res.data.pname,
-          cname: res.data.cname,
-          dname: res.data.dname,
-          areaValue: res.data.area
+          info,
+          type: 'edit'
         });
-
-        console.log(res.data)
         wx.setNavigationBarTitle({
           title: '编辑地址'
-        })
+        });
+        self.editInitArea(info);
       },
+      // 新增地址
       fail(res) {
         self.setData({
-          type: 'add'
+          type: 'add',
+          info: {}
         });
         wx.setNavigationBarTitle({
           title: '新增地址'
-        })
+        });
+        self.addInitArea([0, 0, 0]);
       }
     })
   },
@@ -61,19 +49,50 @@ Page({
       areaPickerViewHidden: false
     });
   },
-  initArea() {
+  addInitArea(arr) {
     let self = this;
-    let area = self.data.areaInitValue;
+    let area = arr;
 
     self.setData({
-      city: prov[area[0]].data,
-      dist: prov[area[0]].data[area[1]].data
+      City: Prov[area[0]].data,
+      Dist: Prov[area[0]].data[area[1]].data
     });
     setTimeout(() => {
       self.setData({
-        area: self.data.areaInitValue
+        area
       });
     }, 100)
+  },
+  editInitArea(info) {
+    let self = this;
+    let area = [0, 0, 0,];
+    Prov.map((pt, pi) => {
+      if (pt.id == info.prov) {
+        area[0] = pi;
+        pt.data.map((ct, ci) => {
+          if (ct.id == info.city) {
+            area[1] = ci;
+            ct.data.map((dt, di) => {
+              if (dt.id == info.dist) {
+                area[2] = di;
+              }
+            })
+          }
+        })
+      }
+    });
+
+    self.setData({
+      City: Prov[area[0]].data,
+      Dist: Prov[area[0]].data[area[1]].data
+    });
+
+    setTimeout(() => {
+      self.setData({
+        area
+      });
+    }, 100)
+
   },
   areaChangEvent(e) {
     let self = this;
@@ -84,8 +103,8 @@ Page({
     // 省
     if (old[0] != area[0]) {
       self.setData({
-        city: prov[area[0]].data,
-        dist: prov[area[0]].data[0].data
+        City: Prov[area[0]].data,
+        Dist: Prov[area[0]].data[0].data
       });
       setTimeout(() => {
         self.setData({
@@ -96,7 +115,7 @@ Page({
     // 市
     else if (old[1] != area[1]) {
       self.setData({
-        dist: prov[area[0]].data[area[1]].data
+        Dist: Prov[area[0]].data[area[1]].data
       });
       setTimeout(() => {
         self.setData({
@@ -116,64 +135,59 @@ Page({
   pickerConfirmEvent() {
     let self = this;
     let area = self.data.area;
-    let areaValue = '';
-    let areaIds = {};
-    let areaNames = {};
-    // 省
-    areaValue += prov[area[0]].name;
-    areaIds.prov = prov[area[0]].id;
-    areaNames.pname = prov[area[0]].name;
-    // 市
-    areaValue += prov[area[0]].data[area[1]].name;
-    areaIds.city = prov[area[0]].data[area[1]].id;
-    areaNames.cname = prov[area[0]].data[area[1]].name;
-    //区
-    areaValue += prov[area[0]].data[area[1]].data[area[2]].name;
-    areaIds.district = prov[area[0]].data[area[1]].data[area[2]].id;
-    areaNames.dname = prov[area[0]].data[area[1]].data[area[2]].name;
+
+    let pname = Prov[area[0]].name;
+    let cname = Prov[area[0]].data[area[1]].name;
+    let dname = Prov[area[0]].data[area[1]].data[area[2]].name;
+    let prov = Prov[area[0]].id;
+    let city = Prov[area[0]].data[area[1]].id;
+    let dist = Prov[area[0]].data[area[1]].data[area[2]].id;
+
     self.setData({
-      areaValue,
-      areaIds,
-      areaNames,
+      'info.pname': pname,
+      'info.cname': cname,
+      'info.dname': dname,
+      'info.prov': prov,
+      'info.city': city,
+      'info.dist': dist,
       areaPickerViewHidden: false
     });
 
   },
   consigneeInputEvent(e) {
     this.setData({
-      consignee: e.detail.value
+      'info.consignee': e.detail.value
     })
   },
   mobileInputEvent(e) {
     this.setData({
-      mobile: e.detail.value
+      'info.mobile': e.detail.value
     })
   },
   addressInputEvent(e) {
     this.setData({
-      address: e.detail.value
+      'info.address': e.detail.value
     })
   },
   zipcodeInputEvent(e) {
     this.setData({
-      zipcode: e.detail.value
+      'info.zipcode': e.detail.value
     })
   },
   setDefaultEvent(e) {
     this.setData({
-      status: Number(e.detail.value)
+      'info.status': Number(e.detail.value)
     })
   },
   saveFormEvent() {
     let self = this;
-    let consignee = self.data.consignee;
-    let mobile = self.data.mobile;
-    let address = self.data.address;
-    let areaValue = self.data.areaValue;
-    let zipcode = self.data.zipcode;
-    let status = self.data.status;
-
-
+    let info = self.data.info;
+    let consignee = info.consignee;
+    let mobile = info.mobile;
+    let address = info.address;
+    let zipcode = (typeof info.zipcode == 'undefined') ? '' : info.zipcode;
+    let status = (typeof info.status == 'undefined') ? '' : info.status;
+    let pname = info.pname;
     if (consignee == undefined || consignee == '') {
       wx.showModal({
         title: '',
@@ -195,54 +209,34 @@ Page({
         showCancel: false
       })
     }
-    else if (areaValue == undefined || areaValue == '') {
+    else if (pname == undefined || pname == '') {
       wx.showModal({
         title: '',
         content: '请填写省市区',
         showCancel: false
       })
     } else {
-      let prov = self.data.areaIds.prov;
-      let city = self.data.areaIds.city;
-      let district = self.data.areaIds.district;
-      let pname = self.data.areaNames.pname;
-      let cname = self.data.areaNames.cname;
-      let dname = self.data.areaNames.dname;
-      let obj = {
-        data: {
-          consignee,
-          mobile,
-          address,
-          status,
-          zipcode,
-          prov,
-          city,
-          district,
-          pname,
-          cname,
-          dname
-        }
-      }
       wx.request({
         url: app.globalData.dataRemote + 'address/save',
-        data: obj,
+        data: info,
         header: {
           'content-type': 'application/x-www-from-urlencoded'
         },
         method: 'POST',
         success: function (res) {
           console.log(res)
-          if (res.code == 0) {
-            wx.removeStorageSync(editAdressTemp)
+          if (res.data.code == 0) {
+            wx.redirectTo({
+              url: '/pages/confirmOrder/address/list/list'
+            })
           }
-
         }
       })
     }
   },
   removeAddressEvent() {
     let self = this;
-    let aid = self.data.aid;
+    let aid = self.data.info.aid;
     wx.showModal({
       title: '',
       content: '确定删除该地址吗？',
@@ -259,8 +253,10 @@ Page({
             method: 'POST',
             success: function (res) {
               console.log(res)
-              if (res.code == 0) {
-                wx.removeStorageSync(editAdressTemp)
+              if (res.data.code == 0) {
+                wx.redirectTo({
+                  url: '/pages/confirmOrder/address/list/list'
+                })
               }
             }
           })

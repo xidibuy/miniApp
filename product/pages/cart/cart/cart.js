@@ -29,13 +29,13 @@ Page({
                             // 城市id
                             cityId: resp.data.cityId,
                             //有效商品列表
-                            list: resp.data.cart.valid,
+                            list: resp.data.cart,
                             // 无效商品个数
                             unValidNum: resp.data.unValidNum
                         });
 
                         // 设置商品选中状态
-                        self.setGoodsDefaultCheckedState(resp.data.cart.valid);
+                        self.setGoodsDefaultCheckedState(resp.data.cart);
                         // 设置金额
                         self.updateCurrentSum();
 

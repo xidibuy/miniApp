@@ -1,30 +1,30 @@
-<navigator class="address-box" url="{{addressLinkUrl}}">
-  <image src="{{border}}"  class="colors-border"></image>
+<view class="address-box" bindtap="goToAddressEvent">
+  <image src="{{border}}" class="colors-border"></image>
 
-    <!--有地址信息-->
-    <block wx:if="{{pageData.hasDefaultAddress}}">
-      <view class="address-info">
-        <view class="first-row">
-          <text class="name">{{pageData.addressInfos.consignee}}</text>
-          <text class="contact">{{pageData.addressInfos.mobile}}</text>
-          <text class="default-icon">默认</text>
-        </view>
-        <view class="ellip-line city">
-          {{currentArea}}
-        </view>
-        <view class="ellip-line street">
-          {{pageData.addressInfos.address}}
-        </view>
+  <!--有地址信息-->
+  <block wx:if="{{pageData.hasDefaultAddress}}">
+    <view class="address-info">
+      <view class="first-row">
+        <text class="name">{{pageData.addressInfos.consignee}}</text>
+        <text class="contact">{{pageData.addressInfos.mobile}}</text>
+        <view class="default-icon" hidden="{{pageData.addressInfos.status == 0}}">默认</view>
       </view>
-    </block>
-
-    <!--无地址信息-->
-    <block wx:else>
-      <view class="tips">请先填写收货地址</view>
-    </block>
-
-    <!--右侧箭头-->
-    <view class="address-box-right">
-      <view class="xd xd-right-angle"></view>
+      <view class="ellip-line city">
+        {{pageData.addressInfos.pname + pageData.addressInfos.cname + pageData.addressInfos.dname}}
+      </view>
+      <view class="ellip-line street">
+        {{pageData.addressInfos.address}}
+      </view>
     </view>
-  </navigator>
+  </block>
+
+  <!--无地址信息-->
+  <block wx:else>
+    <view class="tips">请先填写收货地址</view>
+  </block>
+
+  <!--右侧箭头-->
+  <view class="address-box-right">
+    <view class="xd xd-right-angle"></view>
+  </view>
+</view>

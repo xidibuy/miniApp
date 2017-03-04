@@ -2,31 +2,31 @@
   <view class="content">
     <view class="title">发票抬头：</view>
     <view class="row">
-      <view class="left">
-        <text class="xd xd-circle"></text>
-        <text class="xd xd-dot"></text>
-      </view>
+      <radio-group class="left" bindchange="choosePersonEvent">
+        <view class="xd xd-circle"></view>
+        <view class="xd xd-dot" hidden="{{!person}}"></view>
+        <radio value="" class="radio" checked="{{person}}" />
+      </radio-group>
       <view class="type">个人</view>
     </view>
     <view class="row">
-      <view class="left">
-        <text class="xd xd-circle"></text>
-
-        <!--<text class="xd xd-dot"></text>-->
-      </view>
+      <radio-group class="left" bindchange="chooseOrganizationEvent">
+        <view class="xd xd-circle"></view>
+        <view class="xd xd-dot" hidden="{{!organization.state}}"></view>
+        <radio value="" class="radio" checked="{{organization.state}}" />
+      </radio-group>
       <view class="type">单位</view>
       <view class="input-widget">
-        <input type="text" class="input" value="{{inputValue}}" bindinput="inputInputEvent"  />
-        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{inputValue==''}}"></view>
+        <input type="text" class="input" value="{{organization.content}}" bindinput="inputInputEvent" disabled="{{person}}" />
+        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{organization.content=='' || person}}"></view>
       </view>
-      
     </view>
     <view class="title">发票内容：
       <text class="details">商品明细</text>
     </view>
     <view class="bottom-bar">
-      <navigator url="/pages/confirmOrder/index/index" class="left">暂不需要发票</navigator>
-      <navigator url="/pages/confirmOrder/index/index" class="right">确定</navigator>
+      <view class="left" bindtap="cancelEvent">暂不需要发票</view>
+      <view class="right" bindtap="confirmEvent">确定</view>
     </view>
   </view>
 </view>

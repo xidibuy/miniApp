@@ -1,13 +1,13 @@
 <view class="container">
   <view class="address-list">
     <block wx:for="{{list}}" wx:key="index" wx:for-index="idx">
-      <view class="list-box {{item.status == 1 ? 'active' : ''}}">
+      <view class="list-box {{choseArr[idx] ? 'active' : ''}}">
         <label class="list-label">
           <view class="item-left">
-            <radio-group class="item-left-radio" bindchange="chooseAddressEvent" data-aid="{{item.aid}}">
+            <radio-group class="item-left-radio" bindchange="chooseAddressEvent" data-index="{{idx}}">
               <view class="xd xd-circle"></view>
-              <view class="xd xd-dot" hidden="{{item.status != 1}}"></view>
-              <radio value="{{id}}" class="radio" checked="{{item.status == 1}}" />
+              <view class="xd xd-dot" hidden="{{!choseArr[idx]}}"></view>
+              <radio value="{{id}}" class="radio" checked="{{choseArr[idx]}}" />
             </radio-group>
           </view>
           <view class="list-cont">
@@ -18,7 +18,7 @@
                 <text class="default">默认</text>
               </block>
             </view>
-            <view class="cont-ad ellip-lines">{{item.area}}</view>
+            <view class="cont-ad ellip-lines">{{item.pname + item.cname + item.dname}}</view>
             <view class="cont-ad-desic ellip-lines">{{item.address}}</view>
           </view>
         </label>
@@ -33,6 +33,6 @@
 
   <!--新增地址按钮(保持固定吸底)-->
   <view class="addAddress-btn">
-    <navigator url="/pages/confirmOrder/address/edit/edit">新增地址</navigator>
+    <view bindtap="goToAddAddressEvent">新增地址</view>
   </view>
 </view>

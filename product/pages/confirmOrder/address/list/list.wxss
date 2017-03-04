@@ -1,3 +1,6 @@
+.container{
+  padding-bottom: 130rpx;
+}
 .address-list {
   padding: 35.1rpx 23.4rpx 0;
 }
