@@ -1,5 +1,4 @@
 const app = getApp();
-const search = require('../../../../utils/area.js').search;
 Page({
   data: {},
 
@@ -9,54 +8,110 @@ Page({
     // 获取列表
     app.fetchApi(listUrl, function (resp) {
       if (resp.code == 0) {
-        resp.data.map(item => {
-          item.area = search(item.dist);
-        })
+        let choseArr = [];
+        let list = resp.data;
+        // 渲染列表
         self.setData({
-          list: resp.data
+          list
         });
+        // 缓存中是否有aid
+        wx.getStorage({
+          key: 'aidFor_Order_List_Edit_Add_Temp',
+          success(res) {
+            // 移除storage中的aid
+            wx.removeStorageSync('aidFor_Order_List_Edit_Add_Temp');
+            // 设置默认选中
+            list.map((item, index) => {
+              if (item.aid == res.data) {
+                choseArr[index] = true
+              } else {
+                choseArr[index] = false
+              }
+            });
+            self.setData({
+              choseArr
+            });
+          },
+          fail(){
+            list.map((item, index) => {
+                choseArr[index] = false
+            });
+            self.setData({
+              choseArr
+            });
+          }
+        })
       }
-
     })
   },
-  setDefaultAddressEvent(e) {
+  chooseAddressEvent(e) {
     let self = this;
-    let aid = e.currentTarget.dataset.aid;
-    let list = self.data.list;
-    list.map(item => {
-      if (item.aid == aid) {
-        item.status = 1
+    let idx = e.currentTarget.dataset.index;
+    let choseArr = self.data.choseArr;
+    let cur = self.data.list[idx];
+    // 设置被选中
+    choseArr.map((item, index) => {
+      if (index == idx) {
+        choseArr[index] = true
       } else {
-        item.status = 0
+        choseArr[index] = false
       }
-    });
+    })
     self.setData({
-      list
+      choseArr
     });
-    wx.request({
-      url: app.globalData.dataRemote + 'address/default',
-      header: {
-        'content-type': 'application/x-www-from-urlencoded'
-      },
-      data: {
-        aid
-      },
-      method: 'POST',
-      success: function (res) {
-        if (res.data.code == 0) {
+    // 跳回订单页 并将选中地址数据存入storage
+    setTimeout(() => {
+      wx.setStorage({
+        key: 'addressListToConfirmOrder',
+        data: cur,
+        success: function (res) {
           wx.redirectTo({
             url: '/pages/confirmOrder/index/index'
           })
         }
-      }
-    })
+      })
+    }, 300)
+
   },
   goToEditAdressEvent(e) {
     let self = this;
+
+    // 存储要编辑的地址信息
     let idx = e.currentTarget.dataset.index;
     let editAdressTemp = self.data.list[idx];
     wx.setStorageSync('editAdressTemp', editAdressTemp);
-    wx.navigateTo({
+
+
+    // 存储被选中的项的index
+    let choseIdx = '';
+    self.data.choseArr.map((item, index) => {
+      if (item) {
+        choseIdx = index;
+      }
+    });
+    let aid = self.data.list[choseIdx].aid;
+    wx.setStorageSync('aidFor_Order_List_Edit_Add_Temp', aid);
+
+    // 跳转
+    wx.redirectTo({
+      url: '/pages/confirmOrder/address/edit/edit'
+    })
+  },
+  goToAddAddressEvent(){
+    // 存储被选中的项的index
+    let self = this;
+    let choseIdx = '';
+    self.data.choseArr.map((item, index) => {
+      if (item) {
+        choseIdx = index;
+      }
+    });
+    let aid = self.data.list[choseIdx].aid;
+    wx.setStorageSync('aidFor_Order_List_Edit_Add_Temp', aid);
+
+    // 跳转
+    wx.redirectTo({
       url: '/pages/confirmOrder/address/edit/edit'
     })
   }

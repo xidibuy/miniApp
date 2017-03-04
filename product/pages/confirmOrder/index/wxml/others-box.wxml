@@ -10,19 +10,19 @@
   </navigator>
 
   <!--发票信息-->
-  <navigator url="/pages/confirmOrder/invoice/invoice" class="row invoice">
+  <view class="row invoice" bindtap="goToSetInvoiceEvent">
     <text class="row-title">发票信息</text>
-    <view class="ellip-line row-content">{{others.invoice}}</view>
+    <view class="ellip-line row-content">{{invoice.text}}</view>
     <view class="row-right">
       <view class="xd xd-right-angle"></view>
     </view>
-  </navigator>
+  </view>
 
   <!--备注-->
   <view class="row remark">
     <text class="row-title">备注</text>
     <view class="row-content">
-      <input type="text" value="{{others.remark}}" placeholder="选填，告诉工厂代表对订单的特殊要求" maxlength="300" placeholder-style="color: #777;font-size:13px;" />
+      <input type="text" value="{{remark}}" bindinput="remarkInputEvent" placeholder="选填，告诉工厂代表对订单的特殊要求" maxlength="300" placeholder-class="input-ph" />
     </view>
   </view>
 </view>
