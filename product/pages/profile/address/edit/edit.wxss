@@ -48,6 +48,7 @@
   font-size: 15px;
   text-align: center;
   color: #f33;
+  display: block;
 }
 
 /*bottom-bar*/

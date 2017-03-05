@@ -179,6 +179,123 @@ Page({
       'info.status': Number(e.detail.value)
     })
   },
+  strLength(str) {
+    let aMatch = str.match(/[^\x00-\x80]/g),
+      strLen = (str.length + (!aMatch ? 0 : aMatch.length));
+    return strLen;
+  },
+  consigneeCheck(val) {
+    let self = this;
+    if (self.strLength(val)) {
+      if (self.strLength(val) >= 21) {
+        wx.showModal({
+          title: '',
+          content: '请填写正确的收货人姓名',
+          showCancel: false
+        });
+        return false;
+      } else {
+        return true;
+      }
+    } else {
+      wx.showModal({
+        title: '',
+        content: '请填写收货人',
+        showCancel: false
+      });
+      return false;
+    }
+  },
+  mobileCheck(val) {
+    let self = this;
+    if (val) {
+      if (!(/^1[3|4|5|7|8]\d{9}$/.test(val))) {
+        wx.showModal({
+          title: '',
+          content: '请填写正确的手机号码',
+          showCancel: false
+        });
+        return false
+      } else {
+        return true;
+      }
+    } else {
+      wx.showModal({
+        title: '',
+        content: '请填写手机',
+        showCancel: false
+      });
+      return false;
+    }
+  },
+  adressCheck(val) {
+    let self = this;
+    if (self.strLength(val)) {
+      if (/^\d+$/.test(val)) {
+        wx.showModal({
+          title: '',
+          content: '不能是纯数字',
+          showCancel: false
+        });
+        return false;
+      } else if (/^([a-zA-Z]+)$/.test(val)) {
+        wx.showModal({
+          title: '',
+          content: '不能是纯字母',
+          showCancel: false
+        });
+        return false;
+      } else if (self.strLength(val) >= 201 || self.strLength(val) <= 7) {
+        if (self.strLength(val) >= 201 || self.strLength(val) <= 7) {
+          wx.showModal({
+            title: '',
+            content: '请填写正确的收货人详细地址',
+            showCancel: false
+          });
+          return false;
+        } else {
+          return true;
+        }
+      }
+      return true;
+    } else {
+      wx.showModal({
+        title: '',
+        content: '请填写收货人详细地址',
+        showCancel: false
+      });
+      return false;
+    }
+  },
+  zipcodeCheck(val) {
+    let self = this;
+    if (val) {
+      if (!/^[0-9]{6}$/.test(val)) {
+        wx.showModal({
+          title: '',
+          content: '请填写正确的邮政编码',
+          showCancel: false
+        });
+        return false
+      } else {
+        return true;
+      }
+    } else {
+      return true;
+    }
+  },
+  pnameCheck(val) {
+    if (val == undefined || val == '') {
+      wx.showModal({
+        title: '',
+        content: '请填写省市区',
+        showCancel: false
+      })
+      return false;
+    } else {
+      return true;
+    }
+  },
   saveFormEvent() {
     let self = this;
     let info = self.data.info;
@@ -188,34 +305,7 @@ Page({
     let zipcode = (typeof info.zipcode == 'undefined') ? '' : info.zipcode;
     let status = (typeof info.status == 'undefined') ? '' : info.status;
     let pname = info.pname;
-    if (consignee == undefined || consignee == '') {
-      wx.showModal({
-        title: '',
-        content: '请填写收货人',
-        showCancel: false
-      })
-    }
-    else if (mobile == undefined || mobile == '') {
-      wx.showModal({
-        title: '',
-        content: '请填写手机',
-        showCancel: false
-      })
-    }
-    else if (address == undefined || address == '') {
-      wx.showModal({
-        title: '',
-        content: '请填写详细地址',
-        showCancel: false
-      })
-    }
-    else if (pname == undefined || pname == '') {
-      wx.showModal({
-        title: '',
-        content: '请填写省市区',
-        showCancel: false
-      })
-    } else {
+    if (self.consigneeCheck(consignee) && self.mobileCheck(mobile) && self.pnameCheck(pname) && self.adressCheck(address) && self.zipcodeCheck(zipcode)) {
       wx.request({
         url: app.globalData.dataRemote + 'address/save',
         data: info,
@@ -233,35 +323,34 @@ Page({
         }
       })
     }
+
   },
-  removeAddressEvent() {
+
+  // 清空input输入框
+  clearInputValue(e) {
     let self = this;
-    let aid = self.data.info.aid;
-    wx.showModal({
-      title: '',
-      content: '确定删除该地址吗？',
-      success: function (res) {
-        if (res.confirm) {
-          wx.request({
-            url: app.globalData.dataRemote + 'address/delete',
-            data: {
-              aid
-            },
-            header: {
-              'content-type': 'application/x-www-from-urlencoded'
-            },
-            method: 'POST',
-            success: function (res) {
-              console.log(res)
-              if (res.data.code == 0) {
-                wx.redirectTo({
-                  url: '/pages/confirmOrder/address/list/list'
-                })
-              }
-            }
-          })
-        }
-      }
-    })
+    let content = e.currentTarget.dataset.index;
+    switch (content) {
+      case 'consignee':
+        self.setData({
+          'info.consignee': ''
+        });
+        break;
+      case 'mobile':
+        self.setData({
+          'info.mobile': ''
+        });
+        break;
+      case 'address':
+        self.setData({
+          'info.address': ''
+        });
+        break;
+      case 'zipcode':
+        self.setData({
+          'info.zipcode': ''
+        });
+        break;
+    }
   }
 });

@@ -53,21 +53,24 @@ Page({
   onReachBottom: function (options) {
     let _this = this;
     let page;
-    // 200条的限制,请求无结果
-    if (_this.data.orders.length <= 20 && _this.data.noOrder == true) {
-      page = _this.data.page + 1;
-      let addOrderUrl = orderUrl + '?page=' + page;
-      _this.post(addOrderUrl, function (res) {
-        _this.dealOrder(res);
-        _this.setData({
-          page: page
+    if (_this.data.contentType == 'order') {
+      // 200条的限制,请求无结果
+      if (_this.data.orders.length <= 20 && _this.data.noOrder == true) {
+        page = _this.data.page + 1;
+        let addOrderUrl = orderUrl + '?page=' + page;
+        _this.post(addOrderUrl, function (res) {
+          _this.dealOrder(res);
+          _this.setData({
+            page: page
+          });
         });
-      });
-    } else {
-      _this.setData({
-        tipShow: true
-      });
+      } else {
+        _this.setData({
+          tipShow: true
+        });
+      }
     }
+
 
   },
   bindMenu(e) {
@@ -162,7 +165,7 @@ Page({
     wx.setStorageSync('editAdressTemp', editAdressTemp);
 
     // 跳转
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/profile/address/edit/edit'
     })
   },
@@ -170,7 +173,7 @@ Page({
   goToAddAddressEvent() {
 
     // 跳转
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/profile/address/edit/edit'
     })
   }
