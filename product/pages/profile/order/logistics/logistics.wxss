@@ -1,6 +1,6 @@
 .logistics-info {
   padding: 23.4rpx 35.1rpx;
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #333;
   line-height: 53.82rpx;
   border-bottom: 2rpx solid #ddd;
@@ -37,14 +37,14 @@
 
 .logistics-details-tips {
   margin-top: 175.5rpx;
-  font-size: 16px;
+  font-size: 37.44rpx;
   color: #777;
   text-align: center;
 }
 
 .logistics-details-item {
   position: relative;
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #777;
   line-height: 46.8rpx;
   padding-top: 26.91rpx;

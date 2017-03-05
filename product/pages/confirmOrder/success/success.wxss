@@ -1,7 +1,7 @@
 .title{
     margin: 81.9rpx 0  63.18rpx 0;
     padding-left: 31.59rpx;
-    font-size: 17px;
+    font-size: 39.78rpx;
     color: #222;
     font-weight: bold;
     height: 58.5rpx;
@@ -15,7 +15,7 @@
 
 .row{
     padding-left: 35.1rpx;
-    font-size: 12px;
+    font-size: 28.08rpx;
     color: #777;
     line-height: 42.12rpx;
 }
@@ -32,7 +32,7 @@
     line-height: 113.49rpx;
     background: #fff;
     display: flex;
-    font-size: 15px;
+    font-size: 35.1rpx;
     text-align: center;
 }
 .bottom-bar .left{

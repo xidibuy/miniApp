@@ -8,12 +8,12 @@
     align-items: center;
 }
 .title{
-    font-size: 16px;
+    font-size: 37.44rpx;
     line-height: 73rpx;
     color: #222;
 }
 .word{
-    font-size: 13px;
+    font-size: 30.42rpx;
     line-height: 66rpx;
     color: #777;
 }

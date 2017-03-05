@@ -71,7 +71,7 @@ swiper-item {
 }
 
 .basic-info .price {
-  font-size: 18px;
+  font-size: 42.12rpx;
   color: #00bebf;
   margin-bottom: 7.31rpx;
 }
@@ -100,11 +100,11 @@ swiper-item {
 
 .discound-img text {
   color: #ff7765;
-  font-size: 11px;
+  font-size: 25.74rpx;
 }
 
 .discound-word {
-  font-size: 12px;
+  font-size: 28.08rpx;
   color: #888;
   line-height: 82rpx;
 }
@@ -120,13 +120,13 @@ swiper-item {
 }
 
 .price-nother {
-  font-size: 12px;
+  font-size: 28.08rpx;
   height: 50rpx;
   line-height: 50rpx;
 }
 
 .basic-info .title {
-  font-size: 15px;
+  font-size: 35.1rpx;
   line-height: 51.48rpx;
   font-weight: bold;
   height: 51.48rpx;
@@ -158,13 +158,13 @@ swiper-item {
 }
 
 .attr-name {
-  font-size: 14px;
+  font-size: 32.76rpx;
   padding: 2.34rpx 0 22rpx;
   color: #222;
 }
 
 .attr-name text {
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #888;
   margin-left: 35.1rpx;
 }
@@ -253,7 +253,7 @@ swiper-item {
   border-right: 2rpx solid #ddd;
   width: 94rpx;
   text-align: center;
-  font-size: 13px;
+  font-size: 30.42rpx;
 }
 
 .widget-ctrl .disabled {
@@ -264,7 +264,7 @@ swiper-item {
   display: flex;
   margin-left: 18rpx;
   color: #888;
-  font-size: 13px;
+  font-size: 30.42rpx;
   height: 71rpx;
   line-height: 71rpx;
 }
@@ -280,7 +280,7 @@ swiper-item {
 .button-reduce, .button-plus {
   width: 66rpx;
   text-align: center;
-  font-size: 16px;
+  font-size: 37.44rpx;
   color: #a9a9a9;
 }
 
@@ -337,7 +337,7 @@ swiper-item {
   text-align: center;
   background-color: #f1f1f1;
   color: #888;
-  font-size: 12px;
+  font-size: 28.08rpx;
 }
 
 /*商品规格*/
@@ -348,7 +348,7 @@ swiper-item {
 }
 
 .spec-list {
-  font-size: 13px;
+  font-size: 30.42rpx;
   line-height: 58rpx;
   color: #222;
 }
@@ -370,7 +370,7 @@ swiper-item {
 
 .xidi-selected {
   text-align: center;
-  font-size: 15px;
+  font-size: 35.1rpx;
   padding: 94rpx 0 24px;
   background-color: #fff;
 }
@@ -442,7 +442,7 @@ swiper-item {
   border: none;
   background-color: #4ed6d2;
   color: #fff;
-  font-style: 17px;
+  font-style: 39.78rpx;
   height: 117rpx;
   line-height: 117rpx;
 }

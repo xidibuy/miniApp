@@ -212,9 +212,11 @@ Page({
     })
   },
   strLength(str) {
-    let aMatch = str.match(/[^\x00-\x80]/g),
-      strLen = (str.length + (!aMatch ? 0 : aMatch.length));
-    return strLen;
+    if (str != '' && str != undefined) {
+      let aMatch = str.match(/[^\x00-\x80]/g),
+        strLen = (str.length + (!aMatch ? 0 : aMatch.length));
+      return strLen;
+    }
   },
   consigneeCheck(val) {
     let self = this;
@@ -324,7 +326,7 @@ Page({
         showCancel: false
       })
       return false;
-    } else{
+    } else {
       return true;
     }
   },

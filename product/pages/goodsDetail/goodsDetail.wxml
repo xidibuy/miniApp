@@ -108,7 +108,7 @@
     <!--简单介绍和物流-->
     <view class="smiple-intro-box">
       <view class="smiple-intro">
-        <text style="font-size:13px;">{{goodsDetail.desc}}</text>
+        <text style="font-size:30.42rpx;">{{goodsDetail.desc}}</text>
         <view class="post-info">
           <view>
             <text class="xd xd-truck"></text>

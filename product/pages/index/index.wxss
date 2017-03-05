@@ -24,7 +24,7 @@
 
 .basic-info .main-title {
   margin-bottom: 23.4rpx;
-  font-size: 15px;
+  font-size: 35.1rpx;
   line-height: 52rpx;
   font-weight: bold;
   color: #222;
@@ -46,7 +46,7 @@
 
 .pro-name .sub-title {
   width: 616rpx;
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #222;
   white-space: nowrap;
   word-wrap: break-word;
@@ -57,7 +57,7 @@
 .basic-info .price {
   display: inline-block;
   margin-bottom: 5rpx;
-  font-size: 21px;
+  font-size: 49.14rpx;
   color: #00bebf;
 }
 
@@ -67,11 +67,11 @@
 }
 
 .other-name {
-  font-size: 12px;
+  font-size: 28.08rpx;
 }
 
 .line-thro {
-  font-size: 13px;
+  font-size: 30.42rpx;
   text-decoration: line-through;
 }
 
@@ -85,13 +85,13 @@
   color: #fff;
   line-height: 51.48rpx;
   background-color: #ff7765;
-  font-size: 12px;
+  font-size: 28.08rpx;
   border-radius: 4px;
 }
 
 .warn-stock text {
   margin: 0 7.02rpx;
-  font-size: 13px;
+  font-size: 30.42rpx;
 }
 
 swiper {
@@ -127,8 +127,8 @@ swiper {
 .topic-word {
   margin: 17rpx 0 28.08rpx;
   padding: 0 12rpx;
-  font-size: 12px;
-  line-height: 18px;
+  font-size: 28.08rpx;
+  line-height: 42.12rpx;
   color: #333;
   width: 100%;
   box-sizing: border-box;

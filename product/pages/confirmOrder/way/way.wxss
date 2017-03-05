@@ -38,14 +38,14 @@
 }
 
 .right-title {
-  font-size: 14px;
+  font-size: 32.76rpx;
   height: 46.8rpx;
   line-height: 46.8rpx;
   margin-bottom: 18.72rpx;
 }
 
 .right-normal {
-  font-size: 13px;
+  font-size: 30.42rpx;
 }
 
 /*bottom-bar*/
@@ -59,7 +59,7 @@
   height: 112.32rpx;
   line-height: 112.32rpx;
   background: #4ed6d1;
-  font-size: 15px;
+  font-size: 35.1rpx;
   color: #fff;
   text-align: center;
 }

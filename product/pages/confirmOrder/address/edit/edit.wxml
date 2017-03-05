@@ -15,9 +15,6 @@
       <text>设为默认地址</text>
       <switch checked="{{info.status}}" bindchange="setDefaultEvent" color="#4ed6d2" />
     </view>
-    <view class="row delete" hidden="{{type == 'add'}}" bindtap="removeAddressEvent">
-      删除地址
-    </view>
   </view>
   <view url="/pages/confirmOrder/address/list/list" class="bottom-bar" bindtap="saveFormEvent">保存</view>
 
