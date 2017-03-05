@@ -88,7 +88,7 @@ Page({
                         text: '普通快递送货上门'
                     }
                 });
-            }else{
+            } else {
                 self.setData({
                     way: {
                         state: 1,
@@ -171,6 +171,7 @@ Page({
         let invoice = self.data.invoice;
         let mentioningAddress = self.data.way.state;
         let aid = self.data.pageData.addressInfos.aid;
+        let remark =self.data.remark;
         let obj = {
             productIds,
             invoice,
@@ -182,16 +183,9 @@ Page({
                 paytype: '13'
             }
         };
-        wx.request({
-            url: app.globalData.dataRemote + 'order/save',
-            data: obj,
-            header: {
-                'content-type': 'application/x-www-from-urlencoded'
-            },
-            method: 'POST',
-            success: function (res) {
-                // success
-            }
+        let url = app.globalData.dataRemote + 'order/save';
+        app.postApi(url, obj, function (res) {
+            console.log(res)
         })
     },
     tail(num) {
