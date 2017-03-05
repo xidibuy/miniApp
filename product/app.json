@@ -10,7 +10,6 @@
     "pages/profile/order/logistics/logistics",
     "pages/profile/address/add/add",
     "pages/profile/address/edit/edit",
-    "pages/profile/more/info/info",
     "pages/profile/more/question/question",
     "pages/cart/invalid/invalid",
     "pages/confirmOrder/address/edit/edit",
