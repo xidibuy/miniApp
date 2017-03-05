@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/confirmOrder/success/success",
     "pages/cart/cart/cart",
     "pages/confirmOrder/way/way",
     "pages/index/index",
@@ -16,7 +17,6 @@
     "pages/profile/more/info/info",
     "pages/profile/more/question/question",
     "pages/cart/invalid/invalid",
-    "pages/confirmOrder/success/success",
     "pages/goodsDetail/goodsDetail",
     "pages/topic/topic",
     "pages/about/about"

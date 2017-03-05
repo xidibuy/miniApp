@@ -1,14 +1,13 @@
 //app.js
+let extend = require('./utils/util.js').extend;
 
 App({
   onLaunch() {
-    //调用API从本地缓存中获取数据
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs);
-    this.getUserInfo();
+    this.loginOnLaunch();
+    // this.getUserInfo();
   },
 
+  // 取数据 默认get
   fetchApi(url, callback) {
     wx.request({
       url,
@@ -16,61 +15,119 @@ App({
       header: {
         'content-type': 'application/json'
       },
-      dataType: "json",
       success(res) {
         if (res.statusCode == 200) {
           callback(res.data);
         }
       },
       fail(e) {
-        callback(e)
+        console.error(url);
+        console.error(e);
       }
     })
   },
-  getUserInfo(cb) {
-    var that = this;
-    if (this.globalData.userInfo) {
-      typeof cb == "function" && cb(this.globalData.userInfo)
+
+  // 传数据 默认post
+  postApi(url, data, callback) {
+    let self = this;
+    let session = wx.getStorageSync('3rd_session');
+    if (session) {
+      data = extend({}, { '3rd_session': session }, data);
+      wx.request({
+        url,
+        data,
+        header: {
+          'content-type': 'application/json'
+        },
+        method: 'POST',
+        success(res) {
+          if (res.statusCode == 200) {
+            callback(res.data);
+          }
+        },
+        fail(e) {
+          console.error(url);
+          console.error(e);
+        }
+      })
     } else {
-      that.login();
+      self.login();
     }
   },
-  login: function () {
-    var that = this;
-    //调用登录接口
-    wx.login({
+
+  getUserInfo() {
+    wx.getUserInfo({
       success: function (res) {
-        wx.getUserInfo({
-          success: function (res) {
-            that.globalData.userInfo = res.userInfo
-            typeof cb == "function" && cb(that.globalData.userInfo)
-          }
-        });
+        wx.setStorageSync('userRawInfo', res);
+        wx.setStorageSync('userInfo', res.userInfo);
+      },
+      fail: function (res) {
+        // fail
+      }
+    })
+  },
+
+  // 登录
+  login: function () {
+    let self = this;
+    wx.login({
+      success(res) {
+        console.log(res)
         if (res.code) {
+          let url = self.globalData.dataRemote + 'weixin/session';
+          let data = {
+            code: res.code
+          };
           wx.request({
-            url: that.globalData.dataRemote + 'weixin/session',
+            url,
+            data,
             method: 'POST',
-            data: {
-              code: res.code
-            },
             success: function (res) {
-              if (res.data.code == 0) {
-                console.log("微信登录态信息在喜地服务器的索引");
-              } else {
-                console.log(res.msg);
+              if (resp.data.code == 0) {
+                wx.setStorage({
+                  key: '3rd_session',
+                  data: resp.data,
+                  success: function (res) {
+                    wx.showToast({
+                      title: '登陆成功!',
+                      mask: true,
+                      icon: 'success',
+                      duration: 1000
+                    })
+                  }
+                })
               }
             }
           })
-        } else {
-          console.log('获取用户登录态失败！' + res.errMsg)
         }
+      }, fail(e) {
+        wx.showModal({
+          title: '',
+          content: '登陆失败!请稍后重试！',
+          showCancel: false
+        })
+        console.error(e);
       }
     });
+
   },
+
+  // 初次请求登录
+  loginOnLaunch() {
+    let self = this;
+    wx.showModal({
+      title: '提示',
+      content: '尚未登录，请登录！',
+      confirmText: '登录',
+      success: function (res) {
+        if (res.confirm) {
+          self.login();
+        }
+      }
+    })
+  },
+
   globalData: {
-    userInfo: null,
-    dataRemote: "https://wxapp.xidibuy.com/",
-    img: "http://172.16.14.96:8888/image/",
-    data: "http://172.16.14.96:8888/data/"
+    dataRemote: "https://wxapp.xidibuy.com/"
   }
 })
