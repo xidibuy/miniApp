@@ -227,16 +227,18 @@ Page({
         let self = this;
         let list = self.data.list;
         let url = app.globalData.dataRemote + 'order/check';
-        let paramObj = {};
+        let paramObj = {
+            productIds: {}
+        };
         list.map(item => {
             if (item.check) {
-                paramObj[item.goodsId] = item.buyNum
+                paramObj.productIds[item.goodsId] = item.buyNum
             }
         });
-        app.postApi(url, paramObj, function () {
+        app.postApi(url, paramObj, function (res) {
             if (res.code == 0) {
                 wx.setStorageSync('orderTemp', res.data);
-                wx.setStorageSync('cartGoodsTemp', dataObj);
+                wx.setStorageSync('cartGoodsTemp', paramObj);
                 wx.navigateTo({
                     url: '/pages/confirmOrder/index/index'
                 })
