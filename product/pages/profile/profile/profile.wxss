@@ -1,5 +1,6 @@
 .container {
   background-color: #f4f4f4;
+  padding-bottom: 111.15rpx;
 }
 
 .container:before {

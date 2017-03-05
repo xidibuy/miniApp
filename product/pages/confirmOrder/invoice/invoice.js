@@ -31,7 +31,7 @@ Page({
   },
   clearInputValue() {
     this.setData({
-      inputValue: ''
+      'organization.content': ''
     })
   },
   inputInputEvent(e) {
