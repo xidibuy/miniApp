@@ -39,14 +39,14 @@ Page({
 
 
     // 勾选同步
-    syncCheckStateOtO(obj){
+    syncCheckStateOtO(obj) {
         let self = this;
         let url = app.globalData.dataRemote + 'cart/syncTickOffByCart';
         let data = {
             cartSelectId: obj
         };
-        app.postApi(url,data,function(resp){
-            if(resp.code == 0){
+        app.postApi(url, data, function (resp) {
+            if (resp.code == 0) {
                 console.log('设置勾选状态成功！')
             }
         })
@@ -86,8 +86,8 @@ Page({
         self.setData(obj);
 
 
-        list.map(item =>{
-            if(item.check){
+        list.map(item => {
+            if (item.check) {
                 paramObj[item.goodsId] = item.buyNum
             }
         });
@@ -117,8 +117,8 @@ Page({
             totalCheck: currentState
         });
 
-         list.map(item =>{
-            if(item.check){
+        list.map(item => {
+            if (item.check) {
                 paramObj[item.goodsId] = item.buyNum
             }
         });
@@ -225,40 +225,27 @@ Page({
     //结算
     settlementEvent() {
         let self = this;
-        let goodsCheckedStateObj = self.data.goodsCheckedStateObj;
-        let checkedGoods = Object.keys(goodsCheckedStateObj).filter(item => {
-            return item != 'total'
-        }).filter(item => {
-            return goodsCheckedStateObj[item]
+        let list = self.data.list;
+        let url = app.globalData.dataRemote + 'order/check';
+        let paramObj = {};
+        list.map(item => {
+            if (item.check) {
+                paramObj[item.goodsId] = item.buyNum
+            }
         });
-        let dataObj = {
-            productIds: {}
-        };
-        checkedGoods.map(item => {
-            self.data.list.map(l => {
-                if (item == l.goodsId) {
-                    dataObj.productIds[item] = l.buyNum
-                }
-            })
-        });
-        wx.request({
-            url: app.globalData.dataRemote + 'order/check',
-            data: dataObj,
-            method: 'GET',
-            success: function (res) {
-                if (res.data.code == 0) {
-                    wx.setStorageSync('orderTemp', res.data.data);
-                    wx.setStorageSync('cartGoodsTemp', dataObj);
-                    wx.navigateTo({
-                        url: '/pages/confirmOrder/index/index'
-                    })
-                } else {
-                    console.log(res)
-                    // wx.showModal({
-                    //     title: '提示',
-                    //     content: res
-                    // })
-                }
+        app.postApi(url, paramObj, function () {
+            if (res.code == 0) {
+                wx.setStorageSync('orderTemp', res.data);
+                wx.setStorageSync('cartGoodsTemp', dataObj);
+                wx.navigateTo({
+                    url: '/pages/confirmOrder/index/index'
+                })
+            } else {
+                console.log(res)
+                // wx.showModal({
+                //     title: '提示',
+                //     content: res
+                // })
             }
         })
     },
