@@ -68,7 +68,7 @@ App({
   },
 
   // 登录
-  login: function () {
+  login() {
     let self = this;
     wx.login({
       success(res) {
@@ -82,12 +82,12 @@ App({
             url,
             data,
             method: 'POST',
-            success: function (res) {
+            success: function (resp) {
               if (resp.data.code == 0) {
                 wx.setStorage({
                   key: '3rd_session',
-                  data: resp.data,
-                  success: function (res) {
+                  data: resp.data.data,
+                  success: function () {
                     wx.showToast({
                       title: '登陆成功!',
                       mask: true,
