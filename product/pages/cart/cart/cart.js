@@ -6,77 +6,62 @@ Page({
         emptyCartImg: 'http://static.xidibuy.com/miniapp/common/1.0.0/images/empty-cart.png'
     },
 
-    onLoad() {
+    onShow() {
         let self = this;
         let url = app.globalData.dataRemote + 'cart/list';
-        app.postApi(url,{},function(resp){
-            if(resp.code == 0){
-                console.log(resp.data)
-            }
+        app.checkSession(() => {
+            app.postApi(url, {}, function (resp) {
+                if (resp.code == 0) {
+                    self.setData({
+                        loading: false,
+                        // 包邮金额
+                        freeCondition: Number(resp.data.freeCondition),
+                        // 包邮文案
+                        // freeDesc:resp.data.freeDesc,
+                        // 城市id
+                        cityId: resp.data.cityId,
+                        //有效商品列表
+                        list: resp.data.cart,
+                        // 无效商品个数
+                        unValidNum: resp.data.unValidNum
+                    });
+
+                    // 根据商品选中状态 设置全选按钮
+                    self.setTotalBtnState(resp.data.cart);
+                    // 设置金额
+                    self.updateCurrentSum();
+                }
+            })
         })
-
-
-
-        // console.log('onload');
-        // const self = this;
-        // const listUrl = app.globalData.dataRemote + 'cart/list';
-        // wx.showToast({
-        //     title: '加载中',
-        //     icon: 'loading',
-        //     mask: true,
-        //     duration: 10 * 1000,
-        //     complete: function () {
-        //         // 获取列表
-        //         app.fetchApi(listUrl, function (resp) {
-        //             if (resp.code == 0) {
-        //                 wx.hideToast();
-
-        //                 self.setData({
-        //                     loading: false,
-        //                     // 包邮金额
-        //                     freeCondition: Number(resp.data.freeCondition),
-        //                     // 包邮文案
-        //                     // freeDesc:resp.data.freeDesc,
-        //                     // 城市id
-        //                     cityId: resp.data.cityId,
-        //                     //有效商品列表
-        //                     list: resp.data.cart,
-        //                     // 无效商品个数
-        //                     unValidNum: resp.data.unValidNum
-        //                 });
-
-        //                 // 设置商品选中状态
-        //                 self.setGoodsDefaultCheckedState(resp.data.cart);
-        //                 // 设置金额
-        //                 self.updateCurrentSum();
-
-
-        //             }
-        //         })
-        //     }
-        // })
 
     },
 
-    // 商品选中状态
-    setGoodsDefaultCheckedState(list) {
+
+
+    // 勾选同步
+    syncCheckStateOtO(obj){
         let self = this;
-        let obj = {};
+        let url = app.globalData.dataRemote + 'cart/syncTickOffByCart';
+        let data = {
+            cartSelectId: obj
+        };
+        app.postApi(url,data,function(resp){
+            if(resp.code == 0){
+                console.log('设置勾选状态成功！')
+            }
+        })
+    },
 
-        // 如果storage没有数据
-        if (true) {
-            // 所有商品设为选中
-            list.map(item => obj[item.goodsId] = true);
-            //全选按钮设为选中
-            obj.total = true;
-
-            self.setData({
-                goodsCheckedStateObj: obj
-            })
-        } else {
-
-        }
-
+    // 全选按钮状态
+    setTotalBtnState(list) {
+        let self = this;
+        list = list || self.data.list;
+        let length = list.filter(item => {
+            return item.check == 0
+        }).length;
+        self.setData({
+            totalCheck: !length
+        })
     },
 
 
@@ -84,35 +69,33 @@ Page({
     singleGoodsToggleChecked(e) {
         let self = this;
         let currentId = e.currentTarget.dataset.id;
+        let currentNum = e.currentTarget.dataset.num;
         let currentState = !!e.detail.value.length;
-        let temp = self.data.goodsCheckedStateObj;
-        temp[currentId] = currentState;
-        self.setData({
-            goodsCheckedStateObj: temp
+        let list = self.data.list;
+        let obj = {};
+        let key = '';
+        let paramObj = {};
+
+
+        list.map((item, index) => {
+            if (item.goodsId == currentId) {
+                key = `list[${index}].check`;
+            }
+        });
+        obj[key] = currentState;
+        self.setData(obj);
+
+
+        list.map(item =>{
+            if(item.check){
+                paramObj[item.goodsId] = item.buyNum
+            }
         });
 
-        // 关联全选按钮
-        //当前状态为true
-        if (currentState) {
-            let state = true;
-            Object.keys(temp).every(item => {
-                if (!temp[item]) {
-                    state = false;
-                    return false;
-                }
-            });
-            self.setData({
-                'goodsCheckedStateObj.total': state
-            });
-        } else {
-            //当前状态为false
-            if (self.data.goodsCheckedStateObj.total) {
-                self.setData({
-                    'goodsCheckedStateObj.total': false
-                });
-            }
-        }
+        self.syncCheckStateOtO(paramObj);
 
+        // 更新全选按钮状态
+        self.setTotalBtnState();
         // 更新当前金额
         self.updateCurrentSum();
 
@@ -124,15 +107,42 @@ Page({
         let self = this;
         let currentId = e.currentTarget.dataset.id;
         let currentState = !!e.detail.value.length;
-        let temp = self.data.goodsCheckedStateObj;
-        Object.keys(temp).map(item => temp[item] = currentState);
+        let list = self.data.list;
+        let paramObj = {};
         self.setData({
-            goodsCheckedStateObj: temp
+            list: list.filter((item) => {
+                item.check = currentState;
+                return true;
+            }),
+            totalCheck: currentState
         });
+
+         list.map(item =>{
+            if(item.check){
+                paramObj[item.goodsId] = item.buyNum
+            }
+        });
+
+        self.syncCheckStateOtO(paramObj);
         // 更新当前金额
         self.updateCurrentSum();
     },
 
+    // 更新购买数量 方法
+    updateNumFun(id, num) {
+        let url = app.globalData.dataRemote + 'cart/update';
+        let data = {
+            productIds: {}
+        };
+        data.productIds[id] = num;
+        app.postApi(url, data, function (resp) {
+            if (resp.code == 0) {
+                console.log('更新成功！')
+            } else {
+                console.log(resp.msg)
+            }
+        })
+    },
 
     // 修改商品个数
     updateGoodsNum(e) {
@@ -144,6 +154,7 @@ Page({
         let buyNum = '';
         let obj = {};
 
+
         self.data.list.map((item, idx) => {
             if (item.goodsId == id) {
                 index = idx;
@@ -154,22 +165,23 @@ Page({
         if (type == 'add') {
             if (buyNum < stock) {
                 obj[key] = buyNum + 1;
+                self.updateNumFun(id, buyNum + 1);
                 self.setData(obj)
             }
 
         } else if (type == 'minus') {
             if (buyNum > 1) {
                 obj[key] = buyNum - 1;
+                self.updateNumFun(id, buyNum - 1);
                 self.setData(obj)
             }
         }
-
         self.updateCurrentSum();
     },
 
     // 输入框输入事件
     inputInputEvent(e) {
-        console.log(e);
+        let self = this;
         let stock = Number(e.currentTarget.dataset.stock);
         let value = Number(e.detail.value);
         if (value > stock) {
@@ -180,26 +192,29 @@ Page({
         self.updateCurrentSum();
     },
 
+    //输入框 输入完成
+    inputBlurEvent(e) {
+        let self = this;
+        let id = e.currentTarget.dataset.id;
+        let value = Number(e.detail.value);
+        self.updateNumFun(id, value);
+        self.updateCurrentSum();
+    },
+
+
 
     // 当前金额
     updateCurrentSum() {
         let self = this;
-        let goodsCheckedStateObj = self.data.goodsCheckedStateObj;
-        let checkedGoods = Object.keys(goodsCheckedStateObj).filter(item => {
-            return item != 'total'
-        }).filter(item => {
-            return goodsCheckedStateObj[item]
+        let list = self.data.list;
+        let checkedGoods = list.filter(item => {
+            return item.check == 1
         });
+
         let settlementMoney = 0;
         checkedGoods.map(item => {
-            self.data.list.map(l => {
-                if (item == l.goodsId) {
-                    settlementMoney += l.price * l.buyNum;
-                    if (self.data.goodsCheckedStateObj[item]) {
-                        settlementMoney -= l.lesPrice;
-                    }
-                }
-            })
+            settlementMoney += item.price * item.buyNum;
+            settlementMoney -= Number(item.lesPrice)
         });
         self.setData({
             settlementNumber: checkedGoods.length,
@@ -232,17 +247,54 @@ Page({
             method: 'GET',
             success: function (res) {
                 if (res.data.code == 0) {
-                    wx.setStorageSync('orderTemp',res.data.data);
-                    wx.setStorageSync('cartGoodsTemp',dataObj);
+                    wx.setStorageSync('orderTemp', res.data.data);
+                    wx.setStorageSync('cartGoodsTemp', dataObj);
                     wx.navigateTo({
-                                url: '/pages/confirmOrder/index/index'
-                            })
+                        url: '/pages/confirmOrder/index/index'
+                    })
                 } else {
                     console.log(res)
                     // wx.showModal({
                     //     title: '提示',
                     //     content: res
                     // })
+                }
+            }
+        })
+    },
+
+    // 删除
+    deleteCart(e) {
+        let self = this;
+        wx.showModal({
+            title: '',
+            content: '确定删除该商品吗？',
+            success: function (res) {
+                if (res.confirm) {
+                    let url = app.globalData.dataRemote + 'cart/delete';
+                    let id = e.currentTarget.dataset.id;
+                    let num = e.currentTarget.dataset.num;
+                    let obj = {
+                        productIds: {}
+                    };
+                    let list = self.data.list;
+                    obj.productIds[id] = num;
+                    app.postApi(url, obj, function (resp) {
+                        if (resp.code == 0) {
+                            wx.showToast({
+                                title: '删除成功',
+                                icon: 'success',
+                                duration: 1000
+                            });
+
+                            self.setData({
+                                list: list.filter(item => {
+                                    return item.goodsId != id
+                                })
+                            });
+                            self.updateCurrentSum();
+                        }
+                    })
                 }
             }
         })

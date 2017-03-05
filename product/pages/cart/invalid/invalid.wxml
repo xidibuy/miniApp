@@ -54,7 +54,7 @@
                 </view>
 
                 <!--删除-->
-                <view class="goods-item-delete" bindTap="deleteCart">
+                <view class="goods-item-delete" bindtap="deleteCart" data-id="{{item.goodsId}}" data-num="{{item.buyNum}}">
                   <text class="xd xd-trash"></text>
                 </view>
               </view>

@@ -51,7 +51,7 @@ App({
         }
       })
     } else {
-      self.login();
+      self.checkSession();
     }
   },
 
@@ -72,7 +72,6 @@ App({
     let self = this;
     wx.login({
       success(res) {
-        console.log(res)
         if (res.code) {
           let url = self.globalData.dataRemote + 'weixin/session';
           let data = {
@@ -109,22 +108,81 @@ App({
         console.error(e);
       }
     });
+  },
 
+
+  checkSession(cb) {
+    let self = this;
+    wx.checkSession({
+      success: function () {
+        //session 未过期，并且在本生命周期一直有效
+        if (wx.getStorageSync('3rd_session') == "") {
+          wx.showModal({
+            title: '提示',
+            content: '尚未登录，请登录！',
+            confirmText: '登录',
+            success: function (res) {
+              if (res.confirm) {
+                self.login();
+              }
+            }
+          })
+        }else{
+          cb && cb()
+        }
+      },
+      fail: function () {
+        //登录态过期
+        //重新登录
+        wx.showModal({
+          title: '提示',
+          content: '尚未登录，请登录！',
+          confirmText: '登录',
+          success: function (res) {
+            if (res.confirm) {
+              self.login();
+            }
+          }
+        })
+      }
+    })
   },
 
   // 初次请求登录
   loginOnLaunch() {
     let self = this;
-    wx.showModal({
-      title: '提示',
-      content: '尚未登录，请登录！',
-      confirmText: '登录',
-      success: function (res) {
-        if (res.confirm) {
-          self.login();
+    wx.checkSession({
+      success: function () {
+        //session 未过期，并且在本生命周期一直有效
+        if (wx.getStorageSync('3rd_session') == "") {
+          wx.showModal({
+            title: '提示',
+            content: '尚未登录，请登录！',
+            confirmText: '登录',
+            success: function (res) {
+              if (res.confirm) {
+                self.login();
+              }
+            }
+          })
         }
+      },
+      fail: function () {
+        //登录态过期
+        //重新登录
+        wx.showModal({
+          title: '提示',
+          content: '尚未登录，请登录！',
+          confirmText: '登录',
+          success: function (res) {
+            if (res.confirm) {
+              self.login();
+            }
+          }
+        })
       }
     })
+
   },
 
   globalData: {
