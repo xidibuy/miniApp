@@ -1,25 +1,26 @@
 <view class="container">
   <label class="row">
-    <radio-group class="left" bindchange="test">
+    <radio-group class="left" bindchange="chooseNormalEvent">
       <view class="xd xd-circle"></view>
-      <view class="xd xd-dot" hidden="{{!normal}}"></view>
-      <radio value="{{id}}" class="radio" checked="{{normal}}" />
+      <view class="xd xd-dot" hidden="{{mentioningAddress == 1}}"></view>
+      <radio value="" class="radio" checked="{{mentioningAddress == 0}}" />
     </radio-group>
     <view class="right">
       <view class="right-title">普通快递送货上门(¥6.00)</view>
       <view class="right-normal">全场满98元免邮</view>
     </view>
   </label>
-  <view class="row">
-    <view class="left">
-      <text class="xd xd-circle"></text>
-      <!--<text class="xd xd-dot"></text>-->
-    </view>
+  <label class="row">
+    <radio-group class="left" bindchange="chooseSelfEvent">
+      <view class="xd xd-circle"></view>
+      <view class="xd xd-dot" hidden="{{mentioningAddress == 0}}"></view>
+      <radio value="" class="radio" checked="{{mentioningAddress == 1}}" />
+    </radio-group>
     <view class="right">
       <view class="right-title">服务自提点（免运费）</view>
       <view class="right-normal">上海市 浦东新区 金桥区建业路416号</view>
       <view class="right-normal">自提点电话：13681853275</view>
     </view>
-  </view>
-  <navigator url="/pages/confirmOrder/index/index" class="bottom-bar">确定</navigator>
+  </label>
+  <view class="bottom-bar" bindtap="confirmEvent">确定</view>
 </view>
