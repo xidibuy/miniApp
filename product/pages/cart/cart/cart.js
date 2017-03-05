@@ -7,43 +7,54 @@ Page({
     },
 
     onLoad() {
-        const self = this;
-        const listUrl = app.globalData.dataRemote + 'cart/list';
-        wx.showToast({
-            title: '加载中',
-            icon: 'loading',
-            mask: true,
-            duration: 10 * 1000,
-            complete: function () {
-                // 获取列表
-                app.fetchApi(listUrl, function (resp) {
-                    if (resp.code == 0) {
-                        wx.hideToast();
-
-                        self.setData({
-                            loading: false,
-                            // 包邮金额
-                            freeCondition: Number(resp.data.freeCondition),
-                            // 包邮文案
-                            // freeDesc:resp.data.freeDesc,
-                            // 城市id
-                            cityId: resp.data.cityId,
-                            //有效商品列表
-                            list: resp.data.cart,
-                            // 无效商品个数
-                            unValidNum: resp.data.unValidNum
-                        });
-
-                        // 设置商品选中状态
-                        self.setGoodsDefaultCheckedState(resp.data.cart);
-                        // 设置金额
-                        self.updateCurrentSum();
-
-
-                    }
-                })
+        let self = this;
+        let url = app.globalData.dataRemote + 'cart/list';
+        app.postApi(url,{},function(resp){
+            if(resp.code == 0){
+                console.log(resp.data)
             }
         })
+
+
+
+        // console.log('onload');
+        // const self = this;
+        // const listUrl = app.globalData.dataRemote + 'cart/list';
+        // wx.showToast({
+        //     title: '加载中',
+        //     icon: 'loading',
+        //     mask: true,
+        //     duration: 10 * 1000,
+        //     complete: function () {
+        //         // 获取列表
+        //         app.fetchApi(listUrl, function (resp) {
+        //             if (resp.code == 0) {
+        //                 wx.hideToast();
+
+        //                 self.setData({
+        //                     loading: false,
+        //                     // 包邮金额
+        //                     freeCondition: Number(resp.data.freeCondition),
+        //                     // 包邮文案
+        //                     // freeDesc:resp.data.freeDesc,
+        //                     // 城市id
+        //                     cityId: resp.data.cityId,
+        //                     //有效商品列表
+        //                     list: resp.data.cart,
+        //                     // 无效商品个数
+        //                     unValidNum: resp.data.unValidNum
+        //                 });
+
+        //                 // 设置商品选中状态
+        //                 self.setGoodsDefaultCheckedState(resp.data.cart);
+        //                 // 设置金额
+        //                 self.updateCurrentSum();
+
+
+        //             }
+        //         })
+        //     }
+        // })
 
     },
 
