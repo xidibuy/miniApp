@@ -5,7 +5,7 @@
   <!--收货地址为空-->
   <block wx:if="{{adress.length > 0}}">
     <view class="adress-list">
-      <block wx:for="{{adress}}" wx:key="index">
+      <block wx:for="{{adress}}" wx:key="index"  wx:for-index="idx">
         <view class="list-box {{item.status ? 'active' : ''}}">
           <view class="list-cont">
             <view class="cont-contact">
@@ -19,9 +19,9 @@
             <view class="cont-ad-desic ellip-lines">{{item.address}}</view>
           </view>
           <view class="list-edit">
-            <navigator url="/pages/addAdress/addAdress">
+            <view bindtap="goToEditAdressEvent" data-index="{{idx}}">
               <text class="xd xd-edit"></text>
-            </navigator>
+            </view>
           </view>
         </view>
       </block>
@@ -35,6 +35,6 @@
 
   <!--新增地址按钮(保持固定吸底)-->
   <view class="addAdress-btn">
-    <navigator url="/pages/addAdress/addAdress">新增地址</navigator>
+    <view bindtap="goToAddAddressEvent">新增地址</view>
   </view>
 </view>

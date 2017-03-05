@@ -4,10 +4,6 @@ const url = app.globalData.dataRemote;
 Page({
   data: {
     current: 0,
-    indicatorDots: true,
-    autoplay: false,
-    interval: 5000,
-    duration: 1000,
     amount: 1,
     scrollTop: 0,
     floorstatus: false,
@@ -76,9 +72,9 @@ Page({
   onLoad: function (options) {
     let _this = this;
     const proUrl = url + "detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
-    // const proUrl = url + "/goodsDetail.json"
-    this.post(proUrl);
 
+    this.post(proUrl);
+    // 购物车数量获取
     wx.request({
       url: 'https://wxapp.xidibuy.com/cart/getGoodsNum',
       method: 'GET',
@@ -195,6 +191,7 @@ Page({
     }
 
   },
+  // 点击尺寸
   changeSize: function (event) {
     var _this = this;
     const size = event.target.dataset.size;

@@ -1,2 +1,67 @@
-<!--pages/profile/address/edit/edit.wxml-->
-<text>pages/profile/address/edit/edit.wxml</text>
+<view class="container">
+  <view class="first-part">
+    <view class="row">
+      <view class="input-widget">
+        <input value="{{info.consignee}}" bindinput="consigneeInputEvent" type="text" class="input" placeholder="收货人" placeholder-class="input-ph" />
+        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{!info.consignee}}" data-index="consignee"></view>
+      </view>
+    </view>
+    <view class="row">
+      <view class="input-widget">
+        <input value="{{info.mobile}}" bindinput="mobileInputEvent" type="number" class="input" placeholder="手机号码" placeholder-class="input-ph" />
+        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{!info.mobile}}" data-index="mobile"></view>
+      </view>
+    </view>
+    <view class="input" bindtap="pickerFocusEvent">
+      {{info.pname ? (info.pname + info.cname + info.dname) : ''}}
+      <text class="input-ph" hidden="{{info.pname}}">省、市、区</text>
+    </view>
+    <view class="row row-textarea">
+      <view class="input-widget">
+        <textarea value="{{info.address}}" bindinput="addressInputEvent" class="textarea" placeholder="详细地址" placeholder-class="input-ph" />
+        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{!info.address}}" data-index="address"></view>
+      </view>
+    </view>
+    <view class="row">
+      <view class="input-widget">
+        <input value="{{info.zipcode}}" bindinput="zipcodeInputEvent" type="number" class="input" placeholder="邮政编码" placeholder-class="input-ph" />
+        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{!info.zipcode}}" data-index="zipcode"></view>
+      </view>
+    </view>
+  </view>
+  <view class="division-line"></view>
+  <view class="second-part">
+    <view class="row default">
+      <text>设为默认地址</text>
+      <switch checked="{{info.status}}" bindchange="setDefaultEvent" color="#4ed6d2" />
+    </view>
+    <block wx:if="{{type == 'edit'}}">
+      <view class="row delete" bindtap="removeAddressEvent">
+        删除地址
+      </view>
+    </block>
+  </view>
+  <view url="/pages/confirmOrder/address/list/list" class="bottom-bar" bindtap="saveFormEvent">保存</view>
+
+  <!--省市区 picker-->
+  <view class="picker-wrap" wx:if="{{areaPickerViewHidden}}">
+    <view class="picker-ctrl">
+      <view class="picker-cancel" bindtap="pickerCloseEvent">取消</view>
+      <view class="picker-confirm" bindtap="pickerConfirmEvent">确定</view>
+    </view>
+    <picker-view value="{{area}}" bindchange="areaChangEvent">
+      <view class="picker-content">
+        <picker-view-column>
+          <view wx:for="{{Prov}}" wx:key="{{item.id}}" class="picker-view-item">{{item.name}}</view>
+        </picker-view-column>
+        <picker-view-column class="picker-view-column-center">
+          <view wx:for="{{City}}" wx:key="{{item.id}}" class="picker-view-item">{{item.name}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{Dist}}" wx:key="{{item.id}}" class="picker-view-item">{{item.name}}</view>
+        </picker-view-column>
+      </view>
+    </picker-view>
+  </view>
+  <view class="picker-mask" wx:if="{{areaPickerViewHidden}}"></view>
+</view>
