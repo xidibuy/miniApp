@@ -3,7 +3,7 @@
 
     <!--轮播图片-->
     <view class="swiper">
-      <swiper autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="changeSwiper">
+      <swiper bindchange="changeSwiper">
         <block wx:for="{{goodsDetail.coverImg}}" wx:key="index">
           <swiper-item>
             <image src="{{item}}" class="slide-image" width="355" height="150" />

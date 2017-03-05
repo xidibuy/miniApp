@@ -1,1 +1,173 @@
-/* pages/profile/address/edit/edit.wxss */
+.first-part {
+  padding: 0 23.4rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.input {
+  padding-left: 23.4rpx;
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  font-size: 15px;
+  color: #222;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.input-ph {
+  font-size: 14px;
+  color: #777;
+}
+
+.textarea {
+  font-size: 15px;
+  color: #222;
+  padding: 26.91rpx 70.2rpx 26.91rpx 23.4rpx;
+  width: 100%;
+  height: 159.12rpx;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.first-part .input:last-child {
+  border-bottom: none;
+}
+
+.second-part .row {
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  font-size: 15px;
+  border-bottom: 2rpx solid #ddd;
+}
+
+.second-part .default {
+  display: flex;
+  color: #222;
+  padding: 0 23.4rpx 0 46.8rpx;
+  justify-content: space-between;
+}
+
+.second-part .delete {
+  font-size: 15px;
+  text-align: center;
+  color: #f33;
+  display: block;
+}
+
+/*bottom-bar*/
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 111;
+  width: 100%;
+  height: 112.32rpx;
+  line-height: 112.32rpx;
+  background: #4ed6d1;
+  font-size: 15px;
+  color: #fff;
+  text-align: center;
+}
+
+/*省市区*/
+
+.picker-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.picker-wrap {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2222;
+  width: 100%;
+  height: 664.56rpx;
+  background: #fff;
+}
+
+.picker-ctrl {
+  display: flex;
+  font-size: 32.76rpx;
+  line-height: 1;
+  padding: 35.1rpx;
+  font-weight: bold;
+  justify-content: space-between;
+}
+
+.picker-cancel {
+  color: #777;
+}
+
+.picker-confirm {
+  color: #00bebf;
+}
+
+.picker-content {
+  display: flex;
+  width: 100%;
+  height: 664.56rpx;
+  padding: 0 2.5%;
+}
+
+picker-view-column {
+  width: 30%;
+}
+
+.picker-view-column-center {
+  margin: 0 2.5%;
+}
+
+.picker-view-item {
+  text-align: center;
+  font-size: 1.2em;
+  line-height: 2.4;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/*input验证*/
+
+.row {
+  display: flex;
+  color: #222;
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  align-items: center;
+  border-bottom:2rpx solid #ddd;
+}
+
+.row-textarea{
+  height: 159.12rpx;
+}
+
+.row .input-widget {
+  width: 100%;
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.row .input-widget input,
+.row .input-widget textarea{
+  width: 95%
+}
+.row .input-widget .xd-closed {
+  margin-right: 11.7rpx;
+  z-index: 2;
+  font-size: 35.1rpx;
+  color: #c5c5c5;
+}
+.first-part .row:last-child{
+  border-bottom: none;
+}
+
+.first-part .row:last-child .input{
+  border-bottom: none;
+}

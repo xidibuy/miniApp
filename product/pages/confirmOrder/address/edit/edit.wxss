@@ -129,5 +129,45 @@ picker-view-column {
   white-space: nowrap;
 }
 
+/*input验证*/
 
+.row {
+  display: flex;
+  color: #222;
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  align-items: center;
+  border-bottom: 2rpx solid #ddd;
+}
 
+.row-textarea {
+  height: 159.12rpx;
+}
+
+.row .input-widget {
+  width: 100%;
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.row .input-widget input, .row .input-widget textarea {
+  width: 95%;
+}
+
+.row .input-widget .xd-closed {
+  margin-right: 11.7rpx;
+  z-index: 2;
+  font-size: 35.1rpx;
+  color: #c5c5c5;
+}
+
+.first-part .row:last-child {
+  border-bottom: none;
+}
+
+.first-part .row:last-child .input {
+  border-bottom: none;
+}

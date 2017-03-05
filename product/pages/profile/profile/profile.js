@@ -8,7 +8,7 @@ const adressUrl = url + 'address/list';
 
 Page({
   data: {
-    contentType: "order",
+    contentType: "adress",
 
     //我的订单
     orders: [],
@@ -23,11 +23,11 @@ Page({
       {
         name: "我的订单",
         value: "order",
-        active: true
+        active: false
       }, {
         name: "收货地址",
         value: "adress",
-        active: false
+        active: true
       }, {
         name: "更多设置",
         value: "more",
@@ -53,21 +53,24 @@ Page({
   onReachBottom: function (options) {
     let _this = this;
     let page;
-    // 200条的限制,请求无结果
-    if (_this.data.orders.length <= 20 && _this.data.noOrder == true) {
-      page = _this.data.page + 1;
-      let addOrderUrl = orderUrl + '?page=' + page;
-      _this.post(addOrderUrl, function (res) {
-        _this.dealOrder(res);
-        _this.setData({
-          page: page
+    if (_this.data.contentType == 'order') {
+      // 200条的限制,请求无结果
+      if (_this.data.orders.length <= 20 && _this.data.noOrder == true) {
+        page = _this.data.page + 1;
+        let addOrderUrl = orderUrl + '?page=' + page;
+        _this.post(addOrderUrl, function (res) {
+          _this.dealOrder(res);
+          _this.setData({
+            page: page
+          });
         });
-      });
-    } else {
-      _this.setData({
-        tipShow: true
-      });
+      } else {
+        _this.setData({
+          tipShow: true
+        });
+      }
     }
+
 
   },
   bindMenu(e) {
@@ -150,6 +153,28 @@ Page({
           }
         });
       }
+    })
+  },
+  // 编辑地址
+  goToEditAdressEvent(e) {
+    let self = this;
+
+    // 存储要编辑的地址信息
+    let idx = e.currentTarget.dataset.index;
+    let editAdressTemp = self.data.adress[idx];
+    wx.setStorageSync('editAdressTemp', editAdressTemp);
+
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/profile/address/edit/edit'
+    })
+  },
+  // 新增地址
+  goToAddAddressEvent() {
+
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/profile/address/edit/edit'
     })
   }
 })
