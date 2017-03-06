@@ -125,8 +125,9 @@ Page({
         adress: res
       });
     });
+    let userInfo = wx.getStorageSync('userInfo');
     _this.setData({
-      more: app.globalData.userInfo
+      more: userInfo
     });
     wx.showModal({
       title: '提示',

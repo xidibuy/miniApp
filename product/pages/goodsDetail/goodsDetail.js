@@ -82,20 +82,14 @@ Page({
 
     let uid = wx.getStorageSync('uid');
     let userInfo = wx.getStorageSync('userInfo');
+
     if (uid && userInfo) {
-      wx.request({
-        url: 'https://wxapp.xidibuy.com/cart/getGoodsNum',
-        method: 'GET',
-        success: function (res) {
+      let url = 'https://wxapp.xidibuy.com/cart/getGoodsNum';
+      app.postApi(url, {}, function (res) {
+        if (res.code == 0) {
           _this.setData({
-            cartNum: res.data.data.num
+            cartNum: res.data.num
           });
-        },
-        fail: function () {
-          // fail
-        },
-        complete: function () {
-          // complete
         }
       })
     } else {
@@ -251,14 +245,10 @@ Page({
     if (uid && userInfo) {
       let obj = {};
       obj[_this.data.goodsDetail.goodId] = num;
-      wx.request({
-        url: url + 'cart/add',
-        data: {
-          "productIds": obj
-        },
-        method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        // header: {}, // 设置请求的 header
-        success: function (res) {
+      app.postApi(url + 'cart/add', {
+        "productIds": obj
+      }, function (res) {
+        if (res.code == 0) {
           let cartNumNew = _this.data.cartNum + _this.data.amount;
           _this.setData({
             cartNum: cartNumNew
@@ -267,12 +257,6 @@ Page({
             title: '添加购物车成功',
             icon: 'success'
           });
-        },
-        fail: function () {
-          // fail
-        },
-        complete: function () {
-          // complete
         }
       })
     } else {

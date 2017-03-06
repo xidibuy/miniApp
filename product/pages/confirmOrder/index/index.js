@@ -44,7 +44,8 @@ Page({
         let addressTemp = wx.getStorageSync('addressListToConfirmOrder');
         if (addressTemp) {
             self.setData({
-                'pageData.addressInfos': addressTemp
+                'pageData.addressInfos': addressTemp,
+                'pageData.hasDefaultAddress': true
             });
             wx.removeStorageSync('addressListToConfirmOrder');
         }
