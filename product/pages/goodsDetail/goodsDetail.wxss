@@ -1,13 +1,11 @@
-.container {
+.sessionOne ,.sessionTwo{
   padding-bottom: 117rpx;
-  background-color: #f1f1f1;
 }
 
 .swiper {
   height: 0;
   padding-bottom: 100%;
   position: relative;
-  background-color: #fff;
 }
 
 swiper {
@@ -63,7 +61,6 @@ swiper-item {
   flex-direction: column;
   padding: 0 35.1rpx 35.1rpx;
   border-bottom: 2rpx solid #ddd;
-  background-color: #fff;
 }
 
 .basic-info text {
@@ -152,9 +149,7 @@ swiper-item {
 /* 属性库存信息 */
 
 .sku-info {
-  margin-top: 24rpx;
   padding: 49rpx 35.1rpx 71rpx;
-  background-color: #fff;
 }
 
 .attr-name {
@@ -277,6 +272,7 @@ swiper-item {
 .xd-right-angle {
   font-size: 37.4rpx;
 }
+
 .button-reduce, .button-plus {
   width: 66rpx;
   text-align: center;
@@ -287,7 +283,6 @@ swiper-item {
 /* 产品简介 */
 
 .smiple-intro-box {
-  background-color: #fff;
   padding: 0 36rpx 71rpx;
   border-bottom: 2rpx solid #ddd;
 }
@@ -344,7 +339,6 @@ swiper-item {
 
 .spec-desc {
   padding: 34rpx 36rpx 81rpx;
-  background-color: #fff;
 }
 
 .spec-list {
@@ -372,7 +366,6 @@ swiper-item {
   text-align: center;
   font-size: 35.1rpx;
   padding: 94rpx 0 24px;
-  background-color: #fff;
 }
 
 .xidi-selected text:before {

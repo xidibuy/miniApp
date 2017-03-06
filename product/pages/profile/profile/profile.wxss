@@ -1,5 +1,4 @@
-.container {
-  background-color: #f4f4f4;
+.make-padding {
   padding-bottom: 111.15rpx;
 }
 
@@ -12,7 +11,8 @@
   top: 0;
   left: 0;
   padding: 0 23.4rpx;
-  height: 70.2rpx;
+  width: 100%;
+  height: 73rpx;
   border-bottom: 1px solid #ddd;
   display: flex;
   color: #222;
@@ -201,11 +201,6 @@
   text-align: center;
 }
 
-.order-list {
-  border-bottom: 1px solid #ddd;
-  background-color: #f4f4f4;
-}
-
 .order-state {
   padding-right: 35.1rpx;
   height: 93.6rpx;
@@ -332,8 +327,12 @@
   flex-direction: row-reverse;
 }
 
-.handle-btn {
+.turn-btn {
   margin-left: 23.4rpx;
+}
+
+.turn-btn:last-child {
+  margin-left: 0;
 }
 
 .handle-btn button {
@@ -357,21 +356,17 @@
 }
 
 .order-single {
-  background-color: #fff;
   padding-left: 35.1rpx;
+  border-bottom: 2rpx solid #ddd;
 }
 
 .order-single, .tip-word {
-  margin-top: 22.23rpx;
   font-size: 32.76rpx;
   color: #777;
 }
 
 .tip-word {
   width: 100%;
-  /*position: fixed;
-    bottom: 0;
-    left: 0;*/
   background-color: #fff;
   height: 93.6rpx;
   line-height: 93.6rpx;
