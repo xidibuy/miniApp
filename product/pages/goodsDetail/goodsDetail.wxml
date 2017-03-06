@@ -181,11 +181,11 @@
       </navigator>
     </view>
     <view class="addToCart">
-      <view wx:if="goodsDetail.stock > 0">
+      <view wx:if="{{goodsDetail.stock}} > 0">
         <button hover-class="none" bindtap="addCart">加入购物车</button>
       </view>
       <view wx:else>
-        <button wx:if="goodsDetail.stock <= 0" hover-class="none" disabled="true">商品已售完</button>
+        <button wx:if="{{goodsDetail.stock}} == 0" hover-class="none" disabled="true">商品已售完</button>
       </view>
     </view>
   </view>
