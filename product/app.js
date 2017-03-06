@@ -31,8 +31,9 @@ App({
     let self = this;
     let uid = wx.getStorageSync('uid');
     let userInfo = wx.getStorageSync('userInfo');
+    let sessionKey = wx.getStorageSync('sessionKey');
     if (uid && userInfo) {
-      data = extend({}, { uid }, data);
+      data = extend({}, { uid, sessionKey }, data);
       wx.request({
         url,
         data,
@@ -126,6 +127,7 @@ App({
               // get session success
               if (res.data.code == 0) {
                 sessionKey = res.data.data;
+                wx.setStorageSync('sessionKey', sessionKey);
                 // get userInfo
                 wx.getUserInfo({
                   // 用户允许
@@ -145,8 +147,8 @@ App({
                       success: function (res) {
                         // register
                         if (typeof res.data == "string") {
-                            console.log('用户注册成功！');
-                            wx.setStorageSync('uid', res.data);
+                          console.log('用户注册成功！');
+                          wx.setStorageSync('uid', res.data);
                         } else {
                           if (res.data.code == 0) {
                             console.log('用户注册成功！');
