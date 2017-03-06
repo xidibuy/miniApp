@@ -35,6 +35,7 @@ Page({
                 });
                 app.postApi(mergeUrl, mergeData, function (resp) {
                     if (resp.code == 0) {
+                        wx.removeStorageSync('cartLocalList');
                         self.setData({
                             loading: false,
                             // 包邮金额
