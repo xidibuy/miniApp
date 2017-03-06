@@ -9,29 +9,91 @@ Page({
     onShow() {
         let self = this;
         let url = app.globalData.dataRemote + 'cart/list';
-        app.postApi(url, {}, function (resp) {
-            if (resp.code == 0) {
-                self.setData({
-                    loading: false,
-                    // 包邮金额
-                    freeCondition: Number(resp.data.freeCondition),
-                    // 包邮文案
-                    // freeDesc:resp.data.freeDesc,
-                    // 城市id
-                    cityId: resp.data.cityId,
-                    //有效商品列表
-                    list: resp.data.cart,
-                    // 无效商品个数
-                    unValidNum: resp.data.unValidNum
+        let uid = wx.getStorageSync('uid');
+        let userInfo = wx.getStorageSync('userInfo');
+
+        // 登录情况下 请求线上购物车列表
+        if (uid && userInfo) {
+            let cartLocalList = wx.getStorageSync('cartLocalList');
+            if (cartLocalList && cartLocalList.length) {
+                let mergeUrl = app.globalData.dataRemote + 'cart/mergeCartInfoByLogin';
+                let mergeData = {
+                    currentProducts: {
+
+                    },
+                    cartSelectId: {
+
+                    }
+                };
+                cartLocalList.map((item, index) => {
+                    let id = item.goodsId;
+                    let num = item.buyNum;
+                    mergeData.currentProducts[id] = num;
+                    if (item.check == 1) {
+                        mergeData.cartSelectId[id] = num;
+                    }
                 });
+                app.postApi(mergeUrl, mergeData, function (resp) {
+                    if (resp.code == 0) {
+                        self.setData({
+                            loading: false,
+                            // 包邮金额
+                            freeCondition: Number(resp.data.freeCondition),
+                            // 包邮文案
+                            // freeDesc:resp.data.freeDesc,
+                            // 城市id
+                            cityId: resp.data.cityId,
+                            //有效商品列表
+                            list: resp.data.cart,
+                            // 无效商品个数
+                            unValidNum: resp.data.unValidNum
+                        });
 
-                // 根据商品选中状态 设置全选按钮
-                self.setTotalBtnState(resp.data.cart);
-                // 设置金额
-                self.updateCurrentSum();
+                        // 根据商品选中状态 设置全选按钮
+                        self.setTotalBtnState(resp.data.cart);
+                        // 设置金额
+                        self.updateCurrentSum();
+                    }
+                })
+
+
+
+
+            } else {
+                app.postApi(url, {}, function (resp) {
+                    if (resp.code == 0) {
+                        self.setData({
+                            loading: false,
+                            // 包邮金额
+                            freeCondition: Number(resp.data.freeCondition),
+                            // 包邮文案
+                            // freeDesc:resp.data.freeDesc,
+                            // 城市id
+                            cityId: resp.data.cityId,
+                            //有效商品列表
+                            list: resp.data.cart,
+                            // 无效商品个数
+                            unValidNum: resp.data.unValidNum
+                        });
+
+                        // 根据商品选中状态 设置全选按钮
+                        self.setTotalBtnState(resp.data.cart);
+                        // 设置金额
+                        self.updateCurrentSum();
+                    }
+                })
             }
-        })
+        }
+        // 未登录情况下 请求本地列表
+        else {
+            let list = wx.getStorageSync('cartLocalList') || [];
+            self.setData({
+                loading: false,
+                list,
+                unValidNum: 0
+            });
 
+        }
     },
 
 
@@ -39,15 +101,25 @@ Page({
     // 勾选同步
     syncCheckStateOtO(obj) {
         let self = this;
-        let url = app.globalData.dataRemote + 'cart/syncTickOffByCart';
-        let data = {
-            cartSelectId: obj
-        };
-        app.postApi(url, data, function (resp) {
-            if (resp.code == 0) {
-                console.log('设置勾选状态成功！')
-            }
-        })
+        let uid = wx.getStorageSync('uid');
+        let userInfo = wx.getStorageSync('userInfo');
+        let list = self.data.list;
+        if (uid && userInfo) {
+            let url = app.globalData.dataRemote + 'cart/syncTickOffByCart';
+            let data = {
+                cartSelectId: obj
+            };
+            app.postApi(url, data, function (resp) {
+                if (resp.code == 0) {
+                    console.log('设置勾选状态成功！')
+                }
+            })
+        } else {
+            wx.setStorageSync('cartLocalList', list)
+        }
+
+
+
     },
 
     // 全选按钮状态
@@ -128,18 +200,27 @@ Page({
 
     // 更新购买数量 方法
     updateNumFun(id, num) {
-        let url = app.globalData.dataRemote + 'cart/update';
-        let data = {
-            productIds: {}
-        };
-        data.productIds[id] = num;
-        app.postApi(url, data, function (resp) {
-            if (resp.code == 0) {
-                console.log('更新成功！')
-            } else {
-                console.log(resp.msg)
-            }
-        })
+        let self = this;
+        let uid = wx.getStorageSync('uid');
+        let userInfo = wx.getStorageSync('userInfo');
+        let list = self.data.list;
+        if (uid && userInfo) {
+            let url = app.globalData.dataRemote + 'cart/update';
+            let data = {
+                productIds: {}
+            };
+            data.productIds[id] = num;
+            app.postApi(url, data, function (resp) {
+                if (resp.code == 0) {
+                    console.log('更新成功！')
+                } else {
+                    console.log(resp.msg)
+                }
+            })
+        } else {
+            wx.setStorageSync('cartLocalList', list)
+        }
+
     },
 
     // 修改商品个数
@@ -163,15 +244,15 @@ Page({
         if (type == 'add') {
             if (buyNum < stock) {
                 obj[key] = buyNum + 1;
-                self.updateNumFun(id, buyNum + 1);
                 self.setData(obj)
+                self.updateNumFun(id, buyNum + 1);
             }
 
         } else if (type == 'minus') {
             if (buyNum > 1) {
                 obj[key] = buyNum - 1;
-                self.updateNumFun(id, buyNum - 1);
                 self.setData(obj)
+                self.updateNumFun(id, buyNum - 1);
             }
         }
         self.updateCurrentSum();
@@ -253,38 +334,55 @@ Page({
     // 删除
     deleteCart(e) {
         let self = this;
+        let uid = wx.getStorageSync('uid');
+        let userInfo = wx.getStorageSync('userInfo');
         wx.showModal({
             title: '',
             content: '确定删除该商品吗？',
             success: function (res) {
                 if (res.confirm) {
-                    let url = app.globalData.dataRemote + 'cart/delete';
-                    let id = e.currentTarget.dataset.id;
-                    let num = e.currentTarget.dataset.num;
-                    let obj = {
-                        productIds: {}
-                    };
-                    let list = self.data.list;
-                    obj.productIds[id] = num;
-                    app.postApi(url, obj, function (resp) {
-                        if (resp.code == 0) {
-                            wx.showToast({
-                                title: '删除成功',
-                                icon: 'success',
-                                duration: 1000
-                            });
+                    if (uid && userInfo) {
+                        let url = app.globalData.dataRemote + 'cart/delete';
+                        let id = e.currentTarget.dataset.id;
+                        let num = e.currentTarget.dataset.num;
+                        let obj = {
+                            productIds: {}
+                        };
+                        let list = self.data.list;
+                        obj.productIds[id] = num;
+                        app.postApi(url, obj, function (resp) {
+                            if (resp.code == 0) {
+                                wx.showToast({
+                                    title: '删除成功',
+                                    icon: 'success',
+                                    duration: 1000
+                                });
 
-                            self.setData({
-                                list: list.filter(item => {
-                                    return item.goodsId != id
-                                })
-                            });
-                            self.updateCurrentSum();
-                        }
-                    })
+                                self.setData({
+                                    list: list.filter(item => {
+                                        return item.goodsId != id
+                                    })
+                                });
+                                self.updateCurrentSum();
+                            }
+                        })
+                    } else {
+                        wx.showToast({
+                            title: '删除成功',
+                            icon: 'success',
+                            duration: 1000
+                        });
+
+                        self.setData({
+                            list: list.filter(item => {
+                                return item.goodsId != id
+                            })
+                        });
+                        self.updateCurrentSum();
+                        wx.setStorageSync('cartLocalList', self.data.list)
+                    }
                 }
             }
         })
     }
-
 });

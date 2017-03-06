@@ -3,8 +3,7 @@ let extend = require('./utils/util.js').extend;
 
 App({
   onLaunch() {
-    // this.loginOnLaunch();
-    // this.getUserInfo();
+    this.loginOnLaunch();
   },
 
   // 取数据 默认get
@@ -28,37 +27,14 @@ App({
   },
 
   // 传数据 默认post
-  // postApi(url, data, callback) {
-  //   let self = this;
-  //   let content = '非常抱歉，暂时无法购买。请您10分钟后再次授权头像和昵称信息，然后进行购买操作。'
-  //   let uid = wx.getStorageSync('uid');
-  //   let userInfo = wx.getStorageSync('userInfo');
-  //   if (uid && userInfo) {
-  //     data = extend({}, { uid }, data);
-  //     wx.request({
-  //       url,
-  //       data,
-  //       header: {
-  //         'content-type': 'application/json'
-  //       },
-  //       method: 'POST',
-  //       success(res) {
-  //         if (res.statusCode == 200) {
-  //           callback(res.data);
-  //         }
-  //       },
-  //       fail(e) {
-  //         console.error(url);
-  //         console.error(e);
-  //       }
-  //     })
-  //   } else {
-  //     self.login(content)
-  //   }
-  // },
   postApi(url, data, callback) {
     let self = this;
-     wx.request({
+    let uid = wx.getStorageSync('uid');
+    let userInfo = wx.getStorageSync('userInfo');
+    let sessionKey = wx.getStorageSync('sessionKey');
+    if (uid && userInfo) {
+      data = extend({}, { uid, sessionKey }, data);
+      wx.request({
         url,
         data,
         header: {
@@ -75,7 +51,59 @@ App({
           console.error(e);
         }
       })
+    } else {
+      let content = function (time) {
+        return '非常抱歉，暂时无法购买。请您' + time + '分钟后再次授权头像和昵称信息，然后进行购买操作。'
+      };
+      let userRejectTime = wx.getStorageSync('userRejectTime');
+      if (userRejectTime) {
+        let curTime = Date.now();
+        let gapTime = curTime - userRejectTime;
+        gapTime = gapTime / (1000 * 60);
+        if (gapTime > 10) {
+          wx.removeStorageSync('userRejectTime');
+          self.login(content(10))
+        } else {
+          wx.showModal({
+            title: '',
+            showCancel: false,
+            content: content(Math.ceil(gapTime))
+          });
+        }
+      } else {
+        wx.showModal({
+          title: '',
+          showCancel: false,
+          content: content(10),
+          success(res) {
+            if (res.confirm) {
+              wx.setStorageSync('userRejectTime', Date.now());
+            }
+          }
+        });
+      }
+    }
   },
+  // postApi(url, data, callback) {
+  //   let self = this;
+  //    wx.request({
+  //       url,
+  //       data,
+  //       header: {
+  //         'content-type': 'application/json'
+  //       },
+  //       method: 'POST',
+  //       success(res) {
+  //         if (res.statusCode == 200) {
+  //           callback(res.data);
+  //         }
+  //       },
+  //       fail(e) {
+  //         console.error(url);
+  //         console.error(e);
+  //       }
+  //     })
+  // },
 
 
   // 登录
@@ -99,6 +127,7 @@ App({
               // get session success
               if (res.data.code == 0) {
                 sessionKey = res.data.data;
+                wx.setStorageSync('sessionKey', sessionKey);
                 // get userInfo
                 wx.getUserInfo({
                   // 用户允许
@@ -117,13 +146,19 @@ App({
                       // get uid success
                       success: function (res) {
                         // register
-                        if (res.data.code == 0) {
-                          console.log('用户注册成功！')
-                          // wx.setStorageSync('uid', res.data.data)
-                          wx.setStorageSync('uid', '111')
+                        if (typeof res.data == "string") {
+                          console.log('用户注册成功！');
+                          wx.setStorageSync('uid', res.data);
                         } else {
-                          console.log(res.data.msg)
+                          if (res.data.code == 0) {
+                            console.log('用户注册成功！');
+                            wx.setStorageSync('uid', res.data.data.uid);
+                          } else {
+                            console.log(res.data.msg)
+                          }
                         }
+
+
                       }
                     })
                   },
@@ -135,11 +170,10 @@ App({
                       content,
                       success(res) {
                         if (res.confirm) {
-                          console.log('用户点击确定')
+                          wx.setStorageSync('userRejectTime', Date.now())
                         }
                       }
                     });
-                    wx.setStorageSync('userRejectTime', Date.now())
                   }
                 })
               }
