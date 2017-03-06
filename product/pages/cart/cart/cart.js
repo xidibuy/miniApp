@@ -9,29 +9,27 @@ Page({
     onShow() {
         let self = this;
         let url = app.globalData.dataRemote + 'cart/list';
-        app.checkSession(() => {
-            app.postApi(url, {}, function (resp) {
-                if (resp.code == 0) {
-                    self.setData({
-                        loading: false,
-                        // 包邮金额
-                        freeCondition: Number(resp.data.freeCondition),
-                        // 包邮文案
-                        // freeDesc:resp.data.freeDesc,
-                        // 城市id
-                        cityId: resp.data.cityId,
-                        //有效商品列表
-                        list: resp.data.cart,
-                        // 无效商品个数
-                        unValidNum: resp.data.unValidNum
-                    });
+        app.postApi(url, {}, function (resp) {
+            if (resp.code == 0) {
+                self.setData({
+                    loading: false,
+                    // 包邮金额
+                    freeCondition: Number(resp.data.freeCondition),
+                    // 包邮文案
+                    // freeDesc:resp.data.freeDesc,
+                    // 城市id
+                    cityId: resp.data.cityId,
+                    //有效商品列表
+                    list: resp.data.cart,
+                    // 无效商品个数
+                    unValidNum: resp.data.unValidNum
+                });
 
-                    // 根据商品选中状态 设置全选按钮
-                    self.setTotalBtnState(resp.data.cart);
-                    // 设置金额
-                    self.updateCurrentSum();
-                }
-            })
+                // 根据商品选中状态 设置全选按钮
+                self.setTotalBtnState(resp.data.cart);
+                // 设置金额
+                self.updateCurrentSum();
+            }
         })
 
     },
