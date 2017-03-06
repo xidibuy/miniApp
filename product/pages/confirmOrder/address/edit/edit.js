@@ -306,20 +306,11 @@ Page({
     let status = (typeof info.status == 'undefined') ? '' : info.status;
     let pname = info.pname;
     if (self.consigneeCheck(consignee) && self.mobileCheck(mobile) && self.pnameCheck(pname) && self.adressCheck(address) && self.zipcodeCheck(zipcode)) {
-      wx.request({
-        url: app.globalData.dataRemote + 'address/save',
-        data: info,
-        header: {
-          'content-type': 'application/x-www-from-urlencoded'
-        },
-        method: 'POST',
-        success: function (res) {
-          console.log(res)
-          if (res.data.code == 0) {
-            wx.redirectTo({
-              url: '/pages/confirmOrder/address/list/list'
-            })
-          }
+      app.postApi(app.globalData.dataRemote + 'address/save', info, function (res) {
+        if (res.code == 0) {
+          wx.redirectTo({
+            url: '/pages/confirmOrder/address/list/list'
+          })
         }
       })
     }

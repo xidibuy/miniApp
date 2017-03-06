@@ -6,7 +6,7 @@ Page({
     const self = this;
     const listUrl = app.globalData.dataRemote + 'address/list';
     // 获取列表
-    app.fetchApi(listUrl, function (resp) {
+    app.postApi(listUrl, {},function (resp) {
       if (resp.code == 0) {
         let choseArr = [];
         let list = resp.data;

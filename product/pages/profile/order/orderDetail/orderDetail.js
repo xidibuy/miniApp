@@ -68,7 +68,7 @@ Page({
 
   },
   post: function (deUrl, callback) {
-    app.fetchApi(deUrl, function (res) {
+    app.postApi(deUrl, {},function (res) {
       callback && callback(res.data);
     });
   },

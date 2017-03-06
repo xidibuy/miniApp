@@ -42,8 +42,8 @@
     <!--物流信息-->
 
     <!--需用数据判断物流状态-->
-    <block wx:if="{{status >= 0}}">
-      <navigator url="/pages/profile/order/logistics/logistics">
+    <block wx:if="{{status == 3 ||status == 4 ||status == 5}}">
+      <navigator url=" {{'/pages/profile/order/logistics/logistics?id=' + orderDetail.basic.pinfo.orderParentId}}">
         <view class="logis make-space">
           <view class="logis-car">
             <text class="xd xd-logistics"></text>

@@ -22,7 +22,6 @@
 
   <!--结算按钮-->
   <view class="settlement-btn {{settlementNumber ? '' : 'disabled'}}" bindtap="settlementEvent">
-    结算 (
-    <text class="settlement-number">{{settlementNumber}}</text>)
+    结算 (<text class="settlement-number">{{settlementNumber}}</text>)
   </view>
 </view>
