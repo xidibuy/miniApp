@@ -147,8 +147,13 @@ App({
                       success: function (res) {
                         // register
                         if (typeof res.data == "string") {
-                          console.log('用户注册成功！');
-                          wx.setStorageSync('uid', res.data);
+                          if (res.data) {
+                            console.log('用户注册成功！');
+                            wx.setStorageSync('uid', res.data);
+                          } else {
+                            console.log(注册失败)
+                          }
+
                         } else {
                           if (res.data.code == 0) {
                             console.log('用户注册成功！');
