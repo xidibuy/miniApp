@@ -4,7 +4,6 @@ let extend = require('./utils/util.js').extend;
 App({
   onLaunch() {
     this.loginOnLaunch();
-    // this.getUserInfo();
   },
 
   // 取数据 默认get
@@ -30,9 +29,11 @@ App({
   // 传数据 默认post
   postApi(url, data, callback) {
     let self = this;
-    let session = wx.getStorageSync('3rd_session');
-    if (session) {
-      data = extend({}, { '3rd_session': session }, data);
+    let uid = wx.getStorageSync('uid');
+    let userInfo = wx.getStorageSync('userInfo');
+    let sessionKey = wx.getStorageSync('sessionKey');
+    if (uid && userInfo) {
+      data = extend({}, { uid, sessionKey }, data);
       wx.request({
         url,
         data,
@@ -51,138 +52,155 @@ App({
         }
       })
     } else {
-      self.checkSession();
+      let content = function (time) {
+        return '非常抱歉，暂时无法购买。请您' + time + '分钟后再次授权头像和昵称信息，然后进行购买操作。'
+      };
+      let userRejectTime = wx.getStorageSync('userRejectTime');
+      if (userRejectTime) {
+        let curTime = Date.now();
+        let gapTime = curTime - userRejectTime;
+        gapTime = gapTime / (1000 * 60);
+        if (gapTime > 10) {
+          wx.removeStorageSync('userRejectTime');
+          self.login(content(10))
+        } else {
+          wx.showModal({
+            title: '',
+            showCancel: false,
+            content: content(Math.ceil(gapTime))
+          });
+        }
+      } else {
+        wx.showModal({
+          title: '',
+          showCancel: false,
+          content: content(10),
+          success(res) {
+            if (res.confirm) {
+              wx.setStorageSync('userRejectTime', Date.now());
+            }
+          }
+        });
+      }
     }
   },
+  // postApi(url, data, callback) {
+  //   let self = this;
+  //    wx.request({
+  //       url,
+  //       data,
+  //       header: {
+  //         'content-type': 'application/json'
+  //       },
+  //       method: 'POST',
+  //       success(res) {
+  //         if (res.statusCode == 200) {
+  //           callback(res.data);
+  //         }
+  //       },
+  //       fail(e) {
+  //         console.error(url);
+  //         console.error(e);
+  //       }
+  //     })
+  // },
 
-  getUserInfo() {
-    wx.getUserInfo({
-      success: function (res) {
-        wx.setStorageSync('userRawInfo', res);
-        wx.setStorageSync('userInfo', res.userInfo);
-      },
-      fail: function (res) {
-        // fail
-      }
-    })
-  },
 
   // 登录
-  login() {
-    let self = this;
+  login(content) {
+    let app = this;
+    // get code
     wx.login({
-      success(res) {
+      success: function (res) {
+        // get code success
         if (res.code) {
-          let url = self.globalData.dataRemote + 'weixin/session';
-          let data = {
-            code: res.code
-          };
+          let code = res.code;
+          let sessionKey = '';
+          // get session
           wx.request({
-            url,
-            data,
+            url: app.globalData.dataRemote + 'weixin/session',
+            data: {
+              code
+            },
             method: 'POST',
-            success: function (resp) {
-              if (resp.data.code == 0) {
-                wx.setStorage({
-                  key: '3rd_session',
-                  data: resp.data.data,
-                  success: function () {
-                    wx.showToast({
-                      title: '登陆成功!',
-                      mask: true,
-                      icon: 'success',
-                      duration: 1000
+            success: function (res) {
+              // get session success
+              if (res.data.code == 0) {
+                sessionKey = res.data.data;
+                wx.setStorageSync('sessionKey', sessionKey);
+                // get userInfo
+                wx.getUserInfo({
+                  // 用户允许
+                  success: function (res) {
+                    console.log(res.userInfo);
+                    wx.setStorageSync('userInfo', res.userInfo);
+                    // get uid
+                    wx.request({
+                      url: app.globalData.dataRemote + 'signup/register',
+                      data: {
+                        sessionKey,
+                        encryptedData: res.encryptedData,
+                        iv: res.iv
+                      },
+                      method: 'POST',
+                      // get uid success
+                      success: function (res) {
+                        // register
+                        if (typeof res.data == "string") {
+                          if (res.data) {
+                            console.log('用户注册成功！');
+                            wx.setStorageSync('uid', res.data);
+                          } else {
+                            console.log(注册失败)
+                          }
+
+                        } else {
+                          if (res.data.code == 0) {
+                            console.log('用户注册成功！');
+                            wx.setStorageSync('uid', res.data.data.uid);
+                          } else {
+                            console.log(res.data.msg)
+                          }
+                        }
+
+
+                      }
                     })
+                  },
+                  // 用户拒绝
+                  fail: function (res) {
+                    wx.showModal({
+                      title: '',
+                      showCancel: false,
+                      content,
+                      success(res) {
+                        if (res.confirm) {
+                          wx.setStorageSync('userRejectTime', Date.now())
+                        }
+                      }
+                    });
                   }
                 })
               }
             }
           })
         }
-      }, fail(e) {
-        wx.showModal({
-          title: '',
-          content: '登陆失败!请稍后重试！',
-          showCancel: false
-        })
-        console.error(e);
-      }
-    });
-  },
-
-
-  checkSession(cb) {
-    let self = this;
-    wx.checkSession({
-      success: function () {
-        //session 未过期，并且在本生命周期一直有效
-        if (wx.getStorageSync('3rd_session') == "") {
-          wx.showModal({
-            title: '提示',
-            content: '尚未登录，请登录！',
-            confirmText: '登录',
-            success: function (res) {
-              if (res.confirm) {
-                self.login();
-              }
-            }
-          })
-        }else{
-          cb && cb()
-        }
-      },
-      fail: function () {
-        //登录态过期
-        //重新登录
-        wx.showModal({
-          title: '提示',
-          content: '尚未登录，请登录！',
-          confirmText: '登录',
-          success: function (res) {
-            if (res.confirm) {
-              self.login();
-            }
-          }
-        })
       }
     })
   },
 
-  // 初次请求登录
+
+  // 用户打开小程序
   loginOnLaunch() {
     let self = this;
-    wx.checkSession({
-      success: function () {
-        //session 未过期，并且在本生命周期一直有效
-        if (wx.getStorageSync('3rd_session') == "") {
-          wx.showModal({
-            title: '提示',
-            content: '尚未登录，请登录！',
-            confirmText: '登录',
-            success: function (res) {
-              if (res.confirm) {
-                self.login();
-              }
-            }
-          })
-        }
-      },
-      fail: function () {
-        //登录态过期
-        //重新登录
-        wx.showModal({
-          title: '提示',
-          content: '尚未登录，请登录！',
-          confirmText: '登录',
-          success: function (res) {
-            if (res.confirm) {
-              self.login();
-            }
-          }
-        })
-      }
-    })
+    let content = '如果未获取您的用户信息，可能会影响您接下来在小程序内的操作权限。这些信息只用作本应用的用户信息，不会用于其他任何用途，谢谢。';
+    let uid = wx.getStorageSync('uid');
+    let userInfo = wx.getStorageSync('userInfo');
+    if (uid && userInfo) {
 
+    } else {
+      self.login(content)
+    }
   },
 
   globalData: {
