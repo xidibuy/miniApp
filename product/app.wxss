@@ -6,7 +6,7 @@ view, text, label, checkbox-group,input,textarea,picker-view,picker-view-column 
 
 .container {
   padding-top: 1px;
-  font-size: 12px;
+  font-size: 28.08rpx;
   line-height: 1.5;
   color: #222;
   font-family: Arial, Helvetica, sans-serif;
@@ -74,7 +74,7 @@ view, text, label, checkbox-group,input,textarea,picker-view,picker-view-column 
 .item-pro .name {
   margin: 21rpx 0 18rpx;
   -webkit-line-clamp: 2;
-  font-size: 12px;
+  font-size: 28.08rpx;
   line-height: 40rpx;
 }
 
@@ -85,7 +85,7 @@ view, text, label, checkbox-group,input,textarea,picker-view,picker-view-column 
 }
 
 .item-pro .price {
-  font-size: 14px;
+  font-size: 32.76rpx;
   padding-bottom: 3rpx;
   font-weight: bold;
   color: #00bebf;
@@ -125,7 +125,7 @@ view, text, label, checkbox-group,input,textarea,picker-view,picker-view-column 
   background-color: #222;
   opacity: 0.3;
   border-radius: 50%;
-  font-size: 14px;
+  font-size: 32.76rpx;
   line-height: 94rpx;
   text-align: center;
   vertical-align: middle;

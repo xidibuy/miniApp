@@ -8,7 +8,7 @@ const adressUrl = url + 'address/list';
 
 Page({
   data: {
-    contentType: "adress",
+    contentType: "order",
 
     //我的订单
     orders: [],
@@ -23,11 +23,11 @@ Page({
       {
         name: "我的订单",
         value: "order",
-        active: false
+        active: true
       }, {
         name: "收货地址",
         value: "adress",
-        active: true
+        active: false
       }, {
         name: "更多设置",
         value: "more",
@@ -125,35 +125,80 @@ Page({
         adress: res
       });
     });
+    let userInfo = wx.getStorageSync('userInfo');
     _this.setData({
-      more: app.globalData.userInfo
+      more: userInfo
     });
+    wx.showModal({
+      title: '提示',
+      content: '这是一个模态弹窗',
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        }
+      }
+    })
+
   },
   post: function (postUrl, callback) {
     const _this = this;
     app.fetchApi(postUrl, function (res) {
-      try {
-        callback.length && callback(res.data);
-      } catch (e) {
-        console.log(e);
+      if (res.code == 0) {
+        try {
+          callback.length && callback(res.data);
+        } catch (e) {
+          console.log(e);
+        }
       }
-
     })
   },
+  // 确认收货,先弹窗
   sureModal: function (e) {
     var _this = this;
-    const id = _this.data.orders.map((arr, index) => {
-      if (arr.id === e.target.dataset.id) {
-        wx.showModal({
-          content: arr.content,
-          success: function (res) {
-            if (res.confirm) {
-              // 跳转
+    let orderSn = e.currentTarget.dataset.ordersn;
+    wx.showModal({
+      content: '确认已收到货吗?',
+      success: function (res) {
+        if (res.confirm) {
+          app.fetchApi(url + 'order/received?orderId=' + orderSn, function (res) {
+            if (res.code == 0) {
+
+            } else if (res.code == -10207) {
+              wx.showModal({
+                title: '提示',
+                content: res.msg,
+                success: function (res) {
+                  if (res.confirm) {}
+                }
+              })
             }
-          }
-        });
+          });
+        }
       }
     })
+
+  },
+  // 再次购买
+  buyAgain: function (e) {
+    var _this = this;
+    let orderParentId = e.currentTarget.dataset.orderparentid;
+    app.fetchApi(url + 'order/buyAgain?orderId=' + orderParentId, function (res) {
+      if (res.code == 0) {
+        wx.showToast({
+          title: '再次购买成功',
+          icon: 'success',
+          duration: 2000
+        })
+      } else if (res.code == -10207) {
+        wx.showModal({
+          title: '提示',
+          content: res.msg,
+          success: function (res) {
+            if (res.confirm) {}
+          }
+        })
+      }
+    });
   },
   // 编辑地址
   goToEditAdressEvent(e) {
@@ -175,6 +220,19 @@ Page({
     // 跳转
     wx.navigateTo({
       url: '/pages/profile/address/edit/edit'
+    })
+  },
+  orderSingle(e) {
+    let orderparentid = e.currentTarget.dataset.orderparentid;
+    // 跳转
+    wx.navigateTo({
+      url: '/pages/profile/order/orderDetail/orderDetail?orderId=' + orderparentid,
+      success: function (res) {
+        console.log("数据成功");
+      },
+      fail: function (res) {
+        console.log("数据失败");
+      }
     })
   }
 })

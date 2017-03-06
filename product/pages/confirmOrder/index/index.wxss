@@ -26,18 +26,18 @@
     height: 114.66rpx;
     border-top: 2rpx solid #ddd;
     flex-grow: 1;
-    font-size: 13px;
+    font-size: 30.42rpx;
     padding-left: 23.4rpx;     
 }
 .bottom-bar-left .amount{
-    font-size: 16px;
+    font-size: 37.44rpx;
     margin-left: 23.4rpx;
     color: #00bebf;
     font-weight: bold;
 }
 .bottom-bar-right{
     width: 257.4rpx;
-    font-size: 15px;
+    font-size: 35.1rpx;
     color: #fff;
     text-align: center;
     background: #4ed6d2;

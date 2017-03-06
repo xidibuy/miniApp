@@ -74,22 +74,36 @@ Page({
     const proUrl = url + "detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
 
     this.post(proUrl);
-    // 购物车数量获取
-    wx.request({
-      url: 'https://wxapp.xidibuy.com/cart/getGoodsNum',
-      method: 'GET',
-      success: function (res) {
-        _this.setData({
-          cartNum: res.data.data.num
-        });
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
+
+  },
+
+  // 购物车数量获取
+  getGoodsNum: function () {
+
+    let uid = wx.getStorageSync('uid');
+    let userInfo = wx.getStorageSync('userInfo');
+
+    if (uid && userInfo) {
+      let url = 'https://wxapp.xidibuy.com/cart/getGoodsNum';
+      app.postApi(url, {}, function (res) {
+        if (res.code == 0) {
+          _this.setData({
+            cartNum: res.data.num
+          });
+        }
+      })
+    } else {
+      let list = wx.getStorageSync('cartLocalList');
+      let cartNum = 0;
+      if (list.length) {
+        list.map(item => {
+          cartNum += item.buyNum;
+        })
       }
-    })
+      _this.setData({
+        cartNum
+      })
+    }
   },
   post: function (proUrl) {
     const _this = this;
@@ -110,6 +124,11 @@ Page({
       // 取出当前尺码不存在的颜色
       const colorNo = {};
       // 取出所有颜色的搭配
+      // let arr = [];
+      // resData.priceAttr.map(function (item, index) {
+      //   let temp = Object.keys(item.children);
+      //   arr.push(temp);
+      // });
       if (resData.priceAttr[0]) {
         for (const a in resData.priceAttr[0].children) {
           keyone.push(a);
@@ -219,34 +238,66 @@ Page({
   // 加入购物车
   addCart: function () {
     let _this = this;
-    const num = this.data.amount;
-    let obj = {};
-    obj[this.data.goodsDetail.goodId] = num;
+    let uid = wx.getStorageSync('uid');
+    let userInfo = wx.getStorageSync('userInfo');
 
-    wx.request({
-      url: url + 'cart/add',
-      data: {
+    const num = _this.data.amount;
+    if (uid && userInfo) {
+      let obj = {};
+      obj[_this.data.goodsDetail.goodId] = num;
+      app.postApi(url + 'cart/add', {
         "productIds": obj
-      },
-      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      // header: {}, // 设置请求的 header
-      success: function (res) {
-        let cartNumNew = _this.data.cartNum + _this.data.amount;
-        _this.setData({
-          cartNum: cartNumNew
-        });
-        wx.showToast({
-          title:'添加购物车成功',
-          icon:'success'
-        });
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
-      }
-    })
+      }, function (res) {
+        if (res.code == 0) {
+          let cartNumNew = _this.data.cartNum + _this.data.amount;
+          _this.setData({
+            cartNum: cartNumNew
+          });
+          wx.showToast({
+            title: '添加购物车成功',
+            icon: 'success'
+          });
+        }
+      })
+    } else {
+
+      let curDetail = _this.data.goodsDetail;
+      let curId = _this.data.curC + '_' + _this.data.curS;
+      let curC = _this.data.curC;
+      let curS = _this.data.curS;
+      let curPro = curDetail.goodsList[curId];
+      // curPro 取出 id name coverImg  price stock 
+      // buynum 为 num
+      // lesPrice 等研发
+      let priceAttr = []
+      curDetail.priceAttr.map(function (item, index) {
+        priceAttr[index] = { "type": item.type };
+        priceAttr[index] = { "pValue": curDetail.curColorAndsSize[index] };
+      });
+      let storageCar = {
+        "goodsId": curPro.id,
+        "name": curPro.name,
+        "coverImg": curPro.attrImg[0],
+        "buyNum": num,
+        "price": curPro.price,
+        "priceAttr": priceAttr,
+        "stock": curPro.stock,
+        "isShelved": curDetail.isShelved,
+        "lesPrice": curDetail.couponAmount
+      };
+      let list = wx.getStorageSync('cartLocalList');
+      list.push(storageCar);
+      wx.setStorageSync('cartLocalList', list);
+      let cartNumNew = _this.data.cartNum + _this.data.amount;
+      _this.setData({
+        cartNum: cartNumNew
+      });
+      wx.showToast({
+        title: '添加购物车成功',
+        icon: 'success'
+      });
+    }
+
   },
   // swiper
   changeSwiper: function (event) {

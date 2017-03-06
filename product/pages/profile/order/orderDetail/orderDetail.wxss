@@ -49,9 +49,9 @@
   padding-bottom: 7.02rpx;
   display: flex;
   flex-direction: column;
-  font-size: 12px;
+  font-size: 28.08rpx;
   color: #222;
-  line-height: 17px;
+  line-height: 39.78rpx;
 }
 
 .countdown {
@@ -81,14 +81,14 @@
 }
 
 .logis-word .word-status {
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #222;
   line-height: 46.8rpx;
   -webkit-line-clamp: 2;
 }
 
 .logis-word .time {
-  font-size: 12px;
+  font-size: 28.08rpx;
   color: #777;
 }
 
@@ -113,15 +113,15 @@
 }
 
 .receipt-title {
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #222;
   margin-bottom: 7.02rpx;
 }
 
 .receipt-desi {
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #777;
-  line-height: 20px;
+  line-height: 46.8rpx;
   -webkit-line-clamp: 2;
 }
 
@@ -145,12 +145,12 @@
 }
 
 .title-word {
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #222;
 }
 
 .title-num {
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #777;
 }
 
@@ -197,18 +197,18 @@
 }
 
 .product-price .price {
-  font-size: 14px;
+  font-size: 32.76rpx;
   font-weight: 700;
 }
 
 .product-price .num {
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #777;
 }
 
 .product-name {
   margin-right: 11.7rpx;
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #222;
   line-height: 40rpx;
   -webkit-line-clamp: 2;
@@ -237,7 +237,7 @@
 .mo-list {
   margin-bottom: 30.42rpx;
   width: 100%;
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #222;
   display: flex;
   justify-content: space-between;
@@ -250,13 +250,13 @@
 .money-real {
   display: flex;
   justify-content: space-between;
-  font-size: 15px;
+  font-size: 35.1rpx;
   color: #222;
   padding: 28.08rpx 35.1rpx 25.78rpx 0;
 }
 
 .real-mo {
-  font-size: 18px;
+  font-size: 42.12rpx;
 }
 
 .desic-btn {
@@ -264,7 +264,7 @@
   bottom: 0;
   width: 100%;
   height: 112.32rpx;
-  font-size: 18px;
+  font-size: 42.12rpx;
   background-color: #fff;
   z-index: 11;
 }
@@ -288,7 +288,7 @@
   height: 111.15rpx;
   text-align: center;
   line-height: 111.15rpx;
-  font-size: 18px;
+  font-size: 42.12rpx;
 }
 
 .two-btn .normal-btn {

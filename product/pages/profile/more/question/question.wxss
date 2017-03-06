@@ -4,8 +4,8 @@
 .question{
     margin-bottom: 49.14rpx;
     color: #222;
-    font-size: 14px;
-    line-height: 23px;
+    font-size: 32.76rpx;
+    line-height: 53.82rpx;
     display: flex;
     flex-direction: column;
 }

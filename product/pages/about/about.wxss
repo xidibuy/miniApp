@@ -3,7 +3,7 @@
     height: 117rpx;
     background-color: #4ed6d2;
     color: #fff;
-    font-size: 17px;
+    font-size: 39.78rpx;
     line-height: 117rpx;
     text-align: center;
 }

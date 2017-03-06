@@ -51,7 +51,7 @@
 
                 <!--点点点-->
                 <view class="swiper-dots">
-                  <block wx:if="{{item.solideImg.length > 1}}" wx:for="{{item.solideImg}}" wx:key="*this">
+                  <block  wx:for="{{item.solideImg}}" wx:key="index">
                     <block wx:if="{{current == index}}">
                       <view class="current"></view>
                     </block>
@@ -81,7 +81,7 @@
     </block>
   </view>
 </block>
-<block wx:else>
+<block wx:if="{{reload == true}}">
   <view class="index-none">
     <navigator url="/pages/index/index" open-type="switchTab">
      <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>

@@ -94,7 +94,7 @@ Page({
     wx.setStorageSync('aidFor_Order_List_Edit_Add_Temp', aid);
 
     // 跳转
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/confirmOrder/address/edit/edit'
     })
   },
@@ -111,7 +111,7 @@ Page({
     wx.setStorageSync('aidFor_Order_List_Edit_Add_Temp', aid);
 
     // 跳转
-    wx.redirectTo({
+    wx.navigateTo({
       url: '/pages/confirmOrder/address/edit/edit'
     })
   }

@@ -1,5 +1,5 @@
 <view class="container">
-    <view class="title">
+    <view class="title" bindtap="test">
         <text class="xd xd-checked"></text>已完成支付
     </view>
     <view class="row">订单号：2014021491399</view>

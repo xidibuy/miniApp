@@ -1,5 +1,4 @@
-.container {
-  background-color: #f4f4f4;
+.make-padding {
   padding-bottom: 111.15rpx;
 }
 
@@ -12,11 +11,12 @@
   top: 0;
   left: 0;
   padding: 0 23.4rpx;
-  height: 70.2rpx;
+  width: 100%;
+  height: 73rpx;
   border-bottom: 1px solid #ddd;
   display: flex;
   color: #222;
-  font-size: 14px;
+  font-size: 32.76rpx;
   background-color: #fff;
   z-index: 10;
 }
@@ -58,12 +58,12 @@
 }
 
 .term-key {
-  font-size: 14px;
+  font-size: 32.76rpx;
 }
 
 .term-value {
   margin-right: 46.8rpx;
-  font-size: 13px;
+  font-size: 30.42rpx;
 }
 
 .term-user-img {
@@ -92,7 +92,7 @@
 }
 
 .empty text {
-  font-size: 16px;
+  font-size: 37.44rpx;
   color: #777;
 }
 
@@ -132,7 +132,7 @@
 }
 
 .cont-ad, .cont-ad-desic {
-  font-size: 12px;
+  font-size: 28.08rpx;
   color: #777;
   line-height: 43rpx;
   -webkit-line-clamp: 2;
@@ -146,7 +146,7 @@
 }
 
 .xd-edit {
-  font-size: 30rpx;
+  font-size: 44.46rpx;
   color: #9b9b9b;
 }
 
@@ -159,12 +159,12 @@
 }
 
 .cont-contact .name {
-  font-size: 15px;
+  font-size: 35.1rpx;
   color: #222;
 }
 
 .cont-contact .mobile {
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #222;
 }
 
@@ -179,11 +179,11 @@
   text-align: center;
   line-height: 35.1rpx;
   color: #fff;
-  font-size: 11px;
+  font-size: 25.74rpx;
 }
 
 .cont-contact .cont-ad-desic {
-  font-size: 12px;
+  font-size: 28.08rpx;
   color: #777;
   line-height: 36px;
 }
@@ -196,14 +196,9 @@
   height: 111.15rpx;
   background-color: #4ed6d2;
   color: #fff;
-  font-size: 18px;
+  font-size: 42.12rpx;
   line-height: 111.15rpx;
   text-align: center;
-}
-
-.order-list {
-  border-bottom: 1px solid #ddd;
-  background-color: #f4f4f4;
 }
 
 .order-state {
@@ -217,11 +212,11 @@
 }
 
 .order-state-time {
-  font-size: 14px;
+  font-size: 32.76rpx;
 }
 
 .order-state-state {
-  font-size: 14px;
+  font-size: 32.76rpx;
 }
 
 .order-pro {
@@ -274,19 +269,19 @@
 }
 
 .pro-desic .title {
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #222;
   line-height: 39.78rpx;
   -webkit-line-clamp: 2;
 }
 
 .pro-mo {
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #00bebf;
 }
 
 .pro-num {
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #777;
 }
 
@@ -311,18 +306,18 @@
 }
 
 .pro-order {
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #222;
 }
 
 .total-mo .total-money {
   margin: 0 11.7rpx 0 23.4rpx;
-  font-size: 18px;
+  font-size: 42.12rpx;
   color: #00bebf;
 }
 
 .total-mo .total-include {
-  font-size: 11px;
+  font-size: 25.74rpx;
   color: #777;
 }
 
@@ -332,8 +327,12 @@
   flex-direction: row-reverse;
 }
 
-.handle-btn {
+.turn-btn {
   margin-left: 23.4rpx;
+}
+
+.turn-btn:last-child {
+  margin-left: 0;
 }
 
 .handle-btn button {
@@ -349,7 +348,7 @@
   width: 231.66rpx;
   height: 77.22rpx;
   line-height: 77.22rpx;
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #222;
   border: 1px solid #a9a9a9;
   border-radius: 3px;
@@ -357,21 +356,17 @@
 }
 
 .order-single {
-  background-color: #fff;
   padding-left: 35.1rpx;
+  border-bottom: 2rpx solid #ddd;
 }
 
 .order-single, .tip-word {
-  margin-top: 22.23rpx;
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #777;
 }
 
 .tip-word {
   width: 100%;
-  /*position: fixed;
-    bottom: 0;
-    left: 0;*/
   background-color: #fff;
   height: 93.6rpx;
   line-height: 93.6rpx;

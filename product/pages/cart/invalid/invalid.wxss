@@ -69,7 +69,7 @@
 
 .goods-item-title {
   width: 292.5rpx;
-  font-size: 12px;
+  font-size: 28.08rpx;
   line-height: 39.78rpx;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -82,13 +82,13 @@
 .goods-item-price {
   flex-grow: 1;
   text-align: right;
-  font-size: 13px;
+  font-size: 30.42rpx;
 }
 
 .goods-item-info-attr {
   margin-right: 18.72rpx;
   line-height: 39.78rpx;
-  font-size: 10px;
+  font-size: 23.4rpx;
 }
 
 .goods-item-info-attr:last-child {
@@ -130,12 +130,12 @@
   border: 1px solid #ddd;
   border-left: 0;
   border-right: 0;
-  font-size: 12px;
+  font-size: 28.08rpx;
 }
 
 .goods-item-num-tips {
   flex-grow: 1;
-  font-size: 12px;
+  font-size: 28.08rpx;
   line-height: 53.82rpx;
 }
 
