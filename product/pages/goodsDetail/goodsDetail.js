@@ -71,15 +71,16 @@ Page({
 
   onLoad: function (options) {
     let _this = this;
-    const proUrl = url + "detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
-
+    // const proUrl = url + "detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
+    const proUrl = url + "detail?goodId=" + 3510 + "&relateprodSn=" + options.relateprodSn;
+    this.getGoodsNum();
     this.post(proUrl);
 
   },
 
   // 购物车数量获取
   getGoodsNum: function () {
-
+    let _this = this;
     let uid = wx.getStorageSync('uid');
     let userInfo = wx.getStorageSync('userInfo');
 
@@ -285,7 +286,7 @@ Page({
         "isShelved": curDetail.isShelved,
         "lesPrice": curDetail.couponAmount
       };
-      let list = wx.getStorageSync('cartLocalList');
+      let list = wx.getStorageSync('cartLocalList') || [];
       list.push(storageCar);
       wx.setStorageSync('cartLocalList', list);
       let cartNumNew = _this.data.cartNum + _this.data.amount;

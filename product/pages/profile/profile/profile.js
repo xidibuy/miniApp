@@ -129,20 +129,10 @@ Page({
     _this.setData({
       more: userInfo
     });
-    wx.showModal({
-      title: '提示',
-      content: '这是一个模态弹窗',
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        }
-      }
-    })
-
   },
   post: function (postUrl, callback) {
     const _this = this;
-    app.fetchApi(postUrl, function (res) {
+    app.postApi(postUrl, {}, function (res) {
       if (res.code == 0) {
         try {
           callback.length && callback(res.data);
@@ -160,15 +150,15 @@ Page({
       content: '确认已收到货吗?',
       success: function (res) {
         if (res.confirm) {
-          app.fetchApi(url + 'order/received?orderId=' + orderSn, function (res) {
+          app.postApi(url + 'order/received?orderId=' + orderSn, {}, function (res) {
             if (res.code == 0) {
-
+                _this.onLoad();
             } else if (res.code == -10207) {
               wx.showModal({
                 title: '提示',
                 content: res.msg,
                 success: function (res) {
-                  if (res.confirm) {}
+                  if (res.confirm) { }
                 }
               })
             }
@@ -182,7 +172,7 @@ Page({
   buyAgain: function (e) {
     var _this = this;
     let orderParentId = e.currentTarget.dataset.orderparentid;
-    app.fetchApi(url + 'order/buyAgain?orderId=' + orderParentId, function (res) {
+    app.postApi(url + 'order/buyAgain?orderId=' + orderParentId, {}, function (res) {
       if (res.code == 0) {
         wx.showToast({
           title: '再次购买成功',
@@ -194,7 +184,7 @@ Page({
           title: '提示',
           content: res.msg,
           success: function (res) {
-            if (res.confirm) {}
+            if (res.confirm) { }
           }
         })
       }

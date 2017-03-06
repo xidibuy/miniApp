@@ -35,6 +35,7 @@ Page({
                 });
                 app.postApi(mergeUrl, mergeData, function (resp) {
                     if (resp.code == 0) {
+                        wx.removeStorageSync('cartLocalList');
                         self.setData({
                             loading: false,
                             // 包邮金额
@@ -334,6 +335,7 @@ Page({
     // 删除
     deleteCart(e) {
         let self = this;
+        let id = e.currentTarget.dataset.id;
         let uid = wx.getStorageSync('uid');
         let userInfo = wx.getStorageSync('userInfo');
         wx.showModal({
@@ -343,7 +345,6 @@ Page({
                 if (res.confirm) {
                     if (uid && userInfo) {
                         let url = app.globalData.dataRemote + 'cart/delete';
-                        let id = e.currentTarget.dataset.id;
                         let num = e.currentTarget.dataset.num;
                         let obj = {
                             productIds: {}
@@ -367,6 +368,8 @@ Page({
                             }
                         })
                     } else {
+                        let cartLocalList = wx.getStorageSync('cartLocalList');
+
                         wx.showToast({
                             title: '删除成功',
                             icon: 'success',
@@ -374,7 +377,7 @@ Page({
                         });
 
                         self.setData({
-                            list: list.filter(item => {
+                            list: cartLocalList.filter(item => {
                                 return item.goodsId != id
                             })
                         });

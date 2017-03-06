@@ -340,39 +340,31 @@ Page({
     let status = (typeof info.status == 'undefined') ? '' : info.status;
     let pname = info.pname;
     if (self.consigneeCheck(consignee) && self.mobileCheck(mobile) && self.pnameCheck(pname) && self.adressCheck(address) && self.zipcodeCheck(zipcode)) {
-      wx.request({
-        url: app.globalData.dataRemote + 'address/save',
-        data: info,
-        header: {
-          'content-type': 'application/x-www-from-urlencoded'
-        },
-        method: 'POST',
-        success: function (res) {
-          if (res.data.code == 0) {
-            wx.switchTab({
-              url: '/pages/profile/profile/profile',
-              success: function () {
-                self.setData({
-                  contentType: "adress",
-                  menu: [
-                    {
-                      name: "我的订单",
-                      value: "order",
-                      active: false
-                    }, {
-                      name: "收货地址",
-                      value: "adress",
-                      active: true
-                    }, {
-                      name: "更多设置",
-                      value: "more",
-                      active: false
-                    }
-                  ]
-                })
-              }
-            })
-          }
+      app.postApi(app.globalData.dataRemote + 'address/save', info, function (res) {
+        if (res.code == 0) {
+          wx.switchTab({
+            url: '/pages/profile/profile/profile',
+            success: function () {
+              self.setData({
+                contentType: "adress",
+                menu: [
+                  {
+                    name: "我的订单",
+                    value: "order",
+                    active: false
+                  }, {
+                    name: "收货地址",
+                    value: "adress",
+                    active: true
+                  }, {
+                    name: "更多设置",
+                    value: "more",
+                    active: false
+                  }
+                ]
+              })
+            }
+          })
         }
       })
     }
@@ -386,44 +378,37 @@ Page({
       content: '确定删除该地址吗？',
       success: function (res) {
         if (res.confirm) {
-          wx.request({
-            url: app.globalData.dataRemote + 'address/delete',
-            data: {
-              aid
-            },
-            header: {
-              'content-type': 'application/x-www-from-urlencoded'
-            },
-            method: 'POST',
-            success: function (res) {
-              console.log(res)
-              if (res.data.code == 0) {
-                wx.switchTab({
-                  url: '/pages/profile/profile/profile',
-                  success: function () {
-                    self.setData({
-                      contentType: "adress",
-                      menu: [
-                        {
-                          name: "我的订单",
-                          value: "order",
-                          active: false
-                        }, {
-                          name: "收货地址",
-                          value: "adress",
-                          active: true
-                        }, {
-                          name: "更多设置",
-                          value: "more",
-                          active: false
-                        }
-                      ]
-                    })
-                  }
-                })
-              }
+          app.postApi(app.globalData.dataRemote + 'address/delete', {
+            aid
+          }, function (res) {
+            console.log(res)
+            if (res.code == 0) {
+              wx.switchTab({
+                url: '/pages/profile/profile/profile',
+                success: function () {
+                  self.setData({
+                    contentType: "adress",
+                    menu: [
+                      {
+                        name: "我的订单",
+                        value: "order",
+                        active: false
+                      }, {
+                        name: "收货地址",
+                        value: "adress",
+                        active: true
+                      }, {
+                        name: "更多设置",
+                        value: "more",
+                        active: false
+                      }
+                    ]
+                  })
+                }
+              })
             }
           })
+
         }
       }
     })

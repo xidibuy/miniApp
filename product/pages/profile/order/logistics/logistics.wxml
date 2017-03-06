@@ -4,17 +4,17 @@
   <view class="logistics-info">
 
     <!--物流-->
-    <block wx:if="{{logisticsType == 1}}">
-      <view class="logistics-info-item"> 订单号：{{logisticsInfo.orderNumber}}</view>
-      <view class="logistics-info-item"> 运送方式：{{logisticsInfo.way}}</view>
-      <view class="logistics-info-item"> 物流公司：{{logisticsInfo.company}}</view>
-      <view class="logistics-info-item"> 运单编号：{{logisticsInfo.waybillNumber}}</view>
+    <block wx:if="{{shipping_self == 0}}">
+      <view class="logistics-info-item"> 订单号：{{orderParentId}}</view>
+      <view class="logistics-info-item"> 运送方式：{{shipping_type}}</view>
+      <view class="logistics-info-item"> 物流公司：{{shipping_name}}</view>
+      <view class="logistics-info-item"> 运单编号：{{shipping_number}}</view>
     </block>
 
     <!--自提-->
     <block wx:else>
-      <view class="logistics-info-item"> 订单号：{{logisticsInfo.orderNumber}}</view>
-      <view class="logistics-info-item"> 运送方式：{{logisticsInfo.way}}</view>
+      <view class="logistics-info-item"> 订单号：{{orderParentId}}</view>
+      <view class="logistics-info-item"> 运送方式：自提</view>
     </block>
   </view>
 
@@ -25,19 +25,19 @@
   <view class="logistics-details">
 
     <!--物流-->
-    <block wx:if="{{logisticsType == 1}}">
+    <block wx:if="{{shipping_self == 0}}">
 
       <!--有物流信息-->
-      <block wx:if="{{logisticsDetails.length}}">
-        <block wx:for="{{logisticsDetails}}" wx:key="{{*this}}" wx:for-index="idx">
-          <view class="logistics-details-item {{(idx == 0) ? 'start': '' }} {{(idx + 1 == logisticsDetails.length) ? 'end': '' }}">
+      <block wx:if="{{shipping_info.length}}">
+        <block wx:for="{{shipping_info}}" wx:key="{{*this}}" wx:for-index="idx">
+          <view class="logistics-details-item {{(idx == 0) ? 'start': '' }} {{(idx + 1 == shipping_info.length) ? 'end': '' }}">
             <view class="logistics-details-item-word">
               <text class="xd {{(idx == 0) ? 'xd-location' : 'xd-dot'}}"></text>
-              {{item.text}}
+              {{item.process}}
             </view>
             <view class="logistics-details-item-date">
-              {{item.date}}
-              <text class="logistics-details-item-time">{{item.time}}</text>
+              {{item.time}}
+              <!--<text class="logistics-details-item-time">{{item.time}}</text>-->
             </view>
           </view>
         </block>
