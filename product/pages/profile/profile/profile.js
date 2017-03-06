@@ -152,7 +152,7 @@ Page({
         if (res.confirm) {
           app.postApi(url + 'order/received?orderId=' + orderSn, {}, function (res) {
             if (res.code == 0) {
-
+                _this.onLoad();
             } else if (res.code == -10207) {
               wx.showModal({
                 title: '提示',
