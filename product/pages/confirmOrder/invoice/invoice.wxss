@@ -3,7 +3,7 @@
 }
 
 .title {
-  font-size: 14px;
+  font-size: 32.76rpx;
   line-height: 1;
   color: #222;
   margin: 35.1rpx 0 17.55rpx;
@@ -44,7 +44,7 @@
 }
 
 .row .type {
-  font-size: 14px;
+  font-size: 32.76rpx;
   margin-right: 23.4rpx;
 }
 
@@ -61,7 +61,7 @@
   left: 23.4rpx;
   width: 421.2rpx;
   height: 79.56rpx;
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #222;
 }
 
@@ -86,7 +86,7 @@
   line-height: 113.49rpx;
   background: #fff;
   display: flex;
-  font-size: 15px;
+  font-size: 35.1rpx;
   text-align: center;
 }
 

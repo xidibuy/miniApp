@@ -44,7 +44,7 @@
 }
 
 .settlement-bar .checkbox-widget .checkbox-word {
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #888;
   margin-left: 15rpx;
 }
@@ -61,13 +61,13 @@
 }
 
 .settlement-bar .settlement-money-number {
-  font-size: 16px;
+  font-size: 37.44rpx;
   color: #00bebf;
   font-weight: bold;
 }
 
 .settlement-bar .settlement-freight {
-  font-size: 10px;
+  font-size: 23.4rpx;
   color: #777;
 }
 
@@ -76,7 +76,7 @@
   line-height: 114.66rpx;
   background: #4ed6d1;
   color: #fff;
-  font-size: 15px;
+  font-size: 35.1rpx;
   text-align: center;
 }
 
@@ -85,5 +85,5 @@
 }
 
 .settlement-bar .settlement-number {
-  font-size: 14px;
+  font-size: 32.76rpx;
 }

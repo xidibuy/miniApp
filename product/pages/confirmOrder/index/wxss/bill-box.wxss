@@ -5,7 +5,7 @@
 .bill-box .row{
     height: 79.56rpx;
     line-height: 79.56rpx;
-    font-size: 14px;
+    font-size: 32.76rpx;
     color: #222;
     display: flex;
 }

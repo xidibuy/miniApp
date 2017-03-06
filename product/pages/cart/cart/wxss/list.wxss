@@ -17,7 +17,7 @@
 
 .goods-item-concession {
   display: flex;
-  font-size: 11px;
+  font-size: 25.74rpx;
   color: #777;
   padding-left: 23.4rpx;
   margin-bottom: 23.4rpx;
@@ -117,13 +117,13 @@
 
 .goods-item-info-attr {
   margin-right: 18.72rpx;
-  font-size: 10px;
+  font-size: 23.4rpx;
   color: #777;
 }
 
 .goods-item-title {
   width: 292.5rpx;
-  font-size: 12px;
+  font-size: 28.08rpx;
   line-height: 39.78rpx;
   color: #222;
   overflow: hidden;
@@ -137,7 +137,7 @@
 .goods-item-price {
   flex-grow: 1;
   text-align: right;
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #00bebf;
 }
 
@@ -181,12 +181,12 @@
   border: 1px solid #ddd;
   border-left: 0;
   border-right: 0;
-  font-size: 12px;
+  font-size: 28.08rpx;
 }
 
 .goods-item-num-tips {
   flex-grow: 1;
-  font-size: 12px;
+  font-size: 28.08rpx;
   color: #f33;
   line-height: 53.82rpx;
 }

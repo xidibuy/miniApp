@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container {{contentType == 'adress' ? 'make-padding ' : ''}}">
     <view class="nav">
         <block wx:for="{{menu}}" wx:key="value">
             <view class="nav-item {{item.active ? 'active' : ''}}" bindtap="bindMenu" data-name="{{item.value}}">{{item.name}}</view>

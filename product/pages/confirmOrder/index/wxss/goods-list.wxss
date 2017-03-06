@@ -24,7 +24,7 @@
 }
 
 .goods-list .goods-item-name {
-  font-size: 13px;
+  font-size: 30.42rpx;
   color: #222;
   height: 79.56rpx;
   line-height: 39.78rpx;
@@ -39,25 +39,26 @@
 
 .goods-list .goods-item-info-attr {
   margin-right: 18.72rpx;
-  font-size: 10px;
+  font-size: 23.4rpx;
   color: #777;
 }
 
 .goods-list .goods-item-info-attr:last-child {
   margin-right: 0;
 }
-.goods-list .last-row{
-    display: flex;
-    justify-content:space-between;
-    align-items: center;
+
+.goods-list .last-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .goods-list .goods-item-price {
-  font-size: 15px;
+  font-size: 35.1rpx;
   color: #00bebf;
 }
 
-.goods-list .goods-item-number{
-    font-size: 13px;
+.goods-list .goods-item-number {
+  font-size: 30.42rpx;
   color: #777;
 }

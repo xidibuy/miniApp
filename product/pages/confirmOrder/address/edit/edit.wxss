@@ -7,18 +7,18 @@
   padding-left: 23.4rpx;
   height: 102.96rpx;
   line-height: 102.96rpx;
-  font-size: 15px;
+  font-size: 35.1rpx;
   color: #222;
   border-bottom: 2rpx solid #ddd;
 }
 
 .input-ph {
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #777;
 }
 
 .textarea {
-  font-size: 15px;
+  font-size: 35.1rpx;
   color: #222;
   padding: 26.91rpx 70.2rpx 26.91rpx 23.4rpx;
   width: 100%;
@@ -33,7 +33,7 @@
 .second-part .row {
   height: 102.96rpx;
   line-height: 102.96rpx;
-  font-size: 15px;
+  font-size: 35.1rpx;
   border-bottom: 2rpx solid #ddd;
 }
 
@@ -42,12 +42,6 @@
   color: #222;
   padding: 0 23.4rpx 0 46.8rpx;
   justify-content: space-between;
-}
-
-.second-part .delete {
-  font-size: 15px;
-  text-align: center;
-  color: #f33;
 }
 
 /*bottom-bar*/
@@ -61,7 +55,7 @@
   height: 112.32rpx;
   line-height: 112.32rpx;
   background: #4ed6d1;
-  font-size: 15px;
+  font-size: 35.1rpx;
   color: #fff;
   text-align: center;
 }

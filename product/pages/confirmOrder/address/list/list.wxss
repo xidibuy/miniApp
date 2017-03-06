@@ -69,7 +69,7 @@
 }
 
 .cont-ad, .cont-ad-desic {
-  font-size: 12px;
+  font-size: 28.08rpx;
   color: #777;
   line-height: 43rpx;
   -webkit-line-clamp: 2;
@@ -80,12 +80,12 @@
 }
 
 .cont-contact .name {
-  font-size: 15px;
+  font-size: 35.1rpx;
   color: #222;
 }
 
 .cont-contact .mobile {
-  font-size: 14px;
+  font-size: 32.76rpx;
   color: #222;
 }
 
@@ -99,9 +99,9 @@
 }
 
 .cont-contact .cont-ad-desic {
-  font-size: 12px;
+  font-size: 28.08rpx;
   color: #777;
-  line-height: 36px;
+  line-height: 84.24rpx;
 }
 
 /*右侧编辑*/

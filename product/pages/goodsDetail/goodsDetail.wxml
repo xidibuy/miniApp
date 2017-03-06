@@ -45,7 +45,7 @@
         </view>
       </view>
     </view>
-
+    <view class="division-line"></view>
     <!--库存情况-->
     <view class="sku-info">
       <view></view>
@@ -108,7 +108,7 @@
     <!--简单介绍和物流-->
     <view class="smiple-intro-box">
       <view class="smiple-intro">
-        <text style="font-size:13px;">{{goodsDetail.desc}}</text>
+        <text style="font-size:30.42rpx;">{{goodsDetail.desc}}</text>
         <view class="post-info">
           <view>
             <text class="xd xd-truck"></text>
@@ -143,13 +143,11 @@
     </view>
 
     <!--商品详情图片-->
-    <block wx:for="{{goodsDetail.detailImg}}" wx:key="*this">
-      <block wx:for="{{item.img}}" wx:key="index" wx:for-item="single">
-        <view class="pro-desic-img">
-          <image src="{{single}}" mode="widthFix"></image>
-        </view>
+    <view class="pro-desic-img">
+      <block wx:for="{{goodsDetail.detailImg.img}}" wx:key="*this">
+        <image src="{{item}}" mode="widthFix"></image>
       </block>
-    </block>
+    </view>
     <block wx:if="{{recommendList.length}}">
       <view class="xidi-selected">
         <text>喜地推荐</text>

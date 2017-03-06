@@ -5,16 +5,25 @@ const url = app.globalData.dataRemote;
 Page({
   data: {
     current: 0,
-    index: []
+    index: [],
+    reload: false
   },
 
   onLoad: function (options) {
     const _this = this;
     const indexUrl = url + 'index/home';
-    app.fetchApi(indexUrl, function (options) {
-      _this.setData({
-        index: options.data
-      });
+    app.fetchApi(indexUrl, function (res) {
+      if (res.code == 0) {
+        _this.setData({
+          index: res.data,
+          reload: false
+        });
+      } else {
+        _this.setData({
+          reload: true
+        });
+      }
+
     })
   },
 
