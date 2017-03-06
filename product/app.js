@@ -169,16 +169,29 @@ App({
                   },
                   // 用户拒绝
                   fail: function (res) {
-                    wx.showModal({
-                      title: '',
-                      showCancel: false,
-                      content,
-                      success(res) {
-                        if (res.confirm) {
-                          wx.setStorageSync('userRejectTime', Date.now())
+                    let userRejectTime = wx.getStorageSync('userRejectTime');
+                    if (userRejectTime) {
+                      // let nowContent = function (time) {
+                      //   return '非常抱歉，暂时无法购买。请您' + time + '分钟后再次授权头像和昵称信息，然后进行购买操作。'
+                      // };
+                      // let curTime = Date.now();
+                      // let gapTime = curTime - userRejectTime;
+                      // gapTime = gapTime / (1000 * 60);
+                      // content = nowContent(Math.ceil(gapTime))
+                    } else {
+                      wx.showModal({
+                        title: '',
+                        showCancel: false,
+                        content,
+                        success(res) {
+                          if (res.confirm) {
+                            wx.setStorageSync('userRejectTime', Date.now())
+                          }
                         }
-                      }
-                    });
+                      });
+
+                    }
+
                   }
                 })
               }
