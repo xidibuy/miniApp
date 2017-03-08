@@ -57,11 +57,11 @@
               </block>
 
               <!--立即支付-->
-              <!--<block wx:if="{{item.btn.btnPay}}">
+              <block wx:if="{{item.btn.btnPay}}">
                 <view class="handle-btn turn-btn">
                   <button>{{item.btn.btnPay.name}}</button>
                 </view>
-              </block>-->
+              </block>
 
               <!--链接型按钮-->
 

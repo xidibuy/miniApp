@@ -217,6 +217,7 @@ App({
   },
 
   globalData: {
-    dataRemote: "https://wxapp.xidibuy.com/"
+    dataRemote: "https://wxapp.xidibuy.com/",
+    imgRemote: "http://static.xidibuy.com/"
   }
 })

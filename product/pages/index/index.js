@@ -1,11 +1,11 @@
 //获取应用实例
 var app = getApp();
 const url = app.globalData.dataRemote;
-// const url = app.globalData.data;
 Page({
   data: {
     current: 0,
     index: [],
+    // 是否显示加载失败,默认不显示
     reload: false
   },
 
@@ -23,7 +23,6 @@ Page({
           reload: true
         });
       }
-
     })
   },
 
@@ -35,7 +34,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '分享',
-      path: '/pages/index/index'
+      path: '/pages/index/index?share=1'
     }
   },
   currentPage: function (e) {

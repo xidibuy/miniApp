@@ -71,8 +71,8 @@ Page({
 
   onLoad: function (options) {
     let _this = this;
-    // const proUrl = url + "detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
-    const proUrl = url + "detail?goodId=" + 3510 + "&relateprodSn=" + options.relateprodSn;
+    const proUrl = url + "detail?goodId=" + options.goodId + "&relateprodSn=" + options.relateprodSn;
+    // const proUrl = url + "detail?goodId=" + 3510 + "&relateprodSn=" + options.relateprodSn;
     this.getGoodsNum();
     this.post(proUrl);
 
@@ -131,37 +131,50 @@ Page({
       //   arr.push(temp);
       // });
       if (resData.priceAttr[0]) {
-        for (const a in resData.priceAttr[0].children) {
+        for (let a in resData.priceAttr[0].children) {
           keyone.push(a);
         };
       };
       // 取出所有尺码的搭配
       if (resData.priceAttr[1]) {
-        for (const a in resData.priceAttr[1].children) {
+        for (let a in resData.priceAttr[1].children) {
           keytwo.push(a);
         };
       };
       //取出所有的产品规格的值
-      for (const a in resData.prodParams) {
+      for (let a in resData.prodParams) {
         prodParams.push(resData.prodParams[a]);
       };
-      for (const a in resData.recommendList) {
+      for (let a in resData.recommendList) {
         recommendList.push(resData.recommendList[a]);
       };
       // 取出所有搭配的 id
-      for (const a in resData.goodsList) {
+      for (let a in resData.goodsList) {
         group.push(a);
       };
       // 取出当前的颜色
-      const curC = resData.curColorAndsSize[0];
+      if (resData.curColorAndsSize[0]) {
+        let curC = resData.curColorAndsSize[0];
+        _this.setData({
+          curC
+        })
+      }
+
       // 取出当前的尺码
-      const curS = resData.curColorAndsSize[1];
+      if (resData.curColorAndsSize[1]) {
+        let curS = resData.curColorAndsSize[1];
+        _this.setData({
+          curS
+        })
+      }
+
       // 当前产品库存的数量>0
       if (resData.stock > 0) {
 
         for (let i = 0; i < keytwo.length; i++) {
           // 拼接当前颜色的尺码
-          const tempC = curC + "_" + keytwo[i];
+          
+          let tempC = _this.data.curC + "_" + keytwo[i];
           // 库存的值小于0,放入
           if (resData.goodsList[tempC].stock <= 0) {
             // colorNo.push(keytwo[i]);
@@ -171,7 +184,7 @@ Page({
         };
         for (let i = 0; i < keyone.length; i++) {
           // 拼接当前尺码的颜色
-          const tempS = keyone[i] + "_" + curS;
+          let tempS = keyone[i] + "_" + _this.data.curS;
           // 库存的值小于0,放入
           if (resData.goodsList[tempS].stock <= 0) {
             // sizeNo.push(keyone[i]);
@@ -189,9 +202,7 @@ Page({
         recommendList: recommendList,
         curColorAndsSize: resData.curColorAndsSize,
         sizeNo: sizeNo,
-        colorNo: colorNo,
-        curC: curC,
-        curS: curS
+        colorNo: colorNo
       });
     })
   },
