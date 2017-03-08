@@ -5,7 +5,9 @@ Page({
   data: {
     Prov,
     areaPickerViewHidden: false,
-    type: ''
+    type: '',
+    showTip: false,
+    showTipWord: ''
   },
 
   onLoad: function () {
@@ -179,30 +181,37 @@ Page({
       'info.status': Number(e.detail.value)
     })
   },
+  showTip(con) {
+    let _this = this;
+    this.setData({
+      showTip: true,
+      showTipWord: con
+    }),
+      setTimeout(function () {
+        _this.setData({
+          showTip: false,
+          showTipWord: ''
+        })
+      }, 2000)
+  },
   strLength(str) {
-    let aMatch = str.match(/[^\x00-\x80]/g),
-      strLen = (str.length + (!aMatch ? 0 : aMatch.length));
-    return strLen;
+    if (str != '' && str != undefined) {
+      let aMatch = str.match(/[^\x00-\x80]/g),
+        strLen = (str.length + (!aMatch ? 0 : aMatch.length));
+      return strLen;
+    }
   },
   consigneeCheck(val) {
     let self = this;
     if (self.strLength(val)) {
       if (self.strLength(val) >= 21) {
-        wx.showModal({
-          title: '',
-          content: '请填写正确的收货人姓名',
-          showCancel: false
-        });
+        self.showTip('请填写正确的收货人姓名');
         return false;
       } else {
         return true;
       }
     } else {
-      wx.showModal({
-        title: '',
-        content: '请填写收货人',
-        showCancel: false
-      });
+      self.showTip('请填写收货人');
       return false;
     }
   },
@@ -210,21 +219,13 @@ Page({
     let self = this;
     if (val) {
       if (!(/^1[3|4|5|7|8]\d{9}$/.test(val))) {
-        wx.showModal({
-          title: '',
-          content: '请填写正确的手机号码',
-          showCancel: false
-        });
+        self.showTip('请填写正确的手机号码');
         return false
       } else {
         return true;
       }
     } else {
-      wx.showModal({
-        title: '',
-        content: '请填写手机',
-        showCancel: false
-      });
+      self.showTip('请填写手机');
       return false;
     }
   },
@@ -232,26 +233,14 @@ Page({
     let self = this;
     if (self.strLength(val)) {
       if (/^\d+$/.test(val)) {
-        wx.showModal({
-          title: '',
-          content: '不能是纯数字',
-          showCancel: false
-        });
+        self.showTip('不能是纯数字');
         return false;
       } else if (/^([a-zA-Z]+)$/.test(val)) {
-        wx.showModal({
-          title: '',
-          content: '不能是纯字母',
-          showCancel: false
-        });
+        self.showTip('不能是纯字母');
         return false;
       } else if (self.strLength(val) >= 201 || self.strLength(val) <= 7) {
         if (self.strLength(val) >= 201 || self.strLength(val) <= 7) {
-          wx.showModal({
-            title: '',
-            content: '请填写正确的收货人详细地址',
-            showCancel: false
-          });
+          self.showTip('请填写正确的收货人详细地址');
           return false;
         } else {
           return true;
@@ -259,11 +248,7 @@ Page({
       }
       return true;
     } else {
-      wx.showModal({
-        title: '',
-        content: '请填写收货人详细地址',
-        showCancel: false
-      });
+      self.showTip('请填写收货人详细地址');
       return false;
     }
   },
@@ -271,11 +256,7 @@ Page({
     let self = this;
     if (val) {
       if (!/^[0-9]{6}$/.test(val)) {
-        wx.showModal({
-          title: '',
-          content: '请填写正确的邮政编码',
-          showCancel: false
-        });
+        self.showTip('请填写正确的邮政编码');
         return false
       } else {
         return true;
@@ -285,12 +266,9 @@ Page({
     }
   },
   pnameCheck(val) {
+    let self = this;
     if (val == undefined || val == '') {
-      wx.showModal({
-        title: '',
-        content: '请填写省市区',
-        showCancel: false
-      })
+      self.showTip('请填写省市区');
       return false;
     } else {
       return true;

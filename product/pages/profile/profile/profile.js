@@ -39,7 +39,10 @@ Page({
     // 是否显示无数据提示语
     tipShow: false,
     // 请求返回无数据,显示提示语
-    noOrder: true
+    noOrder: true,
+    // 吸顶提示
+    showTip: false,
+    showTipWord: ''
   },
 
   // 下拉刷新
@@ -48,6 +51,20 @@ Page({
     _this.post(orderUrl, function (res) {
       _this.dealOrder(res);
     });
+  },
+  // 吸顶提示
+  showTip(con) {
+    let _this = this;
+    this.setData({
+      showTip: true,
+      showTipWord: con
+    }),
+      setTimeout(function () {
+        _this.setData({
+          showTip: false,
+          showTipWord: ''
+        })
+      }, 2000)
   },
   // 触底加载20条
   onReachBottom: function (options) {
@@ -152,7 +169,7 @@ Page({
         if (res.confirm) {
           app.postApi(url + 'order/received?orderId=' + orderSn, {}, function (res) {
             if (res.code == 0) {
-                _this.onLoad();
+              _this.onLoad();
             } else if (res.code == -10207) {
               wx.showModal({
                 title: '提示',
@@ -180,13 +197,14 @@ Page({
           duration: 2000
         })
       } else if (res.code == -10207) {
-        wx.showModal({
-          title: '提示',
-          content: res.msg,
-          success: function (res) {
-            if (res.confirm) { }
-          }
-        })
+        _this.showTip(res.msg);
+        // wx.showModal({
+        //   title: '提示',
+        //   content: res.msg,
+        //   success: function (res) {
+        //     if (res.confirm) { }
+        //   }
+        // })
       }
     });
   },

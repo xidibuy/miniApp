@@ -163,9 +163,11 @@
     <view class="devision">继续拖动,更多商品内容</view>
 
     <!--去首页-->
-    <view class="goIndex goIndexGoods">
-      <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
-    </view>
+    <block wx:if="{{share == true}}">
+      <view class="goIndex goIndexGoods">
+        <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
+      </view>
+    </block>
   </view>
   <view class="sessionTwo" style="display:{{show.showTwo ? 'block' : 'none'}}">
 

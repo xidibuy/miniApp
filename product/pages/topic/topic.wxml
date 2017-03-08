@@ -46,7 +46,11 @@
       </view>
     </block>
   </block>
-  <view class="goIndex">
-    <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
-  </view>
+
+  <!--去首页-->
+  <block wx:if="{{share == true}}">
+    <view class="goIndex goIndexGoods">
+      <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
+    </view>
+  </block>
 </view>
