@@ -4,7 +4,8 @@ Page({
     data:
     {
         topic: {},
-        imgBanner: ''
+        imgBanner: '',
+        share: false
     },
     onLoad: function (options) {
         const _this = this;
@@ -24,13 +25,18 @@ Page({
                 });
             }
         });
+        if (options.shareId == 1) {
+            _this.setData({
+                share: true
+            })
+        }
     },
 
     // 分享专题
     onShareAppMessage: function () {
         return {
             title: '分享',
-            path: '/pages/topic/topic'
+            path: '/pages/topic/topic?shareId=1'
         }
     }
 });

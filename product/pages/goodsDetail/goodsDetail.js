@@ -32,7 +32,9 @@ Page({
       "showOne": true,
       "showTwo": false
     },
-    startPoint: [0, 0]
+    startPoint: [0, 0],
+    // 分享而来的页面,默认为false
+    share: false
   },
   // 下拉展示上一部分
   onPullDownRefresh: function () {
@@ -75,7 +77,11 @@ Page({
     // const proUrl = url + "detail?goodId=" + 3510 + "&relateprodSn=" + options.relateprodSn;
     this.getGoodsNum();
     this.post(proUrl);
-
+    if(options.shareId == 1){
+      _this.setData({
+        share: true
+      })
+    }
   },
 
   // 购物车数量获取
@@ -244,7 +250,7 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '分享',
-      path: '/pages/goodsDetail/goodsDetail'
+      path: '/pages/goodsDetail/goodsDetail?shareId=1'
     }
   },
   // 加入购物车
@@ -286,6 +292,7 @@ Page({
         priceAttr[index] = { "type": item.type };
         priceAttr[index] = { "pValue": curDetail.curColorAndsSize[index] };
       });
+      
       let storageCar = {
         "goodsId": curPro.id,
         "name": curPro.name,
@@ -295,7 +302,8 @@ Page({
         "priceAttr": priceAttr,
         "stock": curPro.stock,
         "isShelved": curDetail.isShelved,
-        "lesPrice": curDetail.couponAmount
+        "lesPrice": curDetail.couponAmount,
+        "addTime": Date.now()
       };
       let list = wx.getStorageSync('cartLocalList') || [];
       list.push(storageCar);

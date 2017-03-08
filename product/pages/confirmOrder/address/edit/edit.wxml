@@ -39,4 +39,7 @@
     </picker-view>
   </view>
   <view class="picker-mask" wx:if="{{areaPickerViewHidden}}"></view>
+   <view class="showTip" wx:if="{{showTip}}">
+    <text>{{showTipWord}}</text>
+  </view>
 </view>
