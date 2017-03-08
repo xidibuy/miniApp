@@ -68,6 +68,7 @@
               <!--再次购买-->
               <block wx:if="{{item.btn.btnBuyAgain}}">
                 <view class="handle-link turn-btn" bindtap="buyAgain" data-orderParentId="{{item.orderParentId}}">
+
                   <!--<navigator url="/pages/cart/cart/cart" open-type="switchTab"></navigator>-->
                   <view>{{item.btn.btnBuyAgain.name}}</view>
                 </view>
@@ -107,4 +108,7 @@
       </view>
     </view>
   </block>
+  <view class="showTip" wx:if="{{showTip}}">
+    <text>{{showTipWord}}</text>
+  </view>
 </view>
