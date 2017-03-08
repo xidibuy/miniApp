@@ -3,7 +3,10 @@ const app = getApp();
 Page({
     data: {
         loading: true,
-        emptyCartImg: 'http://static.xidibuy.com/miniapp/common/1.0.0/images/empty-cart.png'
+        emptyCartImg: 'http://static.xidibuy.com/miniapp/common/1.0.0/images/empty-cart.png',
+        freeCondition: 　98,
+        settlementNumber: 0,
+        settlementMoney: 0
     },
 
     onShow() {
@@ -26,11 +29,16 @@ Page({
                     }
                 };
                 cartLocalList.map((item, index) => {
-                    let id = item.goodsId;
+                    let goodsId = item.goodsId;
                     let num = item.buyNum;
-                    mergeData.currentProducts[id] = num;
+                    let addTime = item.addTime;
+                    mergeData.currentProducts[goodsId] = {
+                        num,
+                        addTime,
+                        goodsId
+                    };
                     if (item.check == 1) {
-                        mergeData.cartSelectId[id] = num;
+                        mergeData.cartSelectId[goodsId] = num;
                     }
                 });
                 app.postApi(mergeUrl, mergeData, function (resp) {
