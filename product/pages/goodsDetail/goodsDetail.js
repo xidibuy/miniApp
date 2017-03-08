@@ -179,7 +179,7 @@ Page({
 
         for (let i = 0; i < keytwo.length; i++) {
           // 拼接当前颜色的尺码
-          
+
           let tempC = _this.data.curC + "_" + keytwo[i];
           // 库存的值小于0,放入
           if (resData.goodsList[tempC].stock <= 0) {
