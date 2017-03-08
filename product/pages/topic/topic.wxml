@@ -22,7 +22,7 @@
               <text class="name">{{item.name}}</text>
               <text class="price">{{item.price}}</text>
               <view class="local-price">当地价：
-                <text>{{item.marketPrice}}</text>
+                <text>{{item.localPrice}}</text>
               </view>
             </navigator>
           </view>
@@ -38,7 +38,7 @@
               <text class="name">{{item.name}}</text>
               <text class="price">{{item.price}}</text>
               <view class="local-price">当地价：
-                <text>{{item.marketPrice}}</text>
+                <text>{{item.localPrice}}</text>
               </view>
             </navigator>
           </view>

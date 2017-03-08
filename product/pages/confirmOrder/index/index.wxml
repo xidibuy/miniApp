@@ -28,6 +28,6 @@
     <view class="bottom-bar-left">
       应付金额：<text class="amount">¥{{amount}}</text>
     </view>
-    <!--<view class="bottom-bar-right" bindtap="submitOrder">提交订单</view>-->
+    <view class="bottom-bar-right" bindtap="submitOrder">提交订单</view>
   </view>
 </view>

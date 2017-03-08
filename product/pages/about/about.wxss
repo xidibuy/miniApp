@@ -1,4 +1,10 @@
+.container{
+    padding-bottom: 117rpx;
+}
 .about-index{
+    position: fixed;
+    left: 0;
+    bottom: 0;
     width: 100%;
     height: 117rpx;
     background-color: #4ed6d2;
