@@ -1,5 +1,5 @@
 <view class="container">
-   <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/aboutall.jpg" mode="widthFix" style="width:100%"></image>
+   <image src="{{imgHead}}miniapp/common/1.0.0/images/aboutall.jpg" mode="widthFix" style="width:100%"></image>
    <view class="about-index">
     <navigator url="/pages/index/index" open-type="switchTab">去逛逛</navigator>
    </view>
