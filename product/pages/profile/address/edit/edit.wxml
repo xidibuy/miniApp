@@ -1,31 +1,33 @@
 <view class="container">
   <view class="first-part">
     <view class="row">
-      <view class="input-widget">
-        <input value="{{info.consignee}}" bindinput="consigneeInputEvent" type="text" class="input" placeholder="收货人" placeholder-class="input-ph" />
-        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{!info.consignee}}" data-index="consignee"></view>
+      <input value="{{info.consignee}}" bindinput="consigneeInputEvent" bindfocus="elementFocusEvent" bindblur="elementBlurEvent"  type="text" class="input" placeholder="收货人" placeholder-class="input-ph"  data-index="consignee" />
+      <view class="close-area" bindtap="clearInputValue" data-index="consignee">
+        <view class="xd xd-closed"  hidden="{{consigneeBlur}}"></view>
       </view>
     </view>
     <view class="row">
-      <view class="input-widget">
-        <input value="{{info.mobile}}" bindinput="mobileInputEvent" type="number" class="input" placeholder="手机号码" placeholder-class="input-ph" />
-        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{!info.mobile}}" data-index="mobile"></view>
+      <input value="{{info.mobile}}" bindinput="mobileInputEvent" bindfocus="elementFocusEvent" bindblur="elementBlurEvent" type="number" class="input" placeholder="手机号码" placeholder-class="input-ph"  data-index="mobile" />
+      <view class="close-area" bindtap="clearInputValue" data-index="mobile">
+        <view class="xd xd-closed" hidden="{{mobileBlur}}"></view>
       </view>
     </view>
-    <view class="input" bindtap="pickerFocusEvent">
-      {{info.pname ? (info.pname + info.cname + info.dname) : ''}}
-      <text class="input-ph" hidden="{{info.pname}}">省、市、区</text>
+    <view class="row">
+      <view class="input ellip-line" bindtap="pickerFocusEvent">
+        {{info.pname ? (info.pname + info.cname + info.dname) : ''}}
+        <text class="input-ph" hidden="{{info.pname}}">省、市、区</text>
+      </view>
     </view>
     <view class="row row-textarea">
-      <view class="input-widget">
-        <textarea value="{{info.address}}" bindinput="addressInputEvent" class="textarea" placeholder="详细地址" placeholder-class="input-ph" />
-        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{!info.address}}" data-index="address"></view>
+      <textarea value="{{info.address}}" bindinput="addressInputEvent" bindfocus="elementFocusEvent" bindblur="elementBlurEvent" class="textarea" placeholder="详细地址" placeholder-class="input-ph"  data-index="address" />
+      <view class="close-area" bindtap="clearInputValue" data-index="address">
+        <view class="xd xd-closed" hidden="{{addressBlur}}"></view>
       </view>
     </view>
     <view class="row">
-      <view class="input-widget">
-        <input value="{{info.zipcode}}" bindinput="zipcodeInputEvent" type="number" class="input" placeholder="邮政编码" placeholder-class="input-ph" />
-        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{!info.zipcode}}" data-index="zipcode"></view>
+      <input value="{{info.zipcode}}" bindinput="zipcodeInputEvent" bindfocus="elementFocusEvent" bindblur="elementBlurEvent" type="number" class="input" placeholder="邮政编码（选填）" placeholder-class="input-ph"  data-index="zipcode" />
+      <view class="close-area" bindtap="clearInputValue" data-index="zipcode">
+        <view class="xd xd-closed" hidden="{{zipcodeBlur}}"></view>
       </view>
     </view>
   </view>
@@ -64,7 +66,7 @@
     </picker-view>
   </view>
   <view class="picker-mask" wx:if="{{areaPickerViewHidden}}"></view>
-  <view class="showTip" wx:if="{{showTip}}">
-    <text>{{showTipWord}}</text>
+  <view class="showTip" hidden="{{!showTip}}">
+    <view>{{showTipWord}}</view>
   </view>
 </view>

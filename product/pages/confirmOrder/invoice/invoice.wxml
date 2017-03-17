@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" bindtap="containerTapEvent">
   <view class="content">
     <view class="title">发票抬头：</view>
     <view class="row">
@@ -17,8 +17,8 @@
       </radio-group>
       <view class="type">单位</view>
       <view class="input-widget">
-        <input type="text" class="input" value="{{organization.content}}" bindinput="inputInputEvent" disabled="{{person}}" />
-        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{organization.content=='' || person}}"></view>
+        <input type="text" class="input" value="{{organization.content}}" bindinput="inputInputEvent" bindblur="inputBlurEvent" disabled="{{person}}" data-name="input" bindfocus="inputFocusEvent" />
+        <view class="xd xd-closed" bindtap="clearInputValue" hidden="{{organizationContent}}"></view>
       </view>
     </view>
     <view class="title">发票内容：
@@ -28,5 +28,8 @@
       <view class="left" bindtap="cancelEvent">暂不需要发票</view>
       <view class="right" bindtap="confirmEvent">确定</view>
     </view>
+  </view>
+  <view class="showTip" hidden="{{!showTip}}">
+    <view>{{showTipWord}}</view>
   </view>
 </view>

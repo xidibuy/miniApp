@@ -4,8 +4,8 @@
 
       <!--优惠信息-->
       <view class="goods-item-concession" hidden="{{item.lesPrice == 0}}">
-        <text class="goods-item-concession-icon {{goodsCheckedStateObj[item.goodsId] ? 'active' : ''}}">优惠</text>
-        <text class="goods-item-concession-content">{{goodsCheckedStateObj[item.goodsId] ? ('购买指定商品可享优惠，已减' + item.lesPrice) : ('购买指定商品即可享受立减' + item.lesPrice + '元')}}
+        <text class="goods-item-concession-icon {{item.check ? 'active' : ''}}">优惠</text>
+        <text class="goods-item-concession-content">{{item.check ? ('购买指定商品可享优惠，已减' + item.lesPrice) : ('购买指定商品即可享受立减' + item.lesPrice + '元')}}
         </text>
       </view>
 
@@ -14,15 +14,15 @@
 
         <!--左侧checkbox-->
         <checkbox-group bindchange="singleGoodsToggleChecked" class="checkbox-widget" data-id="{{item.goodsId}}" data-num="{{item.buyNum}}">
-            <text class="xd {{item.check ? 'xd-checked' : 'xd-circle'}}"></text>
-            <checkbox value="{{item.id}}" class="checkbox" checked="{{item.check}}" />
+          <text class="xd {{item.check ? 'xd-checked' : 'xd-circle'}}"></text>
+          <checkbox value="{{item.id}}" class="checkbox" checked="{{item.check}}" />
         </checkbox-group>
 
         <!--右侧 商品详情-->
         <view class="goods-item-detail">
 
           <!--商品图片-->
-          <navigator url="/pages/goodsDetail/goodsDetail" class="goods-item-image">
+          <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.goodsId + '&relateprodSn=' + item.goodsSn}}" class="goods-item-image">
             <image src="{{item.coverImg}}"></image>
           </navigator>
 
@@ -33,7 +33,7 @@
             <view class="goods-item-info-row">
 
               <!--商品标题-->
-              <navigator url="/pages/goodsDetail/goodsDetail" class="goods-item-title">{{item.name}}</navigator>
+              <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.goodsId + '&relateprodSn=' + item.goodsSn}}" class="goods-item-title">{{item.name}}</navigator>
 
               <!--商品价格-->
               <view class="goods-item-price">¥{{item.price}}</view>
@@ -54,19 +54,28 @@
               <!--库存-->
               <view class="goods-item-num-box">
                 <view class="goods-item-num">
-                  <view class="goods-item-num-reduce {{item.buyNum > 1 ? '' : 'disabled'}}" 
-                  bindtap="updateGoodsNum" data-id="{{item.goodsId}}" data-type="minus">
+                  <view class="goods-item-num-reduce {{item.buyNum > 1 ? '' : 'disabled'}}" bindtap="updateGoodsNum" data-id="{{item.goodsId}}" data-type="minus">
                     <text class="xd xd-minus"></text>
                   </view>
-                  <view class="goods-item-num-input" data-stock="{{item.stock}}">
-                    <input placeholder="" value="{{item.buyNum}}" bindinput="inputInputEvent" data-stock="{{item.stock}}" bindblur="inputBlurEvent" data-id="{{item.goodsId}}" />
+                  <view class="goods-item-num-input" data-stock="{{item.skuNum}}">
+
+                    <!--<input placeholder="" value="{{item.buyNum}}" bindinput="inputInputEvent" data-stock="{{item.skuNum}}" data-id="{{item.goodsId}}" type="number" />-->
+                    {{item.buyNum}}
                   </view>
-                  <view class="goods-item-num-add  {{item.stock == item.buyNum ? 'disabled' : '' }}"
-                  bindtap="updateGoodsNum" data-id="{{item.goodsId}}" data-type="add" data-stock="{{item.stock}}">
+                  <view class="goods-item-num-add  {{item.skuNum <= item.buyNum ? 'disabled' : '' }}" bindtap="updateGoodsNum" data-id="{{item.goodsId}}" data-type="add" data-stock="{{item.skuNum}}">
                     <text class="xd xd-plus"></text>
                   </view>
                 </view>
-                <text class="goods-item-num-tips" hidden="{{item.stock > 9}}">仅剩{{item.stock}}件</text>
+                <view class="goods-item-num-tips">
+                  <block wx:if="{{item.skuNum < item.buyNum}}">
+                    最多可购{{item.skuNum}}件
+                  </block>
+                  <block wx:else>
+                    <block wx:if="{{item.skuNum < 9}}">
+                      仅剩{{item.skuNum}}件
+                    </block>
+                  </block>
+                </view>
               </view>
 
               <!--删除-->

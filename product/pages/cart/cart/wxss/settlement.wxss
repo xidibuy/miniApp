@@ -11,13 +11,13 @@
 
 .settlement-bar .settlement-left {
   flex-grow: 1;
-  border-top: 1px solid #d9d9d9;
+  border-top: 2rpx solid #d9d9d9;
   display: flex;
 }
 
 .settlement-bar .checkbox-widget {
   width: 154.44rpx;
-  height: 100%;
+  height: 114.66rpx;
   position: relative;
   padding-left: 23.4rpx;
   display: flex;
@@ -26,6 +26,7 @@
 
 .settlement-bar .checkbox-widget .xd {
   font-size: 46.8rpx;
+  color: #c5c5c5;
 }
 
 .settlement-bar .checkbox-widget .xd-checked {

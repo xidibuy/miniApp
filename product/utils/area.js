@@ -62,6 +62,18 @@ for (var i = 0; i < tempCities.length; i++) {
 // 	}
 // 	return result
 // }
+// 过滤港澳台
+tempProvinces = tempProvinces.filter(function(item){
+	if(item.id == 420000 || item.id == 430000 || item.id == 440000){
+		return false
+	}else{
+		return true
+	}
+})
+
+
+
+
 
 module.exports = {
 	// search,

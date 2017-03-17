@@ -1,66 +1,79 @@
-<view class="container">
-  <view class="goods-list">
+<view class="container" hidden="{{netWorkState === 'none'}}">
+  <view class="goods-list" wx:if="{{list.length}}">
     <block wx:for="{{list}}" wx:key="{{item.goodsId}}">
       <view class="goods-item">
-          <!--左侧 失效-->
-          <view class="invalid-title">失效</view>
-          <!--右侧 商品详情-->
-          <view class="goods-item-detail">
 
-            <!--商品图片-->
-            <navigator url="" class="goods-item-image">
-              <image src="{{item.coverImg}}"></image>
-            </navigator>
+        <!--左侧 失效-->
+        <view class="invalid-title">失效</view>
 
-            <!--商品信息-->
-            <view class="goods-item-info">
+        <!--右侧 商品详情-->
+        <view class="goods-item-detail">
 
-              <!--第一行-->
-              <view class="goods-item-info-row">
+          <!--商品图片-->
+          <navigator url="" class="goods-item-image">
+            <image src="{{item.coverImg}}"></image>
+          </navigator>
 
-                <!--商品标题-->
-                <navigator url="" class="goods-item-title">{{item.name}}</navigator>
+          <!--商品信息-->
+          <view class="goods-item-info">
 
-                <!--商品价格-->
-                <view class="goods-item-price">¥{{item.total}}</view>
-              </view>
+            <!--第一行-->
+            <view class="goods-item-info-row">
 
-              <!--第二行-->
-              <view class="goods-item-attr-box">
+              <!--商品标题-->
+              <navigator url="" class="goods-item-title">{{item.name}}</navigator>
 
-                <!--商品属性-->
-                <block wx:for="{{item.priceAttr}}" wx:key="{{item.type}}">
-                  <text class="goods-item-info-attr">{{item.pValue}}</text>
-                </block>
-              </view>
+              <!--商品价格-->
+              <view class="goods-item-price">¥{{item.total}}</view>
+            </view>
 
-              <!--第三行-->
-              <view class="goods-item-info-row third">
+            <!--第二行-->
+            <view class="goods-item-attr-box">
 
-                <!--库存-->
-                <view class="goods-item-num-box">
-                  <view class="goods-item-num">
-                    <view class="goods-item-num-reduce disabled">
-                      <text class="xd xd-minus"></text>
-                    </view>
-                    <view class="goods-item-num-input">
-                      <input placeholder="" value="{{item.buyNum}}" disabled="{{true}}" />
-                    </view>
-                    <view class="goods-item-num-add  disabled">
-                      <text class="xd xd-plus"></text>
-                    </view>
+              <!--商品属性-->
+              <block wx:for="{{item.priceAttr}}" wx:key="{{item.type}}">
+                <text class="goods-item-info-attr">{{item.pValue}}</text>
+              </block>
+            </view>
+
+            <!--第三行-->
+            <view class="goods-item-info-row third">
+
+              <!--库存-->
+              <view class="goods-item-num-box">
+                <view class="goods-item-num">
+                  <view class="goods-item-num-reduce disabled">
+                    <text class="xd xd-minus"></text>
                   </view>
-                  <text class="goods-item-num-tips">{{item.isShelved == -1 ? '商品已下架' : (item.stock == 0 && '商品已售完')}}</text>
+                  <view class="goods-item-num-input">
+                    <input placeholder="" value="{{item.buyNum}}" disabled="{{true}}" />
+                  </view>
+                  <view class="goods-item-num-add  disabled">
+                    <text class="xd xd-plus"></text>
+                  </view>
                 </view>
+                <text class="goods-item-num-tips">{{item.isShelved == -1 ? '商品已下架' : (item.stock == 0 ? '商品已售完' : '商品已删除')}}</text>
+              </view>
 
-                <!--删除-->
-                <view class="goods-item-delete" bindtap="deleteCart" data-id="{{item.goodsId}}" data-num="{{item.buyNum}}">
-                  <text class="xd xd-trash"></text>
-                </view>
+              <!--删除-->
+              <view class="goods-item-delete" bindtap="deleteCart" data-id="{{item.goodsId}}" data-num="{{item.buyNum}}">
+                <text class="xd xd-trash"></text>
               </view>
             </view>
           </view>
+        </view>
       </view>
     </block>
+  </view>
+  <view class="has-no-goods" wx:if="{{list.length === 0}}">
+    暂无失效商品
+  </view>
+</view>
+
+<!--无网络提示-->
+<view class="network-tips" hidden="{{netWorkState !== 'none'}}" bindtap="reloadTapEvent">
+  <view class="network-tips-content">
+    <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+    <text>加载失败，点击重新加载</text>
   </view>
 </view>

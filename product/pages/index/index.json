@@ -1,4 +1,6 @@
 {
-    "enablePullDownRefresh":"true",
-    "enablePullDownRefresh":true
+    "navigationBarTitleText": "喜地",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
 }

@@ -1,8 +1,8 @@
-<view class="container">
+<view class="container" hidden="{{loading || netWorkState === 'none'}}">
   <view class="list">
     <view class="question">
       <text class="title">1.喜地的商品都是正品吗？</text>
-      <text class="content">喜地电子商城所售商品均由欧美原产工厂直 供，经完全封闭的正规渠道到达海客手中。 给您原汁原味的选择，比当地价更低的价格， 更自由的全球生活。
+      <text class="content">喜地电子商城所售商品均由欧美原产工厂直供，经完全封闭的正规渠道到达海客手中。给您原汁原味的选择，比当地价更低的价格，更自由的全球生活。
       </text>
     </view>
     <view class="question">
@@ -11,27 +11,35 @@
     </view>
     <view class="question">
       <text class="title">3.如何免运费？</text>
-      <text class="content">对于单笔订单所购商品总价金额（不含运费） 大于或等于98元，我们提供一次免费送货服务。
+      <text class="content">对于单笔订单所购商品总价金额（不含运费）大于或等于{{money}}元，我们提供一次免费送货服务。
       </text>
     </view>
     <view class="question">
       <text class="title">4.小程序如何退货/退款？</text>
-      <text class="content">很抱歉，目前小程序暂时不支持退货/退款，您 可以通过第三方微信登录喜地官网进行在线申请 退货/退款。给您带来的不便，请谅解。
+      <text class="content">很抱歉，目前小程序暂时不支持退货/退款，您可以通过第三方微信登录喜地官网进行在线申请退货/退款。给您带来的不便，请谅解。
       </text>
     </view>
     <view class="question">
       <text class="title">5.客服的联系方式是什么？</text>
-      <text class="content">您可以通过电话联系客服。 客服电话：4000066200 周一至周六9：-18:00仅收市话费
+      <text class="content">您可以通过电话联系客服。客服电话：021-38473528 周一至周六9:00：-18:00仅收市话费
       </text>
     </view>
     <view class="question">
-      <text class="title">6.优惠劵/现金劵如何使用？</text>
-      <text class="content">很抱歉，目前小程序上暂不支持使用现金卷/优惠劵。您可以通过第三方微信登录喜地官网使用。</text>
+      <text class="title">6.商品券/现金劵如何使用？</text>
+      <text class="content">很抱歉，目前小程序上暂不支持使用现金券/商品券。您可以通过第三方微信登录喜地官网使用。</text>
     </view>
     <view class="question">
       <text class="title">7.小程序如何进行订单的评价操作？</text>
-      <text class="content">很抱歉，目前小程序上暂不支持评价订单，感谢 你对喜地商品的支持。您可以通过第三方微信登 录喜地官网进行相关商品的评价。
+      <text class="content">很抱歉，目前小程序上暂不支持评价订单，感谢你对喜地商品的支持。您可以通过第三方微信登录喜地官网进行相关商品的评价。
       </text>
     </view>
+  </view>
+</view>
+
+<!--无网络提示-->
+<view class="network-tips" hidden="{{netWorkState !== 'none'}}" bindtap="reloadTapEvent">
+  <view class="network-tips-content">
+    <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+    <text>加载失败，点击重新加载</text>
   </view>
 </view>

@@ -5,8 +5,8 @@
 
     <!--全选按钮-->
     <checkbox-group bindchange="totalToggleChecked" class="checkbox-widget">
-      <text class="xd {{totalCheck ? 'xd-checked' : 'xd-circle'}}"></text>
-      <text class="checkbox-word">全选</text>
+      <view class="xd {{totalCheck ? 'xd-checked' : 'xd-circle'}}"></view>
+      <view class="checkbox-word">全选</view>
       <checkbox value="" class="checkbox" checked="{{totalCheck}}" />
     </checkbox-group>
 

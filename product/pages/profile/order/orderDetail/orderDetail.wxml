@@ -1,190 +1,181 @@
-<view class="container" style="{{(status == 1 || status == 2) ? 'padding-bottom:0' : ''}}">
-  <view class="details">
+<view class="container" hidden="{{loading || netWorkState === 'none'}}">
+  <block wx:if="{{hide == true}}">
+    <view class="details">
 
-    <!-- 订单状态 -->
-    <view class="status make-space">
+      <!-- 订单状态 -->
+      <view class="status">
 
-      <!--状态标题-->
-      <view class="title">
-        <view wx:if="{{status == 0 || status == 6}}">
-          <text class="xd xd-warning"></text>
-        </view>
-        <view wx:if="{{status == 11}}">
-          <text class="xd xd-closed-state"></text>
-        </view>
-        <view wx:if="{{status == 1 || status == 2 || status == 3 || status == 4 || status == 5 || status == 10 || status == 12}}">
-          <text class="xd xd-checked"></text>
-        </view>
-        <text class="status-title">
-          <block wx:if="{{status == 0}}">等待付款</block>
-          <block wx:if="{{status == 1}}">买家已付款</block>
-          <block wx:if="{{status == 2}}">配货中</block>
-          <block wx:if="{{status == 3}}">已发货</block>
-          <block wx:if="{{status == 4}}">等待买家收货</block>
-          <block wx:if="{{status == 5}}">已送达</block>
-          <block wx:if="{{status == 6}}">退款中的订单</block>
-          <block wx:if="{{status == 10}}">交易结束</block>
-          <block wx:if="{{status == 11}}">交易关闭</block>
-          <block wx:if="{{status == 10}}">交易成功</block>
-        </text>
-      </view>
-
-      <!--状态文案-->
-      <view class="word">
-        <text>订单号: {{orderDetail.basic.pinfo.orderParentId}}</text>
-        <block wx:if="{{status == 0}}">
-          <view>请于
-            <text class="countdown">{{time}}</text> 内付款。若未及时付款，系统将自动取消订单</view>
-        </block>
-      </view>
-    </view>
-
-    <!--物流信息-->
-
-    <!--需用数据判断物流状态-->
-    <block wx:if="{{status == 3 ||status == 4 ||status == 5}}">
-      <navigator url=" {{'/pages/profile/order/logistics/logistics?id=' + orderDetail.basic.pinfo.orderParentId}}">
-        <view class="logis make-space">
-          <view class="logis-car">
-            <text class="xd xd-logistics"></text>
+        <!--状态标题-->
+        <view class="title">
+          <view wx:if="{{status == 0 || status == 13}}" class="icon-status">
+            <text class="xd xd-warning"></text>
           </view>
-          <view class="logis-word">
-            <text class="word-status ellip-lines ">{{orderDetail.basic.express.process}}</text>
-            <view class="time">{{orderDetail.basic.express.time}}</view>
+          <view wx:if="{{status == 11 || status == -1}}" class="icon-status">
+            <text class="xd xd-closed-state"></text>
           </view>
-          <view class="arrow">
-            <text class="xd xd-right-angle"></text>
+          <view wx:if="{{status == 1 || status == 2 || status == 3 || status == 4 || status == 5 || status == 10 || status == 12}}" class="icon-status">
+            <text class="xd xd-checked"></text>
           </view>
+          <text class="status-title" wx:if="{{status == 0 || status == 11}}">{{orderDetail.basic.pinfo.orderStatusProgressName}}</text>
+          <text class="status-title" wx:else>{{orderDetail.subOrderList[0].orderStatusProgressName}}</text>
         </view>
-      </navigator>
-    </block>
 
-    <!--收货人设置-->
-    <view class="receipt make-space">
-      <view class="receipt-box">
-        <text class="receipt-title">收货人: {{orderDetail.basic.address.consignee}} {{orderDetail.basic.address.mobile}}</text>
-        <text class="receipt-desi ellip-lines">{{orderDetail.basic.address.addressInfo}}</text>
-      </view>
-      <view class="receipt-box">
-        <text class="receipt-title receipt-name ellip-lines">发票信息: {{orderDetail.basic.invoice.head == 0 ? '不开票' : orderDetail.basic.invoice.headContent}}</text>
-        <text class="receipt-desi">{{orderDetail.basic.pinfo.orderTime}}</text>
-      </view>
-    </view>
-    <block wx:for="{{orderDetail.subOrderList}}" wx:key="*this">
-
-      <!--购物清单-->
-      <view class="pro-list make-space">
-        <view class="pro-title">
-          <text class="title-word">购物清单</text>
-          <text class="title-num">{{item.goodsNum}}件</text>
-        </view>
-        <view class="product">
-          <block wx:for="{{item.goodsList}}" wx:key="*this" wx:for-item="single">
-            <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + single.id}}">
-              <view class="product-single">
-
-                <!--清单图片-->
-                <view class="pro-img">
-                  <image src="{{single.attrImg}}"></image>
-                </view>
-
-                <!--清单详情-->
-                <view class="pro-detail">
-                  <view class="product-name-box">
-                    <text class="product-name ellip-lines">{{single.name}}</text>
-                    <text class="product-attr">
-                      <block wx:for="{{single.priceAttr}}" wx:key="*this" wx:for-item="attr">
-                        <text class="">{{attr.curChildren}}</text>
-                      </block>
-                    </text>
-                  </view>
-                  <view class="product-price">
-                    <text class="price">¥ {{single.price}}</text>
-                    <text class="num">x{{single.quantity}}</text>
-                  </view>
-                </view>
-              </view>
-            </navigator>
+        <!--状态文案-->
+        <view class="word">
+          <text>订单号: {{orderId}}</text>
+          <block wx:if="{{status == 0}}">
+            <view>请于
+              <text class="countdown">{{time}}</text> 内付款。若未及时付款，系统将自动取消订单</view>
           </block>
         </view>
       </view>
+      <view class="division-line"></view>
+
+      <!--物流信息-->
+
+      <!--需用数据判断物流状态-->
+      <block wx:if="{{status == 3 ||status == 4 || status == 5 || status == 12 || status == 13}}">
+        <navigator url="{{'/pages/profile/order/logistics/logistics?id=' + orderDetail.basic.pinfo.orderParentId + '&sid=' + orderDetail.subOrderList[0].orderSn}}">
+          <view class="logis">
+            <view class="logis-car">
+              <text class="xd xd-logistics"></text>
+            </view>
+            <view class="logis-word">
+              <block wx:if="{{orderDetail.basic.express.process != ''}}">
+                <text class="word-status ellip-lines">{{orderDetail.basic.express.process}}</text>
+              </block>
+              <block wx:else>
+                <text class="word-status">无物流信息</text>
+              </block>
+              <view class="time">{{orderDetail.basic.express.time}}</view>
+            </view>
+            <block wx:if="{{orderDetail.basic.express.process != ''}}">
+              <view class="arrow">
+                <text class="xd xd-right-angle"></text>
+              </view>
+            </block>
+          </view>
+        </navigator>
+        <view class="division-line"></view>
+      </block>
+
+      <!--收货人设置-->
+      <view class="receipt">
+        <view class="receipt-box">
+          <text class="receipt-title">收货人: {{orderDetail.basic.address.consignee}} {{orderDetail.basic.address.mobile}}</text>
+          <text class="receipt-desi ellip-lines">{{orderDetail.basic.address.addressInfo}}</text>
+        </view>
+        <view class="receipt-box">
+          <text class="receipt-title receipt-name ellip-lines">发票信息: {{orderDetail.basic.invoice.head == 0 ? '不开票' : orderDetail.basic.invoice.headContent}}</text>
+          <text class="receipt-desi">{{orderDetail.basic.pinfo.timeFmt}}</text>
+        </view>
+      </view>
+      <view class="division-line"></view>
+
+      <!--购物清单-->
+      <view class="pro-list">
+        <view class="pro-title">
+          <text class="title-word">购物清单</text>
+          <text class="title-num">{{orderDetail.subOrderListNum}}件</text>
+        </view>
+        <block wx:for="{{orderDetail.subOrderList}}" wx:key="*this">
+          <view class="product">
+            <block wx:for="{{item.goodsList}}" wx:key="*this" wx:for-item="single">
+              <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + single.id}}">
+                <view class="product-single">
+
+                  <!--清单图片-->
+                  <view class="pro-img">
+                    <image src="{{single.attrImg}}"></image>
+                  </view>
+
+                  <!--清单详情-->
+                  <view class="pro-detail">
+                    <view class="product-name-box">
+                      <text class="product-name ellip-lines">{{single.name}}</text>
+                      <view class="product-attr ellip-line">
+                        <block wx:for="{{single.priceAttr}}" wx:key="*this" wx:for-item="attr">
+                          <text class="">{{attr.curChildren}}</text>
+                        </block>
+                      </view>
+                    </view>
+                    <view class="product-price">
+                      <text class="price">¥ {{single.price}}</text>
+                      <text class="num">x{{single.quantity}}</text>
+                    </view>
+                  </view>
+                </view>
+              </navigator>
+            </block>
+          </view>
+        </block>
+      </view>
+      <view class="division-line"></view>
 
       <!--金额计算-->
       <view class="total-mo">
         <view class="money">
           <view class="mo-list">
-            <text>商品总金额 ({{item.goodsNum}}件)</text>
+            <text>商品总金额 ({{orderDetail.subOrderListNum}}件)</text>
             <text>¥{{orderDetail.subOrderListgoodsAmount}}</text>
           </view>
           <view class="mo-list">
             <text>运费({{orderDetail.subOrderListWeight}}Kg)</text>
-            <text>¥{{item.shippingFee}}</text>
+            <text>¥{{orderDetail.basic.pinfo.shippingFee}}</text>
           </view>
           <view class="mo-list">
             <text>优惠</text>
-            <text>- {{orderDetail.basic.pinfo.coupons}}</text>
+            <text>-¥{{orderDetail.basic.pinfo.coupons}}</text>
           </view>
         </view>
         <view class="money-real">
           <text class="real-word">实付金额:</text>
-          <text class="real-mo price">¥ {{orderDetail.basic.pinfo.orderParentAmount}}</text>
+          <text class="real-mo price">¥{{orderDetail.basic.pinfo.orderParentAmount}}</text>
         </view>
       </view>
-    </block>
 
-    <!--按钮-->
+      <!--按钮-->
+      <block wx:if="{{status != 13}}">
 
-    <!--通栏btn-->
-    <block wx:if="{{status == 0}}">
-      <view class="desic-btn">
-        <view class="one-btn">立即支付</view>
-      </view>
-    </block>
-    <block wx:if="{{status == 3}}">
-      <view class="desic-btn">
-        <view class="one-btn">确认收货</view>
-      </view>
-    </block>
-    <block wx:if="{{status == 11 || status == 10}}">
-      <view class="desic-btn">
-        <view class="one-btn">
-          <navigator url="/pages/cart/cart/cart" open-type="switchTab">再次购买</navigator>
-        </view>
-      </view>
-    </block>
-    <block wx:if="{{status == 3}}">
-      <view class="desic-btn">
-        <view class="two-btn">
-          <view class="btn normal-btn">确认收货</view>
-          <view class="btn handle-btn">
-            <navigator url="pages/profile/order/logistics/logistics">查看物流</navigator>
+        <!--通栏btn-->
+        <block wx:if="{{status == 0}}">
+          <view class="desic-btn" bindtap="pay">
+            <view class="one-btn">立即支付</view>
           </view>
-        </view>
-      </view>
-    </block>
-    <block wx:if="{{status == 5}}">
-      <view class="desic-btn">
-        <view class="two-btn">
-          <view class="btn handle-btn">
-            <navigator url="/pages/profile/order/evaluate/evaluate">发表评价</navigator>
+        </block>
+        <block wx:if="{{status == 3 || status == 4}}">
+          <view class="desic-btn">
+            <view class="one-btn" bindtap="sureModal" data-orderSn="{{orderDetail.subOrderList[0].orderSn}}">确认收货</view>
           </view>
-          <view class="btn handle-btn">
-            <navigator url="pages/profile/order/logistics/logistics">查看物流</navigator>
+        </block>
+        <block wx:if="{{status == 11 ||status == -1}}">
+          <view class="desic-btn">
+            <view class="one-btn">
+              <view bindtap="buyAgain" data-orderParentId="{{orderDetail.basic.pinfo.orderParentId}}" open-type="switchTab">再次购买</view>
+            </view>
           </view>
-        </view>
-      </view>
-    </block>
-    <block wx:if="{{status == 12}}">
-      <view class="desic-btn">
-        <view class="two-btn">
-          <view class="btn handle-btn">
-            <navigator url="/pages/profile/order/evaluate/evaluate">发表评价</navigator>
-          </view>
-          <view class="btn normal-btn">
-            <navigator url="">再次购买</navigator>
-          </view>
-        </view>
-      </view>
-    </block>
+        </block>
+        <block wx:if="{{orderDetail.subOrderList[0].commentState  == 2}}">
+          <block wx:if="{{status == 5 || status == 12}}">
+            <view class="desic-btn">
+              <view class="one-btn ">
+                <navigator url="/pages/profile/order/evaluate/evaluate">发表评价</navigator>
+              </view>
+            </view>
+          </block>
+        </block>
+      </block>
+    </view>
+  </block>
+</view>
+<view class="showTip" hidden="{{!showTip}}">
+  <view>{{showTipWord}}</view>
+</view>
+
+<!--无网络提示-->
+<view class="network-tips" hidden="{{netWorkState !== 'none'}}" bindtap="reloadTapEvent">
+  <view class="network-tips-content">
+    <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+    <text>加载失败，点击重新加载</text>
   </view>
 </view>

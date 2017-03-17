@@ -5,7 +5,7 @@
     </view>
     <view class="row">
         <text class="row-title">运费（{{pageData.goodsWeightTotal}}kg）</text>
-        <text class="row-money">¥{{pageData.goodsShippingFee}}</text>
+        <text class="row-money">¥{{way.state == 1 ? "0.00" : pageData.goodsShippingFee}}</text>
     </view>
     <view class="row">
         <text class="row-title">优惠</text>

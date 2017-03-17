@@ -1,6 +1,6 @@
 @import './css/font.wxss';
 
-view, text, label, checkbox-group,input,textarea,picker-view,picker-view-column {
+view, text, label, checkbox-group,input,textarea,picker-view,picker-view-column,navigator {
   box-sizing: border-box;
 }
 
@@ -76,6 +76,7 @@ view, text, label, checkbox-group,input,textarea,picker-view,picker-view-column 
   -webkit-line-clamp: 2;
   font-size: 28.08rpx;
   line-height: 40rpx;
+  min-height: 80rpx;
 }
 
 .item-pro image {
@@ -138,4 +139,55 @@ view, text, label, checkbox-group,input,textarea,picker-view,picker-view-column 
 
 .goIndexGoods .xd-right-angle {
   transform: rotate(270deg);
+}
+
+.showTip{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 3333;
+  width: 100%;
+  height:100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.showTip view{
+  padding: 17.55rpx;
+  line-height: 1.5;
+  font-size: 28.08rpx;
+  background: rgba(0,0,0,0.5);
+  color: #fff;
+  max-width: 80%;
+}
+
+/*无网络提示*/
+
+.network-tips {
+  padding: 50% 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.network-tips-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.network-tips-content image {
+  width: 156.78rpx;
+  height: 166.14rpx;
+  margin-bottom: 66.69rpx;
+}
+
+.network-tips-content text {
+  font-size: 32.76rpx;
+  line-height: 1;
+  color: #888;
 }

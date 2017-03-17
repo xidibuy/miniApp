@@ -58,7 +58,7 @@
 }
 
 .address-box .tips{
-  flex-grow: 1;
+  width:696.15rpx;
   height: 189.54rpx;
   line-height: 189.54rpx;
   padding-left: 35.1rpx;

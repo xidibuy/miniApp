@@ -1,12 +1,12 @@
 
 <!--我的订单-->
 <view class="order">
-  <block wx:if="{{orders}}">
+  <block wx:if="{{orders.length > 0}}">
     <view class="order-list">
       <block wx:for="{{orders}}" wx:key="*this">
         <view class="division-line"></view>
         <view class="order-single">
-          <view bindtap="orderSingle" data-orderParentId="{{item.orderParentId}}">
+          <view bindtap="orderSingle" data-orderParentId="{{item.orderParentId}}" data-infoLink="{{item.infoLink}}">
             <view class="order-state">
               <text class="order-state-time">{{item.orderTime}}</text>
               <text class="order-state-state">{{item.orderStatusName}}</text>
@@ -20,8 +20,11 @@
                   <view class="pro-desic">
                     <view class="pro-desic-title">
                       <text class="title ellip-lines">{{single.goodsName}}</text>
-
-                      <!--<text class="attr">{{item.attr}}</text>-->
+                      <view class="word ellip-line">
+                        <block wx:for="{{single.priceAttr}}" wx:key="*this" wx:for-item="attr">
+                          <text class="attr">{{attr.curChildren}}</text>
+                        </block>
+                      </view>
                     </view>
                     <view class="pro-price">
                       <text class="pro-mo">¥{{single.price}}</text>
@@ -36,7 +39,7 @@
                 <view class="total-num">共 {{item.quantities}} 件</view>
                 <view class="total-mo">
                   <text>合计:</text>
-                  <text class="total-money">¥{{item.goodsAmount}}</text>
+                  <text class="total-money">¥{{item.orderAmount}}</text>
                   <text class="total-include">(含运费:¥{{item.shippingFee}})</text>
                 </view>
               </view>
@@ -47,8 +50,6 @@
           <block wx:if="{{item.btn}}">
             <view class="pro-handle-btn">
 
-              <!--button型 按钮-->
-
               <!--确认收货-->
               <block wx:if="{{item.btn.btnReceive}}">
                 <view class="handle-btn turn-btn">
@@ -56,35 +57,33 @@
                 </view>
               </block>
 
-              <!--立即支付-->
-              <block wx:if="{{item.btn.btnPay}}">
-                <view class="handle-btn turn-btn">
-                  <button>{{item.btn.btnPay.name}}</button>
-                </view>
-              </block>
-
-              <!--链接型按钮-->
-
-              <!--再次购买-->
-              <block wx:if="{{item.btn.btnBuyAgain}}">
-                <view class="handle-link turn-btn" bindtap="buyAgain" data-orderParentId="{{item.orderParentId}}">
-
-                  <!--<navigator url="/pages/cart/cart/cart" open-type="switchTab"></navigator>-->
-                  <view>{{item.btn.btnBuyAgain.name}}</view>
-                </view>
-              </block>
-
               <!--发表评价-->
               <block wx:if="{{item.btn.btnComment}}">
-                <view class="handle-link turn-btn">
-                  <navigator url="/pages/profile/order/evaluate/evaluate">{{item.btn.btnComment.name}}</navigator>
+                <view class="handle-btn turn-btn">
+                  <navigator url="/pages/profile/order/evaluate/evaluate">
+                    <button>{{item.btn.btnComment.name}}</button>
+                  </navigator>
                 </view>
               </block>
 
               <!--查看物流-->
               <block wx:if="{{item.btn.btnExpress}}">
                 <view class="handle-link turn-btn">
-                  <navigator url="{{'/pages/profile/order/logistics/logistics?id=' + item.orderParentId}}">{{item.btn.btnExpress.name}}</navigator>
+                  <navigator url="{{'/pages/profile/order/logistics/logistics?id=' + item.orderParentId + '&sid='+ item.orderSn}}">{{item.btn.btnExpress.name}}</navigator>
+                </view>
+              </block>
+
+              <!--立即支付-->
+              <block wx:if="{{item.btn.btnPay}}">
+                <view class="handle-btn turn-btn" bindtap="pay" data-orderParentId="{{item.orderParentId}}">
+                  <button>{{item.btn.btnPay.name}}</button>
+                </view>
+              </block>
+
+              <!--再次购买-->
+              <block wx:if="{{item.btn.btnBuyAgain}}">
+                <view class="handle-link turn-btn" bindtap="buyAgain" data-orderParentId="{{item.orderParentId}}">
+                  <view>{{item.btn.btnBuyAgain.name}}</view>
                 </view>
               </block>
             </view>
@@ -94,21 +93,19 @@
     </view>
 
     <!--200条的时候显示-->
-    <block wx:if="{{tipShow}}">
-      <view class="division-line"></view>
+    <view class="{{tipShow == true ? 'hide' : ''}}">
+      <view class="division-line "></view>
       <view class="tip-word">您可以登录喜地官网查询更多订单...</view>
-    </block>
+    </view>
   </block>
 
   <!--我的订单为空-->
-  <block wx:else>
-    <view class="empty-box">
-      <view class="empty">
-        <text>暂无相关订单</text>
-      </view>
+  <view class="empty-box {{noOrder == true ? 'hide' : ''}}">
+    <view class="empty">
+      <text>暂无相关订单</text>
     </view>
-  </block>
-  <view class="showTip" wx:if="{{showTip}}">
-    <text>{{showTipWord}}</text>
+  </view>
+  <view class="showTip" hidden="{{!showTip}}">
+    <view>{{showTipWord}}</view>
   </view>
 </view>

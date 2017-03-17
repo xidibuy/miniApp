@@ -25,23 +25,40 @@
 }
 
 .others-box .row-content {
-  width: 480rpx;
-  text-align: right;
+  width: 498rpx;
   font-size: 30.42rpx;
   color: #222;
-  margin-right: 28.08rpx;
+  position: relative;
+  text-align: right;
+  
+}
+.others-box .row-content.ellip-line{
+  padding-right: 23rpx;
 }
 
+
 .others-box .row-content input {
-  width: 100%;
-  height: 100%;
+  width: 475rpx;
+  height: 102.96rpx;
   line-height: 102.96rpx;
   font-size: 30.42rpx;
   color: #222;
+  text-align: left
 }
 
 .others-box .remark .row-content {
-  width: 512rpx;
+  display: flex;
+  flex-grow: 1;
+}
+
+.others-box .remark .row-content input{
+  flex-grow: 1;
+}
+
+.others-box .remark .close-area{
+  margin: 0 11.7rpx 0 23.4rpx;
+  font-size: 35.1rpx;
+  color: #c5c5c5;
 }
 
 .others-box .row-right {
@@ -57,7 +74,6 @@
 
 .others-box .row.way.hideRight .row-content {
   flex-grow: 1;
-  margin-right: 3.5rpx;
 }
 
 .others-box .input-ph {
