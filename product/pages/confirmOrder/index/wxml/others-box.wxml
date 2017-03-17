@@ -22,7 +22,10 @@
   <view class="row remark">
     <text class="row-title">备注</text>
     <view class="row-content">
-      <input type="text" value="{{remark}}" bindinput="remarkInputEvent" placeholder="选填，告诉工厂代表对订单的特殊要求" maxlength="300" placeholder-class="input-ph" />
+      <input type="text" value="{{remark}}" bindinput="remarkInputEvent" placeholder="选填，告诉工厂代表对订单的特殊要求" maxlength="300" placeholder-class="input-ph" bindconfirm="remarkConfirmEvent" bindfocus="remarkFocusEvent" bindblur="remarkFocusEvent" data-name="remark" />
+      <view class="close-area" bindtap="clearRemarkEvent">
+        <view class="xd xd-closed" hidden="{{remarkBlur}}"></view>
+      </view>
     </view>
   </view>
 </view>

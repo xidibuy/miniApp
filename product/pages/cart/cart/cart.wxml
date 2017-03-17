@@ -1,13 +1,16 @@
-<view class="container {{list.length ? 'has-goods' : ''}}" hidden="{{loading}}">
+<view class="container {{list.length ? 'has-goods' : ''}}" hidden="{{loading || netWorkState === 'none'}}">
 
   <!--如果有商品-->
-  <block wx:if="{{list.length || !!unValidNum}}">
+  <block wx:if="{{list.length}}">
 
     <!--满x元免运费提示-->
-    <view class="free-shipping-tips" hidden="{{!list.length || settlementMoney > freeCondition}}">再买{{settlementMoney
-      < freeCondition && (freeCondition-settlementMoney)}}元即享{{freeCondition}}元免运费</view>
 
-        <!--<view class="free-shipping-tips">再买{{freeCondition-settlementMoney}}元即享{{freeCondition}}元免运费</view>-->
+    <!--有勾选-->
+    <view class="free-shipping-tips" hidden="{{settlementNumber == 0 || !list.length || settlementMoney > freeCondition}}">再买{{settlementMoney
+      < freeCondition && gapMoney}}元即享{{freeCondition}}元免运费</view>
+
+        <!--无勾选-->
+        <view class="free-shipping-tips" hidden="{{settlementNumber != 0}}">{{freeDesc}}</view>
 
         <!-- 购物车 已购商品列表 -->
         <include src="wxml/list.wxml" />
@@ -16,21 +19,32 @@
         <include src="wxml/settlement.wxml" />
 
         <!--分割线-->
-        <view class="division-line" hidden="{{!invalidGoodsNum}}"></view>
-
-        <!--失效商品-->
-        <view class="invalid-goods" hidden="{{!unValidNum}}">
-          <navigator class="invalid-goods-navigator" url="/pages/cart/invalid/invalid">
-            <text>另有{{unValidNum}}个商品已失效</text>
-            <text class="xd xd-right-angle"></text>
-          </navigator>
-        </view>
+        <view class="division-line" hidden="{{!unValidSkuNum}}"></view>
   </block>
 
+  <!--失效商品-->
+  <view class="invalid-goods" hidden="{{!unValidSkuNum}}">
+    <navigator class="invalid-goods-navigator" url="/pages/cart/invalid/invalid">
+      <text>另有{{unValidSkuNum}}个商品已失效</text>
+      <text class="xd xd-right-angle"></text>
+    </navigator>
+  </view>
+
   <!--如果购物车为空-->
-  <block wx:else>
+  <block wx:if="{{!list.length}}">
 
     <!-- 购物车为空 -->
     <include src="wxml/null.wxml" />
   </block>
+  <view class="showTip" hidden="{{!showTip}}">
+    <view>{{showTipWord}}</view>
+  </view>
+  </view>
+
+  <!--无网络提示-->
+  <view class="network-tips" hidden="{{netWorkState !== 'none'}}" bindtap="reloadTapEvent">
+    <view class="network-tips-content">
+      <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+      <text>加载失败，点击重新加载</text>
+    </view>
   </view>

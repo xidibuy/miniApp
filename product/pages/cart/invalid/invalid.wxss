@@ -44,7 +44,7 @@
 .goods-item-image image {
   width: 100%;
   height: 100%;
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .goods-item-info {
@@ -144,4 +144,13 @@
   font-size: 35.1rpx;
   line-height: 56.16rpx;
   color: #c8c8c8;
+}
+
+.has-no-goods {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  padding-top: 50%;
+  font-size: 37.44rpx;
+  color: #777;
 }

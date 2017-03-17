@@ -103,6 +103,7 @@
 
 .goods-item-info-row.third {
   margin-top: 12.87rpx;
+  position: relative;
 }
 
 .goods-item-attr-box {
@@ -191,9 +192,15 @@
   line-height: 53.82rpx;
 }
 
+
 .goods-item-delete {
-  width: 35.01rpx;
+  width: 117rpx;
+  height: 117rpx;
+  line-height: 127rpx;
   font-size: 35.1rpx;
-  line-height: 56.16rpx;
   color: #c5c5c5;
+  position: absolute;
+  right: 0;
+  top: -35.1rpx;
+  text-align: right;
 }

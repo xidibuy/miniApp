@@ -1,12 +1,26 @@
-<view class="container {{contentType == 'adress' ? 'make-padding ' : ''}}">
-    <view class="nav">
-        <block wx:for="{{menu}}" wx:key="value">
-            <view class="nav-item {{item.active ? 'active' : ''}}" bindtap="bindMenu" data-name="{{item.value}}">{{item.name}}</view>
-        </block>
+<view class="container {{contentType == 'adress' ? 'make-padding ' : ''}}" hidden="{{netWorkState === 'none'}}">
+  <view class="nav">
+    <block wx:for="{{menu}}" wx:key="value">
+      <view class="nav-item {{item.active ? 'active' : ''}}" bindtap="bindMenu" data-name="{{item.value}}">{{item.name}}</view>
+    </block>
+  </view>
+  <view class="profile-content">
+    <view class="{{contentType == 'order' ? '' : 'hide'}}">
+      <include src="includes/order.wxml" />
     </view>
-    <view class="profile-content">
-        <include wx:if="{{contentType === 'order'}}" src="includes/order.wxml"/>
-        <include wx:if="{{contentType === 'adress'}}" src="includes/adress.wxml"/>
-        <include wx:if="{{contentType === 'more'}}" src="includes/more.wxml"/>   
+    <view class="{{contentType == 'adress' ? '' : 'hide'}}">
+      <include src="includes/adress.wxml" />
     </view>
+    <view class="{{contentType == 'more' ? '' : 'hide'}}">
+      <include src="includes/more.wxml" />
+    </view>
+  </view>
+</view>
+
+<!--无网络提示-->
+<view class="network-tips" hidden="{{netWorkState !== 'none'}}" bindtap="reloadTapEvent">
+  <view class="network-tips-content">
+    <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+    <text>加载失败，点击重新加载</text>
+  </view>
 </view>

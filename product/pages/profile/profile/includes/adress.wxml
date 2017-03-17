@@ -3,13 +3,13 @@
 <view class="adress">
 
   <!--收货地址为空-->
-  <block wx:if="{{adress.length > 0}}">
+  <block wx:if="{{adress}}">
     <view class="adress-list">
-      <block wx:for="{{adress}}" wx:key="index"  wx:for-index="idx">
+      <block wx:for="{{adress}}" wx:key="index" wx:for-index="idx">
         <view class="list-box {{item.status ? 'active' : ''}}">
           <view class="list-cont">
             <view class="cont-contact">
-              <text class="name">{{item.consignee}}</text>
+              <text class="name" data-origin="{{item.consignee}}">{{item.consigneeCut}}</text>
               <text class="mobile">{{item.mobile}}</text>
               <block wx:if="{{item.status == 1}}">
                 <text class="default">默认</text>
@@ -27,11 +27,9 @@
       </block>
     </view>
   </block>
-  <block wx:else>
-    <view class="empty">
-      <text>暂无收货地址</text>
-    </view>
-  </block>
+  <view class="empty {{adressNull == true ? 'hide' : ''}}">
+    <text>暂无收货地址</text>
+  </view>
 
   <!--新增地址按钮(保持固定吸底)-->
   <view class="addAdress-btn">

@@ -1,4 +1,5 @@
 const app = getApp();
+const url = app.globalData.dataRemote;
 const Prov = require('../../../../utils/area.js').prov;
 Page({
   data: {
@@ -6,21 +7,35 @@ Page({
     areaPickerViewHidden: false,
     type: '',
     showTip: false,
-    showTipWord: ''
+    showTipWord: '',
+    consigneeBlur: true,
+    mobileBlur: true,
+    addressBlur: true,
+    zipcodeBlur: true
   },
 
   onLoad: function () {
     let self = this;
+    wx.showToast({
+      title: '加载中',
+      mask: true,
+      icon: 'loading',
+      duration: 10 * 1000
+    });
     wx.getStorage({
       key: 'editAdressTemp',
       // 编辑地址
       success: function (res) {
         wx.removeStorageSync('editAdressTemp');
         let info = res.data;
-        self.setData({
-          info,
-          type: 'edit'
-        });
+        setTimeout(() => {
+          self.setData({
+            info,
+            type: 'edit'
+          });
+          wx.hideToast();
+        }, 300)
+
         wx.setNavigationBarTitle({
           title: '编辑地址'
         });
@@ -28,6 +43,7 @@ Page({
       },
       // 新增地址
       fail(res) {
+        wx.hideToast();
         self.setData({
           type: 'add',
           info: {}
@@ -157,7 +173,10 @@ Page({
   },
   consigneeInputEvent(e) {
     let self = this;
-    if (self.strLength(e.detail.value) >= 21) {
+    self.setData({
+      consigneeBlur: e.detail.value == ""
+    });
+    if (self.strLength(e.detail.value) >= 51) {
       self.setData({
         'info.consignee': self.data.info.consignee
       })
@@ -166,10 +185,12 @@ Page({
         'info.consignee': e.detail.value
       })
     }
-
   },
   mobileInputEvent(e) {
     let self = this;
+    self.setData({
+      mobileBlur: e.detail.value == ""
+    });
     if (self.strLength(e.detail.value) >= 12) {
       self.setData({
         'info.mobile': self.data.info.mobile
@@ -179,12 +200,13 @@ Page({
         'info.mobile': e.detail.value
       })
     }
-
-
   },
   addressInputEvent(e) {
     let self = this;
-    if (self.strLength(e.detail.value) >= 201) {
+    self.setData({
+      addressBlur: e.detail.value == ""
+    });
+    if (self.strLength(e.detail.value) >= 241) {
       self.setData({
         'info.address': self.data.info.address
       })
@@ -193,10 +215,12 @@ Page({
         'info.address': e.detail.value
       })
     }
-
   },
   zipcodeInputEvent(e) {
     let self = this;
+    self.setData({
+      zipcodeBlur: e.detail.value == ""
+    });
     if (self.strLength(e.detail.value) >= 7) {
       self.setData({
         'info.zipcode': self.data.info.zipcode
@@ -206,26 +230,13 @@ Page({
         'info.zipcode': e.detail.value
       })
     }
-
   },
   setDefaultEvent(e) {
     this.setData({
       'info.status': Number(e.detail.value)
     })
   },
-  showTip(con) {
-    let _this = this;
-    this.setData({
-      showTip: true,
-      showTipWord: con
-    }),
-      setTimeout(function () {
-        _this.setData({
-          showTip: false,
-          showTipWord: ''
-        })
-      }, 2000)
-  },
+
   strLength(str) {
     if (str != '' && str != undefined) {
       let aMatch = str.match(/[^\x00-\x80]/g),
@@ -236,14 +247,14 @@ Page({
   consigneeCheck(val) {
     let self = this;
     if (self.strLength(val)) {
-      if (self.strLength(val) >= 21) {
-        self.showTip('请填写正确的收货人姓名');
+      if (self.strLength(val) > 50) {
+        app.showTip(self, '请填写正确的收货人姓名');
         return false;
       } else {
         return true;
       }
     } else {
-      self.showTip('请填写收货人');
+      app.showTip(self, '请填写收货人');
       return false;
     }
   },
@@ -251,13 +262,13 @@ Page({
     let self = this;
     if (val) {
       if (!(/^1[3|4|5|7|8]\d{9}$/.test(val))) {
-        self.showTip('请填写正确的手机号码');
+        app.showTip(self, '请填写正确的手机号码');
         return false
       } else {
         return true;
       }
     } else {
-      self.showTip('请填写手机');
+      app.showTip(self, '请填写手机');
       return false;
     }
   },
@@ -265,22 +276,19 @@ Page({
     let self = this;
     if (self.strLength(val)) {
       if (/^\d+$/.test(val)) {
-        self.showTip('不能是纯数字');
+        app.showTip(self, '不能是纯数字');
         return false;
       } else if (/^([a-zA-Z]+)$/.test(val)) {
-        self.showTip('不能是纯字母');
+        app.showTip(self, '不能是纯字母');
         return false;
-      } else if (self.strLength(val) >= 201 || self.strLength(val) <= 7) {
-        if (self.strLength(val) >= 201 || self.strLength(val) <= 7) {
-          self.showTip('请填写正确的收货人详细地址');
-          return false;
-        } else {
-          return true;
-        }
+      } else if (self.strLength(val) > 120 || self.strLength(val) < 5) {
+        app.showTip(self, '5-120个字符以内');
+        return false;
+      } else {
+        return true;
       }
-      return true;
     } else {
-      self.showTip('请填写收货人详细地址');
+      app.showTip(self, '请填写收货人详细地址');
       return false;
     }
   },
@@ -288,7 +296,7 @@ Page({
     let self = this;
     if (val) {
       if (!/^[0-9]{6}$/.test(val)) {
-         self.showTip('请填写正确的邮政编码');
+        app.showTip(self, '请填写正确的邮政编码');
         return false
       } else {
         return true;
@@ -300,7 +308,7 @@ Page({
   pnameCheck(val) {
     let self = this;
     if (val == undefined || val == '') {
-      self.showTip('请填写省市区');
+      app.showTip(self, '请填写省市区');
       return false;
     } else {
       return true;
@@ -316,35 +324,23 @@ Page({
     let status = (typeof info.status == 'undefined') ? '' : info.status;
     let pname = info.pname;
     if (self.consigneeCheck(consignee) && self.mobileCheck(mobile) && self.pnameCheck(pname) && self.adressCheck(address) && self.zipcodeCheck(zipcode)) {
+      wx.showToast({
+        title: '加载中',
+        mask: true,
+        icon: 'loading',
+        duration: 10 * 1000
+      });
       app.postApi(app.globalData.dataRemote + 'address/save', info, function (res) {
+        wx.hideToast();
         if (res.code == 0) {
           wx.switchTab({
-            url: '/pages/profile/profile/profile',
-            success: function () {
-              self.setData({
-                contentType: "adress",
-                menu: [
-                  {
-                    name: "我的订单",
-                    value: "order",
-                    active: false
-                  }, {
-                    name: "收货地址",
-                    value: "adress",
-                    active: true
-                  }, {
-                    name: "更多设置",
-                    value: "more",
-                    active: false
-                  }
-                ]
-              })
-            }
+            url: '/pages/profile/profile/profile'
           })
+        } else {
+          app.showTip(self, res.msg);
         }
       })
     }
-
   },
   removeAddressEvent() {
     let self = this;
@@ -357,34 +353,14 @@ Page({
           app.postApi(app.globalData.dataRemote + 'address/delete', {
             aid
           }, function (res) {
-            console.log(res)
             if (res.code == 0) {
               wx.switchTab({
-                url: '/pages/profile/profile/profile',
-                success: function () {
-                  self.setData({
-                    contentType: "adress",
-                    menu: [
-                      {
-                        name: "我的订单",
-                        value: "order",
-                        active: false
-                      }, {
-                        name: "收货地址",
-                        value: "adress",
-                        active: true
-                      }, {
-                        name: "更多设置",
-                        value: "more",
-                        active: false
-                      }
-                    ]
-                  })
-                }
+                url: '/pages/profile/profile/profile'
               })
+            } else {
+              app.showTip(self, res.msg);
             }
           })
-
         }
       }
     })
@@ -412,6 +388,61 @@ Page({
       case 'zipcode':
         self.setData({
           'info.zipcode': ''
+        });
+        break;
+    }
+  },
+  elementFocusEvent(e) {
+    let self = this;
+    let content = e.currentTarget.dataset.index;
+    if (e.detail.value != "") {
+      switch (content) {
+        case 'consignee':
+          self.setData({
+            consigneeBlur: false
+          });
+          break;
+        case 'mobile':
+          self.setData({
+            mobileBlur: false
+          });
+          break;
+        case 'address':
+          self.setData({
+            addressBlur: false
+          });
+          break;
+        case 'zipcode':
+          self.setData({
+            zipcodeBlur: false
+          });
+          break;
+      }
+    }
+
+  },
+  elementBlurEvent(e) {
+    let self = this;
+    let content = e.currentTarget.dataset.index;
+    switch (content) {
+      case 'consignee':
+        self.setData({
+          consigneeBlur: true
+        });
+        break;
+      case 'mobile':
+        self.setData({
+          mobileBlur: true
+        });
+        break;
+      case 'address':
+        self.setData({
+          addressBlur: true
+        });
+        break;
+      case 'zipcode':
+        self.setData({
+          zipcodeBlur: true
         });
         break;
     }

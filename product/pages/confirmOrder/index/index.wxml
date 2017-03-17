@@ -1,33 +1,40 @@
-<view class="container">
+<view class="container" bindtap="tapContainerEvent">
 
-<scroll-view scroll-y="true">
-  <!--地址-->
-  <include src="wxml/address.wxml" />
 
-  <!--分割线-->
-  <view class="division-line"></view>
+  <view class="showTip" hidden="{{!showTip}}">
+    <view>{{showTipWord}}</view>
+  </view>
 
-  <!--商品-->
-  <include src="wxml/goods-list.wxml" />
+  <!--content-->
+  <scroll-view scroll-y="true">
 
-  <!--分割线-->
-  <view class="division-line"></view>
+    <!--地址-->
+    <include src="wxml/address.wxml" />
 
-  <!--送货方式、发票信息、备注-->
-  <include src="wxml/others-box.wxml" />
+    <!--分割线-->
+    <view class="division-line"></view>
 
-  <!--分割线-->
-  <view class="division-line"></view>
+    <!--商品-->
+    <include src="wxml/goods-list.wxml" />
 
-  <!--金额单-->
-  <include src="wxml/bill-box.wxml" />
-</scroll-view>
+    <!--分割线-->
+    <view class="division-line"></view>
+
+    <!--送货方式、发票信息、备注-->
+    <include src="wxml/others-box.wxml" />
+
+    <!--分割线-->
+    <view class="division-line"></view>
+
+    <!--金额单-->
+    <include src="wxml/bill-box.wxml" />
+  </scroll-view>
 
   <!--bottom-bar-->
   <view class="bottom-bar">
     <view class="bottom-bar-left">
-      应付金额：<text class="amount">¥{{amount}}</text>
+      应付金额:<text class="amount">¥{{amount}}</text>
     </view>
-    <view class="bottom-bar-right" bindtap="submitOrder">提交订单</view>
+    <view class="bottom-bar-right" bindtap="submitOrder">立即支付</view>
   </view>
 </view>

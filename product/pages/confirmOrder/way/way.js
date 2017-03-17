@@ -1,28 +1,35 @@
 // pages/confirmOrder/way/way.js
 Page({
-  data:{
+  data: {
     mentioningAddress: 0
   },
-  onLoad:function(options){
-    // 页面初始化 options为页面跳转所带来的参数
+  onLoad: function (options) {
+    let self = this;
+    let obj = wx.getStorageSync('from_order_to_way_temp');
+    wx.removeStorageSync('from_order_to_way_temp');
+    self.setData({
+      freeCondition: obj.freeCondition,
+      goodsShippingFee: obj.goodsShippingFee,
+      mentioningAddress: obj.type
+    })
   },
-  chooseNormalEvent(){
+  chooseNormalEvent() {
     this.setData({
       mentioningAddress: 0
     })
   },
-  chooseSelfEvent(){
+  chooseSelfEvent() {
     this.setData({
-      mentioningAddress:1
+      mentioningAddress: 1
     })
   },
-  confirmEvent(){
+  confirmEvent() {
     wx.setStorage({
       key: 'wayToOrderTemp',
       data: this.data.mentioningAddress,
-      success: function(res){
-        wx.navigateTo({
-          url: '/pages/confirmOrder/index/index'
+      success: function (res) {
+        wx.navigateBack({
+          delta: 1
         })
       }
     })

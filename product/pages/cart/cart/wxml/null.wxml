@@ -1,6 +1,6 @@
-<view class="cart-null">
-    <image src="{{emptyCartImg}}" class="cart-null-img"></image>
-    <view class="null-tip">您的购物车中没有商品</view>
-    <view class="null-fun">快去添加点什么吧~</view>
-    <navigator url="/pages/index/index" class="go-index" open-type="switchTab">去逛逛</navigator>
-  </view>
+<view class="cart-null {{unValidNum ? 'margin-top' : ''}}">
+      <image src="{{emptyCartImg}}" class="cart-null-img"></image>
+      <view class="null-tip">您的购物车中没有商品</view>
+      <view class="null-fun">快去添加点什么吧~</view>
+      <navigator url="/pages/index/index" class="go-index" open-type="switchTab">去逛逛</navigator>
+    </view>

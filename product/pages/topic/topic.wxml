@@ -1,4 +1,4 @@
-<view class="container">
+<view class="container" hidden="{{netWorkState === 'none'}}">
   <image class="masthead" src="{{imgBanner}}"></image>
   <block wx:for="{{topic.moduleContent}}" wx:key="*this">
     <block wx:if="{{item.type == 1}}">
@@ -19,10 +19,10 @@
           <view class="item-pro">
             <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.id + '&relateprodSn=' + item.prodSn}}" open-type="navigate" class="item-box">
               <image src="{{item.coverImg}}"></image>
-              <text class="name">{{item.name}}</text>
-              <text class="price">{{item.price}}</text>
+              <text class="name ellip-lines">{{item.name}}</text>
+              <text class="price">¥{{item.price}}</text>
               <view class="local-price">当地价：
-                <text>{{item.localPrice}}</text>
+                <text>¥{{item.localPrice}}</text>
               </view>
             </navigator>
           </view>
@@ -35,10 +35,10 @@
           <view class="item-pro">
             <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.id + '&relateprodSn=' + item.prodSn}}" open-type="navigate" class="item-box">
               <image src="{{item.coverImg}}"></image>
-              <text class="name">{{item.name}}</text>
-              <text class="price">{{item.price}}</text>
+              <text class="name ellip-lines">{{item.name}}</text>
+              <text class="price">¥{{item.price}}</text>
               <view class="local-price">当地价：
-                <text>{{item.localPrice}}</text>
+                <text>¥{{item.localPrice}}</text>
               </view>
             </navigator>
           </view>
@@ -48,9 +48,17 @@
   </block>
 
   <!--去首页-->
-  <block wx:if="{{share == true}}">
-    <view class="goIndex goIndexGoods">
-      <navigator url="/pages/index/index" open-type="switchTab">首页</navigator>
-    </view>
-  </block>
+
+  <!--去首页-->
+  <view hidden="{{share}}" class="goIndex goIndexGoods" bindtap="goindex">
+    <view>首页</view>
+  </view>
+</view>
+
+<!--无网络提示-->
+<view class="network-tips" hidden="{{netWorkState !== 'none'}}" bindtap="reloadTapEvent">
+  <view class="network-tips-content">
+    <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+    <text>加载失败，点击重新加载</text>
+  </view>
 </view>

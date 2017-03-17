@@ -5,7 +5,7 @@ const url = app.globalData.dataRemote;
 const orderUrl = url + 'order/list';
 // 收货地址请求
 const adressUrl = url + 'address/list';
-
+let timmer;
 Page({
   data: {
     contentType: "order",
@@ -18,7 +18,6 @@ Page({
 
     //more
     more: {},
-
     menu: [
       {
         name: "我的订单",
@@ -36,71 +35,75 @@ Page({
     ],
     // 连续加载
     page: 1,
-    // 是否显示无数据提示语
-    tipShow: false,
-    // 请求返回无数据,显示提示语
-    noOrder: true,
-    // 吸顶提示
-    showTip: false,
-    showTipWord: ''
+    tipShow: true,
   },
-
-  // 下拉刷新
-  onPullDownRefresh: function () {
-    let _this = this;
-    _this.post(orderUrl, function (res) {
-      _this.dealOrder(res);
+  onShow() {
+    this.reloadTapEvent();
+    this.setData({
+      page: 1,
+      freshNone: true,
+      tipShow: true
     });
   },
-  // 吸顶提示
-  showTip(con) {
-    let _this = this;
-    this.setData({
-      showTip: true,
-      showTipWord: con
-    }),
-      setTimeout(function () {
-        _this.setData({
-          showTip: false,
-          showTipWord: ''
-        })
-      }, 2000)
-  },
-  // 触底加载20条
-  onReachBottom: function (options) {
-    let _this = this;
-    let page;
-    if (_this.data.contentType == 'order') {
-      // 200条的限制,请求无结果
-      if (_this.data.orders.length <= 20 && _this.data.noOrder == true) {
-        page = _this.data.page + 1;
-        let addOrderUrl = orderUrl + '?page=' + page;
-        _this.post(addOrderUrl, function (res) {
-          _this.dealOrder(res);
-          _this.setData({
-            page: page
-          });
-        });
+  post: function (postUrl, callback) {
+    const _this = this;
+    wx.showToast({
+      title: '加载中',
+      icon: 'loading',
+      duration: 5000
+    })
+    app.postApi(postUrl, {}, function (res) {
+      if (res.code == 0) {
+        wx.hideToast();
+        callback.length && callback(res);
       } else {
-        _this.setData({
-          tipShow: true
-        });
+        app.showTip(_this, res.msg);
       }
-    }
-
-
+    })
   },
+  reloadTapEvent() {
+    app.netWorkState(this.refreshCurrentPage, this, true);
+  },
+  refreshCurrentPage: function () {
+    let _this = this;
+    let userInfo = wx.getStorageSync('userInfo');
+    _this.setData({
+      more: userInfo
+    });
+    // 初始化订单详情
+    _this.post(orderUrl + '?page=1', function (res) {
+      _this.dealOrder(res);
+    });
+    _this.post(adressUrl, function (res) {
+      _this.dealAdress(res);
+    });
+  },
+
   bindMenu(e) {
-    name = e.target.dataset.name // 获取当前点击的menu值
-    const newMenu = this.data.menu.map((arr, index) => {
+    const _this = this;
+    let name = e.target.dataset.name; // 获取当前点击的menu值
+    const newMenu = _this.data.menu.map((arr, index) => {
       if (arr.value === name) {
         arr.active = true;
       } else {
         arr.active = false
       }
       return arr;
-    })
-    this.setData({
+    });
+    if (name == 'order') {
+      _this.post(orderUrl + '?page=1', function (res) {
+        _this.dealOrder(res);
+      });
+    };
+    if (name == 'adress') {
+      _this.post(adressUrl, function (res) {
+        _this.dealAdress(res);
+      });
+    };
+    if (name == 'more') {
+      wx.hideToast();
+    };
+    _this.setData({
       menu: newMenu,
       contentType: name
     });
@@ -113,52 +116,45 @@ Page({
     var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
     return (Y + M + D)
   },
-  // 处理订单数据
-  dealOrder: function (gRes) {
+  dealAdress: function (gRes) {
     let _this = this;
-    if (gRes.length > 0) {
-      // 处理时间戳
-      for (let i = 0; i < gRes.length; i++) {
-        gRes[i].orderTime = _this.formatTime(gRes[i].orderTime);
-      }
-      this.setData({
-        orders: _this.data.orders.concat(gRes)
+    let adressList = gRes.data;
+    //处理收货人名过长
+    adressList = app.cutOffName(adressList);
+    _this.setData({
+      adress: adressList,
+    });
+    if (gRes.data.length > 0) {
+      _this.setData({
+        adressNull: true
       });
     } else {
       _this.setData({
-        tipShow: true,
+        adressNull: false
+      });
+    }
+  },
+
+  // 处理订单数据
+  dealOrder: function (gRes) {
+    let _this = this;
+    if (gRes.data.length > 0) {
+      // 处理时间戳
+      for (let i = 0; i < gRes.data.length; i++) {
+        gRes.data[i].orderTime = _this.formatTime(gRes.data[i].orderTime);
+      }
+      _this.setData({
+        orders: gRes.data,
+        noOrder: true
+      });
+    } else {
+      _this.setData({
+        orders: gRes.data,
         noOrder: false
       });
     }
   },
-  onLoad: function (options) {
-    const _this = this;
-    this.post(orderUrl + '?page=1', function (res) {
-      _this.dealOrder(res);
-    });
 
-    this.post(adressUrl, function (res) {
-      _this.setData({
-        adress: res
-      });
-    });
-    let userInfo = wx.getStorageSync('userInfo');
-    _this.setData({
-      more: userInfo
-    });
-  },
-  post: function (postUrl, callback) {
-    const _this = this;
-    app.postApi(postUrl, {}, function (res) {
-      if (res.code == 0) {
-        try {
-          callback.length && callback(res.data);
-        } catch (e) {
-          console.log(e);
-        }
-      }
-    })
-  },
   // 确认收货,先弹窗
   sureModal: function (e) {
     var _this = this;
@@ -167,23 +163,56 @@ Page({
       content: '确认已收到货吗?',
       success: function (res) {
         if (res.confirm) {
-          app.postApi(url + 'order/received?orderId=' + orderSn, {}, function (res) {
+          app.fetchApi(url + 'order/received?orderId=' + orderSn, function (res) {
             if (res.code == 0) {
-              _this.onLoad();
-            } else if (res.code == -10207) {
+              _this.refreshCurrentPage();
+            } else {
               wx.showModal({
                 title: '提示',
-                content: res.msg,
-                success: function (res) {
-                  if (res.confirm) { }
-                }
+                content: res.msg
               })
             }
           });
         }
       }
     })
-
+  },
+  // 立即支付
+  pay: function (e) {
+    let _this = this;
+    let orderId = e.currentTarget.dataset.orderparentid;
+    app.postApi(app.globalData.dataRemote + 'weixin/orderinfo', {
+      orderId
+    }, function (resp) {
+      wx.hideToast();
+      if (resp.code == 0) {
+        let payData = resp.data;
+        wx.requestPayment({
+          'timeStamp': payData.timeStamp,
+          'nonceStr': payData.nonceStr,
+          'package': payData.package,
+          'signType': payData.signType,
+          'paySign': payData.paySign,
+          'success': function (respon) {
+            wx.redirectTo({
+              url: '/pages/confirmOrder/success/success?orderId=' + orderId
+            })
+          },
+          'fail': function (respon) {
+            //取消支付 跳转到订单详情页
+            if (respon.errMsg != "requestPayment:fail cancel") {
+              app.showTip(_this, respon.errMsg)
+            }
+          }
+        })
+      } else {
+        wx.showModal({
+          title: '提示',
+          showCancel: false,
+          content: resp.msg
+        })
+      }
+    });
   },
   // 再次购买
   buyAgain: function (e) {
@@ -194,17 +223,15 @@ Page({
         wx.showToast({
           title: '再次购买成功',
           icon: 'success',
-          duration: 2000
+          duration: 2000,
+          success: function () {
+            wx.switchTab({
+              url: '/pages/cart/cart/cart'
+            })
+          }
         })
-      } else if (res.code == -10207) {
-        _this.showTip(res.msg);
-        // wx.showModal({
-        //   title: '提示',
-        //   content: res.msg,
-        //   success: function (res) {
-        //     if (res.confirm) { }
-        //   }
-        // })
+      } else {
+        app.showTip(_this, res.msg);
       }
     });
   },
@@ -216,31 +243,63 @@ Page({
     let idx = e.currentTarget.dataset.index;
     let editAdressTemp = self.data.adress[idx];
     wx.setStorageSync('editAdressTemp', editAdressTemp);
-
-    // 跳转
     wx.navigateTo({
       url: '/pages/profile/address/edit/edit'
     })
   },
   // 新增地址
   goToAddAddressEvent() {
-
-    // 跳转
     wx.navigateTo({
       url: '/pages/profile/address/edit/edit'
     })
   },
+  // 进入详情页
   orderSingle(e) {
-    let orderparentid = e.currentTarget.dataset.orderparentid;
-    // 跳转
+    let infolink = e.currentTarget.dataset.infolink;
     wx.navigateTo({
-      url: '/pages/profile/order/orderDetail/orderDetail?orderId=' + orderparentid,
-      success: function (res) {
-        console.log("数据成功");
-      },
-      fail: function (res) {
-        console.log("数据失败");
-      }
+      url: '/pages/profile/order/orderDetail/orderDetail?' + infolink
     })
-  }
+  },
+  // 触底加载20条
+  onReachBottom: function (options) {
+    let _this = this;
+    if (_this.data.contentType == 'order' && (_this.data.orders.length) > 0) {
+      // 200条的限制,请求无结果
+      if (_this.data.page < 10) {
+        // freshNone 请求无数据之后怎不在请求
+        if (_this.data.freshNone == true) {
+          let pageNew = _this.data.page + 1;
+          let addOrderUrl = orderUrl + '?page=' + pageNew;
+          if (pageNew != _this.data.page) {
+            timmer && clearInterval(timmer);
+            timmer = setTimeout(function(){
+            _this.post(addOrderUrl, function (res) {
+              _this.setData({
+                page: pageNew
+              });
+              if (res.data.length > 0) {
+                // 处理时间戳
+                for (let i = 0; i < res.data.length; i++) {
+                  res.data[i].orderTime = _this.formatTime(res.data[i].orderTime);
+                }
+                _this.setData({
+                  orders: _this.data.orders.concat(res.data),
+                });
+              } else {
+                _this.setData({
+                  noOrder: true,
+                  freshNone: false
+                });
+              }
+            });
+            },1000)
+          }
+        }
+      } else {
+        _this.setData({
+          tipShow: false
+        });
+      }
+    }
+  },
 })

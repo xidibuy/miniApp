@@ -1,5 +1,4 @@
 .container {
-  background-color: #f4f4f4;
   padding-bottom: 112.32rpx;
 }
 
@@ -11,6 +10,7 @@
 .status {
   background-color: #fff;
   padding: 35.1rpx;
+  border-bottom:1px solid #ddd;
 }
 
 .title {
@@ -78,6 +78,7 @@
   display: flex;
   flex-direction: column;
   margin-left: 23.4rpx;
+  flex-grow: 1;
 }
 
 .logis-word .word-status {
@@ -104,6 +105,7 @@
   background-color: #fff;
   display: flex;
   flex-direction: column;
+   border-bottom:1px solid #ddd;
 }
 
 .receipt-box {
@@ -131,8 +133,8 @@
 
 .pro-list {
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
   padding-left: 35.1rpx;
+   border-bottom:1px solid #ddd;
 }
 
 .pro-title {
@@ -156,15 +158,16 @@
 
 .product {
   padding-right: 35.1rpx;
+  border-bottom: 1px solid #ddd;
 }
 
 .product-single {
   padding: 28.08rpx 0;
   display: flex;
-  border-bottom: 1px solid #ddd;
+  /*border-bottom: 1px solid #ddd;*/
 }
 
-.product-single:last-child {
+.product:last-child {
   border-bottom: 0;
 }
 
@@ -257,6 +260,7 @@
 
 .real-mo {
   font-size: 42.12rpx;
+  font-weight: 700;
 }
 
 .desic-btn {
@@ -278,27 +282,19 @@
   color: #fff;
 }
 
-.two-btn {
-  display: flex;
-  height: 112.32rpx;
-}
-
-.two-btn .btn {
-  width: 50%;
-  height: 111.15rpx;
-  text-align: center;
-  line-height: 111.15rpx;
-  font-size: 42.12rpx;
-}
-
-.two-btn .normal-btn {
+.normal-btn {
   border-top: 1px solid #ddd;
   color: #777;
   background-color: #fff;
 }
 
-.two-btn .handle-btn {
+.handle-btn {
   border-top: 1px solid #4ed6d1;
   color: #fff;
   background-color: #4ed6d1;
+}
+
+.icon-status {
+  display: flex;
+  align-items: center;
 }

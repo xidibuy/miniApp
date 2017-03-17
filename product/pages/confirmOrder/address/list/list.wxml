@@ -1,10 +1,10 @@
-<view class="container">
+<view class="container" hidden="{{netWorkState === 'none'}}">
   <view class="address-list">
     <block wx:for="{{list}}" wx:key="index" wx:for-index="idx">
       <view class="list-box {{choseArr[idx] ? 'active' : ''}}">
-        <label class="list-label">
+        <label class="list-label" bindtap="chooseAddressEvent" data-index="{{idx}}">
           <view class="item-left">
-            <radio-group class="item-left-radio" bindchange="chooseAddressEvent" data-index="{{idx}}">
+            <radio-group class="item-left-radio">
               <view class="xd xd-circle"></view>
               <view class="xd xd-dot" hidden="{{!choseArr[idx]}}"></view>
               <radio value="{{id}}" class="radio" checked="{{choseArr[idx]}}" />
@@ -12,7 +12,7 @@
           </view>
           <view class="list-cont">
             <view class="cont-contact">
-              <text class="name">{{item.consignee}}</text>
+              <text class="name" data-origin="{{item.consignee}}">{{item.consigneeCut}}</text>
               <text class="mobile">{{item.mobile}}</text>
               <block wx:if="{{item.status}}">
                 <text class="default">默认</text>
@@ -22,8 +22,8 @@
             <view class="cont-ad-desic ellip-lines">{{item.address}}</view>
           </view>
         </label>
-        <view class="list-edit">
-          <view bindtap="goToEditAdressEvent" data-index="{{idx}}">
+        <view class="list-edit" bindtap="goToEditAdressEvent" data-index="{{idx}}">
+          <view>
             <text class="xd xd-edit"></text>
           </view>
         </view>
@@ -36,3 +36,10 @@
     <view bindtap="goToAddAddressEvent">新增地址</view>
   </view>
 </view>
+  <!--无网络提示-->
+  <view class="network-tips" hidden="{{netWorkState !== 'none'}}" bindtap="reloadTapEvent">
+    <view class="network-tips-content">
+      <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+      <text>加载失败，点击重新加载</text>
+    </view>
+  </view>

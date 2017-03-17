@@ -1,4 +1,4 @@
-.sessionOne ,.sessionTwo{
+.sessionOne, .sessionTwo {
   padding-bottom: 117rpx;
 }
 
@@ -30,7 +30,7 @@ swiper-item {
 
 .swiper-dots {
   position: absolute;
-  bottom: 28.08rpx;
+  bottom: 46.8rpx;
   width: 100%;
   text-align: center;
   left: 0;
@@ -126,7 +126,6 @@ swiper-item {
   font-size: 35.1rpx;
   line-height: 51.48rpx;
   font-weight: bold;
-  height: 51.48rpx;
   color: #222;
   margin-top: 28.08rpx;
 }
@@ -302,8 +301,20 @@ swiper-item {
   display: flex;
 }
 
+.post-info-ri {
+  margin-right: 23.4rpx;
+}
+
 .xd-truck, .xd-seven {
   margin-right: 7rpx;
+}
+
+.xd-truck {
+  font-size: 37.76rpx;
+}
+
+.xd-seven {
+  font-size: 32.76rpx;
 }
 
 .icon-car {
@@ -396,34 +407,43 @@ swiper-item {
   position: fixed;
   bottom: 0;
   width: 100%;
+  height: 117rpx;
   display: flex;
   flex-direction: row;
   z-index: 11;
+  background: #fff;
 }
 
 .viewCart {
   width: 258rpx;
-  background-color: #fff;
-}
-
-.viewCart navigator {
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
+  height: 117rpx;
   border-top: 2rpx solid #ddd;
+  background-color: #fff;
   position: relative;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
-.viewCart view {
+.viewCart .xd-cart-full {
+  font-size: 65.52rpx;
+  color: #999;
+}
+
+.viewCart .cartNumber {
+  display: block;
   position: absolute;
+  top: 10rpx;
+  right: 140rpx;
   background: #4dd5d1;
   color: #fff;
-  border-radius: 9px;
+  border-radius: 22rpx;
   border-bottom-right-radius: 0;
+  height: 40rpx;
+  line-height: 40rpx;
+  font-size: 28.08rpx;
   padding: 0 12rpx;
-  right: 50%;
-  margin-right: 21rpx;
-  margin-top: 28rpx;
 }
 
 .addToCart {
@@ -448,12 +468,4 @@ swiper-item {
 .addToCart button[disabled] {
   background: #c5c5c5;
   color: #fff;
-}
-
-.xd-cart-full {
-  position: absolute;
-  left: 34%;
-  top: 38%;
-  font-size: 65.52rpx;
-  color: #999;
 }

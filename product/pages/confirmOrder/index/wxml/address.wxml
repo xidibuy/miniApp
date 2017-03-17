@@ -5,7 +5,7 @@
   <block wx:if="{{pageData.hasDefaultAddress}}">
     <view class="address-info">
       <view class="first-row">
-        <text class="name">{{pageData.addressInfos.consignee}}</text>
+        <text class="name" data-origin="{{pageData.addressInfos.consignee}}">{{pageData.addressInfos.consigneeCut}}</text>
         <text class="contact">{{pageData.addressInfos.mobile}}</text>
         <view class="default-icon" hidden="{{pageData.addressInfos.status == 0}}">默认</view>
       </view>

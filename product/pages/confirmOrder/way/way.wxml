@@ -6,8 +6,8 @@
       <radio value="" class="radio" checked="{{mentioningAddress == 0}}" />
     </radio-group>
     <view class="right">
-      <view class="right-title">普通快递送货上门(¥6.00)</view>
-      <view class="right-normal">全场满98元免邮</view>
+      <view class="right-title">普通快递送货上门(¥{{goodsShippingFee}})</view>
+      <view class="right-normal">{{freeCondition}}</view>
     </view>
   </label>
   <label class="row">

@@ -1,3 +1,42 @@
+/*input验证*/
+
+.row {
+  display: flex;
+  color: #222;
+  width: 100%;
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  align-items: center;
+  border-bottom: 2rpx solid #ddd;
+  padding-right: 11.7rpx;
+}
+
+.row .close-area {
+  width: 70.2rpx;
+  height: 102.96rpx;
+  line-height: 102.96rpx;
+  text-align: right;
+  font-size: 35.1rpx;
+  color: #c5c5c5;
+}
+
+.row.row-textarea {
+  height: 159.12rpx;
+}
+
+.row.row-textarea .close-area {
+  height: 159.12rpx;
+  line-height: 159.12rpx;
+}
+
+.first-part .row:last-child {
+  border-bottom: none;
+}
+
+.first-part .row:last-child .input {
+  border-bottom: none;
+}
+
 .first-part {
   padding: 0 23.4rpx;
   border-bottom: 2rpx solid #ddd;
@@ -10,6 +49,7 @@
   font-size: 35.1rpx;
   color: #222;
   border-bottom: 2rpx solid #ddd;
+  flex-grow: 1;
 }
 
 .input-ph {
@@ -20,10 +60,11 @@
 .textarea {
   font-size: 35.1rpx;
   color: #222;
-  padding: 26.91rpx 70.2rpx 26.91rpx 23.4rpx;
+  padding: 26.91rpx 0 26.91rpx 23.4rpx;
   width: 100%;
   height: 159.12rpx;
   border-bottom: 2rpx solid #ddd;
+  flex-grow: 1;
 }
 
 .first-part .input:last-child {
@@ -86,17 +127,22 @@
 .picker-ctrl {
   display: flex;
   font-size: 32.76rpx;
-  line-height: 1;
-  padding: 35.1rpx;
+  line-height: 100rpx;
   font-weight: bold;
   justify-content: space-between;
 }
 
 .picker-cancel {
+  width: 140rpx;
+  height: 100rpx;
+  text-align: center;
   color: #777;
 }
 
 .picker-confirm {
+  width: 140rpx;
+  height: 100rpx;
+  text-align: center;
   color: #00bebf;
 }
 
@@ -121,65 +167,4 @@ picker-view-column {
   line-height: 2.4;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-/*input验证*/
-
-.row {
-  display: flex;
-  color: #222;
-  height: 102.96rpx;
-  line-height: 102.96rpx;
-  align-items: center;
-  border-bottom: 2rpx solid #ddd;
-}
-
-.row-textarea {
-  height: 159.12rpx;
-}
-
-.row .input-widget {
-  width: 100%;
-  height: 102.96rpx;
-  line-height: 102.96rpx;
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.row .input-widget input, .row .input-widget textarea {
-  width: 95%;
-}
-
-.row .input-widget .xd-closed {
-  margin-right: 11.7rpx;
-  z-index: 2;
-  font-size: 35.1rpx;
-  color: #c5c5c5;
-}
-
-.first-part .row:last-child {
-  border-bottom: none;
-}
-
-.first-part .row:last-child .input {
-  border-bottom: none;
-}
-.showTip{
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 0 23.4rpx;
-  background: rgba(0,0,0,0.5);
-  color: #fff;
-  font-size: 32.76rpx;
-  width: 100%;
-  height: 58.5rpx;
-  line-height: 58.5rpx;
-  z-index: 101;
-  text-align: center;
-}
-.showTip text{
-  padding: 11.7rpx;
-  line-height: 35.1rpx;
 }

@@ -1,11 +1,14 @@
-// pages/confirmOrder/invoice/invoice.js
+const app = getApp();
 Page({
   data: {
     person: true,
     organization: {
       state: false,
       content: ""
-    }
+    },
+    organizationContent: true,
+    showTip: false,
+    showTipWord: ''
   },
   onLoad: function (options) {
     let self = this;
@@ -35,8 +38,36 @@ Page({
     })
   },
   inputInputEvent(e) {
+    let self = this;
+    let val = e.detail.value;
+    if (self.strLength(val.trim()) > 100) {
+      self.setData({
+        'organization.content': self.data.organization.content
+      })
+    } else {
+      self.setData({
+        'organization.content': e.detail.value
+      })
+    }
+  },
+  containerTapEvent(e) {
+    if (e.target.dataset.name != 'input') {
+      this.setData({
+        organizationContent: true
+      })
+    }
+  },
+  // focus事件
+  inputFocusEvent(e) {
     this.setData({
-      'organization.content': e.detail.value
+      organizationContent: false
+    })
+
+  },
+  // blur事件
+  inputBlurEvent(e) {
+    this.setData({
+      organizationContent: true
     })
   },
   chooseOrganizationEvent() {
@@ -58,9 +89,16 @@ Page({
       headContent: ""
     }
     wx.setStorageSync('invoiceFor_Order_Invoice_Temp', obj);
-    wx.redirectTo({
-      url: '/pages/confirmOrder/index/index'
+    wx.navigateBack({
+      delta: 1
     })
+  },
+  strLength(str) {
+    if (str != '' && str != undefined) {
+      let aMatch = str.match(/[^\x00-\x80]/g),
+        strLen = (str.length + (!aMatch ? 0 : aMatch.length));
+      return strLen;
+    }
   },
   confirmEvent() {
     let self = this;
@@ -70,14 +108,14 @@ Page({
       headContent: ""
     };
     let person = self.data.person;
-    
+
     if (person) {
       obj = {
         head: 1,
         text: "个人",
         headContent: ""
       };
-    }else{
+    } else {
       let content = self.data.organization.content;
       obj = {
         head: 2,
@@ -86,11 +124,13 @@ Page({
       };
     }
 
-    wx.setStorageSync('invoiceFor_Order_Invoice_Temp', obj);
-    wx.redirectTo({
-      url: '/pages/confirmOrder/index/index'
-    })
+    if (obj.head == 2 && obj.headContent.trim() == "") {
+      app.showTip(self, '单位名称不能为空');
+    } else {
+      wx.setStorageSync('invoiceFor_Order_Invoice_Temp', obj);
+      wx.navigateBack({
+        delta: 1
+      });
+    }
   }
-
-
 })

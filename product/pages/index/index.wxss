@@ -3,7 +3,7 @@
 .container {
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color: #f1f1f1;
 }
 
 .banner image {
@@ -117,12 +117,13 @@ swiper {
 .session-inner {
   width: 682.6rpx;
   height: 682.6rpx;
-  border-radius: 7px;
+  border-radius: 11.7rpx;
 }
 
 .session-inner image {
   width: 100%;
   height: 100%;
+  border-radius: 11.7rpx;
 }
 
 .topic-word {
@@ -184,30 +185,4 @@ swiper {
 
 .re-pro:last-child {
   margin-bottom: 0;
-}
-
-.index-none {
-  padding-top: 50%;
-  width: 100%;
-  height: 100%;
-  background-color: #fff;
-}
-
-.index-none navigator {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.index-none image {
-  width: 156.78rpx;
-  height: 166.14rpx;
-  margin-bottom: 66.69rpx;
-}
-
-.index-none text{
-  font-size: 32.76rpx;
-  line-height: 1;
-  color: #888;
 }

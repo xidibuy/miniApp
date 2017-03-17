@@ -1,57 +1,68 @@
-<view class="container">
+<view class="container" hidden="{{loading || netWorkState === 'none'}}">
+  <block wx:if="{{hide == true}}">
 
-  <!--info-->
-  <view class="logistics-info">
+    <!--info-->
+    <view class="logistics-info">
 
-    <!--物流-->
-    <block wx:if="{{shipping_self == 0}}">
-      <view class="logistics-info-item"> 订单号：{{orderParentId}}</view>
-      <view class="logistics-info-item"> 运送方式：{{shipping_type}}</view>
-      <view class="logistics-info-item"> 物流公司：{{shipping_name}}</view>
-      <view class="logistics-info-item"> 运单编号：{{shipping_number}}</view>
-    </block>
+      <!--物流-->
+      <block wx:if="{{shipping_self == 0}}">
+        <view class="logistics-info-item"> 订单号：{{orderId}}</view>
+        <view class="logistics-info-item"> 运送方式：{{shipping_type}}</view>
+        <view class="logistics-info-item"> 物流公司：{{shipping_name}}</view>
+        <view class="logistics-info-item"> 运单编号：{{shipping_number}}</view>
+      </block>
 
-    <!--自提-->
-    <block wx:else>
-      <view class="logistics-info-item"> 订单号：{{orderParentId}}</view>
-      <view class="logistics-info-item"> 运送方式：自提</view>
-    </block>
-  </view>
+      <!--自提-->
+      <block wx:else>
+        <view class="logistics-info-item"> 订单号：{{orderId}}</view>
+        <view class="logistics-info-item"> 运送方式：自提</view>
+      </block>
+    </view>
 
-  <!--分割线-->
-  <view class="division-line"></view>
+    <!--分割线-->
+    <view class="division-line"></view>
 
-  <!--details-->
-  <view class="logistics-details">
+    <!--details-->
+    <view class="logistics-details">
 
-    <!--物流-->
-    <block wx:if="{{shipping_self == 0}}">
+      <!--物流-->
+      <block wx:if="{{shipping_self == 0}}">
 
-      <!--有物流信息-->
-      <block wx:if="{{shipping_info.length}}">
-        <block wx:for="{{shipping_info}}" wx:key="{{*this}}" wx:for-index="idx">
-          <view class="logistics-details-item {{(idx == 0) ? 'start': '' }} {{(idx + 1 == shipping_info.length) ? 'end': '' }}">
-            <view class="logistics-details-item-word">
-              <text class="xd {{(idx == 0) ? 'xd-location' : 'xd-dot'}}"></text>
-              {{item.process}}
+        <!--有物流信息-->
+        <block wx:if="{{shipping_info.length}}">
+          <block wx:for="{{shipping_info}}" wx:key="{{*this}}" wx:for-index="idx">
+            <view class="logistics-details-item {{(idx == 0) ? 'start': '' }} {{(idx + 1 == shipping_info.length) ? 'end': '' }}">
+              <view class="logistics-details-item-word">
+                <text class="xd {{(idx == 0) ? 'xd-location' : 'xd-dot'}}"></text>
+                {{item.process}}
+              </view>
+              <view class="logistics-details-item-date">
+                {{item.time}}
+
+                <!--<text class="logistics-details-item-time">{{item.time}}</text>-->
+              </view>
             </view>
-            <view class="logistics-details-item-date">
-              {{item.time}}
-              <!--<text class="logistics-details-item-time">{{item.time}}</text>-->
-            </view>
-          </view>
+          </block>
+        </block>
+
+        <!--无物流信息-->
+        <block wx:else>
+          <view class="logistics-details-tips"> 暂无物流信息</view>
         </block>
       </block>
 
-      <!--无物流信息-->
+      <!--自提-->
       <block wx:else>
-        <view class="logistics-details-tips"> 暂无物流信息</view>
+        <view class="logistics-details-tips"> 买家自提，无物流信息</view>
       </block>
-    </block>
+    </view>
+  </block>
+</view>
 
-    <!--自提-->
-    <block wx:else>
-      <view class="logistics-details-tips"> 买家自提，无物流信息</view>
-    </block>
+<!--无网络提示-->
+<view class="network-tips" hidden="{{netWorkState !== 'none'}}" bindtap="reloadTapEvent">
+  <view class="network-tips-content">
+    <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+    <text>加载失败，点击重新加载</text>
   </view>
 </view>

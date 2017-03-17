@@ -1,49 +1,47 @@
 
 <!--index.wxml-->
-<view class="container">
+<view class="container" hidden="{{netWorkState === 'none'}}">
   <block wx:if="{{index.length > 0}}">
-    <view class="banner">
-      <navigator url="/pages/about/about" open-type="navigate">
-        <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/index-banner.png" mode="scaleToFill"></image>
-      </navigator>
+    <view class="banner" bindtap="banner">
+      <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/index-banner.png" mode="scaleToFill"></image>
     </view>
     <view class="recommend-pro">
 
       <!--循环推荐产品-->
-      <block wx:for="{{index}}" wx:key="*this">
-        <block wx:if="{{item.type == 1}}">
+      <block wx:for="{{index}}" wx:key="pid" wx:for-index="idx" wx:for-item="i">
+        <block wx:if="{{i.type == 1}}">
           <view class="re-pro">
-            <navigator url="{{'/pages/goodsDetail/goodsDetail?goodId=' + item.product.id + '&relateprodSn=' + item.relateprodSn}}" open-type="navigate">
+            <view data-id="{{i.product.id}}" data-relateprodSn="{{i.relateprodSn}}" bindtap="sinRecom">
               <view class="basic-info">
-                <text class="main-title">{{item.slogn}}</text>
+                <text class="main-title">{{i.slogn}}</text>
                 <view class="pro-name">
-                  <image class="national-flag" src="{{item.product.flag}}" style=""></image>
-                  <text class="sub-title">{{item.product.name}}</text>
+                  <image class="national-flag" src="{{i.product.flag}}" style=""></image>
+                  <text class="sub-title">{{i.product.name}}</text>
                 </view>
-                <text class="price">¥{{item.product.price}}</text>
+                <text class="price">¥{{i.product.price}}</text>
                 <view class="other-price">
-                  <text class="from-price other-name">{{item.product.countryName}}市场价：</text>
-                  <text class="line-thro">¥{{item.product.marketPrice}}</text>
+                  <text class="from-price other-name">{{i.product.countryName}}市场价：</text>
+                  <text class="line-thro">¥{{i.product.localPrice}}</text>
                 </view>
-                <view class="other-price" wx:if="{{item.product.price}}">
+                <view class="other-price" wx:if="{{i.product.chinaPrice > 0}}">
                   <text class="china-price other-name">中国零售价：</text>
-                  <text class="line-thro">¥{{item.product.localPrice}}</text>
+                  <text class="line-thro">¥{{i.product.chinaPrice}}</text>
                 </view>
-                <view class="warn-stock" wx:if="{{item.warnshow == 1}}">仅剩
-                  <text>{{item.product.stock}}</text>件</view>
+                <view class="warn-stock" wx:if="{{i.product.spuStock < 10 && i.warnshow == 1}}">仅剩
+                  <text>{{i.product.spuStock}}</text>件</view>
               </view>
 
               <!-- scroll-view -->
               <view class="swiper">
                 <view class="swiper-item">
-                  <swiper bindchange="changePro">
-                    <block wx:for="{{item.solideImg}}" wx:key="*this">
+                  <swiper bindchange="changePro" data-idx="{{idx}}" current="{{i.current}}">
+                    <block wx:for="{{i.solideImg}}" wx:key="*this" wx:for-index="idx" wx:for-item="n">
                       <swiper-item>
                         <view class="inner-box" data-index="0">
                           <view class="session-inner">
-                            <image src="{{item.img}}" mode="aspectFill" class="topic-img"></image>
+                            <image src="{{n.img}}" mode="aspectFill" class="topic-img" data-current="{{idx}}"></image>
                           </view>
-                          <view class="topic-word ellip-lines">{{item.imgdesc}}</view>
+                          <view class="topic-word ellip-lines">{{n.imgdesc}}</view>
                         </view>
                       </swiper-item>
                     </block>
@@ -51,42 +49,42 @@
 
                   <!--点点点-->
                   <view class="swiper-dots">
-                    <block wx:for="{{item.solideImg}}" wx:key="index">
-                      <block wx:if="{{current == index}}">
-                        <view class="current"></view>
-                      </block>
-                      <block wx:else>
-                        <view></view>
+                    <block wx:if="{{i.solideImg.length > 1}}">
+                      <block wx:for="{{i.solideImg}}" wx:key="*this" wx:for-index="idx" wx:for-item="j">
+                        <block wx:if="{{i.current == idx}}">
+                          <view class="current"></view>
+                        </block>
+                        <block wx:else>
+                          <view></view>
+                        </block>
                       </block>
                     </block>
                   </view>
                 </view>
               </view>
-            </navigator>
+            </view>
           </view>
         </block>
         <block wx:else>
 
           <!--循环专题-->
           <view class="re-pro">
-            <view class="special-banner">
-              <navigator url="{{'/pages/topic/topic?id=' + item.bannerlink + '&bannerimg=' + item.bannerimg}}">
-                <view class="img-cover">
-                  <image src="{{item.bannerimg}}" mode="aspectFill"></image>
-                </view>
-              </navigator>
+            <view class="special-banner" data-bannerlink="{{i.bannerlink}}" data-bannerimg="{{i.bannerimg}}" bindtap="sinSpec">
+              <view class="img-cover">
+                <image src="{{i.bannerimg}}" mode="aspectFill"></image>
+              </view>
             </view>
           </view>
         </block>
       </block>
     </view>
   </block>
-  <block wx:if="{{reload == true}}">
-    <view class="index-none">
-      <navigator url="/pages/index/index" open-type="switchTab">
-        <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
-        <text>加载失败，点击重新加载</text>
-      </navigator>
-    </view>
-  </block>
+</view>
+
+<!--无网络提示-->
+<view class="network-tips" hidden="{{netWorkState !== 'none'}}" bindtap="reloadTapEvent">
+  <view class="network-tips-content">
+    <image src="http://static.xidibuy.com/miniapp/common/1.0.0/images/none_03.jpg"></image>
+    <text>加载失败，点击重新加载</text>
+  </view>
 </view>

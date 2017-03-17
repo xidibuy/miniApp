@@ -1,11 +1,12 @@
 //获取应用实例
 var app = getApp();
-const imgHead = app.globalData.imgRemote;
 Page({
+
     onLoad: function () {
-        this.setData({
-            imgHead
-        });
+        this.reloadTapEvent();
+    },
+    reloadTapEvent() {
+        app.netWorkState('', this, true);
     },
     // 分享关于喜地
     onShareAppMessage: function () {
